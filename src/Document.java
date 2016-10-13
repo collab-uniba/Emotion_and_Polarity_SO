@@ -15,4 +15,20 @@ public class Document {
 
         return b_final;
     }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setSentiments(Boolean[] sentiments) {
+        this.sentiments = sentiments;
+    }
+
+    public void setFinaLabel(String finaLabel) {
+        FinaLabel = finaLabel;
+    }
 }
