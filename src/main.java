@@ -13,8 +13,6 @@ public class main {
             Reader_CSV_GROUP1 readerCSVGROUP1 = new Reader_CSV_GROUP1();
             List<Document> group= readerCSVGROUP1.create_Docs_From_File(new File(args[0]));
             new WriteCSV().writeCsvFile(args[1],group);
-
-
     }
 
 

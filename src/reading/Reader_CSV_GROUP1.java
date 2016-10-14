@@ -8,11 +8,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Created by Francesco on 13/10/2016.
+ * Legge  i documenti dal file csv;
  */
 public class Reader_CSV_GROUP1 {
-    private Pattern pattern = Pattern.compile("[0-9]+");
-
     public List<Document> create_Docs_From_File(File file){
         List<Document> l=new ArrayList<>();
         String s = null;
@@ -74,7 +72,6 @@ public class Reader_CSV_GROUP1 {
             }
             i++;
         }
-      System.out.println(comment);
         return comment;
     }
 
