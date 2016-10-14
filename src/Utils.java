@@ -25,16 +25,14 @@ public class Utils {
             try {
                 while ((s = bf.readLine()) != null) {
                     Document dc= new Document();
-                    group[0] = s;
-                    update_Annotations(get_Values(group[0]),arr);
+                    update_Annotations(get_Values(s),arr);
                     for (int m = 1; m < num_Docs; m++) {
                         if ((s = bf.readLine()) != null) {
-                            group[m] = s;
-                            update_Annotations(get_Values(group[m]),arr);
+                            update_Annotations(get_Values(s),arr);
                         }
                     }
-                    dc.setNumber(get_Id(group[0]));
-                    dc.setComment(get_Comment(group[0]));
+                    dc.setNumber(get_Id(s));
+                    dc.setComment(get_Comment(s));
                     dc.setSentiments(results_From_Annotations(arr));
                     l.add(dc);
                 }
@@ -69,16 +67,14 @@ public class Utils {
         String[] ss = doc_Readed.split(";");
         int i=1;
         String comment = "";
-        while(i<ss.length-1){
-            if(!ss[i].equals("x") || !ss[i].equals("")){
+        while(i<=ss.length-1){
+            if(!(ss[i].equals("x") || ss[i].equals(""))){
                 comment+=ss[i];
+                if(i+1<ss.length-1)
+                  comment+=";";
             }
             i++;
         }
-      /*  char[] c= comment.toCharArray();
-        for(int m=c.length-1;m>=0;m--){
-            if
-        }*/
       System.out.println(comment);
         return comment;
     }

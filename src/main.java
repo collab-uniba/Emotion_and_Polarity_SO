@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class main {
     public static void main(String[] args) {
             Utils utils= new Utils();
-            List<Document> group=utils.create_Docs_From_File(new File("src/Joint_dataset_group1.csv"));
+            List<Document> group=utils.create_Docs_From_File(new File("src/Joint_dataset_group1_Updated.csv"));
 
 
     }
