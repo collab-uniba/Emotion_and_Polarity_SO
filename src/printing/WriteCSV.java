@@ -1,16 +1,16 @@
 package printing;
 
-import models.Document;\
+import models.Document;
 
 import models.Document;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
 /**
  * Created by Francesco on 14/10/2016.
  */
@@ -61,8 +61,6 @@ public class WriteCSV {
                     System.out.println("Printing line:" + i);
                 }
                 List l = new ArrayList();
-                l.add("t" + i);
-
                 l.add(d.getId());
                 l.add(d.getLove());
                 l.add(d.getJoy());

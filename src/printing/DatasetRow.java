@@ -17,7 +17,7 @@ public class DatasetRow {
 	private final String comment;
 
 	public String getSurprise(){
-		return id;
+		return surprise;
 	}
 	public String getId(){
 		return id;
