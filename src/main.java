@@ -12,10 +12,6 @@ public class main {
     public static void main(String[] args) {
             Reader_CSV_GROUP1 readerCSVGROUP1 = new Reader_CSV_GROUP1();
             List<Document> group= readerCSVGROUP1.create_Docs_From_File(new File(args[0]));
-            System.out.println("ID"+ "  " + "SENTIMENT VALUES" + "  " + "FINAL LABEL");
-            for(Document d : group){
-                 System.out.println(d);
-            }
             new WriteCSV().writeCsvFile(args[1],group);
 
 

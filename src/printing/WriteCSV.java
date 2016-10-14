@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /**
- * Created by Francesco on 14/10/2016.
+ * Questa classe, usando la libreria di Apache : commons , crea un file CSV.
  */
 public class WriteCSV {
 

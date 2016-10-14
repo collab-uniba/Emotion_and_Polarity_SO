@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Class for printing in .csv files
  */
-public class DatasetRow {
+ class DatasetRow {
 	private final String anger;
 	private final String sadness;
 	private final String fear;
@@ -16,35 +16,35 @@ public class DatasetRow {
 	private final String id;
 	private final String comment;
 
-	public String getSurprise(){
+	String getSurprise(){
 		return surprise;
 	}
-	public String getId(){
+	 String getId(){
 		return id;
 	}
-	public String getLabel(){
+	String getLabel(){
 		return label;
 	}
-	public String getAnger() {
+	String getAnger() {
 		return anger;
 	}
 
-	public String getSadness() {
+	 String getSadness() {
 		return sadness;
 	}
 
-	public String getFear() {
+	 String getFear() {
 		return fear;
 	}
 
-	public String getJoy() {
+	 String getJoy() {
 		return joy;
 	}
 
-	public String getLove() {
+	 String getLove() {
 		return love;
 	}
-	public String getComment() {
+	 String getComment() {
 		return comment;
 	}
 	private DatasetRow(DatasetRowBuilder builder) {
@@ -59,7 +59,7 @@ public class DatasetRow {
 		this.comment=builder.comment;
 	}
 
-	public static class DatasetRowBuilder {
+	 static class DatasetRowBuilder {
 		private String anger;
 		private String sadness;
 		private String fear;
@@ -70,48 +70,48 @@ public class DatasetRow {
 		private String id;
 		private String comment;
 
-		public   DatasetRowBuilder setAnger(String anger) {
+		   DatasetRowBuilder setAnger(String anger) {
 			this.anger = anger;
 			return this;
 		}
 
-		public DatasetRowBuilder  setSadness(String sadness) {
+		 DatasetRowBuilder  setSadness(String sadness) {
 			this.sadness = sadness;
 			return this;
 		}
 
-		public  DatasetRowBuilder setFear(String fear) {
+		  DatasetRowBuilder setFear(String fear) {
 			this.fear = fear;
 			return this;
 		}
 
-		public  DatasetRowBuilder setJoy(String joy) {
+		  DatasetRowBuilder setJoy(String joy) {
 			this.joy = joy;
 			return this;
 		}
 
-		public  DatasetRowBuilder  setLove(String love) {
+		  DatasetRowBuilder  setLove(String love) {
 			this.love = love;
 			return this;
 		}
-		public  DatasetRowBuilder  setSurprise(String surprise) {
+		  DatasetRowBuilder  setSurprise(String surprise) {
 			this.surprise=surprise;
 			return this;
 		}
-		public  DatasetRowBuilder  setLabel(String label) {
+		  DatasetRowBuilder  setLabel(String label) {
 			this.label=label;
 			return this;
 		}
-		public  DatasetRowBuilder  setId(String id) {
+		  DatasetRowBuilder  setId(String id) {
 			this.id=id;
 			return this;
 		}
 
-		public  DatasetRowBuilder  setComment(String comment) {
+		  DatasetRowBuilder  setComment(String comment) {
 			this.comment=comment;
 			return this;
 		}
-		public DatasetRow build() {
+		 DatasetRow build() {
 			return new DatasetRow(this);
 		}
 
