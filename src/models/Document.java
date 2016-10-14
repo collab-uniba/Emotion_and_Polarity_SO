@@ -1,9 +1,8 @@
+package models;
+
 /**
  * Created by Francesco on 13/10/2016.
  */
-
-
-
 public class Document {
     private String comment;
     private String number;
@@ -12,15 +11,35 @@ public class Document {
     private String finaLabel;
     private enum label{POSITIVE,NEGATIVE,NEUTRAL,MIXED};
 
-   void setComment(String comment) {
+
+
+    public String get_Love(){
+        return sentiments[0];
+    }
+    public String get_Joy(){
+        return sentiments[1];
+    }
+    public String get_Anger(){
+        return sentiments[3];
+    }
+    public String get_Sadness(){
+        return sentiments[4];
+    }
+    public String get_Fear(){
+        return sentiments[5];
+    }
+    public String get_Surprise(){
+        return sentiments[2];
+    }
+   public void setComment(String comment) {
         this.comment = comment;
     }
 
-    void setNumber(String number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    void setSentiments(String[] sentiments) {
+    public void setSentiments(String[] sentiments) {
         this.sentiments = sentiments;
         if(sentiments!=null)
              setFinaLabel();

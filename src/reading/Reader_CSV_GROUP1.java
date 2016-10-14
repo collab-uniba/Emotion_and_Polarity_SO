@@ -1,17 +1,19 @@
+package reading;
+
+import models.Document;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
-
 /**
  * Created by Francesco on 13/10/2016.
  */
-public class Utils {
+public class Reader_CSV_GROUP1 {
     private Pattern pattern = Pattern.compile("[0-9]+");
 
-    List<Document> create_Docs_From_File(File file){
+    public List<Document> create_Docs_From_File(File file){
         List<Document> l=new ArrayList<>();
         String s = null;
         int num_Docs=4;
