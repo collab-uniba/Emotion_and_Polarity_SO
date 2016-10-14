@@ -13,17 +13,14 @@ public class Utils {
 
     List<Document> create_Docs_From_File(File file){
         List<Document> l=new ArrayList<>();
-        int[] arr = new int[6];
-
         String s = null;
         int num_Docs=4;
         BufferedReader bf = null;
-        String[] group= new String[4];
-        Pattern pattern = Pattern.compile("[0-9]+");
         try {
             bf = new BufferedReader(new FileReader(file));
             try {
                 while ((s = bf.readLine()) != null) {
+                    int[] arr = new int[6];
                     Document dc= new Document();
                     update_Annotations(get_Values(s),arr);
                     for (int m = 1; m < num_Docs; m++) {
@@ -79,6 +76,8 @@ public class Utils {
         return comment;
     }
 
+    //Questo metodo fa questo : ho un array iniziale vuoto , costituito da 0,0,0,0 , ogni volta che viene passato un array che contiene le annotazioni
+    //di un annotatore , vengono incrementati nell'array finale gli elementi con stessa corrispondenza di una unità.
     private  void update_Annotations(int[] values,int[] arr){
         for (int i = 0; i < values.length; i++) {
             if (values[i]==1) {
@@ -86,11 +85,14 @@ public class Utils {
             }
         }
     }
-
-    private Boolean[] results_From_Annotations(int[] arr){
-        Boolean[] b= new Boolean[6];
+//se due annotatori hanno espresso stesso giudizio su un elemento allora questo è avrà "x" come finale : esempio joy , due annotatori annotano "x" su joy , quindi joy finale avrà "x"
+    private String[] results_From_Annotations(int[] arr){
+        String[] b= new String[6];
         for(int i=0;i<6;i++){
-            b[i] = arr[i] >= 2;
+            if(arr[i]>=2){
+                b[i]="x";
+            }
+            else b[i]=" ";
         }
         return b;
     }
