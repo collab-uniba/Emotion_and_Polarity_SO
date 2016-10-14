@@ -12,7 +12,19 @@ public class DatasetRow {
 	private final String joy;
 	private final String love;
 	private final String surprise;
+	private final String label;
+	private final String id;
+	private final String comment;
 
+	public String getSurprise(){
+		return id;
+	}
+	public String getId(){
+		return id;
+	}
+	public String getLabel(){
+		return label;
+	}
 	public String getAnger() {
 		return anger;
 	}
@@ -32,7 +44,9 @@ public class DatasetRow {
 	public String getLove() {
 		return love;
 	}
-
+	public String getComment() {
+		return comment;
+	}
 	private DatasetRow(DatasetRowBuilder builder) {
 		this.anger=builder.anger;
 		this.fear=builder.fear;
@@ -40,6 +54,9 @@ public class DatasetRow {
 		this.love=builder.love;
 		this.joy=builder.joy;
 		this.surprise=builder.surprise;
+		this.label=builder.label;
+		this.id=builder.id;
+		this.comment=builder.comment;
 	}
 
 	public static class DatasetRowBuilder {
@@ -49,6 +66,9 @@ public class DatasetRow {
 		private String joy;
 		private String love;
 		private String surprise;
+		private String label;
+		private String id;
+		private String comment;
 
 		public   DatasetRowBuilder setAnger(String anger) {
 			this.anger = anger;
@@ -78,8 +98,22 @@ public class DatasetRow {
 			this.surprise=surprise;
 			return this;
 		}
+		public  DatasetRowBuilder  setLabel(String label) {
+			this.label=label;
+			return this;
+		}
+		public  DatasetRowBuilder  setId(String id) {
+			this.id=id;
+			return this;
+		}
+
+		public  DatasetRowBuilder  setComment(String comment) {
+			this.comment=comment;
+			return this;
+		}
 		public DatasetRow build() {
 			return new DatasetRow(this);
 		}
+
 	}
 }

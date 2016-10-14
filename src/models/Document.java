@@ -11,7 +11,15 @@ public class Document {
     private String finaLabel;
     private enum label{POSITIVE,NEGATIVE,NEUTRAL,MIXED};
 
-
+    public String getId(){
+        return number;
+    }
+    public String getComment(){
+        return comment;
+    }
+    public String getFinaLabel(){
+        return finaLabel;
+    }
 
     public String get_Love(){
         return sentiments[0];
