@@ -67,11 +67,11 @@ public class Document {
     */
     private void setFinaLabel() {
         if(get_anger__sadness_fear() && !get_love_joy()){
-            finaLabel=label.POSITIVE.toString();
+            finaLabel=label.NEGATIVE.toString();
         }
         else
             if(get_love_joy() && !get_anger__sadness_fear()){
-                finaLabel=label.NEGATIVE.toString();
+                finaLabel=label.POSITIVE.toString();
             }
         else
             if(get_love_joy() && get_anger__sadness_fear()){
