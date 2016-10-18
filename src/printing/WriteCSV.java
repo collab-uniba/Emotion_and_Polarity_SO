@@ -45,7 +45,7 @@ public class WriteCSV {
         FileWriter fileWriter = null;
         CSVPrinter csvFilePrinter = null;
         // Create the CSVFormat object with "\n" as a record delimiter
-        CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(',');
+        CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(';');
 
         try {
 
@@ -70,6 +70,67 @@ public class WriteCSV {
                 l.add(d.getFear());
                 l.add(d.getLabel());
                 l.add(d.getComment());
+                csvFilePrinter.printRecord(l);
+                i++;
+            }
+            System.out.println("CSV file " + outputName +" was created successfully.");
+
+        } catch (Exception e) {
+            System.out.println("Error in CsvFileWriter !!!");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+                csvFilePrinter.close();
+            } catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter/csvPrinter !!!");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //scrive solo ID;commento;LabelFinale E senza i mixed!
+    public void writeCsvFile_withoutValues(String outputName,List<models.Document> group)  {
+        List<DatasetRow> list = new ArrayList<>();
+        List<String> header= new ArrayList<>();
+        header.add("ID");
+        header.add("COMMENT");
+        header.add("LABEL");
+
+        for (Document d:group) {
+            if(!d.getFinaLabel().equals("MIXED")) {
+                DatasetRow dr = new DatasetRow.DatasetRowBuilder()
+                        .setId(d.getId())
+                        .setComment(d.getComment())
+                        .setLabel(d.getFinaLabel())
+                        .build();
+                list.add(dr);
+            }
+        }
+
+        FileWriter fileWriter = null;
+        CSVPrinter csvFilePrinter = null;
+        // Create the CSVFormat object with "\n" as a record delimiter
+        CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(';');
+
+        try {
+
+            // initialize FileWriter object
+            fileWriter = new FileWriter(outputName);
+            // initialize CSVPrinter object
+            csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
+            // Create CSV file header
+            csvFilePrinter.printRecord(header);
+            int i = 0;
+            for (DatasetRow d : list) {
+                if ((i % 50) == 0) {
+                    System.out.println("Printing line:" + i);
+                }
+                List l = new ArrayList();
+                l.add(d.getId());
+                l.add(d.getComment());
+                l.add(d.getLabel());
                 csvFilePrinter.printRecord(l);
                 i++;
             }

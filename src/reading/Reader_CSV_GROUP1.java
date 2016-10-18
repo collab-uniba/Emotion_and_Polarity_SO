@@ -41,7 +41,7 @@ public class Reader_CSV_GROUP1 {
                     }
                 }
                 update_Annotations(r,arr);
-                dc.setNumber(r.get("id"));
+                dc.setId(r.get("id"));
                 if (group.equals("group2") || group.equals("group3")) {
                     dc.setComment(r.get("comment").replaceAll("\n", ""));
                     dc.setSentiments(results_From_Annotations(arr, 1));

@@ -23,6 +23,7 @@ public class main {
             startPoint=endPoint;
           }
         new WriteCSV().writeCsvFile(args[n]+"_"+"merged"+FORMAT, documents);
+        new WriteCSV().writeCsvFile_withoutValues(args[n]+"_"+"withoutValues"+FORMAT, documents);
     }
 }
 

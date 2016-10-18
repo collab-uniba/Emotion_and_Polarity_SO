@@ -5,14 +5,13 @@ package models;
  */
 public class Document {
     private String comment;
-    private String number;
+    private String id;
     /*ORDINE LABEL : LOVE, JOY,SURPRISE,ANGER,SADNESS,FEAR*/
     private String[] sentiments;
     private String finaLabel;
     private enum label{POSITIVE,NEGATIVE,NEUTRAL,MIXED};
-
     public String getId(){
-        return number;
+        return id;
     }
     public String getComment(){
         return comment;
@@ -43,8 +42,8 @@ public class Document {
         this.comment = comment;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setId(String id) {
+        this.id=id;
     }
 
     public void setSentiments(String[] sentiments) {
@@ -83,14 +82,5 @@ public class Document {
             }
     }
 
-    @Override
-    public String toString() {
-        String sentiment=" ";
-        for(int i=0;i<sentiments.length;i++){
-            sentiment+=sentiments[i];
-            sentiment+=" ";
-        }
 
-        return number+"  " + sentiment + "  " + finaLabel ;
-    }
 }
