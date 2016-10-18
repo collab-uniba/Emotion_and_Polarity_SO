@@ -11,26 +11,6 @@ import java.util.List;
 
 /**
  * Legge  i documenti dal file csv;
- * /*
- int l=0;
- int start=1;// group1 1 (prende :1 )
- int n=0;
- while(l<3) {
- n = Integer.parseInt(args[start]);
- n += start; //perchè i primi due devi saltarli, indicano group e num documenti
- int startPoint = 0;
- int endPoint = 0;
- for (int j = 2; j <=n; j++) {
- readerCSVGROUP1.create_dcs_from_File(args[start], args[j], documents);
- endPoint = documents.size();
- int numOut = j - 1;
- new WriteCSV().writeCsvFile(args[args.length - 1] + "_" + args[0] + "_" + numOut + FORMAT, documents.subList(startPoint, endPoint));
- startPoint = endPoint;
- }
- new WriteCSV().writeCsvFile(args[args.length - 1] + "_" + args[n] + "_" + "merged" + FORMAT, documents);
- new WriteCSV().writeCsvFile_withoutValues(args[args.length - 1] + "_" + args[start] + "_" + "withoutValues" + FORMAT, documents);
- l++;
- start+=n+1;
  */
 
 public class Reader_CSV_GROUP1 {
@@ -64,7 +44,9 @@ public class Reader_CSV_GROUP1 {
                 update_Annotations(r,arr);
                 dc.setId(r.get("id"));
                 if (group.equals("group2") || group.equals("group3")) {
-                    dc.setComment(r.get("comment").replaceAll("\n", ""));
+                    String s= r.get("comment").replaceAll("\n", "");
+                    s=s.replaceAll("\r","");
+                    dc.setComment(s);
                     dc.setSentiments(results_From_Annotations(arr, 1));
                 }
                 else
