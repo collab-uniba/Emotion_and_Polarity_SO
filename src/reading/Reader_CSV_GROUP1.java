@@ -7,40 +7,50 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
+//group3 4 res/Sen_withEmo_tr_an.csv res/Sen_withEmo_tr_joy.csv res/Sen_withEmo_tr_love.csv res/Sen_withEmo_tr_sadness.csv output
 
 /**
  * Legge  i documenti dal file csv;
  * */
 public class Reader_CSV_GROUP1 {
 
-   public List<Document> create_dcs_from_File(String pathFile) {
-       List<Document> l=new ArrayList<>();
+   public List<Document> create_dcs_from_File(String group,String pathFile,List<Document> l) {
        Reader in = null;
        try {
-            in = new FileReader("res/Joint_dataset_group1.csv");
+            in = new FileReader(pathFile);
             Iterable<CSVRecord> records = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(in);
             List<CSVRecord> list=new ArrayList<>();
             for (CSVRecord record : records) {
                 list.add(record);
             }
-            for(int i=0;i<list.size()-1;i++){
+
+            for(int i=0;i<list.size();i++) {
                 int[] arr = new int[6];
-                Document dc= new Document();
-                CSVRecord r= list.get(i);
-                for(int j=0;j<=3;j++) {
-                    update_Annotations(r, arr);
-                    int s=j;
-                    s++;
-                    if (s < 4){
-                        i++;
-                         if (i < list.size() - 1)
-                         r = list.get(i);
+                Document dc = new Document();
+                CSVRecord r = list.get(i);
+                if (group.equals("group1")){
+                    for (int j = 0; j <= 3; j++) {
+                        update_Annotations(r, arr);
+                        int s = j;
+                        s++;
+                        if (s < 4) {
+                            i++;
+                            if (i < list.size() - 1)
+                                r = list.get(i);
+                        }
                     }
                 }
+                update_Annotations(r,arr);
                 dc.setNumber(r.get("id"));
-                dc.setComment(r.get("comment"));
-                dc.setSentiments(results_From_Annotations(arr));
+                if (group.equals("group2") || group.equals("group3")) {
+                    dc.setComment(r.get("comment").replaceAll("\n", ""));
+                    dc.setSentiments(results_From_Annotations(arr, 1));
+                }
+                else
+                    if(group.equals("group1")){
+                        dc.setComment(r.get("comment"));
+                        dc.setSentiments(results_From_Annotations(arr, 2));
+                }
                 l.add(dc);
             }
         } catch (java.io.IOException e) {
@@ -71,10 +81,10 @@ public class Reader_CSV_GROUP1 {
         }
     }
 //se due annotatori hanno espresso stesso giudizio su un elemento allora questo è avrà "x" come finale : esempio joy , due annotatori annotano "x" su joy , quindi joy finale avrà "x"
-    private String[] results_From_Annotations(int[] arr){
+    private String[] results_From_Annotations(int[] arr,int n){
         String[] b= new String[6];
         for(int i=0;i<6;i++){
-            if(arr[i]>=2){
+            if(arr[i]>=n){
                 b[i]="x";
             }
             else b[i]=" ";

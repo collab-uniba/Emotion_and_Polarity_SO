@@ -1,0 +1,979 @@
+id,love,joy,surprise,anger,sadness,fear,comment
+1001112_1,,,,x,,,guys... this is so stupid...
+1001112_2,,,,x,,,"I lost the whole morning cause HBase's RegionServer was dying with no logs, no nothing... how Am I supposed to debug the issue if u do not even generate a core dump?"
+1014872_16,,,,x,,,{quote}You are messing down deep below hbase in dfs.
+1017556_1,,,,x,,,"And I think if we're going to do a sweep up of shit, we should just kill root."
+1024843_1,,,,x,,,"@idiot Yeah, I was on that idiot-path for a good while but commons-lang is a hairball, at least where this hashcode making and equals is concerned."
+1027161_2,,,,x,,,Pull it back in if you think different.
+1029542_1,,,,x,,,i suck.
+1031984_8,,,,x,,,Will still be stuck in the loop though if can't actually close regions.
+1037141_1,,,,x,,,Original edited patch was messed up... stupid sed!
+1078380_2,,,,x,,,Who made this stupid rule?
+1078380_4,,,,x,x,,Sorry but this is just stupid.
+1078538_5,,,,x,,,"But I will quit committing to Hama then, because I'm not going to support ONLY a binary format."
+1078538_6,,,,x,,,This is not what I build a framework for.
+1099350_1,,,,x,,,"Well, damn."
+1099350_2,,,,x,x,,Blooper after blooper - I hate SVN.
+1182528_1,,,,x,,,"This looks reasonable to me... sucks we have to special case handling of "" ""..."
+1189898_14,,,,x,,,You may want to carefully examine your assumption about this.
+1217410_1,,,,x,,,"Ok, wow, welcome to Linux hell..."
+130806_2,,,,x,,,If I get a chance I may even roll it into our dev environment but I am currently in the middle of mem leak hell.
+1324648_2,,,,x,,,Both equally bad.
+132669_1,,,,x,,,"Negative, I am against fetch groups in principle."
+132669_2,,,,x,,,This way lies metadata hell.
+1340869_1,,,,x,,,"Shit, there is an dependency. Please go to Preferences -> LDAP -> Entry Editor and enable the option ""Show operational attributes""."
+1342186_1,,,,x,,,Damn...
+1342658_1,,,,x,,,Damn...
+1345883_1,,,,x,,,Damn !
+1345883_2,,,,x,,,The evil NPE strik back !!
+1346179_1,,,,x,,,Bloody hell !!!
+1348495_1,,,,x,,,Damn time has flown...
+1352960_2,,,,x,,,Damn it !
+137361_2,,,,x,,,"This was a very bad bug, introduced by me being an idiot."
+1394769_2,,,,,,,"I did try some variations as well, and I have to say I only got confused."
+1398734_5,,,,x,,,"I have stupidly deleted the original test dir, but judging from the suite's output files, no output was created after 3 1/2 hours."
+1429235_1,,,,x,,,damn this was assigned to you since months.
+1429746_4,,,,x,,,Imo all this just doesn't make sense from a pure performance aspect.
+1455895_1,,,,,,,Confused about this.
+1462480_1,,,,x,,,Inserting timestamps automagically would be bad because it would limit a whole swath of use cases.
+1471209_2,,,,x,,,If they do then Suse's cpio works for old ascii but the -c switch is broken.
+150393_2,,,,x,x,,This is pretty embarassing!
+1524565_2,,,,x,,,When you install a node module globally it goes into /usr/local where you don't have permissions to move shit into unless you sudo.
+1537069_6,,,,x,,,"That being said, I'm not totally opposed to making the limit configurable."
+1547189_1,,,,x,,,"My bad, I screwed up the assertion -> RuntimeException transition."
+1550511_1,,,,x,,,"Well, that sucks."
+1553094_6,,,,x,,,"No, it's not off the table, but it's moot unless we decide we want cqlsh in-tree at all."
+155457_1,,,,x,,,Ok here is a patch that works. I was stupid enough not to see it...
+156058_1,,,,x,,,It was a pretty stupid idea to use a static array of instances for QuorumOpMonitor.
+1564457_4,,,,x,,,All I'm trying to say is that it's pretty easy to end up in propagation failure hell here or change something else that blows things up for use cases that are not foreseen.
+1569844_1,,,,x,,,"Just to clarify... you made the DTPE handle exceptions the same way as CassandraDaemon by updating it to use NBHS instead of CSLS... 
+
+Did you just tell me to go fuck myself?"
+1573478_1,,,,x,,,"+1 (damn intellij, it's not like patch format hasn't been standard for years)"
+1575813_1,,,,x,,,"Wow, it's like Thrift is going out of their way to make life suck for us this month."
+1629017_7,,,,x,,,Here is quite bad.
+1647287_1,,,,x,,,"
+The samples you gave are different."
+1676234_1,,,,x,,,"I just noticed your public tweet...
+
+bq. ""@wilhelmbierbaum True. Fuck the Avro C API.""
+"
+1686065_2,,,,x,,,"if so, can you see if you can git bisect this bad boy?"
+1687818_1,,,,x,,,"It seems some of the wrappers in ink_hrtime.h() might no longer be used either, e.g. ink_gettimeofday() is never used, so lets get rid of that shit."
+1690651_1,,,,x,,,"Heh, that's one hell of a bug, 275 bytes exactly, eh?"
+1769700_1,,,,x,,,What a stupid name I chose for that object... )-:
+1778787_2,,,,x,,,I think it's time to just close this issue.
+1778787_4,,,,x,,,"I'm not entering bogus reports for the hell of it ;)
+
+Matt"
+1805685_2,,,,x,,,I am currently trying to get it into AJDT dev builds but my git push is timing out (damn thing!
+1808616_1,,,,x,,,Stupid Maven
+1816305_1,,,,x,,,Ok. Stupid user Error here.
+1816305_2,,,,,,,Converted from a single FlatFileItemWriter to a database and flatfileitemwriter and didn't register the flatfile one as a stream.
+1816305_3,,,,,,,If using a single FlatFileItemWriter it is enough to register it as an ItemWriter however when using the composite the adding it as a stream is also needed.
+1832159_1,,,,x,,,"Why the hell do they deliver Duration, if they cannot instantiate it :-/"
+1858018_1,,,,x,,,"The defect  from hell 666, be scared.."
+193462_1,,,,x,,,This really sucks!
+1990074_1,,,,x,,,Why the hell is this not a bug?
+1990074_4,,,,,,,I'm confused...
+2014921_2,,,,x,,,What the hell are you waiting for ?
+2024396_1,,,,,,,you can't reopen stuff fixed in the past without upsetting JIRA.
+2059085_3,,,,,,,"I've fixed that locally and am doing a full build, but I'm going to build a test case to duplicate the error and then verify my proposed fix corrects it."
+2059085_4,,,,x,,,"I suspect it has nothing to do with the file system connector or Infinispan connectors, and is simply a (stupid) mistake in the federated join processor."
+2077144_1,,,,x,,,I'm an idiot.
+2077144_2,,,,,,,"The Cenqua licensing section doesn't have a license like this, but the Clover licensing section does have a link to one."
+2085431_2,,,,x,,,It really sucks that there is now way currently to include transitive dependencies.
+2096621_2,,,,x,,,I'm an idiot... there's nothing wrong with the readme.txt.
+2120525_1,,,,x,,,"Crap, forgot to verify that this is inconsistant with MRI, it's not."
+2120525_2,,,,x,,,Please close as this is just me being stupid.
+2124917_1,,,,x,,,"Holy hell, I think I found one problem with turning a bignum into anything else."
+2127189_2,,,,x,,,This sucks *so much*...
+2132048_1,,,,x,,,"Damn, I would close this out from the fix to JBSEAM-3742, except the quartz and seampay examples use a custom XML namespace and the XML schema validator is not happy with that."
+2132543_1,,,,x,,,"*Damn*, I forgot."
+2148299_4,,,,x,,,"Also, your username was stupidly named and confusing, so I deleted it and created a new one more appropriate."
+2153268_1,,,,x,,,"Damn, it seemed it didn't work."
+2162609_1,,,,x,,,"It sucks to lose the code readability, but it seems like a reasonable price to pay."
+2181040_1,,,,x,,,"I don't have to ensure that the classloader knows groovy classes, *you* must do that."
+2181040_11,,,,x,,,"And debugging is hell, because the test environment needs to have the exact same loader setup."
+2194394_1,,,,x,,,who the hell starts using our jira for typing lessons ?!?
+2259612_1,,,,x,,,fuck u
+2263196_1,,,,x,,,"Hell, this is gonna take me a lot of work to raise."
+2264018_2,,,,x,,,"That irritated the hell out of me too, but I didn't realise it was configurable in the .launch file."
+2268304_1,,,,x,,,This sucks badly.
+2268304_2,,,x,x,,,Why on earth does createLink() need a request?
+2350557_2,,,,x,,,Finally closing this bug from hell.
+238731_3,,,,x,,,I sure as hell don't want to start attaching models for the sake of detaching them directly afterwards.
+2470534_1,,,,x,,,"That sucks, why isn't the escape mechanism working?"
+2495101_1,,,,x,,,I am an idiot - this was a dupe of GUVNOR-84
+286246_5,,,,,,,That is really confusing.
+291420_1,,,,x,,,"Sun RI sucks, why the hell is saveState() and restoreState() not called with with javax.faces.STATE_SAVING_METHOD = server???"
+305224_1,,,,x,,,"Swear to god, I'm not a total idiot."
+306519_2,,,,x,,,"I don't know how the hell my diff program decided to add seemingly random CR chars, but I've removed them now."
+313850_1,,,,x,,,"durrrh, that sucks."
+320617_4,,,,x,x,,Im stuck with IE6 unfortunately.
+334916_1,,,,x,,,"What the hell, I'll give this a shot."
+349776_1,,,,x,,,"{quote}
+searcher.getAtomicReader().getSortedDocValues(uniqueKey);
+{quote}
+
+This is a performance killer."
+350972_1,,,,x,,,"As far as the query shit, i have no idea if solrdispatchfilter or whatever could/should do Thread.currentThread().setName(x) or whatever (and maybe restore after)"
+353052_1,,,,x,,,"BTW: This is one reason why I hate this autoboxing shit since Java 5. I would love to have a way to prevent it in code (forbidden checks should detect this somehow).
+"
+362807_1,,,,x,,,"Hmm, that sucks."
+366961_1,,,,x,,,tricky shit man! I think I found the issue!
+367179_1,,,,x,,,"Oh man ... it's a fucking precendence problem.
+"
+367677_1,,,,x,,,"Ugh, well that sucks."
+367902_5,,,,x,,,I didn't know we needed to retain backwards config capability across 3.x to 4.x  :-(  That sucks and it'll make old code stick around longer.
+369884_1,,,,x,,,bq. this is solr's fault by having a getter that does some heavy duty xml shit.
+369884_2,,,,x,,,That sounds like some serious buck passing.
+371904_4,,,,x,,,This whole thing is very distressing to me.
+371904_5,,,,x,,,I think we all know it just sucks.
+373905_1,,,,x,,,"though I disagree with a signficant amount of statements you made,I don't think we would ever come to agreement anyway."
+389297_3,,,,x,,,"
+that's some freaky shit ..."
+389548_1,,,,,,,i could have sworn i clicked the other radio button
+455767_4,,,,x,,,I think you made mistakes in ivy.xml.
+496044_12,,,,x,,,This is where it gets confusing.
+540214_1,,,,x,,,"If I can give you one advice on this one, I'd say this: fuck Derby, use H2 instead as the default embedded database."
+571429_1,,,,x,,,What the hell?!
+571429_3,,,,x,,,(Do nothing): Are you serious about that?
+579540_1,,,,x,,,"@Oleg, please accept that my ""logical"" is different from your ""logical""."
+579540_3,,,,x,,,"So, I'm fine with your logic, but given that I don't understand it please don't get upset when I ask questions on how I have to use it."
+652217_2,,,,x,x,,This was my bad.
+653331_5,,,,x,,,The rest are *totally* unrelated.
+653758_1,,,,x,,,"Oh fuck :-) Sorry. Not my day, more beer needed!"
+654180_1,,,,x,,,"Sorry, I guess I'm against ""never computing this shit""... because you guys think returning NaN is ok.
+"
+654180_4,,,,x,,," if you want to make these optimizations, fix the APIs so its intuitive, otherwise, no way."
+654182_1,,,,x,,,"who the fuck is asking for scores, but not the max score, and why does their insanely specialized use case justify all these booleans on a central lucene class.
+"
+654611_1,,,,x,,,I don't care about code duplication here.
+654611_2,,,,x,,," We should not invoke the global synced fieldnumbers shit for every element, only when the setting actually changes"
+658580_1,,,,x,,,I disagree... and I guess I'm willing to go to bat for this.
+660380_1,,,,x,,,HOLY SHIT!
+663657_2,,,,x,,," I think the comments here are a bad sign... I sent us down an unfortunate slippery slope
+
+we are a search engine library!
+
+don't put shit in the index directory! or we will delete your shit. dead simple."
+681152_1,,,,x,,,I wholeheartedly agree this API is confusing as hell.
+681152_2,,,,x,,,"Not only it's the first one in my life I'm seeing multiple ways of closing the same thing, it also conceals programming errors."
+684394_2,,,,x,,,Sucks to rush a commit when an issue is under discussion.
+684394_4,,,,x,,,"I'm against such heavy committing myself, without some consensus to do so."
+697159_2,,,,x,,,I'm confused.
+711427_1,,,,x,,,> I hated that aspect of working for commercial companies.
+714376_1,,,,,,,Of course it is.
+729706_1,,,,x,,,My bad.
+729706_1,,,,x,,,My bad.
+781197_1,,,,x,,,"Igor is an idiot, and we *do* need gmake."
+798939_1,,,,x,,,"Shit, I missed a cast."
+801851_3,,,,x,,,"But, even if it wasn't it would be totally worthless where it is at."
+810778_7,,,,x,,,This is clearly bad webserver behaviour.
+827981_2,,,,x,,,Forget what I made(D8067).
+890057_1,,,,x,,,PreCommit-HDFS-Build is stuck.
+911333_5,,,,,,,I am slightly confused by the above.
+940145_6,,,,x,,,"So, it is stuck somewhere."
+949738_3,,,,x,,,I don't want one-offs like this to become lost and forgotten.
+973402_1,,,,x,,,"But now that I think about it, it may crap out when coming back to read even on a recovered file."
+987223_1,,,,x,,,"@Matt... I'm an idiot, I used the wrong patch. Sigh."
+1796476_2,,,,x,,,I'm however very interested in this feature as it is essential to me.
+369884_1,,,,x,,,bq. this is solr's fault by having a getter that does some heavy duty xml shit.
+1459734_1,,,,x,,,"Holy complicated-as-shit-algorithm, Batman!
+
+The complexity of our implementation vs the complexity of what we're actually doing is starting to worry me here."
+1553771_1,,,,x,,,"It also happens at the very startup after he has loaded only 3 sstables (hence DataTracker likely have 3 sstables, not a shit load)."
+630936_1,,,,x,,,"Shit, my bad. The posted patch is from a completely wrong branch of my git repo - I had not realized I ran the test-patch against a branch not branch-1."
+369034_1,,,,x,,," (In this particular case, Hoss clearly intended to use the no-no word as an intensifier, and not to stir shit.)"
+711843_6,,,,x,,,Maybe only one of us should play lawyer and the other one play engineer.
+711843_7,,,,x,,," I used to be the latter, but then I went to law school and got a degree in this shit. "
+711843_8,,,,x,,,"Then, to make matters worse, since the mid-1990's I've been offering pro bono advice to non-profit foundations whose members insult me regularly and assume I'm an amateur.  "
+711843_9,,,,x,,,"Someone, but I'm not sure who, owes me a public apology here.  /Larry  "
+1340869_1,,,,x,,,"Shit, there is an dependency. Please go to Preferences -> LDAP -> Entry Editor and enable the option ""Show operational attributes""."
+1659098_1,,,,x,,,that's bad Content-Type from gSOAP.
+1019716_2,,,,x,,,Pull it back in if you think different.
+659090_1,,,,x,,,Hmm ... this is quite bad.
+1014870_9,,,,x,,,You are messing down deep below hbase in dfs.
+479640_1,,,,x,,,"Damn it, sry lost the orientation."
+878663_1,,,,x,,,"Oh, my stupid:)"
+795658_1,,,,x,,,oh ...geez I'm an idiot.
+1460620_5,,,,x,,,@jira - I wish you didn't suck so much.
+379645_2,,,,x,,,Indeed that would be VERY bad design.
+1097157_2,,,,x,,,My bad.
+1107226_2,,,,x,,,(How bad is this?
+602431_1,,,,x,,,I'm confused.
+643868_1,,,,x,,,This is pretty trivial.
+491593_1,,,,x,,,"Of course, it could...  :-)  DOH!"
+1462478_4,,,,x,,,"Then you're pretty well screwed.
+"
+1604604_2,,,,x,,,"Damn, Chuck is scary."
+1078935_1,,,,x,,,This is bad.
+1574716_1,,,,x,,,"Well, that sucks."
+168182_1,,,,x,,,Bad memory.
+1490674_1,,,,x,,,"The state stuck at ""Allocated state"", It is a dup of 3788."
+422120_1,,,,x,,,This is a pretty awful bug.
+614890_1,,,,x,,,Replaced patch with fix to catch more bad variables
+923961_29,,,,x,,,Does this suck?
+377662_2,,,,x,,,"Of course, StrFieldSource is a private class
+
+No it's not."
+343003_3,,,,x,,,CSS is really confusing sometimes.
+1508156_3,,,,x,,,"Django is a fullstack framework, Click is not."
+726311_1,,,,x,,,My bad.
+623142_2,,,,x,,,"Credit, of course, goes to Dick."
+1142125_2,,,,x,,,It seems really confusing.
+300170_4,,,,x,,,+1 for this: my bad.
+760720_2,,,,x,,,Hell or high water.
+653972_4,,,,x,,,-1 to jar hell.
+1575811_3,,,,x,,,That would suck.
+339681_3,,,,x,,,"If so, a test that succeeds with errors is confusing as hell..."
+664416_18,,,,x,,,If the different segments are somewhat homogeneous then these stats should pretty much be very close anyway.
+1113225_2,,,,x,,,"This is pretty trivial, just adds three asserts to TestPath#testNormalize."
+807936_2,,,,x,,,"I doubt that Squid is so
+bad at it."
+1005556_7,,,,x,,,It's not too bad once CacheConfig is in.
+1575380_2,,,,x,,,"Not too bad though, since clearing out commitlog segments is easily done."
+371246_1,,,,x,,,ah - my bad.
+775669_1,,,,x,,,"My bad, had a typo in the subscription e-mail."
+1583248_1,,,,x,,,My bad.
+1324230_1,,,,x,,,"Yep, my bad."
+1020769_2,,,,x,,,Pull it back in if you think different.
+1197428_8,,,,x,,,Tabs are evil.
+494695_12,,,,x,,,I looked at our distributed pom.xml and they're pretty obscure.
+614577_3,,,,x,,,once per every bad disk).
+645729_8,,,,x,,,"Hell, UnaryFunction might even be faster than all of these calls in a row.
+"
+695744_3,,,,x,,,This was very bad documented.
+363937_1,,,,x,,,Damn.
+1025372_2,,,,x,,,Pull it back in if you think different.
+679938_5,,,,x,,,"Ie, both at are bad."
+313850_1,,,,x,,,"durrrh, that sucks."
+1342154_2,,,,x,,,My bad.
+797123_1,,,,x,,,I'm an idiot.
+360997_3,,,,x,,,Splitting an existing sub-shard gets stuck up.
+370394_4,,,,x,,,This is bad.
+1341264_1,,,,x,,,"Oopps, bad move !"
+227345_1,,,,x,,,the recommendation in the wiki is bad.
+455423_1,,,,x,,,My bad.
+709675_2,,,,x,,,"I'm starting to think of ""DLL Hell."""
+1343458_2,,,,x,,,#NAME?
+1037111_1,,,,x,,,Fix bad patch
+1446418_1,,,,x,,,Logger on top of Log4J and its abstract base class for supporting other frameworks.
+1216454_2,,,,x,,,My bad.
+1544868_5,,,,x,,,"Well, either you query the database every damn time, and your plugin/tool/code will be super slow."
+1564458_9,,,,x,,,Damn it.
+1117164_1,,,,x,,,Hudson seems to be stuck on this. 
+1184606_2,,,,x,,,My bad...
+1015575_79,,,,x,,,which is silly -- bad package encapsulation).
+807104_2,,,,x,,,My bad.
+1090110_1,,,,x,,,"Oops, had a bad comparator in the TestCLI config."
+697280_4,,,,x,,,My bad.
+1600589_7,,,,x,,,The food is very bad.
+787029_1,,,,x,,,"<gmcdonald> , my bad
+"
+1166447_1,,,,x,,,My bad.
+1570960_2,,,,x,,,My bad.
+1017759_2,,,,x,,,Pull it back in if you think different.
+756748_2,,,,x,,,"Aaarrggh, how stupid of mine  to have a System.out, again!"
+645729_8,,,,x,,,"Hell, UnaryFunction might even be faster than all of these calls in a row.
+"
+484844_2,,,,x,,,I always get the same stupid error.
+807104_1,,,,x,,,Damn maven!
+360160_1,,,,x,,,"I don't care if everything is pretty or not, but we should at least support basic admin functionality in IE IMO (though I have not used it for years for just about anything)."
+1340592_1,,,,x,,,I've looked at what can be done within the NSIS framework we use to build the Windows installer.
+816440_11,,,,x,,,"A feature with wrong functionality is as bad as, if not worse than, a bad performance."
+1480433_1,,,,x,,,Doh!
+693227_1,,,,x,,,Doh.
+206512_1,,,,x,,,"Sounds weird to me...
+Could you package a (totally!)"
+376155_4,,,,x,,,Am I doing something stupid here?
+1570651_1,,,,x,,,"* Replaced TreeMap with an Array of final 'Segment' objects
+** (now very slightly faster than trunk)
+* Rebased for trunk
+* Removed the patch renaming SSTableReaderTest to SegmentedFileTest
+
+I didn't remove the builder pattern, because the alternative seems pretty ugly (copying the segments array for every append)."
+1143627_10,,,,x,,,"HADOOP-2949:
+ - If tarball is specified, HOD no longer validates for the pkgs directory in gridservice-hdfs or mapred sections as these are not going to be used anyway."
+798023_3,,,,x,,,It must be lost somewhere.
+235183_3,,,,x,,,Too bad we can't use position:fixed in IE6.
+189473_1,,,,x,,,"I think the correct resolution is to ensure that the prefix stack mechanism 
+gets reset each time the XMLReader is used."
+716082_59,,,,x,,,This is always a really bad way to design software.
+734585_7,,,,x,,,"It may suck, but at least *I* won't be the one bringing in a dumb dependency to a logging library."
+689700_12,,,,x,,,How on earth is it buggy?
+819338_5,,,,x,,,"I didn't do that because that seems bad in hive, so I returned ""null"" from the operation."
+715083_3,,,,x,,,This sucks.
+331800_3,,,,x,,,"They don't vote, they
+whine that something (or everything) sucks."
+390380_1,,,,x,,,Damn dyslexia!
+1352960_2,,,,x,,,Damn it !
+1014736_5,,,,x,,,Doing it at the hackathon you'd have a few fellas at your shoulder to give you pointers should you get stuck.
+726608_1,,,,x,,,"Ah, that was my bad."
+633319_5,,,,x,,,My bad.
+1447251_2,,,,x,,,it's my bad.
+1117213_2,,,,x,,,My bad!
+700813_1,,,,x,,,"Ah, too bad."
+1604604_2,,,,x,,,"Damn, Chuck is scary."
+1629017_7,,,,x,,,Here is quite bad.
+1166113_3,,,,x,,,This name gets confusing with all of our prenamed *Worker* and *Master* classes.
+1323405_2,,,,x,,,* release of the framework.
+932777_1,,,,x,,,I'm a pretty strong -0 on this.
+1036745_4,,,,x,,,Not pretty. 
+1456574_2,,,,x,,,That's pretty unlikely.
+1142601_1,,,,x,,,Pretty much everything that FSNamesystem (ie.
+1446136_2,,,,x,,,Kind of sucks.
+822155_2,,,,x,,,Since this patch is so damn large already I won't be making anymore changes to this other than critical/blocker bug fixes.
+706069_21,,,,x,,,But please don't say that my reasoning is bad - because it is not.
+689231_5,,,,x,,,> We can't let fear of back-compat prevent us from making progress.
+1675227_2,,,,x,,,I really don't care.
+1154490_1,,,,x,,,I am planning to use this framework for some new RPCs I am adding.
+986179_2,,,,x,,,"Don't hate me, just throwing this out there."
+1110767_1,,,,x,,,Weird.
+1342087_1,,,,x,,,This is weird.
+794990_2,,,,x,,,Gav...(Hoping I'm not teaching you how to suck eggs :) )
+1029356_4,,,,x,,,For those of us who don't care about ivy in fact lose something - a easy to build hbase.
+685936_2,,,,x,,,Where on earth are you anyway?
+398365_2,,,,x,,,My bad.
+1151657_1,,,,x,,,"My bad, this is already done."
+1442549_8,,,,x,,,That is bad.
+1687237_4,,,,x,,,"Filling diags.log is bad mojo, since it's never rotated."
+654312_16,,,,x,,,How bad is it?
+935305_2,,,,x,,,My bad.
+921646_4,,,,x,,,My bad.
+289511_5,,,,x,,,Bad IE.
+289511_6,,,,x,,,"Bad.
+"
+1020231_2,,,,x,,,Pull it back in if you think different.
+741317_1,,,,x,,,Stupid user error :)
+1461162_1,,,,x,,,Weird.
+1534996_1,,,,x,,,That's weird.
+1442119_6,,,,x,,,"Actually I don't want to specify the encoding, because I don't care how the data is transported to me."
+667138_2,,,,x,,,"And boy, hell broke loose ;)
+
+So... the biggest issue I'm facing is indeed with Random sharing across threads."
+215355_1,,,,x,,,I don't care what we do as long as we don't change the attributes in JSP significantly.
+1582964_1,,,,x,,,The Async API in http client 4.x really sucks.
+1199024_1,,,,x,,,"
+Forget the patch for the moment."
+1023195_2,,,,x,,,I'll just put fix in under this issue.
+1661472_1,,,,x,,,"Please forget last comment, it is incorrect."
+686625_1,,,,x,,,"umm ... call me crazy, but why are we making this public?"
+1082705_1,,,,x,,,"[~cmccabe]: oh, hell no!"
+1342186_1,,,,x,,,Damn...
+1158826_1,,,,x,,,I'd say to hell with windows minority :)
+902952_10,,,,x,,,"Because, we don't care for this in cases where we there is no node that is down."
+766334_3,,,,x,,,"The eclipse ui was completly stuck, which was similiar to the other experinces."
+935305_2,,,,x,,,My bad.
+1208484_1,,,,x,,,"Juhani..my bad, i was mistaken."
+740627_1,,,,x,,,My Bad.
+882308_2,,,,x,,,That's my bad.
+1148854_7,,,,x,,,Seeking back is pretty inefficient in DFS.
+1140339_1,,,,x,,,Doh!
+1120812_1,,,,x,,,Hudson is stuck.
+182375_8,,,,x,,,Weird.
+1527929_2,,,,x,,,Weird.
+942516_1,,,,x,,,That's weird.
+748115_2,,,,x,,,"If that would be the case, this would be bad design."
+676102_5,,,,x,,,This just seems really evil.
+866657_4,,,,x,,,"It may cause conflicts, but if your intent is to break system security, you probably don't care."
+239501_1,,,,x,,,"My bad, uploaded the wrong patch."
+1625109_6,,,,x,,,"I just hate having no clue what a file is really depending on ;)
+"
+344525_1,,,,x,,,"Ah, damn, I thought it was fixed :/
+
+Guillaume ?"
+376790_18,,,,x,,,"I abbreviated the heck out of my arguments and thinking, but damn it thats what I think :)"
+769631_1,,,,x,,,A stupid bug in a patch that is already applied.
+1039334_6,,,,x,,,"In this case, data would pretty much just silently be lost."
+802486_5,,,,x,,,This whole thing is really pretty trivial.
+1467851_3,,,,x,,,An output connector should also have a say in what URLs it will accept.
+1542045_1,,,,x,,,"Turning off hints is basically intended as a ""oh shit, something is broken with hints, let's turn it off"" switch."
+778795_1,,,,x,,,"why on earth would it match anything, you have not even touched the Apache install."
+291420_4,,,,,,,"Anyway, created a patch ... 
+"
+349845_1,,,,,,,"Ah, HA!"
+1001112_3,,,,,,,or a log message?
+1015425_2,,,,,,,Until there is a general mechanism Hbase should do something.
+1027272_2,,,,,,,but there is no such limitation in the consistent algorithm behind ZK.
+1041633_1,,,,,,,It will be taken care as part of HADOOP-7642.
+1060024_1,,,,,,,The contribution archive.
+1078380_3,,,x,,,,What is convenient for the user to download two archives to run the project (or install maven)?
+1078380_5,,,,,,,+1 for the docs in the SRC though.
+1078538_1,,,,,,,"Okay Edward, you haven't understood how it works."
+1078538_2,,,,,,,Maybe you know it better when I show you some code.
+1078538_4,,,,,,,"If you want to have a binary sequencefile format, then do this."
+1078538_7,,,x,,,,What if you want to change this binary format?
+1078538_8,,,,,,,Do you want to recreate every file on the whole planet?
+1078538_9,,,,,,,"You must take care about versioning then, and that is because we need a proxy between the inputformat and our vertex API."
+1082300_3,,,,,,,Contributed by Vinay.
+1085921_3,,,,,,,Previously we are mainly focus on trunk failures.
+1093469_1,,,,,,,"Yea, I think it would be worth distinguishing between the reasons."
+1099350_3,,,,,,,Gimme a few mins to clean this up properly.
+1108919_2,,,x,,,,Is the -put command returning non-0 to indicate failure?
+1116947_3,,,x,,,,Is it by mistake?
+1142303_3,,,,,,,We should be assigning atleast 50% of it's capacity.
+1147213_3,,,,,,,"pread I mentioned is FSInputStrea.read(long, buf, offset, len)."
+1152961_8,,,,,,,multiple pread invocations hitting contiguous byte ranges is quite tricky.
+1182528_2,,,,,,,I would have hopped that the URI(String) constructor would have decoded things properly (or encoded them as it happens to be here).
+1191462_1,,,,,,,"Continue with stupid questions :)
+
+Who is sponsor and mentor of project?"
+1191462_2,,,,,,,"So, who should create mail lists, bug databases, etc."
+1194208_1,,,,,,,"Fixed bug of <hr />, the siteinfo is always after the rest of the page now."
+1197613_1,,,,,,,batch transition to closed for remaining resolved bugs
+1198478_1,,,,,,,"Hi Vincent,
+
+I wasn't aware of that."
+1203586_5,,,,,,,"We are all different"" Crowd
+""I'm not"" Dissenter
+Monty Python's Life of Brian "
+1217410_2,,,,,,,"Turns out that Ubuntu dropped 32 bit support for 'whatever' in 12.04 and now you need to run ""sudo apt-get install ia32-libs"" in order to get older executables to run."
+1217410_3,,,x,,,,I wonder why not so many people use Linux?
+1258790_1,,,,,,,"On 2009-06-08 19:22:03.496 kjian commented:
+Localization data error."
+1258790_2,,,,,,,"On 2009-06-08 19:22:40.967 kjian commented:
+Localization issue."
+1260661_3,,,,,,,Will close this as a dup.
+1289367_18,,,,,,,"[rvollmar 3/27/07] There are two bugs that are causing backwards compatibility issues, and I think the emails we've been exchanging have confused them."
+1326110_2,,,,,,,"First, an attempt is made to convert
+      * each argument."
+132669_3,,,,,,,"It is better to express such things in Java, or in a query language that is designed for that."
+132669_4,,,x,,,,"Why would I want to use XML, when i can use the QBC API, or HQL (HQL can be embedded in the XML, remember), to express this stuff much more naturally?"
+132669_5,,,,,,,"In addition, in the longterm we will all most likely be using annotations, and the ""fetch group"" notion does *not* work with annotations."
+1328594_8,,,,,,,"It's generally pretty straightforward, but extensibility is not quite clear."
+1342186_2,,,,,,,"I have changed one test to see what will happend if I set the pwdIdle to b > 0, and the test passes."
+1342186_3,,,,,,,What exactly is your configuration ?
+1342658_2,,,,,,,"The more I think about the issue, the more I find it critical."
+1342658_3,,,,,,,"If we remove an entry while someone is doing a search, the search will fail."
+1342658_4,,,,,,,"Also we have some problem during replication, just when we try to replicate some deletion, and it might prefectly explain why we get those issues."
+1345883_3,,,,,,,"(Ok, as expected ...)
+
+Waiting for a better log, when you will have installed a new server build from 1.0-trunks, then."
+1345883_4,,,,,,,"What you can do is trying this request with a different browser when the server is suppose to hang, and also try to do another request when the serveur is supposed to be hang to see if it's not a pb with the PDU length ( what I suspect is that when trying to decode this request, the decoder is waiting for more bytes so wait ad vitam aeternam ...) I gonna try to implement the decoding of this PDU as a test case just to check."
+1346179_3,,,,,,,"The search result entry requests does not return the correct DN, because it use the internal representation (byte[]) instead of using the user provided value, which contains escaped values."
+1346179_4,,,,,,,"Here, we have two options :
+1) work with the internal value, but escape all the special chars
+2) work with the stored UP value."
+1346179_5,,,,,,,"I think the bnest solution is (2), because the UP value is supposed to be valid - it has successfully been parsed when the first request arrived -."
+1346179_6,,,,,,,"This will impact two parts :
+- searchResultEntry
+- all the response that contains a LdapResult and which returns a MatchedDN."
+1346179_7,,,,,,,"I already have a fix for the first request, but the question is : which version will integrate this modification ?"
+1346179_8,,,x,,,,any suggestion ?
+1348495_2,,,,,,,"I just applied the patch, ran tests."
+1351574_3,,,,,,,Then you might switch filter chains to ?
+1360146_7,,,,,,,"However, I don't see any failures."
+137361_1,x,,,,,,Thanks!
+137361_3,,,,,,,We need a proper JUnit test for this!
+1398581_6,,x,,,,,I think we are very close too.
+1398734_1,,,x,,,,Thanks for reviewing the patch Mamta!
+1398734_2,,,,,,,"I've been trying to test a patched build with ibm 1.5. on iseries, but have run into trouble:
+- OOM with suites.All."
+1398734_3,,,x,,x,,I've been running with -Xmx1024M -Xms1024M before and that worked in the past...Not sure what's going on now.
+1398734_4,,,,,,,"A second run (with 2048M) only got worse (sooner) OOM behavior and after that I had trouble getting rid of my processes
+- apparent hang with derbyall:lang/wisconsin.java."
+1398734_6,,,,,,,"On rerun I let it go for 20 mins, but apart from the database getting booted (derby.log) nothing at all showed up in any of the output files (i.e."
+1398734_7,,,,,,,.tmp was empty).
+1398734_8,,,,,,,During the 10.5.1.1 test cycle this test took about 5 mins (and passed).
+1398734_9,,,,,,,"So, the original problem appears addressed (as I said, the 3 failing tests now pass), but I will investigate these behaviors, and run on another type of machine just to be safe."
+1399944_7,,,,,,,I think I prefer this approach.
+1411398_1,,,,,,,I remember that rule for line breaking in Japanese was very different from that of English.
+1411398_2,,,,,,,"In English sentence there exists space between words and
+that space tells where the line can be breaked."
+1411398_3,,,,,,,"However, Japanese sentence does not have such a useful space between words."
+1411398_4,,,,,,,"As I knows, only punctuation tells where the line can *not* be breaked."
+1411398_6,,,,,,,This may be well known problem in i18n in typography ....
+1417110_1,,,x,,,,Can this be closed?
+1422617_2,,,,,,,derbynetmats had no failures.
+1423346_2,,,,,,x,I too am concerned about the  DRDA 255 byte character string limit.
+1424522_1,,,,,,,You can close this out.
+1429235_2,,,,,,,plz fix it properly till tomorrow Ort I'll close this for 0.4 again.
+1429746_1,,,x,,,,What was the outcome of the discussion?
+1429746_2,,,,,,,Afair we settled on not implementing this as logging is hell anyway and we do not like to introduce just another logging framework.
+1429746_3,,,,,,,Also we would need to handle Serialisation which is _only_ implementable in a performant way if you know the underlying logging framework.
+1434006_2,,,,,x,,"I almost forgot, as I received the email notification on the weekend."
+1444585_1,,x,,,,,Holy crap that worked!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+1459591_2,,,,,,,I'll open one now so I don't forget.
+1460757_2,,,,,,,Think you could make a failing test case and/or patch to show the behaviour?
+1462558_7,,,,,,,But I could join them.
+1488789_1,,,,,,,"For VMware, we noticed that there are several places requiring cleanup of staging storage object, which requires a generic approach to thoroughly fix them, and cannot make it in 4.2.0."
+1524006_1,,,,,,,"OK, this solution sucks, and since people are relying on these scripts instead of using tools like ant, we need to give them the ability to upgrade these tools without having to create a new project."
+1524006_2,,,x,,,,Any ideas? 
+1539694_6,,x,,,,,"I think SSTableDeletingTask is a good spot, I just wasn't sure if that would be appropriate."
+1541857_1,,,x,,,,Why is it unsafe to share filter in SelectStatement for NQF?
+1550511_2,,,,,,,Looks like you need to report this to the high-scale-lib project.
+1564457_1,,x,,,,,"Nice try :-)
+
+I was Mr I dont believe in magic from the very beginning."
+1564457_2,,,,,,,I thought that there are some common cases like tail and head caching or exclusion of columns that could be implemented.
+1564457_3,,,,,,,But never mind - maybe the proposed cache is all greatness.
+1564457_5,,,,,,,So to prevent a rude awakening for some users it might be cool to provide some means (config or whatever) that works similar as the current version.
+1564457_6,,,,,,,Or at least schedule this for a release which allows for a downgrade.
+1567293_3,,,,,,,"Gotta show off the shinies first, of course."
+1572610_3,,,,,,,So we convert Scanner back into an Iterator over a lazily fetched Slice subclass?
+1578235_1,,,,,,,Disagree.
+1588978_10,,,,,,,"For *all* this protocols/endpoints, Camel already offer consumers."
+1598805_1,,,,,,,Closing all 1.6.0 issues
+1617796_8,,,,,,,"I'm very, very keen on preserving backwards compatibility."
+1628616_1,,,,,,,The Calculator sample now works with SimpleAxisServer.
+1642698_1,,,x,,,,"Is there any documentation how to use axis2-wsdl2code-maven-plugin, with jibx binding, and how on hell you define 
+xmlns:tns from you binding file"
+1646110_4,,,,,,,Do you think you can make us a minimal test case which demonstrates the problem?
+1658506_2,,,,,,,Please close AXIS-2271 if that patch is taken.
+1660328_9,,x,,,,,Are we on the good path...
+1710387_1,x,,,,,,hi Dan!!
+1718151_1,,x,,,,,"Wow, sure!"
+1729265_5,,,,,,,"This practice in general seems really confusing to me, this bug is refed in the 1.5.0 release notes tagged in svn. "
+1729498_1,,,,,,,I think all properties and permissions should be maintained.
+1778787_1,,,,,,,"Well I'm not sure what was happening, but I just upgraded to Spring 1.2 final and this issue does not happen anymore."
+1778787_3,,,,,,,It really *did* happen in an earlier version though....
+1787887_1,,,,,,,I disagree.
+1787887_2,,,,,,,The manual should provide sufficient insight into the important use cases.
+1787887_3,,,,,,,People tend to review javadoc when things don't go as expected or are unclear.
+1787887_4,,,,,,,"In my case, I wrote a custom filter, fucked around with the configuration getting it to work, which means you really have to get into it."
+1787887_5,,,,,,,etc.
+1787887_6,,,,,x,,"2,5 hours gone."
+1787887_7,,,,,,,"I reviewed javadoc but, right or wrong, I didn't come across this."
+1787887_8,,,x,,,,Google was also strangely quiet.
+1796476_1,,,,,x,,"I'm new to Spring Integration, so forgive me for the stupid things I might say."
+1800179_1,,,,,,,stupid autoresize option doesn't resize it correctly
+1805685_3,,,,,,,) - it should be in AJDT in a couple of days.
+1817942_1,,,,,,,I am sufficiently archaic as to have only a pre-ANSI-C K&R.
+1817942_2,,,,,,,"You can put *expressions* separated by commas in a for, even back then: 
+  for (i=1, j=100; i<j; i++, j--) 
+But I guess that the tweak to allow *declarations* there only has one."
+1825414_1,,,,,,,I was surprised to see this issue still getting so much commentary.
+1825414_2,,,,,,,"I'm going to jump back to Robert's initial pushback here:
+
+""1."
+1825414_21,,,,,,,"I understand job execution creation needs to be atomic, but I don't think it implies the whole logic around creating job execution must be handled by repository."
+1825414_3,,,,,,,Using technical tricks like automatically appending parameters to create unique JobInstance makes alarm bell ring - we should not be trying to do clever arbitrary things in classes that form the foundation of the framework.
+1825414_4,,,,,,,If job instance has a lifecycle that ends with first successful execution we should refuse to start the same job instance ever after.
+1825414_6,,,,,,,"We described before that there are times that operators, for whatever reason, what's to restart a job with the same instance."
+1825414_7,,,x,,,,It could be something as stupid as accidentally deleting the output file.
+1825414_8,,,,,,,So it's like getting a new copy.
+184201_7,,,,,,,My bad.
+187748_25,,,,,x,,"My 
+apologies for the confusion."
+190531_1,,,,,,,Same goes for fontSize and fontWeight and other font styles.
+192370_6,,,,,,,"But on the other hand I also think, if the processor has to do this initialization activity (i.e."
+195182_1,,,,,,,"Yeah it helps, though I was more questioning whether there's not already a
+boolean that keeps track of this, but apparently not."
+1990074_2,,,,,,,Seems a bit restrictive to me that using rich:comboBox with s:convertEntity only displays entity IDs in the combo.
+1990074_3,,,,,,,"""rich:comboBox is not a select component by nature"" - so what is it then if it's not used for selecting stuff?"
+2014921_1,,,,,,,Guys this defect is 5 years old now.
+2024396_2,,,,,,,"If it's a regression, please open a new ticket."
+2059085_1,,,,,,,"Yeah, I didn't mean to imply that setting a null value was the problem, which is why I changed my comment to denote the problem was actually in the federated connector."
+2059085_2,,,,,,,It appears to be a simple cast to the wrong type (from a copy/paste error during coding).
+2077144_3,,,,,,,I'll copy that into a LICENSE.txt file.
+2085431_3,x,,,,,,Thanks.
+2096621_1,,,,,x,,Sorry...
+2096621_3,,,,,,,The instructions are fine.
+2096621_4,,,,,,,Not sure how I got that all wrong.
+2096621_5,,,,,x,,Sorry again.
+2127189_3,,,,,,,Note to self: Always check for platform-dependent behavior!
+2127189_4,,,,,,,"I've tested with Ruby 1.8, Ruby 1.9, JRuby, and even Rubinius, but all on Linux."
+2127189_5,,,,,,,This lack of proper documentation on the standard Ruby API drives me mad.
+2127189_7,,,,,,,Should this be raised to Ruby core folks to get the clarification?
+2132048_2,,,,,,,Someone either needs to write a custom XSD and link it to the document or we need to disable validation for those examples pending another solution.
+2148299_1,,,,,,,This request is unclear.
+2148299_3,,,,,,,Why are you asking us for samples?
+2153268_2,,,,,,,"I'm reopening the issue, and Graeme will attach a new key which should be an OpenSSH SSH2-DSA key hopefully."
+2153268_3,,,,,,x,Crossing fingers...
+2162609_2,x,,,,,,Looking forward to your patch.
+2181040_10,,,,,,,Nobody is able to tell what will happen here if something does not work.
+2181040_12,,,,,,,Additionally... GroovyShell doesn't care about threading.
+2181040_13,,,,,,,"And even if it would be, who makes sure that the context loader at the time the shell was created is the same as the context loader at the time the shell is used?"
+2181040_14,,,x,,,,Can we even be sure that the thread is the same?
+2181040_15,,,,,,,Logic like that has nothing to do with GroovyShell in my eyes.
+2181040_16,,,,,,,"If a threaded management is needed, then a new class should be used, that ensures the conditions are fulfilled.... that is at last that the context loader is unchanged."
+2181040_17,,,,,,,"I know, in your webapp this condition might be fulfilled, but GroovyShell is not special to web applications. 
+"
+2181040_2,,,,,,,"GroovyClassLoader does not know Groovy classes, the parent *must* know them."
+2181040_3,,,,,,,Because of that the default parent is the same loader as the loader that loaded the class GroovyShell - this loader knows the groovy classes.
+2181040_4,,,,,,,Setting the context class loader would require a test if the context loader knows Groovy classes and if this class is the same as the expected loader... what do we do if that is not the case?
+2181040_5,,,x,,,,Throw an exception?
+2181040_6,,,,,,,"I don't want to put too much magic in the classloader structure, because it becomes messy as hell in an instant."
+2263196_2,,,,,,,Maybe first see the results of the discussion at: http://www.nabble.com/Undocumenten-constraints---consistency-of-templates-td21863067.html
+2264018_1,x,,,,,,Thanks for the info David.
+2264018_3,,,,,,,I'll make that change and close the issue.
+2350557_1,,,x,,,,Woo hoo!
+238731_1,,,,,,,Why attach the page?
+2418584_6,,,,,,,"In other words, using the setGenerateImportedSchemas() setter or not obviously makes a difference, and given the fact that your main XML schema imports/includes the other one, I'd suggest that you change your code generation strategy."
+2418584_7,,,,,,,That's basically all I am saying.
+247770_1,,,,,,,I know this is a closed issue but here goes anyway.
+248234_2,,,,,,,"First, there are some backwards compatibility concerns."
+250193_1,,,,,,,"Clearly you don't understand the goals of Velocity or this is one hell of a
+humor piece."
+291420_2,,,,,,,Is this according to the spec?
+291420_3,,,x,,,,Do I miss something there?
+302211_9,,,,,,,"Of course, in the end, I'm not the one you need to convince, as I'm not a maintainer :)"
+303755_1,,,,,,,"The ci server does not close issue only comments on them, I closed this issue."
+305928_1,,,,,,,"This is a really cool idea, but I don't think this is going to make it into TRUNK before the 0.4 branch gets cut."
+307884_1,,,,,x,,Forgot ASF grant.
+319373_1,,,,,,,Duplicated here TAP5-1017
+322581_3,,,,,x,,It was my mistake.
+327900_1,,,,,x,,I'm sorry for making it confusing.
+337057_1,,,,,,,Fixed in nightly build 20020623.
+349845_2,,,,,,,The reason the tests weren't failing is because i was an idiot and hadn't configured the queryResultCache properly in the test configs.
+349845_3,,,,,,,"now that i've made the tests fail, i can finally start trying to figure out why the tests fail."
+351191_2,,,,,,,SOLR-5232: SolrCloud should distribute updates via streaming rather than buffering.
+362807_2,,,,,,,"Maybe instead of overlays, try configuring maven-war-plugin {{<packagingExcludes>}}: http://maven.apache.org/plugins/maven-war-plugin/examples/skinny-wars.html"
+363144_7,,,x,,,,"I wonder if we could do some sort of auto-detect
+
+I'll poke -- getStream().mark()/reset() can probably work for XML/JSON but it may break things for javabin
+"
+367902_1,,,,,,,"Erick,
+  First of all, anyone upgrading should examine CHANGES.txt which would certainly have a note on this explicitly in the upgrading section of that document."
+367902_2,,,,,,,"Secondly, most point-release upgrades people do are ones in which the config stays the same."
+367902_3,,,x,,,,"Thirdly, the scenario you present in which someone copies a subset of their 3.5 schema would only error if that person ALSO chose to omit the defaultSearchField declaration -- but why would they do that?"
+367902_4,,,,,,,"Besides, I don't think there should be any expectation of ""it'll just work"" if you copy some arbitrary subset of an old schema into a new example config."
+367902_6,,,,,,,"If that's true, it'd be nice if we had a standard way to annotate such code so we can methodically remove the old stuff."
+367902_7,,,,,,,"""@deprecated"" isn't enough because it's just at the method/class level, not an internal if branch."
+369046_1,,,,,,,"{quote}
+you lost me there ... they can use the exact same configs – that's kind of the point: testing the exact example configs as we ship them (with <lib/> declarations that point at dirs which may or may not contain jars depending on what contribs are built; and request handler / response writer declarations configured that use lazyloading to dynamic load things as needed."
+371904_1,,,,,,,Ah - i jumped the gun on you.
+371904_10,,,,,,,This has been the history of Lucene and the thing about the project that I admired most - heavy hands where checked at the door.
+371904_11,,,,,,,"I'm no angel, and I'm not perfect about this myself."
+371904_12,,,,,,,But I still try and police it because I think its important.
+371904_2,x,,,,,,That is useful advice (call me biased if you'd like).
+371904_3,,,,,x,,"Honestly, there is no way around this issue - of course we must discuss and come to some solution regarding Lucene/Solr at this point."
+371904_6,,,,,x,,"In the past, I have enjoyed working with everyone here."
+371904_7,,,,,,,My personal beef in this issue is not with that though - I simply am very offended by heavy handed reverts and such.
+371904_8,,,,,,,I feel the same way about JIRA.
+371904_9,,,,,,,Words before action in my book - many words - hard as that can be for all of us sometimes.
+400595_2,,,,,,,explanation on SM-623
+430584_2,,,,,,,Should this issue be closed?
+441150_1,,,x,,,,Didn't we just do this a month ago?
+463810_3,,,,,,,"Thus, the case is closed as non-reproducible."
+485193_1,,,,,,,The included things (usually chars or tokens) in the span are represented here as an interval and the end point is excluded.
+485193_2,,,,,,,"Have a look here:
+https://en.wikipedia.org/wiki/Interval_(mathematics)#Excluding_the_endpoints"
+485900_4,,,,,,,"If the dictionary were created with the flag to true, then all entries would use a case sensitive comparison."
+492465_2,,,,,,,This JIRA will be closed.
+510646_2,,,,,,,I think this is the third one you created in the same day?
+511125_1,x,,,,,,"HI Anahita,
+
+Your patch tested successfully."
+512297_1,,,x,,,,"Hi Amardeep,
+
+Are we sure that this does not introduce any side effects, regressions?"
+520534_1,,,,,,,"Hi Jacques,
+
+The http*.jar are Release 4.0."
+528244_2,,,,,,,So now I have convert again all the head3 to h3 and now seams to me better.
+568358_1,,,,,,,"hi charlie,
+
+if you request this feature for myfaces-core (the jsf impl itself), you have to file the issue at https://issues.apache.org/jira/browse/MYFACES
+
+regards,
+gerhard"
+571429_10,,,,,,,A message is already logged.
+571429_11,,,,,,,Continue processing is the right way i think.
+571429_2,,,,,,,@ 1.
+571429_4,,,x,,,,It's a feature which seems to be enabled by default.
+571429_5,,,,,,,Its implemented in a normal release.
+571429_7,,,,,,,@2.
+571429_8,,,,,,,"That would be a improvement in trinidad, but that doesn't solve the core problem in MyFaces."
+571429_9,,,,,,,@3.
+576635_2,,,,,,,I will make the change for 2.2.
+579540_2,,,,,,,That's why I need to ask questions now when I want to understand the current logic (as it is not logical for me).
+579540_4,,,,,,,If I put my hands in the code to fix stuff myself I will probably introduce something that is illogical for you (e.g.
+579540_5,,,,,,,"the logical solution to me was to add the methods to the interface) so I guess I did the right thing opening this bug and asking for your opinion and I can't accept your ""for the sake of sweet Jesus"" in reply."
+580699_4,,,,,,,"In many ways, I think that the support for 3rd part performance and health monitoring is already there."
+609839_2,,,,,x,,My misunderstanding.
+613205_10,,,,,,,5% seems pretty low.
+622456_1,,,,,,,We can use a BlockingQueue to make the patch simpler
+631497_4,,,,,,,I think we should distinguish between the two
+642894_2,,x,,,,,I think this is pretty close to being ready.
+643910_1,,,,,,,"{quote}
+viewColumn v.s."
+643910_5,,,,,,,"{quote}
+
+Neither of these produce a copy."
+655910_14,,,,,,,it's not a merge setting and I think it's rather confusing today since we take the merge setting and use it for indexing.
+661044_5,,,,,,,More tomorrow.
+661139_1,,,,,,,"Same for the settings.xml with cleartext password (this caused my initial 401 problem, no way in hell im leaving such a thing around on my computer)."
+661139_2,,,,,,,Maybe ant could read the password like it does for GPG and handle this for us?
+663103_4,,,,,,,Thats why I think its good to keep them (of course as short and minimal as possible).
+670169_6,,,,,,,"I think if you use either LogDoc/ByteSizeMergePolicy, forceMerge also
+does what it says."
+673988_4,,x,,,,,It's great to see you've gotten the ball rolling Chris.
+680798_23,,,,,,,"{quote}
+
+I fail to see why that is a bad thing if we're looking at the rare scenario of having to postpone the sorting decision to search time."
+681152_3,,,,,,,"If we're so bent on backcompat, I suggest deprecating one of these methods now and removing it in next major release."
+681354_3,,,,,,,"The patch also removes FreqProxMergeState, because we don't have to interleave posting lists from different threads anymore of course."
+681354_3,,,,,,,"The patch also removes FreqProxMergeState, because we don't have to interleave posting lists from different threads anymore of course."
+684394_3,,,,,,,"Easy to say we can come back to this, easy not to."
+691763_2,,,,,,,"ConstantScoreQuery and FilterQuery need to AND the filters
+  together."
+699597_17,,,,,,,It uses a parallel benchmark that roughly models what our real-life benchmark is like.
+704598_2,,x,,,,,"I'll be happy to edit the wiki when I get this
+resolved!"
+708322_3,,,,,,,"Too bad we don't have the power to do that... ;-)
+
+Here's what I think should be happening:
+
+Internally, absolutely everything should be handled UTF-8 for consistency's sake."
+711826_6,,,,,,,Nobody has any permissions unless explicitly granted.
+711848_5,,,,,,,"While I am not a spokesperson for my employer, by my
+assessment their interests are aligned with mine -- they sponsor my work, and
+as a consumer of the products that I contribute to, it would be bad for them
+if their investment were to be harmed."
+735158_6,,,,,,,and close this issue ?
+740211_1,,,x,,,,How should integer division work for decimals and floating point?
+740211_2,,,,,,,e.g.
+740211_3,,,,,,,should the following be true?
+740211_4,,,,,,,"4.5 quotient 1.5 => 3
+5.9 quotient 1.5 => 3
+"
+742851_7,,,,,,,"OFFSET X LIMIT N
+
+(slice X _
+  (top (N ...)
+    (...)
+  ))
+
+that is, put a slice over the ""top"" and apply the top to N+X."
+746297_20,,,,,,,I will make the change.
+784385_13,,,,,,,I think I would be happy with a process where a weinre build is kicked off for every commit to master.
+795061_1,,,,,,,"Hi,
+
+Could u please change the moderator of this list to,
+Davanum Srinivas : dims@apache.org
+
+Chamikara"
+799225_1,,,,,,,"Okay, ""unfortunately"" nothing  abnormal there."
+807596_1,x,,,,,,"Hi John,
+
+I would agree, using object notification is probably a cleaner way to do this."
+850349_9,,,,,,,"Otherwise, the constant will be converted
+  to DOUBLE."
+875830_2,,,,,,,"{quote}
+Dear Azuryy Yu,
+
+This message acknowledges receipt of your ICLA, which has been filed in the Apache Software Foundation records."
+890867_3,,,,,,,Contributed by Ashish Singhi.
+900441_1,,,,,,,It will be taken care as part of HADOOP-7642.
+921721_4,,,,,,,I think the rename should follow the same pattern.
+954089_6,,,,,,,"If so, make the formatting same as it is for rest of codebase on commit?"
+957374_1,,,,,x,,Which API at the thrift client you are referring?
+977944_2,,,,,,,Neither is the rest of this.
+980254_1,,,,,,,I'll make an updated patch.
+987792_3,,,,,,,I think this is what caught me the first time I tried this
+988452_2,,,,,,,I'm going to close this out.
+711843_1,,,,,,,"Marvin, I've clogged these lists too often today, so I'll just say this to you.
+"
+711843_2,,,,,,, Under copyright law there are several potential kinds of damages one can obtain for infringement.  
+711843_3,,,,,,,The only forms of damage that make practical litigation sense in the FOSS world are *statutory damages* and *attorney's fees*. 
+711843_4,,,,,,,"To obtain those kinds of damages, a copyright notice is required. "
+711843_5,,,,,,,"(There are other requirements for these types of damages also, all described in 17 USC 401 et seq.) OTOH, if you want to waste your time proving *actual infringement damages* for free software, don't bother with a notice, but also don't bother trying to find an attorney to argue your case.  "
+512383_1,,,,,,,Forgot to close
+1149971_1,,,,,,,I forgot to resolve this bug.
+1028436_4,,,,,,,I think there is enough there to close the issue.
+1530839_2,,,,,,,sigh.
+1410525_13,,,,,,,"CASE_SENSITIVE boolean=> TRUE
+   9."
+212942_1,,,,,,,"Ummm, did you forget to annex the patch Toby?"
+1320755_2,,,,,,,You cannot load classes from a bundle after the framework shuts down.
+1533424_3,,,,,,,"Of course, none that should really matter ."
+1659889_4,,,,,,,Of course this means that I can't compile/build the code using AxisRC3.
+579996_11,,,,,,,"Clearly, one Visitor interface just can't satisfy everyone."
+910759_5,,,,,,,This is going to be a big performance hit.
+352557_4,,,,,,,Committing shortly.
+948263_4,,,,,,,Any objections to committing the security.rb part from the trunk patch to the 0.95 branch now?
+248803_8,,,,,,,"Like skip.jar.loading= true
+once ---> Proposed behaviour."
+582733_1,,,,,,,Is not really needed I guess.
+953981_7,,,,,,,"Then, what's the story for code reuse for different flushers."
+997096_12,,,,,,,"""else { this.services.getAssignmentManager().assign(e.getKey(), true); }"" is called for another assignment."
+810726_1,,,,,,,OK.
+1216174_1,,,,,,,It is ok for goog.requires to be missing.
+1216174_3,,,,,,,It is not ok for the interface reference not be fully qualified.
+675571_1,,,,,,,"OK, done, added some more javadocs as well."
+681403_5,,,,,,,"), then I'm ok with that as well."
+253901_1,,,,,,,Ok.
+754664_1,,,,,,,OK to commit to 1.4.4
+904000_5,,,,,,,"Also, I find the name ""stillGoodJournals"" confusing, because when a journal was found to be bad, in the ""// do the sync"" block, it isn't removed from the ""stillGoodJournals"" list."
+948729_4,,,,,,,"With balancer initialy at true:
+{code}
+hbase@node3:~/hbase-0.94.3$ bin/graceful_stop.sh --restart --reload --debug node6
+Disabling balancer!"
+1468545_4,,,,,,,I just hope it does wait forever on sockets or anything stupid like that...  but we'll see.
+165429_10,,,,,,,"Unrelated, should the PBImpls be moved from yarn-api to yarn-common (They're private anyway)."
+165429_31,,,,,,,"Unrelated, should ApplcaitionTokenIdentifer be renamed to something like AMTokenIdentifier ?"
+914301_3,,,,,,,This also seems pretty reproducible.
+1412206_5,,,,,,,"if (!jj_semLA || jj_3R_60()) return true;
+    if (jj_3R_61()) return true;
+    return false;
+  }
+
+The simple fix could be to wrap the lookingAhead assignment  after the call within finally block."
+1400871_21,,,,,,,"The true
+  usages are found in calls to executeSubstatement now."
+801851_3,,,,,,,"But, even if it wasn't it would be totally worthless where it is at."
+1456980_1,,,,,,,@filipe I forgot the case where includes are in include/js (or mozjs).
+894752_2,,,,,,,"audit warning seems to be due to ""hadoop-hdfs-project/hadoop-hdfs-httpfs/dev-support/findbugsExcludeFile.xml"" 
+
+javadoc warnings also seem to be unrelated. "
+339913_2,,,,,,,"But, if the expression isgraph(wctob(wc)) evaluates to true
+(which cannot occur for wc == L' ' of course), then either iswgraph(wc) or iswprint(wc)
+&& iswspace(wc) is true, but not both."
+1379910_17,,,,,,,"If that's not true, then you can pretty
+much ignore everything in this particular comment..."
+1124113_2,,,,,,,It just depends upon how smart the plug in framework and the actual plug in is.
+1171690_5,,,,,,,"Plus, of course you don't have to hardcode the name of the jarfile."
+1148330_21,,,,,,,"Currently, we just assume it might be a laggard and thus isSlowTracker() will return true."
+439302_13,,,,,,,Rajith: This is actually not true.
+999470_1,,,,,,,"@ Thomas
+
+Your framework is available?"
+220343_1,,,,,,,The latest  patch for SimpleURIResolver and resolver framework.
+610778_1,,,,,,,"Matt, what's the cut-off date for providing a patch?"
+1471705_6,,,,,,,"br,
+Matt"
+523917_4,,,,,,,"*.. info.ftl might have confused you :)
+
+Divesh"
+1133185_1,,,,,,,> I'm confused.
+647874_1,,,,,,,Pretty fancy.
+629125_2,,,,,,,"Though it is still a possibility, it is pretty corner-case."
+1734902_1,,,,,,,I think there were a mistake.
+1013237_40,,,,,,,Of course this is debatable.
+1393183_2,,,,,,,"Of course, I have en_US for my locale."
+1462538_7,,,,,,,For testing purposes of course...  
+1473345_1,,,,,,,True enough....
+1191331_1,,,,,,,"This is also true for ""ACCT"", ""MLSD"", ""OPTS"" and ""REIN"""
+1088268_2,,,,,,,That is not true.
+185641_19,,,,,,,Default is true.
+252097_5,,,,,,,"Therefore Visa.matches() will now
+return ""true"" for Mastercards, too."
+916011_4,,,,,,,"Yes, that's true."
+927444_147,,,,,,,True.
+376487_1,,,,,,,Definitely true!
+1028804_2,,,,,,,Pull it back in if you think different.
+1354462_3,,,,,,,But that's of course completely unrelated to your patch.
+762102_1,,,,,,,"duplication of such a small amount of trivial code is far less evil than yet
+another dependency."
+1344288_1,,,,,,,"This might be a stupid comment but shouldn't ""keyDerivationeterceptor"" be ""keyDerivationInterceptor""?"
+808440_2,,,,,,,"HttpClient stock code is JDK 1.2
+compatible (hell 1.2 is old)."
+1029986_18,,,,,,,The first step is of course selling us through our site.
+1542459_1,,,,,,,"Brandon's pretty confident, but I'd rather not cram it into a minor release just in case there's something we missed.  "
+1494522_3,,,,,,,"I encounter the same NullPointerException in the 4.1.0 source code release, but currently I don't have a git 4.1 environment to verify it."
+921876_1,,,,,,,"Matt, are you still working on this?"
+1212414_2,,,,,,,"But in any case, please keep things simple and stupid :)
+
+"
+354030_1,,,,,,,"James, I think it is time to do some of the tasks that you have outlined and I'm willing to do the work."
+616442_11,,,,,,,I'm fairly convinced that signing is the only way to go without turning the knobs so far up that the AM is pretty useless (no images!
+1525684_2,,,,,,,Start an app with all network connections off and try to do a console.log(navigator.onLine) and it will return true.
+802775_3,,,,,,,Please do not forget about adding the ASL header to all new classes.
+422950_6,,,,,,,Matt
+426359_10,,,,,,,Matt
+563727_3,,,,,,,I will take this into account of course.
+642690_1,,,,,,,Ah of course.
+333667_5,,,,,,,"Are there other parts of your app that
+interact with or manipulate the ""course"" bean or its ""labKits"" collection?"
+247877_5,,,,,,,"The name for all of them was thus pretty obvious, except for engine.evaluate(...) and #evaluate(...)."
+1138883_2,,,,,,,Must have been confused.
+1142125_4,,,,,,,"Of course, that would be a separate bug..."
+797050_1,,,,,,,"Of course, I meant 2.1.8 beta, not 2.1.8 dev."
+1188068_7,,,,,,,This seems backward to me (but of course I'm no expert in this area).
+812311_2,,,,,,,Specially the framework.
+1079285_3,,,,,,,"This may fit for Pregel, but not for our Framework, since our communication is much more expensive."
+1043215_2,,,,,,,"Patch is pretty trivial, but gives +15% on MT/SerialBench on 2-core Core2."
+752788_1,,,,,,,"OK, works for me."
+948627_2,,,,,,,Please re-open if I'm confused.
+577959_2,,,,,,,I must admit I'm a little confused by this one.
+901480_2,,,,,,,You mixing fd and HostComparator confused me.
+974296_8,,,,,,,Otherwise the HTable and the HConnection will get very confused.
+291117_1,,,,,,,"Of course, there is no NotNullException."
+582041_2,,,,,,,"of course, it could be built on the fly..."
+697378_2,,,,,,,"Of course, this only applies if someone where to finish 831 and it where accepted..."
+183938_7,,,,,,,"Of course if you're writing your own serializer, it's your responsiblity to deal 
+with this appropriately."
+736235_23,,,,,,,After a while that .api package will get pretty crowded too.
+923019_2,,,,,,,I will post a new patch pretty soon.
+526030_1,,,,,,,"Framework translations in rev 701679.
+"
+806565_1,,,,,,,How about a slightly different take?
+797855_2,,,,,,,Damn copy/paste programming.
+753589_1,,,,,,,Pretty impressive.
+884638_2,,,,,,,"If so, that's a pretty bad admin experience."
+1180608_9,,,,,,,It seems pretty reliable.
+739574_14,,,,,,,"I think the ability to hotswap a valve or even an entire pipeline, real-time is pretty damn kewl!
+
+"
+1396355_1,,,,,,,"Well, your static analysis seems pretty persuasive to me."
+582207_1,,,,,,,What mocking framework should be used for the webui?
+1064886_7,,,,,,,The framework is incomplete without it.
+344362_1,,,,,,,"In revision 1064741, the framework is functional and activated for the enhancer."
+675492_4,,,,,,,"At least it was intuitive for me, and I am pretty new to all this."
+1027863_2,,,,,,,Is there a way to stop the hbase with the regionserver dead?
+142826_1,,,,,,,"If I am not wrong, the follower that is stuck never accepts the leadership of the Leader in the ensemble, because it is an established ensemble and it sees no quorum in it."
+934190_2,,,,,,,The 0.95 branch is dead and defunct.
+305075_4,,,,,,,"I'm assuming it's bytes since the variables are named 'buf', as opposed to the 'str' names used in the protocol APIs, but want to double-check."
+1629813_2,,,,,,,But I didn't get any memory errors.
+1110621_4,,,,,,,It was confusing for me too.
+371565_1,,,,,,,Hmmm... confusing.
+525362_4,,,,,,,"Doing things based on an organizationPartyId associated with the user is BAD BAD BAD, and basically kills the multi-organization support in OFBiz."
+1195552_1,,,,,,,I deleted the original attached files because they contain company informations that I'm not allowed to disclose.
+942970_16,,,,,,,So I'm totally +1 for the HBASE-8723 patch.
+1010631_15,,,,,,,The verification of state over in timeout monitor before acting is another aspect?
+544748_3,,,,,,,The number of failed tests is pretty high compared to last time's performance (67 bad vs 3 last time).
+559554_2,,,,,,,Too late I'm away to bed and have lost concentration.
+746320_6,,,,,,,Converting to a double[ ] is where the precision is lost.
+691777_3,,,,,,,"And PayloadTermQuery lost an ""if (includeSpanScore)""?"
+706410_3,,,,,,,I'll have to bisect the revision since when it is broken and this could take some time.
+255447_1,,,,,,,The CDE is using the base UIMA framework to get the metadata.
+720901_17,,,,,,,"However I'd be interested if later, this functionality can also be used by ServiceMix, i.e."
+368737_2,,,,,,,It's named .gitignore which may be confusing.
+918780_3,,,,,,,The original replica of RUR may in finalized state.
+1409700_7,,,,,,,I just noticed that!)
+1453222_1,,,,,,,"volatile prevents the variables from being cached in the registers and creates a memory barrier, so that's not that surprising to see an impact on the performances."
+1321602_1,,,,,,,The Felix framework does not support exporting/importing the default package.
+507011_1,,,,,,,Yep my bad too - I didn't look and was just guessing at what the problem was.
+483210_6,,,,,,,"- the computedHashCode() didn't use the a single ""qualifier"", now it does."
+255447_3,,,,,,,"Even during the full-blown ""validation"" of the descriptors (done just before ""saving""), the CDE is invoking the base UIMA framework in  special mode to prevent instantiation."
+906649_3,,,,,,,"Move startTime from DecommingStatus to DatanodeDescriptor so startTime could be used to represent either decommissioning or dead start time;
+2."
+1583673_2,,,,,,,"once this error occurs, the route cannot be used any more."
+725456_3,,,,,,,However controller passing live brokers minus shutting down brokers as live leaders in the LeaderAndIsrRequest sounds like a premature optimization and a bug.
+202285_1,,,,,,,The memory stream transformation core-dump was the same case (rb_tree - erase).
+1399966_4,,,,,,,"However, the statement still performs a full scan of SUMMA_RECORDS, which sounds sub-optimal."
+413737_3,,,,,,,> Actually I just noticed something when trying to commit.
+237419_1,,,,,,,Wicket 6 now features an experimental module that integrates the Atmosphere framework (wicket-atmosphere).
+583240_26,,,,,,,Then the algorithm gets lost as it did not expect this discontinuity.
+1021722_2,,,,,,,A single table could be made up of many thousands even hundreds of thousands of regions?
+989452_1,,,,,,,"bq.In order to maintain different states at which we are in while creating table should we go for a special node under the table znode or can we add new states to the existing table states like (DISABLING, ENABLING, DISABLED etc)
+IMO go with separate node."
+366820_1,,,,,,,Some further bug tracing shows that pdfbox' RandomAccessBuffer is responsible for the Out of Memory error.
+1019790_1,,,,,,,"#2 wontbe so bad... filters are pretty deep and will be just as efficient as
+hacking scan query Matcher I think."
+590292_19,,,,,,,"Maybe you want to do shuffle in this way: Firstly, copying remote map outputs and store the shuffled segments into memory as usual."
+801620_6,,,,,,,The outer read can continue for a much longer period of time.
+1389191_4,,,,,,,"The fix is only disabled on releases prior to 10.8.2, on the assumption that the fix gets into the upcoming 10.8.2 release."
+1539141_7,,,,,,,Note that I wouldn't be totally opposed on adding additional support for the dot notation on inserts (provided all fields are indeed given) for symmetry/convenience.
+1732312_3,,,,,,,I don't know that there's an alternative that would be less invasive than reverse logical time.
+660357_16,,,,,,,"I don't quite see why the attached implementation would do more heap operations, but I agree that it could be slower due to lengthier/more complex loops, a few more if statements etc."
+306574_2,,,,,,,So what this patch does is totally revamps the makefiles for erlang.
+1415533_4,,,,,,,"If I get to this first I will make the ""frameworks"" fix as well."
+906649_5,,,,,,,Show time since declared as dead on the deadnode web UI.
+583240_34,,,,,,,"just
+after the event) is the opposite of the sign just before the event."
+177189_6,,,,,,,The times will be grep'ed and used for inspection in Excel.
+513172_7,,,,,,,"Unfortunately, the xml parser in use is event based, in the wrong direction(push instead of pull), so the bulk of the change is flipping that around."
+1609208_5,,,,,,,"2) The ZKVersion used in the <topic,region> map is used to guard against the case different hub-server use the map at the same time (or interleaved)."
+575940_2,,,,,,,"html/ext/HtmlInputHiddenTag.java is pretty simple, all of the functionality is in its base class. "
+797295_2,,,,,,,"Do you have a different desired text change, or is it dead?"
+696894_1,,,,,,,"gcc 4.3.1 is out since June 2008, so the workaround is no longer needed."
+1702700_2,,,,,,,"The KahaDBStore.getDestinations() method looks as though it would be pretty heavy, performance wise."
+286639_2,,,,,,,"Tag is documented and demo'd, but does need a Facelets tag."
+363045_10,,,,,,,I would rather state that most Java libraries *do* care about Maven.
+910039_2,,,,,,,"Shouldn't it have looked at fstime across the directories, seen dir2's higher fstime, and used that one?"
+1117375_11,,,,,,,"Maybe we're stuck with it until log4j fixes its dependencies?
+"
