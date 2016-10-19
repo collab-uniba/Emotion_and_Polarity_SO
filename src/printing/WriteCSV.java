@@ -21,11 +21,11 @@ public class WriteCSV {
     public void writeCsvFile(String outputName,List<models.Document> group)  {
         List<DatasetRow> list = new ArrayList<>();
         List<String> header= new ArrayList<>();
-        header.add("ID");
-        String[] HEADERS={"LOVE","JOY","SURPRISE","ANGER","SADNESS","FEAR"};
+        header.add("id");
+        String[] HEADERS={"love","joy","surprise","anger","sadness","fear"};
         Collections.addAll(header,HEADERS);
-        header.add("LABEL");
-        header.add("COMMENT");
+        header.add("label");
+        header.add("comment");
 
         for (Document d:group) {
             DatasetRow dr = new DatasetRow.DatasetRowBuilder()
@@ -45,7 +45,7 @@ public class WriteCSV {
         FileWriter fileWriter = null;
         CSVPrinter csvFilePrinter = null;
         // Create the CSVFormat object with "\n" as a record delimiter
-        CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(';');
+        CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(',');
 
         try {
 
@@ -94,12 +94,12 @@ public class WriteCSV {
     public void writeCsvFile_withoutValues(String outputName,List<models.Document> group)  {
         List<DatasetRow> list = new ArrayList<>();
         List<String> header= new ArrayList<>();
-        header.add("ID");
-        header.add("COMMENT");
-        header.add("LABEL");
+        header.add("id");
+        header.add("comment");
+        header.add("label");
 
         for (Document d:group) {
-            if(!d.getFinaLabel().equals("MIXED")) {
+            if(!d.getFinaLabel().equals("mixed")) {
                 DatasetRow dr = new DatasetRow.DatasetRowBuilder()
                         .setId(d.getId())
                         .setComment(d.getComment())

@@ -1,15 +1,17 @@
 package models;
 
+import java.util.Arrays;
+
 /**
  * Created by Francesco on 13/10/2016.
  */
-public class Document {
+public class Document implements Comparable<Object>{
     private String comment;
     private String id;
     /*ORDINE LABEL : LOVE, JOY,SURPRISE,ANGER,SADNESS,FEAR*/
     private String[] sentiments;
     private String finaLabel;
-    private enum label{POSITIVE,NEGATIVE,NEUTRAL,MIXED};
+    private enum label{positive,negative,neutral,mixed};
     public String getId(){
         return id;
     }
@@ -19,6 +21,7 @@ public class Document {
     public String getFinaLabel(){
         return finaLabel;
     }
+
 
     public String get_Love(){
         return sentiments[0];
@@ -66,21 +69,42 @@ public class Document {
     */
     private void setFinaLabel() {
         if(get_anger__sadness_fear() && !get_love_joy()){
-            finaLabel=label.NEGATIVE.toString();
+            finaLabel=label.negative.toString();
         }
         else
             if(get_love_joy() && !get_anger__sadness_fear()){
-                finaLabel=label.POSITIVE.toString();
+                finaLabel=label.positive.toString();
             }
         else
             if(get_love_joy() && get_anger__sadness_fear()){
-                finaLabel=label.MIXED.toString();
+                finaLabel=label.mixed.toString();
             }
         else
             if(!(get_love_joy() && get_anger__sadness_fear())){
-                finaLabel=label.NEUTRAL.toString();
+                finaLabel=label.neutral.toString();
             }
     }
 
 
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof  Document){
+            Document d= (Document) o;
+            int id1= Integer.parseInt(id);
+            int id2= Integer.parseInt(d.getId());
+            if(id1>=id2){
+                return 1;
+            }
+            if(id1<id2) {
+                return -1;
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return id;
+    }
 }

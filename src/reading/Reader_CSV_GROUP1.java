@@ -29,19 +29,35 @@ public class Reader_CSV_GROUP1 {
                 int[] arr = new int[6];
                 Document dc = new Document();
                 CSVRecord r = list.get(i);
-                if (group.equals("group1")){
-                    for (int j = 0; j <= 3; j++) {
-                        update_Annotations(r, arr);
-                        int s = j;
-                        s++;
-                        if (s < 4) {
-                            i++;
-                            if (i < list.size() - 1)
-                                r = list.get(i);
+                switch (group) {
+                    case "group1":
+                        for (int j = 0; j <= 3; j++) {
+                            update_Annotations(r, arr);
+                            int s = j;
+                            s++;
+                            if (s < 4) {
+                                i++;
+                                if (i < list.size() - 1)
+                                    r = list.get(i);
+                            }
                         }
-                    }
+                        break;
+                    case "group2_special":
+                        for (int j = 0; j <= 2; j++) {
+                            update_Annotations(r, arr);
+                            int s = j;
+                            s++;
+                            if (s < 3) {
+                                i++;
+                                if (i < list.size() - 1)
+                                    r = list.get(i);
+                            }
+                        }
+                        break;
+                    default:
+                        update_Annotations(r, arr);
+                        break;
                 }
-                update_Annotations(r,arr);
                 dc.setId(r.get("id"));
                 if (group.equals("group2") || group.equals("group3")) {
                     String s= r.get("comment").replaceAll("\n", "");
@@ -50,7 +66,7 @@ public class Reader_CSV_GROUP1 {
                     dc.setSentiments(results_From_Annotations(arr, 1));
                 }
                 else
-                    if(group.equals("group1")){
+                    if(group.equals("group1") || group.equals("group2_special")){
                         dc.setComment(r.get("comment"));
                         dc.setSentiments(results_From_Annotations(arr, 2));
                 }
