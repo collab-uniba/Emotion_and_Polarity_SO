@@ -108,9 +108,20 @@ import java.util.List;
 		}
 
 		  DatasetRowBuilder  setComment(String comment) {
-			this.comment=comment;
-			return this;
-		}
+			 this.comment=comment;
+			 return this;
+		 }
+		 DatasetRowBuilder  setIdCommentLabel(String id,String comment,String label) {
+			 this.comment=comment;
+			 this.id=id;
+			 this.label=label;
+			 return this;
+		 }
+		 DatasetRowBuilder  setCommentLabel(String comment,String label) {
+			 this.comment=comment;
+			 this.label=label;
+			 return this;
+		 }
 		 DatasetRow build() {
 			return new DatasetRow(this);
 		}

@@ -13,7 +13,7 @@ import java.util.List;
  * Legge  i documenti dal file csv;
  */
 
-public class Reader_CSV_GROUP1 {
+public class ReaderCSV {
 
    public List<Document> create_dcs_from_File(String group,String pathFile,List<Document> l) {
        Reader in = null;
