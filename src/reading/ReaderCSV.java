@@ -60,8 +60,8 @@ public class ReaderCSV {
                 }
                 dc.setId(r.get("id"));
                 if (group.equals("group2") || group.equals("group3")) {
-                    String s= r.get("comment").replaceAll("\n", "");
-                    s=s.replaceAll("\r","");
+                    String s= r.get("comment").replaceAll("\n", " ");
+                    s=s.replaceAll("\r"," ");
                     dc.setComment(s);
                     dc.setSentiments(results_From_Annotations(arr, 1));
                 }

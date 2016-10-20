@@ -2,10 +2,7 @@
 import printing.WriterCSV;
 import reading.ReaderCSV;
 import models.Document;
-import utils.Utility;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -67,10 +64,8 @@ public class main {
         }
         //writing total complete Group1, 2 and 3 .csv
         new WriterCSV().writeCsvFile(args[args.length - 1] + "_OrtuEtAl"+ FORMAT,documentsFinal,HEADERS2,true,';',true);
-        Utility u= new Utility();
-        for(Document d:documentsFinal)
-            d.setComment(u.removeUrl(d.getComment()));
-        new WriterCSV().writeCsvFile(args[args.length - 1] + "_OrtuEtAl_withoutURL"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
+        new WriterCSV().writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
+
     }
 }
 
