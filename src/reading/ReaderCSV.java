@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ReaderCSV {
 
-   public List<Document> create_dcs_from_File(String group,String pathFile,List<Document> l) {
+   public List<Document> create_dcs_from_File(String group, String pathFile, List<Document> l) {
        Reader in = null;
        try {
             in = new FileReader(pathFile);
@@ -58,7 +58,7 @@ public class ReaderCSV {
                         update_Annotations(r, arr);
                         break;
                 }
-                dc.setId(r.get("id"));
+                dc.setId(r.get(0));
                 if (group.equals("group2") || group.equals("group3")) {
                     String s= r.get("comment").replaceAll("\n", " ");
                     s=s.replaceAll("\r"," ");

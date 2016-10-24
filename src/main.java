@@ -2,6 +2,10 @@
 import printing.WriterCSV;
 import reading.ReaderCSV;
 import models.Document;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -66,6 +70,21 @@ public class main {
         new WriterCSV().writeCsvFile(args[args.length - 1] + "_OrtuEtAl"+ FORMAT,documentsFinal,HEADERS2,true,';',true);
         new WriterCSV().writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
 
+        File inputTokenized = new File(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT);
+        FileWriter fw = new FileWriter(inputTokenized);
+        System.out.println("Tokenizing input corpus ...");
+        PTBTokenizer<CoreLabel> ptbt = new PTBTokenizer<>(new FileReader(param[0]), new CoreLabelTokenFactory(),
+                "ptb3Escaping=false,untokenizable=allKeep,tokenizeNLs=true");
+        while (ptbt.hasNext()) {
+            CoreLabel label = ptbt.next();
+            String s = String.valueOf(PTBTokenizer.getNewlineToken());
+            if (String.valueOf(label).equals(s))
+                fw.append(System.lineSeparator());
+            else
+                fw.append(label + " ");
+        }
+        fw.flush();
+        fw.close();
     }
 }
 
