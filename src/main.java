@@ -83,7 +83,7 @@ public class main {
         for(Document d:documentsFinal){
             if(i<onlyComments_withoutURL.size()-1){
                 Document d1=onlyComments_withoutURL.get(i);
-                d1.setComment(d1.getComment());
+                d.setComment(d1.getComment());
                 i++;
             }
         }

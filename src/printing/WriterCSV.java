@@ -167,7 +167,7 @@ public class WriterCSV {
          else if(!label.equals("") && !comment.equals("")){
              dr = new DatasetRow.DatasetRowBuilder().setCommentLabel(d.getComment(),d.getFinaLabel()).build();
          }
-         else if( !comment.equals("")){
+         else if(!comment.equals("")){
              dr = new DatasetRow.DatasetRowBuilder().setComment(d.getComment()).build();
          }
         list.add(dr);
@@ -183,11 +183,19 @@ public class WriterCSV {
                     "ptb3Escaping=false,untokenizable=allKeep,tokenizeNLs=true");
             while (ptbt.hasNext()) {
                 CoreLabel label = ptbt.next();
+
                 String s = String.valueOf(PTBTokenizer.getNewlineToken());
                 if (String.valueOf(label).equals(s))
                     fw.append(System.lineSeparator());
-                else
-                    fw.append(label + " ");
+                else{
+                    if(String.valueOf(label).charAt(0)=='"') {
+                        label.setValue("");
+                        fw.append(label + " ");
+                    }
+                    else
+                        fw.append(label + " ");
+                }
+
             }
             fw.flush();
             fw.close();

@@ -9,7 +9,6 @@ import utility.Utility;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-//group3 4 res/Sen_withEmo_tr_an.csv res/Sen_withEmo_tr_joy.csv res/Sen_withEmo_tr_love.csv res/Sen_withEmo_tr_sadness.csv output
 
 /**
  * Legge  i documenti dal file csv;
