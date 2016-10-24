@@ -81,10 +81,10 @@ public class main {
         onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_TOKENIZED"+FORMAT));
         int i=0;
         for(Document d:documentsFinal){
-            while(i<onlyComments_withoutURL.size()-1){
-                d.setComment(onlyComments_withoutURL.get(i).getComment());
+            if(i<onlyComments_withoutURL.size()-1){
+                Document d1=onlyComments_withoutURL.get(i);
+                d1.setComment(d1.getComment());
                 i++;
-                break;
             }
         }
         wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL"+FORMAT,documentsFinal,HEADERS4,true,';',false);
