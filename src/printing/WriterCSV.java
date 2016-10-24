@@ -1,11 +1,16 @@
 package printing;
 
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.process.CoreLabelTokenFactory;
+import edu.stanford.nlp.process.PTBTokenizer;
 import models.Document;
 
 import models.Document;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +28,7 @@ public class WriterCSV {
         list=new ArrayList<>();
         if(withoutMixed) {
            for (Document d : documents) {
-               if ( !d.getFinaLabel().equals("mixed"))
+               if (d.getFinaLabel()!=null && !d.getFinaLabel().equals("mixed"))
                    build_Row(d,column);
            }
          }
@@ -162,8 +167,35 @@ public class WriterCSV {
          else if(!label.equals("") && !comment.equals("")){
              dr = new DatasetRow.DatasetRowBuilder().setCommentLabel(d.getComment(),d.getFinaLabel()).build();
          }
+         else if( !comment.equals("")){
+             dr = new DatasetRow.DatasetRowBuilder().setComment(d.getComment()).build();
+         }
         list.add(dr);
     }
+
+    public void writeTokenized(String file,String format) {
+        File inputTokenized = new File(file+"_TOKENIZED"+format);
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(inputTokenized);
+            System.out.println("Tokenizing input corpus ...");
+            PTBTokenizer<CoreLabel> ptbt = new PTBTokenizer<>(new FileReader(file+format), new CoreLabelTokenFactory(),
+                    "ptb3Escaping=false,untokenizable=allKeep,tokenizeNLs=true");
+            while (ptbt.hasNext()) {
+                CoreLabel label = ptbt.next();
+                String s = String.valueOf(PTBTokenizer.getNewlineToken());
+                if (String.valueOf(label).equals(s))
+                    fw.append(System.lineSeparator());
+                else
+                    fw.append(label + " ");
+            }
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

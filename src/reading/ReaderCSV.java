@@ -2,7 +2,9 @@ package reading;
 
 import models.Document;
 import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import utility.Utility;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -109,5 +111,33 @@ public class ReaderCSV {
             else b[i]=" ";
         }
         return b;
+    }
+
+    public List<Document> read_Tokenized_remove_Url(String pathFile){
+        Utility u = new Utility();
+        FileReader in = null;
+        List<Document> l=new ArrayList<>();
+        try {
+            in = new FileReader(pathFile);
+            CSVFormat format =  CSVFormat.EXCEL.withQuote(';');
+            CSVParser csvFileParser = new CSVParser(in, format);
+            List<CSVRecord> csvRecords = csvFileParser.getRecords();
+            for (CSVRecord csvRecord : csvRecords) {
+                Document d= new Document();
+                d.setComment(u.removeUrl(csvRecord.get(0)));
+                l.add(d);
+            }
+            csvFileParser.close();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+            in.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return l;
     }
 }

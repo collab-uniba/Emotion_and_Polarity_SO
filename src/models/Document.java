@@ -85,6 +85,10 @@ public class Document implements Comparable<Object>{
             }
     }
 
+    public void setFinaLabel(String l){
+        this.finaLabel=l;
+    }
+
 
 
     @Override
