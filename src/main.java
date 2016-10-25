@@ -1,16 +1,8 @@
 
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.process.CoreLabelTokenFactory;
-import edu.stanford.nlp.process.PTBTokenizer;
 import printing.WriterCSV;
 import reading.ReaderCSV;
 import models.Document;
 import utility.Utility;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -74,20 +66,24 @@ public class main {
             start = max + 2;
         }
         //writing total complete Group1, 2 and 3 .csv
+        Utility u = new Utility();
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl"+ FORMAT,documentsFinal,HEADERS2,true,';',true);
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
         wr.writeTokenized(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD",FORMAT);
         List<Document> onlyComments_withoutURL= new ArrayList<>();
         onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_TOKENIZED"+FORMAT));
         int i=0;
-        for(Document d:documentsFinal){
+        System.out.println("doc final "+ documentsFinal.size());
+        System.out.println(" " + onlyComments_withoutURL.size());
+        for(int j=0;j<documentsFinal.size()-1;j++){
             if(i<onlyComments_withoutURL.size()-1){
                 Document d1=onlyComments_withoutURL.get(i);
-                d.setComment(d1.getComment());
+                documentsFinal.get(j).setComment(d1.getComment());
                 i++;
             }
         }
-        wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL"+FORMAT,documentsFinal,HEADERS4,true,';',false);
+        wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL"+FORMAT,documentsFinal,HEADERS4,false,';',true);
+
     }
 }
 

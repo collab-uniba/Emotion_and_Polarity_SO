@@ -975,5 +975,240 @@ after the event) is the opposite of the sign just before the event."
 286639_2,,,,,,,"Tag is documented and demo'd, but does need a Facelets tag."
 363045_10,,,,,,,I would rather state that most Java libraries *do* care about Maven.
 910039_2,,,,,,,"Shouldn't it have looked at fstime across the directories, seen dir2's higher fstime, and used that one?"
+1573053_3,,,,,,,"> The modified test (below) gets stuck in an infinite loop
+
+Your test is buggy."
+1556367_1,,,,,,,I have tried using Snappy{Input/Output}Stream and they don't work (it just throws EOFException in the middle of the transfer) and causes stream to retry.
+754726_5,,,,,,,this is IMO a regression since i am pretty sure it used to throw an InvalidItemStateException in the past.
+464299_1,,,,,,,I'll take a look at where the framework should call it.
+1393274_12,,,,,,,"Similarly, one can use the
+overview of FD:OCA below and the introductory section of its respective volume and only ** refer
+to the details of the FD:OCA constructs as needed during implementation."""
+1601974_1,,,,,,,Didn't see the selector the first time round.
+1553464_1,,,,,,,This is pretty interesting.
+376613_1,,,,,,,Doh!
+1317984_2,,,,,,,We do not use a framework.
+1555791_1,,,,,,,doh fixed braces
+1388932_13,,,,,,,"I will appreciate if anyone knows of a way of doing that in junit framework.
+
+"
+1465721_1,,,,,,,"If you are stuck with solr 4.0 alpha, here's a patch which may work.
+"
+622818_2,,,,,,,This patch also adds the new resource emulation framework to GridMix.
+1177358_1,,,,,,,We need verify all the links and buttons in console to ensure the fix.
+1675227_3,,,,,,,"avro-mapred -- we might end up with avro-mapreduce as well for the newer api, so I stuck with the package name of the hadoop api. "
+403321_1,,,,,,,Sounds reasonable.
+1158760_1,,,,,,,This sounds reasonable to me.
+809661_7,,,,,,,"Content-wise the only part that stuck out to me was the inclusion of the many exceptions that users 
+will never see."
+305688_1,,,,,,,"It's unfortunate that there's a lot of code duplication, but it might be best that way."
+146057_1,,,,,,,Sounds reasonable to me given it's a standalone (debug) utility.
+390184_4,,,,,,,"It is a little weird since the multi-core aspect would only be usable programatically, but that will make it possible to easily bat around a 'core manager' and http design."
+992380_17,,,,,,,"Can't be avoided though given what is going on here.
+
+
+
+
+
+
+"
+1712919_2,,,,,,,Pretty much the same stack trace.
+1609739_3,,,,,,,I don't want to pull the whole patch though.
+1321099_7,,,,,,,"However, the NPE in the framework is still an issue even if it happens when there is a ""user error""."
+742814_3,,,,,,,"Moreover, there must be something going wrong in relation to the SPO index, an exception is thrown:
+
+ERROR **** Not the root: 11264
+com.hp.hpl.jena.tdb.index.bplustree.BPTreeException
+	at com.hp.hpl.jena.tdb.index.bplustree.BPlusTreeRewriter.packIntoBPlusTree(BPlusTreeRewriter.java:78)
+	at com.hp.hpl.jena.tdb.store.bulkloader2.CmdTDBLoader2.createBPlusTreeIndex(CmdTDBLoader2.java:224)
+	at com.hp.hpl.jena.tdb.store.bulkloader2.CmdTDBLoader2.exec(CmdTDBLoader2.java:166)
+	at arq.cmdline.CmdMain.mainMethod(CmdMain.java:85)
+	at arq.cmdline.CmdMain.mainRun(CmdMain.java:47)
+	at arq.cmdline.CmdMain.mainRun(CmdMain.java:34)
+	at com.hp.hpl.jena.tdb.store.bulkloader2.CmdTDBLoader2.main(CmdTDBLoader2.java:95)
+
+I don't see why, at the moment."
+689231_3,,,,,,,Back-compat Lucene-style and agile design aren't something that marries well.
+216813_1,,,,,,,We are currently stuck with this issue?
+1159035_2,,,,,,,Specifically the existing framework only lets us plug-in custom compress/decompress 'streams' (e.g.
+239226_4,,,,,,,"If you really don't want such a link, you could always hide it with CSS.
+
+"
+1559316_5,,,,,,,"DROP INDEX <INDEX_NAME>
+
+making this the only option right now would suck because we don't auto-generate an index name when none is provided."
+1507231_3,,,,,,,"There are just too many checks there, that Click is not using, and we can't just use them all (many don't make sense to Click at all) :)."
+604249_1,,,,,,,"I'm not against fixing the CS, I just want to ensure we do the 'right' fix."
+399155_2,,,,,,,"That's why, I'm going to use easymock as SMSC simulator."
+319666_1,,,,,,,Downgrading this as it is probably user error (rather than an explicit bug in the framework).
+1538306_1,,,,,,,This was fixed Cassandra-side for 2.0 in CASSANDRA-5702 but the fix was pretty heavyweight and backporting to 1.2.x is not an option.
+784662_1,,,,,,,#NAME?
+650880_13,,,,,,,Nothing stops a slightly evil user to use a NoLock to wreak havoc in the index.
+1685724_1,,,,,,,I pretty much have this working.
+710558_1,,,,,,,"Please use git diff to generate patch, because I can't easily apply git patch on a svn tree."
+159912_10,,,,,,,Does that sound like a reasonable plan going forward?
+145396_1,,,,,,,"I won't intrude on the design discussion, sounds good."
+945969_2,,,,,,,It can't have been this way always?
+213838_1,,,,,,,Fixed using the new injection framework and xwork configuration design.
+686364_1,,,,,,,"Patrick,
+
+I can't manage to reproduce this error."
+997564_11,,,,,,,"Otherwise we would be storing the bytes-per-checksum field but not actually using it, which would be really confusing."
+707693_3,,,,,,,if it gets started at all.
+1540657_1,,,,,,,"[~jbellis] The weird thing is that although *newSSTables.size() != newSSTablesSize* the assertion doesn't actually cause an error, so no stack trace, but swapping the assertion (as shown below) yields the stack trace below."
+1032208_3,,,,,,,J-D gave my patch a review and said fine except for some line-lengths which I've fixed.
+706069_17,,,,,,,"To be quite blunt guys, your log4net logger methods smell bad."
+940420_3,,,,,,,We've been passing builds pretty regular now so if this a problem it should start showing prominently.
+1118772_2,,,,,,,You just need to remember to put the expected first in the assertion or it gets confusing
+171715_15,,,,,,,"That can't be expressed with a static suffix, but it's easily expressed with a regex."
+689231_13,,,,,,,I'm not sure this can't be achieved without messing with IR/W guts so much.
+185903_2,,,,,,,"2.8.0 is no longer supported so even if there is a bug, it won't be fixed in 2.x.y release series."
+850737_9,,,,,,,"In TestCliDriver, create_view.q and udaf_percentile_approx.q are two weird queries."
+1469318_2,,,,,,,By passing in the section name {{null}} the content of the global section can be retrieved.
+1682390_4,,,,,,,"I would have checked it in directly, but there were some aspects  that I didn't care for but couldn't seem to get around."
+532018_1,,,,,,,Submit a patch and I'll play with it.
+1328783_2,,,,,,,Please play around with it.
+1461896_2,,,,,,,But I'd have to play with it some to see for certain.
+180534_8,,,,,,,"This is to say, that we've a pretty good coverage of IDC ""keyref"" use cases."
+1339064_2,,,,,,,After moving it to a local disk I can't reproduce it anymore.
+372478_1,,,,,,,click the subversion commits tab.
+316006_1,,,,,,,I just realized I never really explained the original problem that led me to making these fixes.
+1498336_3,,,,,,,So this is by design.
+1557075_2,,,,,,,We can borrow some design techniques etc.
+475198_1,,,,,,,+1 For this new design.
+689050_7,,,,,,,"I don't know what Lucene's
+position is on Maven, but am interested pursuing whatever makes
+sense."
+1500121_1,,,,,,,"Marcus, that sounds sensible."
+922638_8,,,,,,,I think MINA is more of a 'server framework' rather than an 'NIO framework'.. it is so close to being both.
+429350_10,,,,,,,"Perhaps this should be item #0, decide whether we want to work with Maven or Gradle."
+1109060_7,,,,,,,All other log frameworks do this)
+1539509_1,,,,,,,Is there a way to fetch a pull request?
+1467086_2,,,,,,,Please pull it up to the release branch.Thank you!
+956141_12,,,,,,,Will pull that into the 2.0.4-alpha branch.
+694225_3,,,,,,,Maybe something silly is going one.
+1610758_3,,,,,,,"For the first part, I got stuck on two points."
+290420_3,,,,,,,You really shouldn't call one without the other.
+674342_5,,,,,,,"filtering hooked up through Solr already and it would be dead simple to bring in here, too, but it would fit nicely in this framework."
+501425_32,,,,,,,Every framework will benefit from that!
+500953_21,,,,,,,"* Framework for JMS, db access can be reused."
+1328868_2,,,,,,,:org.osgi.compendium-1.0.1artifact and felix-1.0.4 framework
+1565828_1,,,,,,,CFS.gRS is a pretty thin layer over RowIterator.
+526352_1,,,,,,,"this pretty much explains the three imports.
+"
+461542_4,,,,,,,It is pretty close to what you are proposing.
+1597286_1,,,,,,,Oh and not to forget.
+795902_2,,,,,,,Jerermy is the sole subscriber/moderator and can take care of adding other subs.
+892542_4,,,,,,,Pretty much every deserialization error shows up as an IOException.
+502566_2,,,,,,,"Are you planning on doing this (or already have done this), or would you like me to do it?  "
+915373_1,,,,,,,"Doug, you defined:
++public interface NamenodeProtocols
++  extends ClientProtocol,
++          DatanodeProtocol,
++          NamenodeProtocol,
++          RefreshAuthorizationPolicyProtocol,
++          RefreshUserToGroupMappingsProtocol { ...}
+
+Will this prevent us from putting the DatanodeProtocol in a different port?"
+871077_2,,,,,,,But would there be other cases that the writer stuck for different reasons?
+544981_2,,,,,,,"However, given the factored out code is pretty trivial I decided to duplicate it in favour of not adding another set of classes along with the additional complexity introduced (e.g."
+788835_2,,,,,,,"There is a single directory, ~apbackup/remotelybackedup, and anything symlinked to there gets backed up, as documented in the README."
+1545644_1,,,,,,,"Jeremy, are you still planning to take a stab at this?"
+519215_2,,,,,,,"Nothing gets broken, but we have one more step towards framework independence."
+673410_7,,,,,,,We won't find the same group in a different segment.
+684599_2,,,,,,,"Will commit in a few days (to the heavy committing branch) if no one objects.
+"
+351186_1,,,,,,,This patch takes care of the nocommits in the previous patch.
+545785_1,,,,,,,I'll take care of this.
+711989_1,,,,,,,is anybody taking care of this?
+654312_7,,,,,,,There's a TODO which I'll take care of before merging to 4x (there are other renames too).
+1140998_6,,,,,,,That would take care of most cases.
+284920_2,,,,,,,"Yet, now one must care for the relative ordering in between both icons, too."
+1120116_7,,,,,,,"And it also will add a lot of complexity to the framework development/maintenance. 
+
+"
+1618628_1,,,,,,,Adding a different patch.
+1161182_8,,,,,,,"However, if the implementation of next is not capable of handling bad records, then it is most likely going to throw an exception, and, the proposal in this jira for handling bad input starts with that assumption."
+1471181_6,,,,,,,I imagine that if 7-Zip can do this decryption then the encryption mechanism I seek is not forbidden by licensing restrictions.
+742953_4,,,,,,,"Also, I won't give you a patch next time, but just the whole new TestTransSystem."
+575032_5,,,,,,,"That said, I had to do something similar in configurators, and I did this by adding wrappers to the getInitParameter."
+489830_2,,,,,,,"Therefore, it can no longer be used."
+908451_2,,,,,,,We have different disk sizes on our DNs.
+524892_2,,,,,,,I don't have a problem with a non-component directory in the framework.
+1142412_1,,,,,,,Patch that changes progress computation to use position in input stream.
+1521395_3,,,,,,,"I do have a patch, but unfortunately I am not a position to sign the CLA."
+1741987_3,,,,,,,The same exception happens the I forget to sign my jars.
+315467_2,,,,,,,The squeeky wheel gets oiled!
+1436378_5,,,,,,,This is where the bus gets over lapped.
+1330294_1,,,,,,,"OK
+
+The problem is that the o.a.f.bundlerepository doesn't cares about R3 or R4 bundles."
+369308_30,,,,,,,"Somehow I forget to move that from SOLR-2524, but it is in the updated patch now."
+711677_1,,,,,,,"Closest example that I can recall were questions about ""The Software shall be used for Good, not Evil"" clause from the JSON License."
+729780_3,,,,,,,I am planning on doing a round-robin assignment for each partition.
+1560275_1,,,,,,,"all the key and column name comparisons should be case insensitive (and we force keyAlias to be ascii, so you don't need to worry about it being some weird bytes stuff)."
+1461735_1,,,,,,,"@Paul
+
+Forget the previous patch, it added unneeded complexity for parsing and dealing with multivalue (line) ini file  config parameters."
+738161_1,,,,,,,Fixed by updating to the new frameworks bridge 1.0.1-dev.
+1696622_2,,,,,,,"{noformat}
+set-net-2.0-framework-configuration:
+
+ [property] Target framework changed to ""Microsoft .NET Framework 2.0""."
+201219_3,,,,,,,USE WITH CARE!
+1423212_2,,,,,,,Beware all ye who venture here: the sea of XSLT is deep and wide and unforgiving.
+1577092_8,,,,,,,":)
+
+> except at much worse performance."
+1483353_3,,,,,,,"What's weird is that this 
+class is in Cocoon's normal classpath."
+489754_4,,,,,,,* This is needed since the MappingTool fails if it gets non-persistent capable classes.
+1021618_1,,,,,,,This might fix broken hudson on trunk
+1128998_3,,,,,,,Adding directories to removedStorageDirs in original patch is already in branch-1.
+581420_1,,,,,,,The source of this problem is master and slave allowing frameworks to register with IDs already used by completed frameworks.
+1497284_1,,,,,,,"This is introduced by API performance refactoring, the intent is to generate the same response object for both listxxx api and other apis related to the same entity."
+1435679_3,,,,,,,There may perhaps be some way to use Windows file-locking as a signalling mechanism here.
+1667843_12,,,,,,,"Alternatively, we could build a variation avro-ipc.jar that shades in avro.jar that could be the smallest unit for OSGi."
+970138_1,,,,,,,"Actually, let's just fix the issue you discovered here."
+1429231_1,,,,,,,we don't have an agreement that it should be active
+884350_11,,,,,,,I'm just throwing it out there.
+561147_1,,,,,,,"I agree with Sami that this should be contributed to Tika and that we delegate the language identification handling in Nutch to Tika, just as we are doing or planning to for the MimeType and the parsing "
+1397856_4,,,,,,,Also I looked at first corrupted database that I posted  and found the corruption in the  index TEST1_IDX_INDCOL2.
+1557000_6,,,,,,,I could not find any documented limits but if I missed them somewhere I will gladly put them in.
+1468837_3,,,,,,,"However, I doubt that the same is true for MapContext because it is just a wrapper around a HashMap."
+1137601_2,,,,,,,"There is no RPC stuck but a lot of ""Connection reset by peer""."
+1551755_4,,,,,,,"With hampered performance of sstableloader after 1.0, its made the things very difficult for us."
+1320296_2,,,,,,,I have retested it and I figured out that I have posted the wrong parameters in the bug description.
+1475280_2,,,,,,,I fixed some bad markup in r1392857 but I can see the error afterwards on the neko stuff.
+1548932_1,,,,,,,The thing about backwards-compatibility hacks is you tend to get stuck with them.
+546994_1,,,,,,,This is part of making Oak OSGi-friendly
+384126_10,,,,,,,"However, I'm not a lawyer."
+1007833_2,,,,,,,It seems to be adding new 'functionality' to coprocessors.
+960749_4,,,,,,,Adding sleeps solves it.
+1540325_1,,,,,,,We're adding endpoint as a new datatype?
+1338569_2,,,,,,,"Not 
+ideal, but not too bad ;)"
+913909_1,,,,,,,"Trunk for patch, pretty much."
+1614443_1,,,,,,,That'll be pretty awesome to have for 0.6.0
+1418049_4,,,,,,,"+/**
++ * This class is a refactoring wrapper around the shared
++ * JDBC40Translation class."
+1044677_5,,,,,,,Also I'm slightly confused by your description because in section 5.8 of the spec it says that members of code_handler_class_RCN can be null.
+207435_6,,,,,,,"Since I screwed up the commit, we voted 2.1.7 down and are working to get 2.1.8 out pretty quickly."
+1003849_2,,,,,,,A user looking at the set of changes won't care :)
+1520027_3,,,,,,,Or did you see some other errors or bad weinre behaviour?
+251911_1,,,,,,,Typical POST then DOH moment.
+657044_3,,,,,,,"I'll see if I can find a way; our systems are pretty constrained in that dimension.
+
+"
+670064_3,,,,,,,I think that would be the cleanest solution to prevent bad behaviour with wrong codecs?
+1407542_6,,,,,,,"Perhaps it would be easier to make ClobLocatorInputStream a wrapper around ClobLocatorReader, and ClobLocatorOutputStream a wrapper around ClobLocatorWriter?"
+732126_2,,,,,,,"I like having consistent indenting, but now it is really hard to see the diffs, and it gets confusing."
+1119357_1,,,,,,,"> Ideally we would move to NIO framework like netty, but that would much larger effort."
+281626_2,,,,,,,"Once all the chunks have been uploaded, the Upload Framework can returned a combined file."
+1649091_4,,,,,,,You don't see '>' replaced because that's not required in this case (though some frameworks do it anyway).
+1021626_1,,,,,,,Making a blocker.
+354483_2,,,,,,,I've reverted this for the moment.
+646876_5,,,,,,,and at the moment we dont have that yet.
 1117375_11,,,,,,,"Maybe we're stuck with it until log4j fixes its dependencies?
 "

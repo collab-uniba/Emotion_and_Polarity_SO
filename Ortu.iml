@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="commons-csv-1.4" level="project" />
+    <orderEntry type="library" exported="" name="edu.stanford.nlp:stanford-corenlp:3.6.0" level="project" />
+    <orderEntry type="library" exported="" name="commons-validator-1.4.0" level="project" />
   </component>
 </module>
