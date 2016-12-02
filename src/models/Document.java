@@ -1,10 +1,5 @@
 package models;
 
-import java.util.Arrays;
-
-/**
- * Created by Francesco on 13/10/2016.
- */
 public class Document implements Comparable<Object>{
     private String comment;
     private String id;

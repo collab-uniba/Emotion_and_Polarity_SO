@@ -31,8 +31,8 @@ public class ReaderCSV {
                 Document dc = new Document();
                 CSVRecord r = list.get(i);
                 switch (group) {
-                    case "group1":
-                        for (int j = 0; j <= 3; j++) {
+                    case "group1_noDuplied":
+                       for (int j = 0; j <= 3; j++) {
                             update_Annotations(r, arr);
                             int s = j;
                             s++;
@@ -43,7 +43,7 @@ public class ReaderCSV {
                             }
                         }
                         break;
-                    case "group2_special":
+                    case "group2_noDuplied":
                         for (int j = 0; j <= 2; j++) {
                             update_Annotations(r, arr);
                             int s = j;
@@ -59,23 +59,29 @@ public class ReaderCSV {
                         update_Annotations(r, arr);
                         break;
                 }
+
                 dc.setId(r.get(0));
-                if (group.equals("group2") || group.equals("group3")) {
+               if( group.equals("group1")){
+                   dc.setComment(r.get("comment"));
+                   dc.setSentiments(results_From_Annotations(arr, 1));
+               }
+               else
+                if (group.equals("group2") || group.equals("group3") ) {
                     String s= r.get("comment").replaceAll("\n", " ");
                     s=s.replaceAll("\r"," ");
                     dc.setComment(s);
                     dc.setSentiments(results_From_Annotations(arr, 1));
                 }
                 else
-                    if(group.equals("group1") || group.equals("group2_special")){
+                    if( group.equals("group2_noDuplied") || group.equals("group1_noDuplied")) {
                         dc.setComment(r.get("comment"));
                         dc.setSentiments(results_From_Annotations(arr, 2));
-                }
+                    }
                 l.add(dc);
             }
-        } catch (java.io.IOException e) {
-             e.printStackTrace();
-        }
+            } catch (java.io.IOException e) {
+               e.printStackTrace();
+           }
   return l;
 }
     //Questo metodo fa questo : ho un array iniziale vuoto , costituito da 0,0,0,0 , ogni volta che viene passato un array che contiene le annotazioni
@@ -139,4 +145,6 @@ public class ReaderCSV {
         }
         return l;
     }
+
+
 }

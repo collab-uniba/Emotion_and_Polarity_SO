@@ -24,14 +24,17 @@ public class main {
         int n = 0;
         int max=0;
         while (l < 3) {
-            TreeSet<Document> tr1= new TreeSet<Document>();
+            //questi sono solo i documenti che si rifescono ad Un gruppo in ogni ciclo,attenzione.
             List<Document> documents = new ArrayList<>();
-            n= Integer.parseInt(args[start]);
-            max=n+start;
+            n= Integer.parseInt(args[start]);//numero di documenti associati ad un gruppo
+            max=n+start;//indice max in cui sta l'ultimo documento
             int startPoint = 0;
             int endPoint = 0;
             int numOut=1;
+            //Questo FOR crea i Group_1.csv, Group2_1.csv , Group2_2.csv ecc
             for (int j = start+1; j <= max; j++) {
+                //args[start - 1] : nome del gruppo
+                //args[j] : path del primo documento
                 rd.create_dcs_from_File(args[start - 1], args[j], documents);
                 endPoint = documents.size();
                 wr.writeCsvFile(args[args.length - 1] + "_" + args[start -1] + "_" + numOut + FORMAT, documents.subList(startPoint, endPoint),
@@ -39,7 +42,11 @@ public class main {
                 startPoint = endPoint;
                 numOut++;
             }
+
+
+
             String lastFileMergedGroup2="";
+            String lastFileMergedGroup1="";
             if(args[start-1].equals("group2")){
                 tr.addAll(documents);//ordino gli elementi
                 documents.clear();
@@ -47,20 +54,44 @@ public class main {
                 lastFileMergedGroup2=args[args.length - 1] + "_" + args[start-1] + "_" + "merged_with_duplied" + FORMAT;
                 wr.writeCsvFile(lastFileMergedGroup2, documents,HEADERS,true,',',false);
             }
+            else
+             if(args[start-1].equals("group1")){
+                lastFileMergedGroup1=args[args.length - 1] + "_" + args[start-1] + "_" + "merged_with_duplied" + FORMAT;
+                wr.writeCsvFile(lastFileMergedGroup1, documents,HEADERS,true,',',false);
+
+            }
             else {
+                //gruppo 3
                 String lastFileMerged = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged" + FORMAT;
                 if(l==2)
                     wr.writeCsvFile(lastFileMerged, documents,HEADERS,true,',',false);
+                //fine gruppo 3
                 wr.writeCsvFile(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabel" + FORMAT, documents,HEADERS2,true,';',true);
             }
+
+            if(args[start-1].equals("group1")){
+                //adesso documents sono ordinati
+                //documents.clear();
+                //qui crei il merged_no_duplied_MajAgOnFinalLabel
+                rd.create_dcs_from_File("group1_noDuplied_MajAgOnFinalLabel",args[args.length - 1] + "_" + args[start-1] + "_" + "merged_no_duplied_MagAgOnFinalLabel"+FORMAT,
+                       documents);
+
+                documents.clear();//deve ripopolare i documents del gruppo 1 senza duplicati
+                rd.create_dcs_from_File("group1_noDuplied",lastFileMergedGroup1, documents);
+                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start-1] + "_" + "merged_no_duplied_MajAgOnEmotions" + FORMAT;
+                wr.writeCsvFile(lastFileMergedGroup1, documents,HEADERS,true,',',false);
+                wr.writeCsvFile(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabel" + FORMAT, documents,HEADERS2,true,';',true);
+            }
+            else
             if(args[start-1].equals("group2")){
                 //adesso documents sono ordinati
-                documents.clear();
-                 rd.create_dcs_from_File("group2_special",lastFileMergedGroup2, documents);
-                lastFileMergedGroup2 = args[args.length - 1] + "_" + args[start-1] + "_" + "merged_no_duplied" + FORMAT;
+                documents.clear();//deve ripopolare i documents del gruppo 2 senza duplicati
+                 rd.create_dcs_from_File("group2_noDuplied",lastFileMergedGroup2, documents);
+                lastFileMergedGroup2 = args[args.length - 1] + "_" + args[start-1] + "_" + "merged_no_duplied_MajAgOnEmotions" + FORMAT;
                 wr.writeCsvFile(lastFileMergedGroup2, documents,HEADERS,true,',',false);
                 wr.writeCsvFile(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabel" + FORMAT, documents,HEADERS2,true,';',true);
             }
+
             documentsFinal.addAll(documents);
             l++;
             start = max + 2;
