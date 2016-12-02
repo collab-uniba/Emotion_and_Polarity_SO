@@ -71,12 +71,18 @@ public class main {
 
             if(args[start-1].equals("group1")){
                 //adesso documents sono ordinati
-                //documents.clear();
+                documents.clear();
                 //qui crei il merged_no_duplied_MajAgOnFinalLabel
-                rd.create_dcs_from_File("group1_noDuplied_MajAgOnFinalLabel",args[args.length - 1] + "_" + args[start-1] + "_" + "merged_no_duplied_MagAgOnFinalLabel"+FORMAT,
+                lastFileMergedGroup1=args[args.length - 1] + "_" + args[start-1] + "_" + "merged_with_duplied" + FORMAT;
+                rd.create_dcs_from_File("group1_noDuplied_MajAgOnCommentPolarity",lastFileMergedGroup1,
                        documents);
+                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start-1] + "_" + "merged_noDuplied_MajAgOnCommentPolarity" + FORMAT;
+                wr.writeCsvFile(lastFileMergedGroup1, documents,HEADERS,true,',',false);
+
+
 
                 documents.clear();//deve ripopolare i documents del gruppo 1 senza duplicati
+                lastFileMergedGroup1=args[args.length - 1] + "_" + args[start-1] + "_" + "merged_with_duplied" + FORMAT;
                 rd.create_dcs_from_File("group1_noDuplied",lastFileMergedGroup1, documents);
                 lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start-1] + "_" + "merged_no_duplied_MajAgOnEmotions" + FORMAT;
                 wr.writeCsvFile(lastFileMergedGroup1, documents,HEADERS,true,',',false);
@@ -100,8 +106,10 @@ public class main {
         Utility u = new Utility();
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl"+ FORMAT,documentsFinal,HEADERS2,true,';',true);
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
+        //QUI Scrivo il tokenized
         wr.writeTokenized(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD",FORMAT);
         List<Document> onlyComments_withoutURL= new ArrayList<>();
+        //Qui riapro il tokenized
         onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_TOKENIZED"+FORMAT));
         int i=0;
         System.out.println("doc final "+ documentsFinal.size());

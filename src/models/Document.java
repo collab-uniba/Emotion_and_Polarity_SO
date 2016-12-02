@@ -47,7 +47,7 @@ public class Document implements Comparable<Object>{
     public void setSentiments(String[] sentiments) {
         this.sentiments = sentiments;
         if(sentiments!=null)
-             setFinaLabel();
+             setFinaLabelBasedOnEmotions();
     }
 // la position serve per l'ordine dinamico
     private boolean get_love_joy(){
@@ -62,7 +62,7 @@ public class Document implements Comparable<Object>{
     - se sia una label positiva che una negativa -> mixed
     - se nessuna label -> neutral
     */
-    private void setFinaLabel() {
+    private void setFinaLabelBasedOnEmotions() {
         if(get_anger__sadness_fear() && !get_love_joy()){
             finaLabel=label.negative.toString();
         }
@@ -79,7 +79,48 @@ public class Document implements Comparable<Object>{
                 finaLabel=label.neutral.toString();
             }
     }
+    int positive;
+    int negative;
+    int mixed;
+    int neutral;
+    private void count_polarity(String[] labels){
+        for(String x : labels){
+            if(x.equals("positive"))
+                positive++;
+            else
+                if(x.equals("negative"))
+                    negative++;
+            else
+                if(x.equals("mixed"))
+                    mixed++;
+            else
+                if(x.equals("neutral"))
+                    neutral++;
+        }
+    }
 
+    /*questo metodo setta la lb. finale
+
+   */
+    public void setFinaLabelBaseOnEachCommentPolarity(String[] labels){
+            //Casi generici in cui di sicuro ho almeno 2 di una cosa e poi il resto neutral
+            if(positive>=2 && negative==0 && mixed==0){
+                this.finaLabel=label.positive.toString();
+            }
+            else  if(negative>=2 && positive==0 && mixed==0){
+                this.finaLabel=label.negative.toString();
+            }
+            else  if(mixed>=2 && positive==0 && negative==0){
+                this.finaLabel=label.mixed.toString();
+            }
+            else  if(neutral>=3 && mixed<=1 && positive<=1 && negative <=1 ){
+                this.finaLabel=label.neutral.toString();
+            }
+            //Casi mixed
+            else if(neutral>=0 && mixed >=0 && positive >=0 && negative >=0){
+                this.finaLabel=label.mixed.toString();
+            }
+    }
     public void setFinaLabel(String l){
         this.finaLabel=l;
     }

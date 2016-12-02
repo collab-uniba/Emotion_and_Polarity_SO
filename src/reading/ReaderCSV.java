@@ -18,11 +18,13 @@ public class ReaderCSV {
 
    public List<Document> create_dcs_from_File(String group, String pathFile, List<Document> l) {
        Reader in = null;
+
        try {
             in = new FileReader(pathFile);
             Iterable<CSVRecord> records = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(in);
             List<CSVRecord> list=new ArrayList<>();
-            for (CSVRecord record : records) {
+           String[] finalLabel=null;
+           for (CSVRecord record : records) {
                 list.add(record);
             }
 
@@ -35,6 +37,19 @@ public class ReaderCSV {
                        for (int j = 0; j <= 3; j++) {
                             update_Annotations(r, arr);
                             int s = j;
+                            s++;
+                            if (s < 4) {
+                                i++;
+                                if (i < list.size() - 1)
+                                    r = list.get(i);
+                            }
+                        }
+                        break;
+                    case "group1_noDuplied_MajAgOnCommentPolarity":
+                         finalLabel= new String[4];
+                        for (int j = 0; j <= 3; j++) {
+                            int s = j;
+                             finalLabel[s]= r.get("label");
                             s++;
                             if (s < 4) {
                                 i++;
@@ -76,6 +91,11 @@ public class ReaderCSV {
                     if( group.equals("group2_noDuplied") || group.equals("group1_noDuplied")) {
                         dc.setComment(r.get("comment"));
                         dc.setSentiments(results_From_Annotations(arr, 2));
+                    }
+                else
+                    if(group.equals("group1_noDuplied_MajAgOnCommentPolarity") ){
+                        dc.setComment(r.get("comment"));
+                        dc.setFinaLabelBaseOnEachCommentPolarity(finalLabel);
                     }
                 l.add(dc);
             }
