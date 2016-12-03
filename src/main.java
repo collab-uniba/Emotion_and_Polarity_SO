@@ -64,6 +64,8 @@ public class main {
             else {
                 //gruppo 3
                 String lastFileMerged = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged" + FORMAT;
+                 documents2.clear();
+                 documents2.addAll(documents);
                 if(l==2)
                     wr.writeCsvFile(lastFileMerged, documents,HEADERS,true,',',false);
                 wr.writeCsvFile(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabelWithoutMixed" + FORMAT, documents,HEADERS2,true,';',true);
@@ -117,6 +119,9 @@ public class main {
         //writing total complete Group1, 2 and 3 .csv
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl"+ FORMAT,documentsFinal,HEADERS2,true,';',true);
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
+
+        wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_CommPolarity"+ FORMAT,documentsFinalCommentPolarity,HEADERS2,true,';',true);
+        wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_CommPolarity"+ FORMAT, documentsFinalCommentPolarity,HEADERS3,false,';',true);
         //QUI Scrivo il tokenized
         wr.writeTokenized(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD",FORMAT);
         List<Document> onlyComments_withoutURL= new ArrayList<>();
@@ -133,6 +138,17 @@ public class main {
             }
         }
         wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL"+FORMAT,documentsFinal,HEADERS4,false,';',true);
+
+        System.out.println("doc final Comment Polarity "+ documentsFinalCommentPolarity.size());
+        System.out.println(" " + onlyComments_withoutURL.size());
+        for(int j=0;j<documentsFinalCommentPolarity.size()-1;j++){
+            if(i<onlyComments_withoutURL.size()-1){
+                Document d1=onlyComments_withoutURL.get(i);
+                documentsFinalCommentPolarity.get(j).setComment(d1.getComment());
+                i++;
+            }
+        }
+        wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL_CommentPolarity"+FORMAT,documentsFinalCommentPolarity,HEADERS4,false,';',true);
     }
 }
 
