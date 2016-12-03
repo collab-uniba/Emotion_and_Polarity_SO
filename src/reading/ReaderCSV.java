@@ -106,9 +106,14 @@ public class ReaderCSV {
                         dc.setSentiments(results_From_Annotations(arr, 2));
                     }
                 else
-                    if(group.equals("group1_noDuplied_MajAgOnCommentPolarity") || group.equals("group2_noDuplied_MajAgOnCommentPolarity") ){
+                    if(group.equals("group1_noDuplied_MajAgOnCommentPolarity")){
                         dc.setComment(r.get("comment"));
-                        dc.setFinaLabelBaseOnEachCommentPolarity(finalLabel);
+                        dc.setFinaLabelBaseOnEachCommentPolarity(finalLabel,3);
+                    }
+                    else
+                    if(group.equals("group2_noDuplied_MajAgOnCommentPolarity") ){
+                        dc.setComment(r.get("comment"));
+                        dc.setFinaLabelBaseOnEachCommentPolarity(finalLabel,2);
                     }
                 l.add(dc);
             }

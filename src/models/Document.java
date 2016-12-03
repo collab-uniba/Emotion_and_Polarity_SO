@@ -105,9 +105,10 @@ public class Document implements Comparable<Object>{
 
     /*questo metodo setta la lb. finale
 
+
    */
-    public void setFinaLabelBaseOnEachCommentPolarity(String[] labels){
-        count_polarity(labels);
+    public void setFinaLabelBaseOnEachCommentPolarity(String[] labels,int n){
+			count_polarity(labels);
             //Casi generici in cui di sicuro ho almeno 2 di una cosa e poi il resto neutral
             if(positive>=2 && negative==0 && mixed==0){
                 this.finaLabel=label.positive.toString();
@@ -118,7 +119,7 @@ public class Document implements Comparable<Object>{
             else  if(mixed>=2 && positive==0 && negative==0){
                 this.finaLabel=label.mixed.toString();
             }
-            else  if(neutral>=3 && mixed<=1 && positive<=1 && negative <=1 ){
+            else  if(neutral>=n && mixed<=1 && positive<=1 && negative <=1 ){
                 this.finaLabel=label.neutral.toString();
             }
             //Casi mixed
