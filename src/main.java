@@ -112,10 +112,16 @@ public class main {
                 }
 
             documentsFinal.addAll(documents);
+            //NB nel documentFinalCommentPOlarity il Gruppo 3 ha anche i valori di sentiments (li non si applica il majority agreement, sono frasi)
             documentsFinalCommentPolarity.addAll(documents2);
             l++;
             start = max + 2;
         }
+
+
+
+
+
         //writing total complete Group1, 2 and 3 .csv
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl"+ FORMAT,documentsFinal,HEADERS2,true,';',true);
         wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD"+ FORMAT, documentsFinal,HEADERS3,false,';',true);
