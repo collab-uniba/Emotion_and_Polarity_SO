@@ -70,6 +70,19 @@ public class ReaderCSV {
                             }
                         }
                         break;
+                    case "group2_noDuplied_MajAgOnCommentPolarity":
+                        finalLabel= new String[3];
+                        for (int j = 0; j <= 2; j++) {
+                            int s = j;
+                            finalLabel[s]= r.get("label");
+                            s++;
+                            if (s < 3) {
+                                i++;
+                                if (i < list.size() - 1)
+                                    r = list.get(i);
+                            }
+                        }
+                        break;
                     default:
                         update_Annotations(r, arr);
                         break;
@@ -93,7 +106,7 @@ public class ReaderCSV {
                         dc.setSentiments(results_From_Annotations(arr, 2));
                     }
                 else
-                    if(group.equals("group1_noDuplied_MajAgOnCommentPolarity") ){
+                    if(group.equals("group1_noDuplied_MajAgOnCommentPolarity") || group.equals("group2_noDuplied_MajAgOnCommentPolarity") ){
                         dc.setComment(r.get("comment"));
                         dc.setFinaLabelBaseOnEachCommentPolarity(finalLabel);
                     }

@@ -79,11 +79,15 @@ public class Document implements Comparable<Object>{
                 finaLabel=label.neutral.toString();
             }
     }
-    int positive;
-    int negative;
-    int mixed;
-    int neutral;
+    private int positive;
+    private int negative;
+    private int mixed;
+    private int neutral;
     private void count_polarity(String[] labels){
+        positive=0;
+        negative=0;
+        mixed=0;
+        neutral=0;
         for(String x : labels){
             if(x.equals("positive"))
                 positive++;
@@ -103,6 +107,7 @@ public class Document implements Comparable<Object>{
 
    */
     public void setFinaLabelBaseOnEachCommentPolarity(String[] labels){
+        count_polarity(labels);
             //Casi generici in cui di sicuro ho almeno 2 di una cosa e poi il resto neutral
             if(positive>=2 && negative==0 && mixed==0){
                 this.finaLabel=label.positive.toString();
