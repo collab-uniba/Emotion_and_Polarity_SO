@@ -114,6 +114,39 @@ public class main {
             documentsFinal.addAll(documents);
             //NB nel documentFinalCommentPOlarity il Gruppo 3 ha anche i valori di sentiments (li non si applica il majority agreement, sono frasi)
             documentsFinalCommentPolarity.addAll(documents2);
+            //scrivo i file nel formato Headers4 e senza HTTP etc.
+            wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_group_intermedio"+l + FORMAT, documents,HEADERS3,false,';',true);
+            wr.writeCsvFile(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_CommPolarity_group_intermedio"+l+ FORMAT, documents2,HEADERS3,false,';',true);
+            //QUI Scrivo il tokenized
+            wr.writeTokenized(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_group_intermedio"+l,FORMAT);
+            List<Document> onlyComments_withoutURL= new ArrayList<>();
+            //Qui riapro il tokenized
+            onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_group_intermedio"+l+"_TOKENIZED"+FORMAT));
+            int i=0;
+            System.out.println("doc final "+ documents.size());
+            System.out.println(" " + onlyComments_withoutURL.size());
+            for(int j=0;j<documents.size()-1;j++){
+                if(i<onlyComments_withoutURL.size()-1){
+                    Document d1=onlyComments_withoutURL.get(i);
+                    documents.get(j).setComment(d1.getComment());
+                    i++;
+                }
+            }
+            wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL_group"+l+FORMAT,documents,HEADERS4,false,';',true);
+
+
+            i=0;
+            System.out.println("doc final "+ documents2.size());
+            System.out.println(" " + onlyComments_withoutURL.size());
+            for(int j=0;j<documents2.size()-1;j++){
+                if(i<onlyComments_withoutURL.size()-1){
+                    Document d1=onlyComments_withoutURL.get(i);
+                    documents2.get(j).setComment(d1.getComment());
+                    i++;
+                }
+            }
+            wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL_CommentPolarity_group"+l+FORMAT,documents2,HEADERS4,false,';',true);
+
             l++;
             start = max + 2;
         }
@@ -145,15 +178,21 @@ public class main {
         }
         wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL"+FORMAT,documentsFinal,HEADERS4,false,';',true);
 
+
+        onlyComments_withoutURL.clear();
+        onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_TOKENIZED"+FORMAT));
         System.out.println("doc final Comment Polarity "+ documentsFinalCommentPolarity.size());
         System.out.println(" " + onlyComments_withoutURL.size());
+        i=0;
         for(int j=0;j<documentsFinalCommentPolarity.size()-1;j++){
             if(i<onlyComments_withoutURL.size()-1){
+
                 Document d1=onlyComments_withoutURL.get(i);
                 documentsFinalCommentPolarity.get(j).setComment(d1.getComment());
                 i++;
             }
         }
+
         wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL_CommentPolarity"+FORMAT,documentsFinalCommentPolarity,HEADERS4,false,';',true);
     }
 }
