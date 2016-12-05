@@ -179,6 +179,7 @@ public class main {
         wr.writeCsvFile(args[args.length - 1]+"_"+"_OrtuEtAl_WithoutURL"+FORMAT,documentsFinal,HEADERS4,false,';',true);
 
 
+
         onlyComments_withoutURL.clear();
         onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_TOKENIZED"+FORMAT));
         System.out.println("doc final Comment Polarity "+ documentsFinalCommentPolarity.size());
