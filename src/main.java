@@ -1,8 +1,7 @@
 
 import printing.WriterCSV;
-import reading.ReaderCSV;
 import models.Document;
-import utility.Utility;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
