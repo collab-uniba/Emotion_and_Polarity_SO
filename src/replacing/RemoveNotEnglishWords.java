@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by Francesco on 02/01/2017.
  * Remove all terms not contained in any wordnet synset.
  */
-public class RemoveNonEnglishWords {
+public class RemoveNotEnglishWords {
 
     public List<String> removeNonEnglishWord(List<String> docs,List<String> pathsMarks) {
         ReadingCSV rd = new ReadingCSV();

@@ -4,7 +4,7 @@ package main;
 import computing.Grams;
 import computing.TF_IDFComputer;
 import replacing.POSTagger;
-import replacing.RemoveNonEnglishWords;
+import replacing.RemoveNotEnglishWords;
 import replacing.RemoveURL;
 import replacing.ReplacerTextWithMarks;
 import tokenizer.TokenizeCorpus;
@@ -36,12 +36,12 @@ public class Main {
 
 
         TokenizeCorpus tk = new TokenizeCorpus();
-        tk.tokenizer("res/onlyText", "res/onlyText_TOKENIZED");
+        tk.tokenizerByToken("res/onlyText", "res/onlyText_TOKENIZED");
         List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED");
 
 
         //Remove non-english words
-        RemoveNonEnglishWords rmNotEnglishWords= new RemoveNonEnglishWords();
+        RemoveNotEnglishWords rmNotEnglishWords= new RemoveNotEnglishWords();
         List<String> paths = new ArrayList<>();
         paths.add("res/neutral_emotion.csv");
         paths.add("res/ambiguos-emotion.csv");
