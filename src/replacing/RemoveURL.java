@@ -1,5 +1,8 @@
 package replacing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Francesco on 23/12/2016.
  */
@@ -20,11 +23,12 @@ public class RemoveURL {
         return res;
     }
 
-    public static String cleanUrl(String text) {
-        text = text.replace("http:// ", "http://");
-        text = text.replace("https:// ", "https://");
-        text = text.replace("http://www. ", "http://www.");
-        text = text.replace("https://www. ", "https://www.");
-        return text;
+    public List<String> removeUrl(List<String> doc){
+        List<String> docsWithoutURL= new ArrayList<String>();
+        for(String s : doc){
+           docsWithoutURL.add(removeUrl(s));
+        }
+        return docsWithoutURL;
     }
+
 }

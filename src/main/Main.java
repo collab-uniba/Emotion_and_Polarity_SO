@@ -3,6 +3,9 @@ package main;
 
 import computing.Grams;
 import computing.TF_IDFComputer;
+import replacing.POSTagger;
+import replacing.RemoveNonEnglishWords;
+import replacing.RemoveURL;
 import replacing.ReplacerTextWithMarks;
 import tokenizer.TokenizeCorpus;
 import utility.Utility;
@@ -23,27 +26,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Grams gr = new Grams();
 
-        /*extracting bigram or unigram lists*/
-     /*   SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/onlyText"), 0, 1);
-        Set<String> keysUni = unigram.keySet();
-        for (String k : keysUni) {
-            System.out.println(k + ": " + "\n");
-            System.out.println(unigram.get(k) + " ");
-        }
-        System.out.println("\n");
-
-        SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/onlyText"), 0, 2);
-        Set<String> keysBi = bigram.keySet();
-        for (String k : keysBi) {
-            System.out.println(k + ": " + "\n");
-            System.out.println(bigram.get(k) + " ");
-        }
-        System.out.println("\n");*/
-
-
-       //Tokenizzatore
-
-      PrintingFile pr = new PrintingFile();
+        //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
+        //Tokenizzatore
+        PrintingFile pr = new PrintingFile();
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rdf= new ReadingFile();
         Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV("res/inputCorpus.csv");
@@ -55,9 +40,54 @@ public class Main {
         List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED");
 
 
+        //Remove non-english words
+        RemoveNonEnglishWords rmNotEnglishWords= new RemoveNonEnglishWords();
+        List<String> paths = new ArrayList<>();
+        paths.add("res/neutral_emotion.csv");
+        paths.add("res/ambiguos-emotion.csv");
+        paths.add("res/positive_emotion.csv");
+        paths.add("res/negative_emotion.csv");
+
+        List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNonEnglishWord(inputCorpusTknz,paths);
+        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
+
+
+      /* Post tagger*/
+       /* POSTagger pt = new POSTagger();
+        List<String> docsPostTagged =pt.posTag(inputCorpusTknz);
+        pr.print("res/docsPostTagged",docsPostTagged);*/
+
+        //Remove URL
+       /* RemoveURL rmurl= new RemoveURL();
+        List<String> docsWithoutURLTknz= rmurl.removeUrl(docsPostTagged);
+        pr.print("res/docsWithoutURLTokenized",docsWithoutURLTknz);*/
+
+
+
+
+          /*extracting bigram or unigram lists*/
+      /* SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLTokenized"), 0, 1);
+        Set<String> keysUni = unigram.keySet();
+        for (String k : keysUni) {
+            System.out.println(k + ": " + "\n");
+            System.out.println(unigram.get(k) + " ");
+        }
+        System.out.println("\n");
+
+        SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/docsWithoutURLTokenized"), 0, 2);
+        Set<String> keysBi = bigram.keySet();
+        for (String k : keysBi) {
+            System.out.println(k + ": " + "\n");
+            System.out.println(bigram.get(k) + " ");
+        }
+
+        System.out.println("\n");*/
+
+        //FINE PREPROCESSING
+
 
        //tf-idf-bigrams
-        TF_IDFComputer cl= new TF_IDFComputer();
+     /*   TF_IDFComputer cl= new TF_IDFComputer();
         Utility u = new Utility();
         SortedMap<String, String> unigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("UnigramsList"));
         System.out.println("unigrams loaded");
@@ -102,7 +132,7 @@ public class Main {
         csv.setAmbiguosTFIDF(ambiTFIDF);
 
         WriterCSV writerCSV= new WriterCSV();
-        writerCSV.writeCsvFile("output.csv",csv);
+        writerCSV.writeCsvFile("output.csv",csv);*/
 
     }
 }

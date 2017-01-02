@@ -11,7 +11,7 @@ public class ReplacerTextWithMarks {
 
 
     /**
-     * Per ogni documento
+     * Per ogni documento, per ogni suo termine controlla sotto quale symset si trova. Sostituisce il termine con l'affective label
      * @param pathDocuments
      * @param pathsMarks
      * @return
@@ -56,7 +56,9 @@ public class ReplacerTextWithMarks {
     }
 
 
-    private String termToMark(String term, Map<String,List<String>> allMarksTerms){
+
+
+    String termToMark(String term, Map<String,List<String>> allMarksTerms){
         Set<String> keys= allMarksTerms.keySet();
         for(String mark : keys){
 
