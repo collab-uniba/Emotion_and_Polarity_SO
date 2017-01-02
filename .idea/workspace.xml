@@ -2,49 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="Scrittura su CSV corretta&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/SentiStrengthCom.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/slf4j-nop-1.6.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/stanford-corenlp-models-current.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/Emotion_Marks_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Emotion_Marks.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/output.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/BigramsList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/UnigramsList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/ambiguos-emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anger.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/inputCorpus.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/negative_emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/neutral_emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/onlyText" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/onlyText_TOKENIZED" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/positive_emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BigramsList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UnigramsList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/computing/Grams.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/computing/Logarithm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/CsvElements.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/DatasetRow.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/printing/PrintingFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/printing/WriterCSV.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reading/GramExtractor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reading/ReadingFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/replacing/POSTagger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/replacing/Patterns.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/replacing/RemoveURL.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utility/Utility.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/Ortu.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-csv-1.4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-validator-1.4.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/ejml-0.23.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.json-api-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jaxb-api-2.2.7.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joda-time-2.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jollyday-0.4.7.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/slf4j-api-1.7.12.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.6.0-javadoc.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.6.0-sources.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.6.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xalan-2.7.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xercesImpl-2.8.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xml-apis-1.3.03.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xom-1.2.10.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/res/Joint_dataset_group1.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_an.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_joy.csv" afterPath="" />
@@ -52,8 +26,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_sadness.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/res/emoiton_2.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/res/emoiton_3.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -76,7 +48,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="1596">
               <caret line="90" column="10" lean-forward="false" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -100,9 +72,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
               <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,9 +82,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
               <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,9 +92,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
               <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,9 +122,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1197">
               <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -287,8 +251,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -305,9 +269,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -336,6 +299,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,6 +328,13 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\res" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_Task\res" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_Task\lib" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="analysis" />
       <recent name="tokenizer" />
@@ -371,23 +342,16 @@
       <recent name="utility" />
       <recent name="computing" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src\Main" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src\printing" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src\Utility" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Model" />
       <recent name="Utility" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO" />
       <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_Task\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_Task\lib" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src\Main" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src\printing" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -700,8 +664,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -709,7 +673,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748366" sideWeight="0.5335821" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.115800865" sideWeight="0.5335821" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24242425" sideWeight="0.4664179" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17857143" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
@@ -717,7 +681,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4936034" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19742814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14285715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -814,13 +778,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/emotion/Positive.java" />
-    <entry file="file://$PROJECT_DIR$/res/ambiguos-emotion.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/ambiguos-emotion.csv" />
     <entry file="file://$PROJECT_DIR$/res/outputTokenizer" />
     <entry file="file://$PROJECT_DIR$/src/printing/TokenizerNovielli.java" />
     <entry file="file://$PROJECT_DIR$/src/computing/Logarithm.java">
@@ -855,13 +813,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/anger.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="403" column="86" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="403" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/anger.csv" />
     <entry file="file://$PROJECT_DIR$/res/onlyText.csv" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/util/TreeMap.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -877,13 +829,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/positive_emotion.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/positive_emotion.csv" />
     <entry file="file://$PROJECT_DIR$/src/Utility/Tf_Idf.java" />
     <entry file="file://$PROJECT_DIR$/res/ll2" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/util/LinkedHashMap.java">
@@ -909,13 +855,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/BigramsList">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="113" column="17" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="113" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/BigramsList" />
     <entry file="file://$PROJECT_DIR$/src/BigramsList">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2373">
@@ -923,34 +863,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/UnigramsList">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="99" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/onlyText">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/onlyText_TOKENIZED">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/UnigramsList" />
+    <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv" />
+    <entry file="file://$PROJECT_DIR$/res/onlyText" />
+    <entry file="file://$PROJECT_DIR$/res/onlyText_TOKENIZED" />
     <entry file="file://$PROJECT_DIR$/src/Computing.java" />
     <entry file="file://$PROJECT_DIR$/src/model/CsvElements.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -975,13 +891,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output.csv" />
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1000,7 +910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="966">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1032,9 +940,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,9 +948,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1052,9 +956,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,9 +972,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1197">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,7 +986,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="1596">
           <caret line="90" column="10" lean-forward="false" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
