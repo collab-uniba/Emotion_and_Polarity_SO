@@ -20,10 +20,10 @@ public class ReplacerTextWithMarks {
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rf= new ReadingFile();
 
-        List<LinkedHashMap<String,List<String>>> allList = new ArrayList<>();
+        List<Map<String,List<String>>> allList = new ArrayList<>();
         //read all files , each of them is formed by : n list's name and n terms for each of them
         for(String path: pathsMarks){
-            LinkedHashMap<String, List<String>> listReaded = rd.read_AllColumn_CSV(path);
+            Map<String, List<String>> listReaded = rd.read_AllColumn_CSV(path);
             allList.add(listReaded);
         }
         List<String> texts = rf.read(pathDocuments);
@@ -36,7 +36,7 @@ public class ReplacerTextWithMarks {
                 String finalString = "";
                 for (String term : textTerms) {
                     String mark = null;
-                    for (LinkedHashMap<String, List<String>> allMarkTerms : allList) {
+                    for (Map<String, List<String>> allMarkTerms : allList) {
                         mark = termToMark(term, allMarkTerms);
                         finalString = finalString + " " + mark;
                     }
@@ -56,7 +56,7 @@ public class ReplacerTextWithMarks {
     }
 
 
-    private String termToMark(String term, LinkedHashMap<String,List<String>> allMarksTerms){
+    private String termToMark(String term, Map<String,List<String>> allMarksTerms){
         Set<String> keys= allMarksTerms.keySet();
         for(String mark : keys){
 

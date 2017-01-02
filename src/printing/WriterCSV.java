@@ -24,26 +24,26 @@ public class WriterCSV {
         list = new ArrayList<>();
         List<String> ids = model.getId();
         List<String> docs = model.getDocuments();
-        List<LinkedHashMap<String, Double>> unigrams = model.getUnigramTFIDF();
-        List<LinkedHashMap<String, Double>> bigrams = model.getBigramTFIDF();
-        List<LinkedHashMap<String, Double>> positives = model.getPositiveTFIDF();
-        List<LinkedHashMap<String, Double>> negatives = model.getNegativeTFIDF();
-        List<LinkedHashMap<String, Double>> neutrals = model.getNeutralTFIDF();
-        List<LinkedHashMap<String, Double>> ambiguos = model.getAmbiguosTFIDF();
+        List<Map<String, Double>> unigrams = model.getUnigramTFIDF();
+        List<Map<String, Double>> bigrams = model.getBigramTFIDF();
+        List<Map<String, Double>> positives = model.getPositiveTFIDF();
+        List<Map<String, Double>> negatives = model.getNegativeTFIDF();
+        List<Map<String, Double>> neutrals = model.getNeutralTFIDF();
+        List<Map<String, Double>> ambiguos = model.getAmbiguosTFIDF();
 
-        int i = 0;
+        int i = 1;
 
 
         DatasetRow dr;
 //        for (String id : ids) {
         for (String doc : docs) {
             List<Double> tf_idf= new ArrayList<>();
-            LinkedHashMap<String, Double> unigramsTFIDF = unigrams.get(i);
-            LinkedHashMap<String, Double> bigramsTFIDF = bigrams.get(i);
-            LinkedHashMap<String, Double> positivesTFIDF = positives.get(i);
-            LinkedHashMap<String, Double> negativessTFIDF = negatives.get(i);
-            LinkedHashMap<String, Double> neutralsTFIDF = neutrals.get(i);
-            LinkedHashMap<String, Double> ambiguosTFIDF = ambiguos.get(i);
+           Map<String, Double> unigramsTFIDF = unigrams.get(i);
+            Map<String, Double> bigramsTFIDF = bigrams.get(i);
+            Map<String, Double> positivesTFIDF = positives.get(i);
+            Map<String, Double> negativessTFIDF = negatives.get(i);
+            Map<String, Double> neutralsTFIDF = neutrals.get(i);
+            Map<String, Double> ambiguosTFIDF = ambiguos.get(i);
 
 
             //aggiungo la riga degli unigrammi
@@ -134,7 +134,7 @@ public class WriterCSV {
         }
     }
 
-    private void populateHeader(LinkedHashMap<String, Double> grams,List<String> header,String head) {
+    private void populateHeader(Map<String, Double> grams,List<String> header,String head) {
         int ii = 1;
         for (String k : grams.keySet()) {
             if(head.isEmpty()){

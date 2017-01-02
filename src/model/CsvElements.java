@@ -2,6 +2,7 @@ package model;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Francesco on 28/12/2016.
@@ -9,12 +10,12 @@ import java.util.List;
 public class CsvElements {
     private List<String> id;
     private List<String> documents;
-    private List<LinkedHashMap<String,Double>> unigramTFIDF;
-    private  List<LinkedHashMap<String,Double>>  bigramTFIDF;
-    private  List<LinkedHashMap<String,Double>>  positiveTFIDF;
-    private  List<LinkedHashMap<String,Double>>  negativeTFIDF;
-    private  List<LinkedHashMap<String,Double>>  neutralTFIDF;
-    private  List<LinkedHashMap<String,Double>>  ambiguosTFIDF;
+    private List<Map<String,Double>> unigramTFIDF;
+    private  List<Map<String,Double>>  bigramTFIDF;
+    private  List<Map<String,Double>>  positiveTFIDF;
+    private  List<Map<String,Double>>  negativeTFIDF;
+    private  List<Map<String,Double>>  neutralTFIDF;
+    private  List<Map<String,Double>>  ambiguosTFIDF;
 
     public List<String> getId() {
         return id;
@@ -32,51 +33,51 @@ public class CsvElements {
         this.documents = documents;
     }
 
-    public List<LinkedHashMap<String, Double>> getUnigramTFIDF() {
+    public List<Map<String, Double>> getUnigramTFIDF() {
         return unigramTFIDF;
     }
 
-    public void setUnigramTFIDF(List<LinkedHashMap<String, Double>> unigramTFIDF) {
+    public void setUnigramTFIDF(List<Map<String, Double>> unigramTFIDF) {
         this.unigramTFIDF = unigramTFIDF;
     }
 
-    public List<LinkedHashMap<String, Double>> getBigramTFIDF() {
+    public List<Map<String, Double>> getBigramTFIDF() {
         return bigramTFIDF;
     }
 
-    public void setBigramTFIDF(List<LinkedHashMap<String, Double>> bigramTFIDF) {
+    public void setBigramTFIDF(List<Map<String, Double>> bigramTFIDF) {
         this.bigramTFIDF = bigramTFIDF;
     }
 
-    public List<LinkedHashMap<String, Double>> getPositiveTFIDF() {
+    public List<Map<String, Double>> getPositiveTFIDF() {
         return positiveTFIDF;
     }
 
-    public void setPositiveTFIDF(List<LinkedHashMap<String, Double>> positiveTFIDF) {
+    public void setPositiveTFIDF(List<Map<String, Double>> positiveTFIDF) {
         this.positiveTFIDF = positiveTFIDF;
     }
 
-    public List<LinkedHashMap<String, Double>> getNegativeTFIDF() {
+    public List<Map<String, Double>> getNegativeTFIDF() {
         return negativeTFIDF;
     }
 
-    public void setNegativeTFIDF(List<LinkedHashMap<String, Double>> negativeTFIDF) {
+    public void setNegativeTFIDF(List<Map<String, Double>> negativeTFIDF) {
         this.negativeTFIDF = negativeTFIDF;
     }
 
-    public List<LinkedHashMap<String, Double>> getNeutralTFIDF() {
+    public List<Map<String, Double>> getNeutralTFIDF() {
         return neutralTFIDF;
     }
 
-    public void setNeutralTFIDF(List<LinkedHashMap<String, Double>> neutralTFIDF) {
+    public void setNeutralTFIDF(List<Map<String, Double>> neutralTFIDF) {
         this.neutralTFIDF = neutralTFIDF;
     }
 
-    public List<LinkedHashMap<String, Double>> getAmbiguosTFIDF() {
+    public List<Map<String, Double>> getAmbiguosTFIDF() {
         return ambiguosTFIDF;
     }
 
-    public void setAmbiguosTFIDF(List<LinkedHashMap<String, Double>> ambiguosTFIDF) {
+    public void setAmbiguosTFIDF(List<Map<String, Double>> ambiguosTFIDF) {
         this.ambiguosTFIDF = ambiguosTFIDF;
     }
 }

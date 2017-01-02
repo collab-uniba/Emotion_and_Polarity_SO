@@ -8,18 +8,26 @@ import java.util.*;
  */
 public class TF_IDFComputer {
     private Grams gr= new Grams();
-    public List<LinkedHashMap<String,Double>> tf_idf(List<String> docs, Map<String, String> grams ,int n) throws IOException {
+
+    /**
+     * Calculate tf_idf
+     * @param docs all tokenized docs
+     * @param grams eg : unigrams -> !! uni1 , or bigrams -> zoom_out?	bi76368 ecc..
+     * @param n
+     * @return
+     * @throws IOException
+     */
+    public List<Map<String,Double>> tf_idf(List<String> docs, Map<String, String> grams ,int n) throws IOException {
 
         Map<String, Double> wordTF;
-        List<LinkedHashMap<String, Double>> allTFIDF = new ArrayList<>();
+        List<Map<String, Double>> allTFIDF = new ArrayList<>();
 
-        LinkedHashMap<String, Double> keyIDF = invertedDocumentFrequency(docs, grams.keySet(), n);
-
+        Map<String, Double> keyIDF = invertedDocumentFrequency(docs, grams.keySet(), n);
 
         for (String doc : docs) {
             wordTF = termFrequency(doc, n);
             LinkedHashMap<String, Double> gramsAndTFIDF = new LinkedHashMap<>();
-            //prendo la lista di unigrammi adesso  e controllo se sta nel documento
+            //prendo la lista di unigrammi adesso  e controllo se sta nel documento per ogni termine
             for (String s : grams.keySet()) {
                 if (wordTF.get(s) != null) {
                     //se è presente in questo documento allora
@@ -47,6 +55,13 @@ public class TF_IDFComputer {
     }
 
 
+
+    /**
+     * Tf is : term's occourrences in doc / num doc's terms
+     * @param input document
+     * @param n indicates the N gram : n= 1 -> unigram, n=2 -> bigram ecc..
+     * @return
+     */
    private Map<String,Double> termFrequency(String input, int n){
 
         double occurrences=0;
@@ -67,8 +82,14 @@ public class TF_IDFComputer {
         return mapTF;
     }
 
-    //n=1: unigrammi , n=2 : bigrammi
-    private LinkedHashMap<String,Double> invertedDocumentFrequency(List<String> docs, Set<String> terms, int n) {
+    /**
+     * idf is : log _ 2 (totdocs / docsContainingTheTerm)
+     * @param docs all tokenized docs
+     * @param terms terms who idf will be calculate
+     * @param n  indicates if it is a unigrams, bigrams ecc..
+     * @return map of term-idf
+     */
+    private Map<String,Double> invertedDocumentFrequency(List<String> docs, Set<String> terms, int n) {
         LinkedHashMap<String, Double> termsIDF = new LinkedHashMap<>();
         double numDocs = docs.size();
         double totdocsContainingTerm = 0;
@@ -85,6 +106,7 @@ public class TF_IDFComputer {
             double part = numDocs / totdocsContainingTerm;
             double idf= Math.round(Logarithm.logb(part, 2));
             termsIDF.put(t,idf);
+            totdocsContainingTerm = 0;
         }
         return termsIDF;
     }

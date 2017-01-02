@@ -13,7 +13,12 @@ import java.util.*;
 
 public class ReadingCSV {
 
-    public LinkedHashMap<String,List<String>> read_AllColumn_CSV(String pathFile){
+    /**
+     * Read all csv  columns
+     * @param pathFile where is the file to read
+     * @return
+     */
+    public Map<String,List<String>> read_AllColumn_CSV(String pathFile){
         //Hashmap perchè i nomi delle colonne devono essere univoci, mentre List perchè i duplicati mi servono, e non mi servono in ordine
         LinkedHashMap<String, List<String>> tr= new LinkedHashMap<>();
         FileReader in = null;
