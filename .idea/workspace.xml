@@ -1,31 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="Scrittura su CSV corretta&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Ortu.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-csv-1.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-validator-1.4.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/ejml-0.23.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.json-api-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jaxb-api-2.2.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joda-time-2.9.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jollyday-0.4.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/slf4j-api-1.7.12.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.6.0-javadoc.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.6.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.6.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xalan-2.7.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xercesImpl-2.8.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xml-apis-1.3.03.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/xom-1.2.10.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Joint_dataset_group1.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_an.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_joy.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_love.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Sen_withEmo_tr_sadness.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/emoiton_2.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/emoiton_3.csv" afterPath="" />
+    <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Emotion_Marks.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -660,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483179402839</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cambio del source code">
+      <created>1483347432839</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1483347432839</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -761,7 +745,8 @@
     <MESSAGE value="Scrittura su CSV corretta e ante altre bello cose" />
     <MESSAGE value="Scrittura su CSV corretta&#10;Sistemati Package" />
     <MESSAGE value="Sistemati package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sistemati package" />
+    <MESSAGE value="Cambio del source code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio del source code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
