@@ -18,16 +18,16 @@ public class ReadingCSV {
      * @param pathFile where is the file to read
      * @return
      */
-    public Map<String,List<String>> read_AllColumn_CSV(String pathFile){
+    public Map<String,List<String>> read_AllColumn_CSV(String pathFile,Character delimiter){
         //Hashmap perchè i nomi delle colonne devono essere univoci, mentre List perchè i duplicati mi servono, e non mi servono in ordine
         LinkedHashMap<String, List<String>> tr= new LinkedHashMap<>();
         FileReader in = null;
         try {
             in = new FileReader(pathFile);
-            CSVFormat format =  CSVFormat.EXCEL.withFirstRecordAsHeader().withDelimiter(';');
+            CSVFormat format =  CSVFormat.EXCEL.withFirstRecordAsHeader().withDelimiter(delimiter);
             CSVParser csvFileParser = new CSVParser(in, format);
             List<CSVRecord> csvRecords = csvFileParser.getRecords();
-            //Inserisco le chiavi nel treemap
+
            Map<String,Integer> mapHeader=  csvFileParser.getHeaderMap();
               for(String key:  mapHeader.keySet()){
                   tr.put(key,new ArrayList<>());

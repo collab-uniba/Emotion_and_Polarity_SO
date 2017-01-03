@@ -23,7 +23,7 @@ public class RemoveNotEnglishWords {
         List<Map<String, List<String>>> allList = new ArrayList<>();
         //read all files , each of them is formed by : n list's name and n terms for each of them
         for (String path : pathsMarks) {
-            Map<String, List<String>> listReaded = rd.read_AllColumn_CSV(path);
+            Map<String, List<String>> listReaded = rd.read_AllColumn_CSV(path,';');
             allList.add(listReaded);
         }
 

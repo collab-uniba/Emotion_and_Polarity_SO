@@ -1,9 +1,9 @@
 package main;
 
-import edu.stanford.nlp.dcoref.Document;
+import computing.Ortu;
 import model.DocumentOrtu;
 import printing.WriterCSV;
-import reading.ReaderCSVOrtu;
+import reading.ReadingFile;
 import tokenizer.TokenizeCorpus;
 
 import java.io.IOException;
@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
+
 /**
  * Created by Francesco on 03/01/2017.
  */
 public class MainOrtu {
-    public static void main(String[] args) throws IOException {
 
+    public static void main(String[] args) throws IOException {
         String FORMAT = ".csv";
-        ReaderCSVOrtu rd = new ReaderCSVOrtu();
 
 
         List<DocumentOrtu> documentsEmotion = new ArrayList<>();
@@ -32,10 +32,12 @@ public class MainOrtu {
         String[] HEADERS4 = {"comment", "label"};
 
         WriterCSV wr = new WriterCSV();
+        Ortu ortu= new Ortu();
 
-        ///****GROUP 1***///
-        List<DocumentOrtu> documentGroup1 = new ArrayList<>();
-        rd.create_dcs_from_File("group1", args[0], documentGroup1);
+
+        //GROUP 1
+        List<DocumentOrtu> documentGroup1= new ArrayList<>();
+        ortu.bygroups("group1",args[0],',',documentGroup1);
 
         //label for each rater
         wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachRater" + FORMAT, documentGroup1, HEADERS, true, ',', false);
@@ -43,20 +45,18 @@ public class MainOrtu {
 
         //final label for each comment based on emotion
         documentGroup1.clear();//deve ripopolare i documents del gruppo 1 senza duplicati
-        rd.create_dcs_from_File("group1_noDuplied",  args[0], documentGroup1);
+        ortu.bygroups("group1_noDuplied",  args[0],',', documentGroup1);
         wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachComment_MajAgOnEmotionsWithoutMixed" + FORMAT, documentGroup1, HEADERS, true, ',',true );
         wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachComment_MajAgOnEmotionsWithMixed" + FORMAT, documentGroup1, HEADERS, true, ',',false );
         documentsEmotion.addAll(documentGroup1);
 
         //final label for each comment based on polarity
         documentGroup1.clear();
-        rd.create_dcs_from_File("group1_noDuplied_MajAgOnCommentPolarity",  "outOrtu/group1/group1_finalLabelForEachRater" + FORMAT, documentGroup1);
+        ortu.bygroups("group1_noDuplied_MajAgOnCommentPolarity",  "outOrtu/group1/group1_finalLabelForEachRater" + FORMAT, ',',documentGroup1);
         wr.writeCsvFileTwo( "outOrtu/group1/group1_finalLabelForEachComment_MajAgOnPolarityWithoutMixed" + FORMAT, documentGroup1, HEADERS2, true, ',', true);
         wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachComment_MajAgOnPolarityWithMixed" + FORMAT, documentGroup1, HEADERS2, true, ',',false);
         documentsPolarity.addAll(documentGroup1);
 
-
-        ///***END GROUP 1**//
 
 
         ///****GROUP 2***///
@@ -64,7 +64,7 @@ public class MainOrtu {
         //Gruppo 2
         for (int i = 1; i < 4; i++){
             List<DocumentOrtu> documentPartial2= new ArrayList<>();
-            rd.create_dcs_from_File("group2", args[i], documentPartial2);
+            ortu.bygroups("group2", args[i],',',documentPartial2);
             wr.writeCsvFileTwo("outOrtu/group2/group2_" + i + FORMAT, documentPartial2, HEADERS, true, ',', false);
             documentGroup2.addAll(documentPartial2);
         }
@@ -77,7 +77,7 @@ public class MainOrtu {
 
         //final label for each comment based on emotion
         documentGroup2.clear();
-        rd.create_dcs_from_File("group2_noDuplied", "outOrtu/group2/group2_merged_finalLabelForEachRater"+FORMAT, documentGroup2);
+        ortu.bygroups("group2_noDuplied", "outOrtu/group2/group2_merged_finalLabelForEachRater"+FORMAT,',',documentGroup2);
         wr.writeCsvFileTwo( "outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnEmotionsWithMixed" + FORMAT, documentGroup2, HEADERS, true, ',', false);
         wr.writeCsvFileTwo( "outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnEmotionsWithoutMixed" + FORMAT, documentGroup2, HEADERS, true, ',', true);
         documentsEmotion.addAll(documentGroup2);
@@ -85,20 +85,18 @@ public class MainOrtu {
 
         //final label for each comment based on polarity
         documentGroup2.clear();
-        rd.create_dcs_from_File("group2_noDuplied_MajAgOnCommentPolarity","outOrtu/group2/group2_merged_finalLabelForEachRater" + FORMAT, documentGroup2);
+        ortu.bygroups("group2_noDuplied_MajAgOnCommentPolarity","outOrtu/group2/group2_merged_finalLabelForEachRater" + FORMAT,',', documentGroup2);
         wr.writeCsvFileTwo("outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithMixed" + FORMAT, documentGroup2, HEADERS2, true, ',', false);
         wr.writeCsvFileTwo("outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithoutMixed" + FORMAT, documentGroup2, HEADERS2, true, ',', true);
         documentsPolarity.addAll(documentGroup2);
-
         ///****END GROUP 2***///
-
 
         ///****GROUP 3***///
         List<DocumentOrtu> documentGroup3 = new ArrayList<>();
         int f=1;
         for (int i = 4; i < 8; i++){
             List<DocumentOrtu> documentPartialGroup3= new ArrayList<>();
-            rd.create_dcs_from_File("group3", args[i], documentPartialGroup3);
+            ortu.bygroups("group3", args[i],',', documentPartialGroup3);
             wr.writeCsvFileTwo( "outOrtu/group3/group3_" + f + FORMAT, documentPartialGroup3, HEADERS, true, ',', false);
             f++;
             documentGroup3.addAll(documentPartialGroup3);
@@ -107,9 +105,6 @@ public class MainOrtu {
         documentsEmotion.addAll(documentGroup3);
         documentsPolarity.addAll(documentGroup3);
         ///****GROUP 3***///
-
-
-
 
 
         //writing total complete Group1, 2 and 3 .csv
@@ -124,8 +119,9 @@ public class MainOrtu {
 
 
         List<DocumentOrtu> onlyComments_withoutURL = new ArrayList<>();
+        ReadingFile rd= new ReadingFile();
         //Qui riapro il tokenized
-        onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url( "outOrtu/others/OrtuEtAl_TOKENIZED"));
+        onlyComments_withoutURL.addAll(rd.read_Tokenized_And_remove_Url( "outOrtu/others/OrtuEtAl_TOKENIZED"));
         int i = 0;
         System.out.println("doc final " + documentsEmotion.size());
         System.out.println(" " + onlyComments_withoutURL.size());
