@@ -1,8 +1,10 @@
 package main;
 
-import model.Document;
+import edu.stanford.nlp.dcoref.Document;
+import model.DocumentOrtu;
 import printing.WriterCSV;
-import reading.ReaderCSV;
+import reading.ReaderCSVOrtu;
+import tokenizer.TokenizeCorpus;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,13 +18,12 @@ public class MainOrtu {
     public static void main(String[] args) throws IOException {
 
         String FORMAT = ".csv";
-        ReaderCSV rd = new ReaderCSV();
+        ReaderCSVOrtu rd = new ReaderCSVOrtu();
 
 
-        List<Document> documentsFinal = new ArrayList<>();
-        List<Document> documentsFinalCommentPolarity = new ArrayList<>();
-        TreeSet<Document> tr = new TreeSet<Document>();
-        List<String> headerFirstType = new ArrayList<>();
+        List<DocumentOrtu> documentsEmotion = new ArrayList<>();
+        List<DocumentOrtu> documentsPolarity = new ArrayList<>();
+        TreeSet<DocumentOrtu> tr = new TreeSet<DocumentOrtu>();
 
 
         String[] HEADERS = {"id", "love", "joy", "surprise", "anger", "sadness", "fear", "label", "comment"};
@@ -31,132 +32,123 @@ public class MainOrtu {
         String[] HEADERS4 = {"comment", "label"};
 
         WriterCSV wr = new WriterCSV();
-        int l = 0;
-        int start = 1;// group1 1 (prende :1 )
-        int n = 0;
-        int max = 0;
-        while (l < 3) {
-            //questi sono solo i documenti che si rifescono ad Un gruppo in ogni ciclo,attenzione.
-            List<Document> documents = new ArrayList<>();
-            List<Document> documents2 = new ArrayList<>();
-            n = Integer.parseInt(args[start]);//numero di documenti associati ad un gruppo
-            max = n + start;//indice max in cui sta l'ultimo documento
-            int startPoint = 0;
-            int endPoint = 0;
-            int numOut = 1;
-            //Questo FOR crea i Group_1.csv, Group2_1.csv , Group2_2.csv ecc
-            for (int j = start + 1; j <= max; j++) {
-                //args[start - 1] : nome del gruppo
-                //args[j] : path del primo documento
-                rd.create_dcs_from_File(args[start - 1], args[j], documents);
-                endPoint = documents.size();
-                wr.writeCsvFileTwo(args[args.length - 1] + "_" + args[start - 1] + "_" + numOut + FORMAT, documents.subList(startPoint, endPoint),
-                        HEADERS, true, ',', false);
-                startPoint = endPoint;
-                numOut++;
-            }
+
+        ///****GROUP 1***///
+        List<DocumentOrtu> documentGroup1 = new ArrayList<>();
+        rd.create_dcs_from_File("group1", args[0], documentGroup1);
+
+        //label for each rater
+        wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachRater" + FORMAT, documentGroup1, HEADERS, true, ',', false);
 
 
-            String lastFileMergedGroup2 = "";
-            String lastFileMergedGroup1 = "";
-            if (args[start - 1].equals("group2")) {
-                tr.addAll(documents);//ordino gli elementi
-                documents.clear();
-                documents.addAll(tr);
-                lastFileMergedGroup2 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_with_duplied" + FORMAT;
-                wr.writeCsvFileTwo(lastFileMergedGroup2, documents, HEADERS, true, ',', false);
-            } else if (args[start - 1].equals("group1")) {
-                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_with_duplied" + FORMAT;
-                wr.writeCsvFileTwo(lastFileMergedGroup1, documents, HEADERS, true, ',', false);
+        //final label for each comment based on emotion
+        documentGroup1.clear();//deve ripopolare i documents del gruppo 1 senza duplicati
+        rd.create_dcs_from_File("group1_noDuplied",  args[0], documentGroup1);
+        wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachComment_MajAgOnEmotionsWithoutMixed" + FORMAT, documentGroup1, HEADERS, true, ',',true );
+        wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachComment_MajAgOnEmotionsWithMixed" + FORMAT, documentGroup1, HEADERS, true, ',',false );
+        documentsEmotion.addAll(documentGroup1);
 
-            } else {
-                //gruppo 3
-                String lastFileMerged = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged" + FORMAT;
-                documents2.clear();
-                documents2.addAll(documents);
-                if (l == 2)
-                    wr.writeCsvFileTwo(lastFileMerged, documents, HEADERS, true, ',', false);
-                wr.writeCsvFileTwo(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabelWithoutMixed" + FORMAT, documents, HEADERS2, true, ';', true);
-                //fine gruppo 3
-            }
-
-            if (args[start - 1].equals("group1")) {
-
-                documents.clear();//deve ripopolare i documents del gruppo 1 senza duplicati
-                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_with_duplied" + FORMAT;
-                rd.create_dcs_from_File("group1_noDuplied", lastFileMergedGroup1, documents);
-                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_no_duplied_MajAgOnEmotionsWithMixed" + FORMAT;
-                wr.writeCsvFileTwo(lastFileMergedGroup1, documents, HEADERS, true, ',', false);
-                wr.writeCsvFileTwo(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabelOnEmotionsWithoutMixed" + FORMAT, documents, HEADERS2, true, ';', true);
-
-                //qui crei il merged_no_duplied_MajAgOnFinalLabel
-                documents2.clear();
-                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_with_duplied" + FORMAT;
-                rd.create_dcs_from_File("group1_noDuplied_MajAgOnCommentPolarity", lastFileMergedGroup1,
-                        documents2);
-                lastFileMergedGroup1 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_noDuplied_MajAgOnCommentPolarity" + FORMAT;
-                wr.writeCsvFileTwo(lastFileMergedGroup1, documents2, HEADERS2, true, ',', false);
-                wr.writeCsvFileTwo(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabelOnCommentPolarityWithoutMixed" + FORMAT, documents2, HEADERS2, true, ';', true);
+        //final label for each comment based on polarity
+        documentGroup1.clear();
+        rd.create_dcs_from_File("group1_noDuplied_MajAgOnCommentPolarity",  "outOrtu/group1/group1_finalLabelForEachRater" + FORMAT, documentGroup1);
+        wr.writeCsvFileTwo( "outOrtu/group1/group1_finalLabelForEachComment_MajAgOnPolarityWithoutMixed" + FORMAT, documentGroup1, HEADERS2, true, ',', true);
+        wr.writeCsvFileTwo("outOrtu/group1/group1_finalLabelForEachComment_MajAgOnPolarityWithMixed" + FORMAT, documentGroup1, HEADERS2, true, ',',false);
+        documentsPolarity.addAll(documentGroup1);
 
 
-            } else if (args[start - 1].equals("group2")) {
-                //adesso documents sono ordinati
-                documents.clear();//deve ripopolare i documents del gruppo 2 senza duplicati
-                rd.create_dcs_from_File("group2_noDuplied", lastFileMergedGroup2, documents);
-                lastFileMergedGroup2 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_no_duplied_MajAgOnEmotions" + FORMAT;
-                wr.writeCsvFileTwo(lastFileMergedGroup2, documents, HEADERS, true, ',', false);
-                wr.writeCsvFileTwo(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabel" + FORMAT, documents, HEADERS2, true, ';', true);
+        ///***END GROUP 1**//
 
 
-                //adesso documents sono ordinati
-                documents2.clear();
-                lastFileMergedGroup2 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_with_duplied" + FORMAT;
-                rd.create_dcs_from_File("group2_noDuplied_MajAgOnCommentPolarity", lastFileMergedGroup2, documents2);
-                lastFileMergedGroup2 = args[args.length - 1] + "_" + args[start - 1] + "_" + "merged_no_duplied_MajAgOnCommentPolarity" + FORMAT;
-                wr.writeCsvFileTwo(lastFileMergedGroup2, documents2, HEADERS2, true, ',', false);
-                wr.writeCsvFileTwo(args[args.length - 1] + "_" + args[start - 1] + "_" + "idCommentLabelOnCommentPolarityWithoutMixed" + FORMAT, documents, HEADERS2, true, ';', true);
-            }
-
-            documentsFinal.addAll(documents);
-            //NB nel documentFinalCommentPOlarity il Gruppo 3 ha anche i valori di sentiments (li non si applica il majority agreement, sono frasi)
-            documentsFinalCommentPolarity.addAll(documents2);
-            l++;
-            start = max + 2;
+        ///****GROUP 2***///
+        List<DocumentOrtu> documentGroup2 = new ArrayList<>();
+        //Gruppo 2
+        for (int i = 1; i < 4; i++){
+            List<DocumentOrtu> documentPartial2= new ArrayList<>();
+            rd.create_dcs_from_File("group2", args[i], documentPartial2);
+            wr.writeCsvFileTwo("outOrtu/group2/group2_" + i + FORMAT, documentPartial2, HEADERS, true, ',', false);
+            documentGroup2.addAll(documentPartial2);
         }
+
+        //ordino gli elementi
+        tr.addAll(documentGroup2);
+        documentGroup2.clear();
+        documentGroup2.addAll(tr);
+        wr.writeCsvFileTwo("outOrtu/group2/group2_merged_finalLabelForEachRater" + FORMAT, documentGroup2, HEADERS, true, ',', false);
+
+        //final label for each comment based on emotion
+        documentGroup2.clear();
+        rd.create_dcs_from_File("group2_noDuplied", "outOrtu/group2/group2_merged_finalLabelForEachRater"+FORMAT, documentGroup2);
+        wr.writeCsvFileTwo( "outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnEmotionsWithMixed" + FORMAT, documentGroup2, HEADERS, true, ',', false);
+        wr.writeCsvFileTwo( "outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnEmotionsWithoutMixed" + FORMAT, documentGroup2, HEADERS, true, ',', true);
+        documentsEmotion.addAll(documentGroup2);
+
+
+        //final label for each comment based on polarity
+        documentGroup2.clear();
+        rd.create_dcs_from_File("group2_noDuplied_MajAgOnCommentPolarity","outOrtu/group2/group2_merged_finalLabelForEachRater" + FORMAT, documentGroup2);
+        wr.writeCsvFileTwo("outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithMixed" + FORMAT, documentGroup2, HEADERS2, true, ',', false);
+        wr.writeCsvFileTwo("outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithoutMixed" + FORMAT, documentGroup2, HEADERS2, true, ',', true);
+        documentsPolarity.addAll(documentGroup2);
+
+        ///****END GROUP 2***///
+
+
+        ///****GROUP 3***///
+        List<DocumentOrtu> documentGroup3 = new ArrayList<>();
+        int f=1;
+        for (int i = 4; i < 8; i++){
+            List<DocumentOrtu> documentPartialGroup3= new ArrayList<>();
+            rd.create_dcs_from_File("group3", args[i], documentPartialGroup3);
+            wr.writeCsvFileTwo( "outOrtu/group3/group3_" + f + FORMAT, documentPartialGroup3, HEADERS, true, ',', false);
+            f++;
+            documentGroup3.addAll(documentPartialGroup3);
+        }
+        wr.writeCsvFileTwo("outOrtu/group3/group3_merged__finalLabelForEachComment"+ FORMAT, documentGroup3, HEADERS, true, ',', false);
+        documentsEmotion.addAll(documentGroup3);
+        documentsPolarity.addAll(documentGroup3);
+        ///****GROUP 3***///
+
+
+
 
 
         //writing total complete Group1, 2 and 3 .csv
-        wr.writeCsvFileTwo(args[args.length - 1] + "_OrtuEtAl" + FORMAT, documentsFinal, HEADERS2, true, ';', true);
-        wr.writeCsvFileTwo(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD" + FORMAT, documentsFinal, HEADERS3, false, ';', true);
+        wr.writeCsvFileTwo("outOrtu/others/OrtuEtAl_merged_labelBasedOnEmotion_NoMixed" + FORMAT, documentsEmotion, HEADERS2, true, ';', true);
+        wr.writeCsvFileTwo( "outOrtu/others/OrtuEtAl_ForSenti4SD_merged_labelBasedOnEmotion_NoMixed" + FORMAT, documentsEmotion, HEADERS3, false, ';', true);
+        wr.writeCsvFileTwo("outOrtu/others/OrtuEtAl_merged_labelBasedOnPolarity_NoMixed" + FORMAT, documentsPolarity, HEADERS2, true, ';', true);
+        wr.writeCsvFileTwo("outOrtu/others/OrtuEtAl_ForSenti4SD_merged_labelBasedOnPolarity_NoMixed" + FORMAT, documentsPolarity, HEADERS3, false, ';', true);
 
-        wr.writeCsvFileTwo(args[args.length - 1] + "_OrtuEtAl_CommPolarity" + FORMAT, documentsFinalCommentPolarity, HEADERS2, true, ';', true);
-        wr.writeCsvFileTwo(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_CommPolarity" + FORMAT, documentsFinalCommentPolarity, HEADERS3, false, ';', true);
         //QUI Scrivo il tokenized
-        wr.writeTokenized(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD", FORMAT);
-        List<Document> onlyComments_withoutURL = new ArrayList<>();
-        //Qui riapro il tokenized
-        onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url(args[args.length - 1] + "_OrtuEtAl_ForSenti4SD_TOKENIZED" + FORMAT));
-        int i = 0;
-        System.out.println("doc final " + documentsFinal.size());
-        System.out.println(" " + onlyComments_withoutURL.size());
-        for (int j = 0; j < documentsFinal.size() - 1; j++) {
-            if (i < onlyComments_withoutURL.size() - 1) {
-                Document d1 = onlyComments_withoutURL.get(i);
-                documentsFinal.get(j).setComment(d1.getComment());
-                i++;
-            }
-        }
-        wr.writeCsvFileTwo(args[args.length - 1] + "_" + "_OrtuEtAl_WithoutURL" + FORMAT, documentsFinal, HEADERS4, false, ';', true);
+        TokenizeCorpus tk= new TokenizeCorpus();
+        tk.tokenizerByToken("outOrtu/others/OrtuEtAl_ForSenti4SD_merged_labelBasedOnEmotion_NoMixed"+FORMAT,"outOrtu/others/OrtuEtAl_TOKENIZED");
 
-        System.out.println("doc final Comment Polarity " + documentsFinalCommentPolarity.size());
+
+        List<DocumentOrtu> onlyComments_withoutURL = new ArrayList<>();
+        //Qui riapro il tokenized
+        onlyComments_withoutURL.addAll(rd.read_Tokenized_remove_Url( "outOrtu/others/OrtuEtAl_TOKENIZED"));
+        int i = 0;
+        System.out.println("doc final " + documentsEmotion.size());
         System.out.println(" " + onlyComments_withoutURL.size());
-        for (int j = 0; j < documentsFinalCommentPolarity.size() - 1; j++) {
+        for (int j = 0; j < documentsEmotion.size() - 1; j++) {
             if (i < onlyComments_withoutURL.size() - 1) {
-                Document d1 = onlyComments_withoutURL.get(i);
-                documentsFinalCommentPolarity.get(j).setComment(d1.getComment());
+                DocumentOrtu d1 = onlyComments_withoutURL.get(i);
+                documentsEmotion.get(j).setComment(d1.getComment());
                 i++;
             }
         }
-        wr.writeCsvFileTwo(args[args.length - 1] + "_" + "_OrtuEtAl_WithoutURL_CommentPolarity" + FORMAT, documentsFinalCommentPolarity, HEADERS4, false, ';', true);
+        wr.writeCsvFileTwo("outOrtu/others/OrtuEtAl_ForSenti4SD_merged_labelBasedOnEmotion_WithoutURL_NoMixed" + FORMAT, documentsEmotion, HEADERS4, false, ';', true);
+
+
+        System.out.println("doc final Comment Polarity " + documentsPolarity.size());
+        System.out.println(" " + onlyComments_withoutURL.size());
+        for (int j = 0; j < documentsPolarity.size() - 1; j++) {
+            if (i < onlyComments_withoutURL.size() - 1) {
+                DocumentOrtu d1 = onlyComments_withoutURL.get(i);
+                documentsPolarity.get(j).setComment(d1.getComment());
+                i++;
+            }
+        }
+        wr.writeCsvFileTwo("outOrtu/others/OrtuEtAl_ForSenti4SD_merged_labelBasedOnPolarity_WithoutURL_NoMixed" + FORMAT, documentsPolarity, HEADERS4, false, ';', true);
     }
+
 }

@@ -3,7 +3,7 @@ package model;
 /**
  * Created by Francesco on 03/01/2017.
  */
-public class Emotion {
+public class EmotionOrtu {
     private boolean love;
     private boolean joy;
     private boolean surprise;
@@ -23,7 +23,7 @@ public class Emotion {
      *          if we want to put the final label for each rater than we put n = 1;
      */
 
-    public Emotion (int love,int joy,int surprise,int anger,int sadness,int fear,int n){
+    public EmotionOrtu(int love, int joy, int surprise, int anger, int sadness, int fear, int n){
         setLove(love,n);
         setJoy(joy,n);
         setSurprise(surprise,n);

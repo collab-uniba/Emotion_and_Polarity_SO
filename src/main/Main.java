@@ -1,19 +1,7 @@
 package main;
 
 
-import computing.Grams;
-import model.Document;
-import printing.WriterCSV;
-import reading.ReaderCSV;
-import replacing.RemoveNotEnglishWords;
-import tokenizer.TokenizeCorpus;
-import printing.PrintingFile;
-import reading.ReadingCSV;
-import reading.ReadingFile;
-
 import java.io.IOException;
-import java.util.*;
-
 
 
 public class Main {

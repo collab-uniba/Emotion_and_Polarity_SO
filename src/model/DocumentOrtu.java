@@ -1,9 +1,9 @@
 package model;
 
-public class Document implements Comparable<Object>{
+public class DocumentOrtu implements Comparable<Object>{
     private String comment;
     private String id;
-    private Emotion emotion;
+    private EmotionOrtu emotionOrtu;
     private String finaLabel;
     private enum label{positive,negative,neutral,mixed};
     public String getId(){
@@ -25,17 +25,17 @@ public class Document implements Comparable<Object>{
         this.id=id;
     }
 
-    public void setEmotions(Emotion emotion) {
-        this.emotion = emotion;
-        if(emotion!=null)
+    public void setEmotions(EmotionOrtu emotionOrtu) {
+        this.emotionOrtu = emotionOrtu;
+        if(emotionOrtu !=null)
              setFinaLabelBasedOnEmotions();
     }
 
     private boolean is_love_joy(){
-        return (emotion.isLove() || emotion.isJoy());
+        return (emotionOrtu.isLove() || emotionOrtu.isJoy());
     }
     private boolean is_anger__sadness_fear(){
-        return (emotion.isAnger() || emotion.isSadness() || emotion.isFear());
+        return (emotionOrtu.isAnger() || emotionOrtu.isSadness() || emotionOrtu.isFear());
     }
     /*questo metodo setta la lb. finale
     - se (almeno una label tra sadness, anger, fear) e (nessuna label tra love and joy) = negative
@@ -111,14 +111,14 @@ public class Document implements Comparable<Object>{
             }
     }
 
-    public Emotion getEmotion() {
-        return emotion;
+    public EmotionOrtu getEmotionOrtu() {
+        return emotionOrtu;
     }
 
     @Override
     public int compareTo(Object o) {
-        if (o instanceof  Document){
-            Document d= (Document) o;
+        if (o instanceof DocumentOrtu){
+            DocumentOrtu d= (DocumentOrtu) o;
             int id1= Integer.parseInt(id);
             int id2= Integer.parseInt(d.getId());
             if(id1>=id2){

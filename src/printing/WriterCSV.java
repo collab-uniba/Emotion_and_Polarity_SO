@@ -161,16 +161,16 @@ public class WriterCSV {
      * @param withoutMixed
      */
     private List<DatasetRowOrtu> listOrtu=null;
-    public void writeCsvFileTwo(String outputName,List<Document> documents,String[] column,boolean withHeader,Character delimiter,boolean withoutMixed){
+    public void writeCsvFileTwo(String outputName, List<DocumentOrtu> documentOrtus, String[] column, boolean withHeader, Character delimiter, boolean withoutMixed){
         listOrtu=new ArrayList<>();
         if(withoutMixed) {
-            for (Document d : documents) {
+            for (DocumentOrtu d : documentOrtus) {
                 if (d.getFinaLabel()!=null && !d.getFinaLabel().equals("mixed"))
                     build_Row(d,column);
             }
         }
         else{
-            for (Document d : documents) {
+            for (DocumentOrtu d : documentOrtus) {
                 build_Row(d,column);
             }
         }
@@ -245,7 +245,7 @@ public class WriterCSV {
         }
     }
 
-    private void build_Row(Document d,String[] column){
+    private void build_Row(DocumentOrtu d, String[] column){
         String id="";
         String love="";
         String joy="";
@@ -288,7 +288,7 @@ public class WriterCSV {
         DatasetRowOrtu dr=null;
         if(!id.equals("") && !label.equals("") && !comment.equals("") && !fear.equals("") && !sadness.equals("") && !surprise.equals("") && !joy.equals("") && !love.equals("") && !anger.equals("")){
             //caso tutti
-            Emotion emo = d.getEmotion();
+            EmotionOrtu emo = d.getEmotionOrtu();
             dr = new DatasetRowOrtu.DatasetRowBuilder()
                     .setId(d.getId())
                     .setLove(emo.getLove())
@@ -311,36 +311,7 @@ public class WriterCSV {
         listOrtu.add(dr);
     }
 
-    public void writeTokenized(String file,String format) {
-        File inputTokenized = new File(file+"_TOKENIZED"+format);
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(inputTokenized);
-            System.out.println("Tokenizing input corpus ...");
-            PTBTokenizer<CoreLabel> ptbt = new PTBTokenizer<>(new FileReader(file+format), new CoreLabelTokenFactory(),
-                    "ptb3Escaping=false,untokenizable=allKeep,tokenizeNLs=true");
-            while (ptbt.hasNext()) {
-                CoreLabel label = ptbt.next();
 
-                String s = String.valueOf(PTBTokenizer.getNewlineToken());
-                if (String.valueOf(label).equals(s))
-                    fw.append(System.lineSeparator());
-                else{
-                    if(String.valueOf(label).charAt(0)=='"') {
-                        label.setValue("");
-                        fw.append(label + " ");
-                    }
-                    else
-                        fw.append(label + " ");
-                }
-
-            }
-            fw.flush();
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
 }
