@@ -1,10 +1,14 @@
 package printing;
 
-import model.CsvElements;
-import model.DatasetRow;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.process.CoreLabelTokenFactory;
+import edu.stanford.nlp.process.PTBTokenizer;
+import model.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -17,11 +21,10 @@ public class WriterCSV {
 
     // Delimiter used in CSV file
     private static final String NEW_LINE_SEPARATOR = "\n";
-    private List<DatasetRow> list = null;
     private Utility u = new Utility();
 
-    public void writeCsvFile(String outputName, CsvElements model) throws IOException {
-        list = new ArrayList<>();
+    public void writeCsvFile(String outputName, CsvElementsTFIDF model) throws IOException {
+        List<DatasetRowTFIDF> list = new ArrayList<>();
         List<String> ids = model.getId();
         List<String> docs = model.getDocuments();
         List<Map<String, Double>> unigrams = model.getUnigramTFIDF();
@@ -34,7 +37,7 @@ public class WriterCSV {
         int i = 1;
 
 
-        DatasetRow dr;
+        DatasetRowTFIDF dr;
 //        for (String id : ids) {
         for (String doc : docs) {
             List<Double> tf_idf= new ArrayList<>();
@@ -72,7 +75,7 @@ public class WriterCSV {
             }
 
 
-            dr = new DatasetRow.DatasetRowBuilder()
+            dr = new DatasetRowTFIDF.DatasetRowBuilder()
                     .setDocument("t"+ i)
                     .setTf_idf(tf_idf)
                     .build();
@@ -104,7 +107,7 @@ public class WriterCSV {
             //qui mette le colonne
             csvFilePrinter.printRecord(header);
             int j = 0;
-            for (DatasetRow d : list) {
+            for (DatasetRowTFIDF d : list) {
                 if ((j % 50) == 0) {
                     System.out.println("Printing line:" + j);
                 }
@@ -134,6 +137,7 @@ public class WriterCSV {
         }
     }
 
+    /**this method populate header for tf-idf*/
     private void populateHeader(Map<String, Double> grams,List<String> header,String head) {
         int ii = 1;
         for (String k : grams.keySet()) {
@@ -145,5 +149,198 @@ public class WriterCSV {
             ii++;
         }
     }
+
+
+    /**
+     * this method is used for ortu validation
+     * @param outputName
+     * @param documents
+     * @param column
+     * @param withHeader
+     * @param delimiter
+     * @param withoutMixed
+     */
+    private List<DatasetRowOrtu> listOrtu=null;
+    public void writeCsvFileTwo(String outputName,List<Document> documents,String[] column,boolean withHeader,Character delimiter,boolean withoutMixed){
+        listOrtu=new ArrayList<>();
+        if(withoutMixed) {
+            for (Document d : documents) {
+                if (d.getFinaLabel()!=null && !d.getFinaLabel().equals("mixed"))
+                    build_Row(d,column);
+            }
+        }
+        else{
+            for (Document d : documents) {
+                build_Row(d,column);
+            }
+        }
+        FileWriter fileWriter = null;
+        CSVPrinter csvFilePrinter = null;
+        // Create the CSVFormat object with "\n" as a record delimiter
+        CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(delimiter);
+
+        try {
+
+            // initialize FileWriter object
+            fileWriter = new FileWriter(outputName);
+            // initialize CSVPrinter object
+            csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
+            // Create CSV file header
+            if(withHeader)
+                csvFilePrinter.printRecord(column);
+            int i = 0;
+            for (DatasetRowOrtu d : listOrtu) {
+                if ((i % 50) == 0) {
+                    System.out.println("Printing line:" + i);
+                }
+                List l = new ArrayList();
+                for(String s : column){
+                    switch(s){
+                        case "id":
+                            l.add(d.getId());
+                            continue;
+                        case "love":
+                            l.add(d.getLove());
+                            continue;
+                        case "joy":
+                            l.add(d.getJoy());
+                            continue;
+                        case "surprise":
+                            l.add(d.getSurprise());
+                            continue;
+                        case "anger":
+                            l.add(d.getAnger());
+                            continue;
+                        case "sadness":
+                            l.add(d.getSadness());
+                            continue;
+                        case "fear":
+                            l.add(d.getFear());
+                            continue;
+                        case "label":
+                            l.add(d.getLabel());
+                            continue;
+                        case "comment":
+                            l.add(d.getComment());
+                    }
+                }
+
+                csvFilePrinter.printRecord(l);
+                i++;
+            }
+            System.out.println("CSV file " + outputName +" was created successfully.");
+
+        } catch (Exception e) {
+            System.out.println("Error in CsvFileWriter !!!");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+                csvFilePrinter.close();
+            } catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter/csvPrinter !!!");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void build_Row(Document d,String[] column){
+        String id="";
+        String love="";
+        String joy="";
+        String surprise="";
+        String anger="";
+        String sadness="";
+        String fear="";
+        String label="";
+        String comment="";
+        for(String s : column){
+            switch(s){
+                case "id":
+                    id="yes";
+                    continue;
+                case "love":
+                    love="yes";
+                    continue;
+                case "joy":
+                    joy="yes";
+                    continue;
+                case "surprise":
+                    surprise="yes";
+                    continue;
+                case "anger":
+                    anger="yes";
+                    continue;
+                case "sadness":
+                    sadness="yes";
+                    continue;
+                case "fear":
+                    fear ="yes";
+                    continue;
+                case "label":
+                    label="yes";
+                    continue;
+                case "comment":
+                    comment="yes";
+            }
+        }
+        DatasetRowOrtu dr=null;
+        if(!id.equals("") && !label.equals("") && !comment.equals("") && !fear.equals("") && !sadness.equals("") && !surprise.equals("") && !joy.equals("") && !love.equals("") && !anger.equals("")){
+            //caso tutti
+            Emotion emo = d.getEmotion();
+            dr = new DatasetRowOrtu.DatasetRowBuilder()
+                    .setId(d.getId())
+                    .setLove(emo.getLove())
+                    .setJoy(emo.getJoy())
+                    .setSurprise(emo.getSurprise())
+                    .setAnger(emo.getAnger())
+                    .setSadness(emo.getSadness())
+                    .setFear(emo.getFear())
+                    .setLabel(d.getFinaLabel())
+                    .setComment(d.getComment())
+                    .build();}
+        else if(!label.equals("") && !comment.equals("") && !id.equals(""))
+            dr = new DatasetRowOrtu.DatasetRowBuilder().setIdCommentLabel(d.getId(),d.getComment(),d.getFinaLabel()).build();
+        else if(!label.equals("") && !comment.equals("")){
+            dr = new DatasetRowOrtu.DatasetRowBuilder().setCommentLabel(d.getComment(),d.getFinaLabel()).build();
+        }
+        else if(!comment.equals("")){
+            dr = new DatasetRowOrtu.DatasetRowBuilder().setComment(d.getComment()).build();
+        }
+        listOrtu.add(dr);
+    }
+
+    public void writeTokenized(String file,String format) {
+        File inputTokenized = new File(file+"_TOKENIZED"+format);
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(inputTokenized);
+            System.out.println("Tokenizing input corpus ...");
+            PTBTokenizer<CoreLabel> ptbt = new PTBTokenizer<>(new FileReader(file+format), new CoreLabelTokenFactory(),
+                    "ptb3Escaping=false,untokenizable=allKeep,tokenizeNLs=true");
+            while (ptbt.hasNext()) {
+                CoreLabel label = ptbt.next();
+
+                String s = String.valueOf(PTBTokenizer.getNewlineToken());
+                if (String.valueOf(label).equals(s))
+                    fw.append(System.lineSeparator());
+                else{
+                    if(String.valueOf(label).charAt(0)=='"') {
+                        label.setValue("");
+                        fw.append(label + " ");
+                    }
+                    else
+                        fw.append(label + " ");
+                }
+
+            }
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

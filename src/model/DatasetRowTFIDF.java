@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Class for printing in .csv files
  */
-public class DatasetRow {
+public class DatasetRowTFIDF {
 
 	//private  final String id;
 	private  final String document;
@@ -21,7 +21,7 @@ public class DatasetRow {
     }
 
 
-   private DatasetRow(DatasetRowBuilder builder) {
+   private DatasetRowTFIDF(DatasetRowBuilder builder) {
         this.document= builder.document;
         this.tf_idf= builder.tf_idf;
 
@@ -38,8 +38,8 @@ public class DatasetRow {
              this.tf_idf=tf_idf;
              return this;
          }
-         public DatasetRow build() {
-            return new DatasetRow(this);
+         public DatasetRowTFIDF build() {
+            return new DatasetRowTFIDF(this);
         }
 	}
 }

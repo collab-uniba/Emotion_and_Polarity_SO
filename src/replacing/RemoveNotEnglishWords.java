@@ -6,6 +6,8 @@ import reading.ReadingFile;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Francesco on 02/01/2017.

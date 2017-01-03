@@ -2,29 +2,27 @@ package main;
 
 
 import computing.Grams;
-import computing.TF_IDFComputer;
-import replacing.POSTagger;
-import replacing.RemoveNotEnglishWords;
-import replacing.RemoveURL;
-import replacing.ReplacerTextWithMarks;
-import tokenizer.TokenizeCorpus;
-import utility.Utility;
-import model.CsvElements;
-import printing.PrintingFile;
+import model.Document;
 import printing.WriterCSV;
+import reading.ReaderCSV;
+import replacing.RemoveNotEnglishWords;
+import tokenizer.TokenizeCorpus;
+import printing.PrintingFile;
 import reading.ReadingCSV;
 import reading.ReadingFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
 
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
-        Grams gr = new Grams();
+
+
+
+   /* public static void main(String[] args) throws IOException {
+       /* Grams gr = new Grams();
 
         //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
         //Tokenizzatore
@@ -50,7 +48,7 @@ public class Main {
 
         List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNonEnglishWord(inputCorpusTknz,paths);
         pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
-
+*/
 
       /* Post tagger*/
        /* POSTagger pt = new POSTagger();
@@ -58,8 +56,8 @@ public class Main {
         pr.print("res/docsPostTagged",docsPostTagged);*/
 
         //Remove URL
-       /* RemoveURL rmurl= new RemoveURL();
-        List<String> docsWithoutURLTknz= rmurl.removeUrl(docsPostTagged);
+       /* RemoveURL rmurl= new RemoveURLOne();
+        List<String> docsWithoutURLTknz= rmurl.removeUrlOne(docsPostTagged);
         pr.print("res/docsWithoutURLTokenized",docsWithoutURLTknz);*/
 
 
@@ -86,7 +84,7 @@ public class Main {
         //FINE PREPROCESSING
 
 
-       //tf-idf-bigrams
+        //tf-idf-bigrams
      /*   TF_IDFComputer cl= new TF_IDFComputer();
         Utility u = new Utility();
         SortedMap<String, String> unigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("UnigramsList"));
@@ -133,7 +131,6 @@ public class Main {
 
         WriterCSV writerCSV= new WriterCSV();
         writerCSV.writeCsvFile("output.csv",csv);*/
-
     }
 }
 

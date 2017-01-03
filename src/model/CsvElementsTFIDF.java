@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by Francesco on 28/12/2016.
  */
-public class CsvElements {
+public class CsvElementsTFIDF {
     private List<String> id;
     private List<String> documents;
     private List<Map<String,Double>> unigramTFIDF;
