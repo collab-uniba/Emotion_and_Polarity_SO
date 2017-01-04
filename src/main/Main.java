@@ -1,23 +1,34 @@
 package main;
 
 
+import computing.Grams;
+import computing.TF_IDFComputer;
+import model.CsvElementsTFIDF;
+import printing.PrintingFile;
+import printing.WriterCSV;
+import reading.ReadingCSV;
+import reading.ReadingFile;
+import replacing.RemoveNotEnglishWords;
+import replacing.ReplacerTextWithMarks;
+import tokenizer.TokenizeCorpus;
+import utility.Utility;
+
+import java.io.File;
 import java.io.IOException;
+import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-
-
-   /* public static void main(String[] args) throws IOException {
-       /* Grams gr = new Grams();
+        Grams gr = new Grams();
 
         //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
         //Tokenizzatore
         PrintingFile pr = new PrintingFile();
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rdf= new ReadingFile();
-        Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV("res/inputCorpus.csv");
+        Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV("res/inputCorpus.csv",';');
         pr.print("res/onlyText", inputCorpus.get("comment"));
 
 
@@ -34,9 +45,8 @@ public class Main {
         paths.add("res/positive_emotion.csv");
         paths.add("res/negative_emotion.csv");
 
-        List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNonEnglishWord(inputCorpusTknz,paths);
+        List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNotEnglishWords(inputCorpusTknz);
         pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
-*/
 
       /* Post tagger*/
        /* POSTagger pt = new POSTagger();
@@ -52,7 +62,7 @@ public class Main {
 
 
           /*extracting bigram or unigram lists*/
-      /* SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLTokenized"), 0, 1);
+     /*  SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLTokenized"), 0, 1);
         Set<String> keysUni = unigram.keySet();
         for (String k : keysUni) {
             System.out.println(k + ": " + "\n");
@@ -67,13 +77,13 @@ public class Main {
             System.out.println(bigram.get(k) + " ");
         }
 
-        System.out.println("\n");*/
+        System.out.println("\n");
 
         //FINE PREPROCESSING
 
 
         //tf-idf-bigrams
-     /*   TF_IDFComputer cl= new TF_IDFComputer();
+        TF_IDFComputer cl= new TF_IDFComputer();
         Utility u = new Utility();
         SortedMap<String, String> unigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("UnigramsList"));
         System.out.println("unigrams loaded");
@@ -87,16 +97,11 @@ public class Main {
 
        //
       ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
-        List<String> paths = new ArrayList<>();
-        paths.add("res/neutral_emotion.csv");
-        paths.add("res/ambiguos-emotion.csv");
-        paths.add("res/positive_emotion.csv");
-        paths.add("res/negative_emotion.csv");
 
-        Map<String, List<String>> pos = rd.read_AllColumn_CSV("res/positive_emotion.csv");
-        Map<String, List<String>> neg = rd.read_AllColumn_CSV("res/negative_emotion.csv");
-        Map<String, List<String>> neu = rd.read_AllColumn_CSV("res/neutral_emotion.csv");
-        Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("res/ambiguos-emotion.csv");
+        Map<String, List<String>> pos = rd.read_AllColumn_CSV("res/positive_emotion.csv",';');
+        Map<String, List<String>> neg = rd.read_AllColumn_CSV("res/negative_emotion.csv",';');
+        Map<String, List<String>> neu = rd.read_AllColumn_CSV("res/neutral_emotion.csv",';');
+        Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("res/ambiguos-emotion.csv",';');
 
 
         List<String> replaced = replacer.replaceTermsWithMarks("res/onlyText_TOKENIZED",paths);
@@ -108,7 +113,7 @@ public class Main {
         //ora scrivo sul CSV
 
         //passo gli ID letti in ordine dal coso originale, con i vari documenti
-        CsvElements csv= new CsvElements();
+        CsvElementsTFIDF csv= new CsvElementsTFIDF();
         csv.setDocuments(inputCorpus.get("comment"));
         csv.setUnigramTFIDF(unigramsTFIDF);
         csv.setBigramTFIDF(bigramsTFIDF);
