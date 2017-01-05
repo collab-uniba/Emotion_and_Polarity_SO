@@ -1,6 +1,7 @@
 package main;
 
 
+import analysis.SentiStrengthSentiment;
 import computing.Grams;
 import computing.TF_IDFComputer;
 import model.CsvElementsTFIDF;
@@ -8,6 +9,7 @@ import printing.PrintingFile;
 import printing.WriterCSV;
 import reading.ReadingCSV;
 import reading.ReadingFile;
+import replacing.POSTagger;
 import replacing.RemoveNotEnglishWords;
 import replacing.ReplacerTextWithMarks;
 import tokenizer.TokenizeCorpus;
@@ -28,6 +30,7 @@ public class Main {
         PrintingFile pr = new PrintingFile();
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rdf= new ReadingFile();
+
         Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV("res/inputCorpus.csv",';');
         pr.print("res/onlyText", inputCorpus.get("comment"));
 
@@ -35,6 +38,22 @@ public class Main {
         TokenizeCorpus tk = new TokenizeCorpus();
         tk.tokenizerByToken("res/onlyText", "res/onlyText_TOKENIZED");
         List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED");
+     /*extracting bigram or unigram lists*/
+    /*   SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/onlyText_TOKENIZED"), 0, 1);
+        Set<String> keysUni = unigram.keySet();
+        for (String k : keysUni) {
+            System.out.println(k + ": " + "\n");
+            System.out.println(unigram.get(k) + " ");
+        }
+        System.out.println("\n");*/
+
+      /* SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/onlyText"), 0, 2);
+        Set<String> keysBi = bigram.keySet();
+        for (String k : keysBi) {
+            System.out.println(k + ": " + "\n");
+            System.out.println(bigram.get(k) + " ");
+        }
+        System.out.println("\n");*/
 
 
         //Remove non-english words
@@ -46,23 +65,23 @@ public class Main {
         paths.add("res/negative_emotion.csv");
 
         List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNotEnglishWords(inputCorpusTknz);
+        System.out.println("printing docs without not english word...");
         pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
 
-      /* Post tagger*/
+        //Remove URL
+       /* RemoveURL rmurl= new RemoveURLOne();
+        List<String> docsWithoutURLndNotEnglishWordsTknz= rmurl.removeUrlOne(docsPostTagged);
+        pr.print("res/docsWithoutURLAndNotEnglishWords",docsWithoutURLAndNotEnglishWordsTknz);*/
+
+       /* Post tagger*/
        /* POSTagger pt = new POSTagger();
         List<String> docsPostTagged =pt.posTag(inputCorpusTknz);
         pr.print("res/docsPostTagged",docsPostTagged);*/
 
-        //Remove URL
-       /* RemoveURL rmurl= new RemoveURLOne();
-        List<String> docsWithoutURLTknz= rmurl.removeUrlOne(docsPostTagged);
-        pr.print("res/docsWithoutURLTokenized",docsWithoutURLTknz);*/
-
-
 
 
           /*extracting bigram or unigram lists*/
-     /*  SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLTokenized"), 0, 1);
+      /* SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLAndNotEnglishWordsTokenized"), 0, 1);
         Set<String> keysUni = unigram.keySet();
         for (String k : keysUni) {
             System.out.println(k + ": " + "\n");
@@ -78,13 +97,20 @@ public class Main {
         }
 
         System.out.println("\n");
-
+*/
         //FINE PREPROCESSING
 
 
         //tf-idf-bigrams
-        TF_IDFComputer cl= new TF_IDFComputer();
+       /* TF_IDFComputer cl= new TF_IDFComputer();
+
         Utility u = new Utility();
+
+        List<String> paths = new ArrayList<>();
+        paths.add("res/neutral_emotion.csv");
+        paths.add("res/ambiguos-emotion.csv");
+        paths.add("res/positive_emotion.csv");
+        paths.add("res/negative_emotion.csv");
         SortedMap<String, String> unigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("UnigramsList"));
         System.out.println("unigrams loaded");
         SortedMap<String, String> bigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("BigramsList"));
@@ -123,7 +149,16 @@ public class Main {
         csv.setAmbiguosTFIDF(ambiTFIDF);
 
         WriterCSV writerCSV= new WriterCSV();
-        writerCSV.writeCsvFile("output.csv",csv);*/
+        writerCSV.writeCsvFile("res/TFIDF.csv",csv);*/
+
+      //  SentiStrengthSentiment st = new SentiStrengthSentiment();
+       // st.SentiStrengthgetScore("Excellent ! This is exactly what I needed . Thanks ! ");
+        //aggiungilo nella stessa posizione messa da federico
+
+        //politeness
+        //fai prima post_tag
+
+
     }
 }
 

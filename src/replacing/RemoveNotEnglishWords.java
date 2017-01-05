@@ -2,9 +2,9 @@ package replacing;
 
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
-import edu.mit.jwi.item.IIndexWord;
-import edu.mit.jwi.item.IWordID;
-import edu.mit.jwi.item.POS;
+import edu.mit.jwi.data.IDataSource;
+import edu.mit.jwi.item.*;
+import printing.PrintingFile;
 import reading.ReadingCSV;
 import reading.ReadingFile;
 
@@ -12,21 +12,34 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import edu.mit.jwi.morph.WordnetStemmer;
+
 /**
  * Created by Francesco on 02/01/2017.
  * Remove all terms not contained in any wordnet synset.
  */
 public class RemoveNotEnglishWords {
 
+    private final String wnhome= "C:/Program Files (x86)/WordNet/2.1";
+    private final String path = wnhome + File.separator + "dict";
+    private final String negEmoticon= "res/Senti4SDLists/NegativeEmoticon";
+    private final String posEmoticon= "res/Senti4SDLists/PositiveEmoticon";
 
 
     public List<String> removeNotEnglishWords(List<String> docs){
-        List<String> docsWithoutNonEnglishWords = new ArrayList<>();
-        String wnhome ="C:/Program Files (x86)/WordNet/2.1";
-        String path = wnhome + File.separator + "dict";
+        List<String> positiveEmoticon= null;
+        List<String> negativeEmoticon= null;
+
+        List<String> docsWithoutNotEnglishWords = new ArrayList<>();
+
+
+        Set<String> wordsRejectedOrdering= new TreeSet<>();//elimina i doppioni e mette in ordine crescente
+        List<String> wordsRejected= new ArrayList<>();
+
+        PrintingFile pr= new PrintingFile();
+        ReadingFile rd= new ReadingFile();
+
         URL url = null;
         try{
             url = new URL("file", null, path);
@@ -34,83 +47,78 @@ public class RemoveNotEnglishWords {
             IDictionary dict = new Dictionary(url);
             dict.open();
 
+            positiveEmoticon= rd.read(posEmoticon);
+            negativeEmoticon= rd.read(negEmoticon);
+
+
+
             for (String doc : docs) {
                 //check if a single term into a text is find out into an list and replace it with the list's name.
                 String[] textTerms = doc.split("\\s+");
                 String finalString = "";
                 for (String term : textTerms) {
-                    // look up first sense of the word "dog"
-                    if (findIndex(dict, term))
+                    if (existInWordnet(dict, term) || isInPositiveNegativeList(positiveEmoticon,negativeEmoticon,term))
                         finalString = finalString + " " + term;
+                    else{
+                        wordsRejectedOrdering.add(term);
+                    }
                 }
                 //I documenti vuoti li elimino, non li metto
                 if (!finalString.isEmpty())
-                    docsWithoutNonEnglishWords.add(finalString);
+                    docsWithoutNotEnglishWords.add(finalString);
             }
+            wordsRejected.addAll(wordsRejectedOrdering);
+            pr.print("res/wordsRejected.txt",wordsRejected);
         }
         catch(MalformedURLException e){
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return docsWithoutNonEnglishWords;
+        return docsWithoutNotEnglishWords;
     }
 
-    private boolean findIndex(IDictionary dict,String term){
-        try {
-            IIndexWord idxWord = dict.getIndexWord(term, POS.VERB);
-            if(idxWord!=null){
-                return true;
+    /**
+     * Check if the term exists in Wordnet
+     * @param dict wordnet directory
+     * @param term term taken in exam
+     * @return true if the term exists else false
+     */
+    private boolean existInWordnet(IDictionary dict,String term){
+        try{
+            WordnetStemmer wd = new WordnetStemmer(dict);
+            for (POS pos : POS.values()) {
+               List<String> stemms= wd.findStems(term,pos);
+                   for (Iterator<IIndexWord> i = dict.getIndexWordIterator(pos); i.hasNext();)
+                       for (IWordID wid : i.next().getWordIDs()) {
+                           if (dict.getWord(wid).getLemma().equals(term)) {
+                               return true;
+                           }
+                           List<IWord> words = dict.getWord(wid).getSynset().getWords();
+                           for (IWord word : words) {
+                               //Collection<Pointer> pt = Pointer.values();
+                               //for (Pointer pointer : pt) {
+                                //   List<IWordID> lm = word.getRelatedWords(pointer);
+                                  // for (IWordID wl : lm) {
+                                   //    IWord wmm = dict.getWord(wl);
+                                       String wordy = word.getLemma();
+                                       for(String stemm: stemms) {
+                                           if (wordy.equals(stemm)) {
+                                               return true;
+                                           }
+                                       }
+                                   }
+                               }
+                           }
             }
-            idxWord = dict.getIndexWord(term, POS.NOUN);
-            if(idxWord!=null){
-                return true;
-            }
-            idxWord = dict.getIndexWord(term, POS.ADJECTIVE);
-            if(idxWord!=null) {
-                return true;
-            }
-            idxWord = dict.getIndexWord(term, POS.ADVERB);
-            return idxWord != null;
-        }
         catch(IllegalArgumentException e){
-            e.printStackTrace();
+           // e.printStackTrace();
         }
-       return false;
+        return false;
     }
 
 
-
-
-    public List<String> removeNonEnglishWord(List<String> docs,List<String> pathsMarks) {
-        ReadingCSV rd = new ReadingCSV();
-        ReadingFile rf = new ReadingFile();
-        ReplacerTextWithMarks rp = new ReplacerTextWithMarks();
-
-        List<Map<String, List<String>>> allList = new ArrayList<>();
-        //read all files , each of them is formed by : n list's name and n terms for each of them
-        for (String path : pathsMarks) {
-            Map<String, List<String>> listReaded = rd.read_AllColumn_CSV(path,';');
-            allList.add(listReaded);
-        }
-
-        List<String> docsWithoutNonEnglishWords = new ArrayList<>();
-        for (String doc : docs) {
-            //check if a single term into a text is find out into an list and replace it with the list's name.
-            String[] textTerms = doc.split("\\s+");
-            String finalString = "";
-            for (String term : textTerms) {
-                String mark = null;
-                for (Map<String, List<String>> allMarkTerms : allList) {
-                    mark = rp.termToMark(term, allMarkTerms);
-                    if (!mark.equals(" "))
-                        finalString = finalString + " " + term;
-                }
-            }
-            if (!finalString.isEmpty())
-              docsWithoutNonEnglishWords.add(finalString);
-        }
-        return docsWithoutNonEnglishWords;
+    private boolean isInPositiveNegativeList(List<String> positiveEmoticon, List<String> negativeEmoticon,String term){
+            return (positiveEmoticon.contains(term) || negativeEmoticon.contains(term));
     }
-
 }

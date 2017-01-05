@@ -25,7 +25,7 @@ public class Examples {
             dict.open();
 
             // look up first sense of the word "dog"
-            IIndexWord idxWord = dict.getIndexWord("", POS.VERB);
+            IIndexWord idxWord = dict.getIndexWord("be", POS.VERB);
             IWordID wordID = idxWord.getWordIDs().get(0);
             IWord word = dict.getWord(wordID);
             System.out.println("Id = " + wordID);

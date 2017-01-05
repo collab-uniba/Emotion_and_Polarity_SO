@@ -34,7 +34,7 @@ public class WriterCSV {
         List<Map<String, Double>> neutrals = model.getNeutralTFIDF();
         List<Map<String, Double>> ambiguos = model.getAmbiguosTFIDF();
 
-        int i = 1;
+        int i = 0;
 
 
         DatasetRowTFIDF dr;

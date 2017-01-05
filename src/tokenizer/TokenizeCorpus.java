@@ -34,17 +34,18 @@ public class TokenizeCorpus {
             System.out.println("Tokenizing input corpus ...");
             PTBTokenizer<CoreLabel> ptbt = new PTBTokenizer<>(new FileReader(pathIn), new CoreLabelTokenFactory(),
                     //se metti untokenizable = noneDelete
-                    "ptb3Escaping=false,untokenizable=allKeep,tokenizeNLs=true"
+                    "ptb3Escaping=false,untokenizable=noneDelete,tokenizeNLs=true"
                     );
             while (ptbt.hasNext()) {
                 CoreLabel label = ptbt.next();
+                String labelLowCase= String.valueOf(label).toLowerCase();
                 String s =  String.valueOf(PTBTokenizer.getNewlineToken());
                 if (String.valueOf(label).equals(s)) {
                     fw.append(System.lineSeparator());
                 }
                 else {
                     //controllo dei doppi apici,'\n','\r'
-                    switch(String.valueOf(label).charAt(0)){
+                    switch(labelLowCase.charAt(0)){
                         case '"':
                             label.setValue("");
                             fw.append(label + " ");
@@ -58,7 +59,7 @@ public class TokenizeCorpus {
                             fw.append(label + " ");
                             continue;
                         default :
-                            fw.append(label + " ");
+                            fw.append(labelLowCase + " ");
                     }
 
                 }

@@ -68,15 +68,21 @@ public class Grams{
      */
     private String removeUserMention(String s) {
         String res = "";
-        if (s.length() > 0) {
-            String[] ss = s.split("\\s+");
-            for (String string : ss) {
-                if (!(string.charAt(0) == '@')) {
-                    res += string + " ";
+        try {
+            if (s.length() > 0) {
+                String[] ss = s.split("\\s+");
+                for (String string : ss) {
+
+                    if (string.length()>0 && !(string.charAt(0) == '@')) {
+                        res += string + " ";
+                    }
                 }
+                if (res.length() > 0)
+                    res = res.substring(0, res.length() - 1);
             }
-            if (res.length() > 0)
-                res = res.substring(0, res.length() - 1);
+        }
+        catch(StringIndexOutOfBoundsException e){
+            e.printStackTrace();
         }
         return res;
 
