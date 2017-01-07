@@ -3,6 +3,10 @@ package analysis;
 import uk.ac.wlv.sentistrength.SentiStrength;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SentiStrengthSentiment {
 
@@ -32,7 +36,24 @@ public class SentiStrengthSentiment {
 	public SentiStrengthSentiment() {
 		super();
 	}
-	
+
+	/**
+	 *
+	 * @param docs
+	 * @param  ScoreType : 1 (negative ) , 0 (positive)
+	 * @return
+	 */
+	public Map<String,Double> SentiStrengthgetScoreForAllDocs(List<String> docs,int ScoreType){
+		List<Map<String,Double>> l= new ArrayList<>();
+		Map<String,Double> docScore = new LinkedHashMap<>();
+		for(String doc : docs){
+			String result=SentiStrengthgetScore(doc);
+			String[] split = result.split(";");
+			docScore.put(doc,Double.valueOf(split[ScoreType]));
+		}
+		return docScore;
+	}
+
 	public String SentiStrengthgetScore(String text){
 		SentiStrength sentiStrength = new SentiStrength();
 		String ssthInitialisation[] = {"sentidata", "src/analysis/lib/SentiStrength_Data/", "explain"};
@@ -41,7 +62,7 @@ public class SentiStrengthSentiment {
 		String[] split = score.split("\\s+");
 
 		System.out.println(text +  split[0] +    split[1]);
-		return text + ";" + split[0] + ";" + split[1] + ";" ;
+		return  split[0] + ";" + split[1];
 	}
 
 }

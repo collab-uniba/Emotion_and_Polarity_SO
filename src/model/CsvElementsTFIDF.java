@@ -16,6 +16,34 @@ public class CsvElementsTFIDF {
     private  List<Map<String,Double>>  negativeTFIDF;
     private  List<Map<String,Double>>  neutralTFIDF;
     private  List<Map<String,Double>>  ambiguosTFIDF;
+    private Map<String,Double> pos_score;
+    private Map<String,Double> neg_score;
+    private List<String> labels;
+
+
+    public Map<String, Double> getPos_score() {
+        return pos_score;
+    }
+
+    public void setPos_score(Map<String, Double> pos_score) {
+        this.pos_score = pos_score;
+    }
+
+    public Map<String, Double> getNeg_score() {
+        return neg_score;
+    }
+
+    public void setNeg_score(Map<String, Double> neg_score) {
+        this.neg_score = neg_score;
+    }
+
+    public List<String> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<String> labels) {
+        this.labels = labels;
+    }
 
     public List<String> getId() {
         return id;
@@ -80,4 +108,5 @@ public class CsvElementsTFIDF {
     public void setAmbiguosTFIDF(List<Map<String, Double>> ambiguosTFIDF) {
         this.ambiguosTFIDF = ambiguosTFIDF;
     }
+
 }

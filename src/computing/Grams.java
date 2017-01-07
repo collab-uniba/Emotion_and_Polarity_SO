@@ -85,9 +85,15 @@ public class Grams{
             e.printStackTrace();
         }
         return res;
-
     }
 
+    public List<String> removeUserMention(List<String> docs){
+        List<String> docsWithoutUserMention = new ArrayList<>();
+        for(String doc:docs){
+            docsWithoutUserMention.add(removeUserMention(doc));
+        }
+        return docsWithoutUserMention;
+    }
     /**
      * Print "grram-integer" the integer is incremented during the map reading.
      * * * @param map grams
@@ -98,11 +104,11 @@ public class Grams{
         String t = "";
         switch (n){
             case 1:
-                file = "./UnigramsList";
+                file = "UnigramsList";
                 t = "uni";
                 break;
             case 2:
-                file = "./BigramsList";
+                file = "BigramsList";
                 t = "bi";
                 break;
         }

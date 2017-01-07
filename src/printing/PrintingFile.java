@@ -3,12 +3,16 @@ package printing;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
+import javafx.scene.control.Separator;
+import model.DocumentValues;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Francesco on 23/12/2016.
@@ -57,5 +61,57 @@ public class PrintingFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+
+    public void writeDocsValuesOnFile(Map<String, DocumentValues> mp,String pathOut){
+        String header = "TEST_DOCUMENTS = [ \n  # Polite requests \n";
+        Set<String> keys = mp.keySet();
+        int totDocs=0;
+        try {
+            FileWriter out = new FileWriter(pathOut);
+            out.append(header);
+            for(String k: keys){
+                out.append("{ \n ");
+                DocumentValues d= mp.get(k);
+                String text= "\"text\": "+ "\""+d.getText()+"\"" + ",\n ";
+                out.append(text);
+
+                text= "\"sentences\": [ \n   ";
+                out.append(text);
+                for(int i=0;i<d.getSentences().size();i++){
+                        if(i+1==d.getSentences().size()){
+                            text="\""+ d.getSentences().get(i) + "\""+ "\n  ],\n ";
+
+                        }
+                        else
+                            text="\""+ d.getSentences().get(i) + "\"" +",\n   ";
+                        out.append(text);
+                    }
+                text= "\"parses\": [ \n   ";
+                out.append(text);
+                for(int i=0;i<d.getParse().size();i++){
+                    if(i+1==d.getParse().size()){
+                        text= d.getParse().get(i)+ "\n  ]\n ";
+                    }
+                    else
+                        text= d.getParse().get(i) +",\n   ";
+                    out.append(text);
+                }
+                if(totDocs+1==keys.size())
+                    out.append(" }\n] ");
+                else
+                    out.append("}, \n ");
+                totDocs++;
+            }
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

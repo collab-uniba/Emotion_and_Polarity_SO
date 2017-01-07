@@ -33,15 +33,16 @@ public class WriterCSV {
         List<Map<String, Double>> negatives = model.getNegativeTFIDF();
         List<Map<String, Double>> neutrals = model.getNeutralTFIDF();
         List<Map<String, Double>> ambiguos = model.getAmbiguosTFIDF();
+        Map<String,Double> pos_score= model.getPos_score();
+        Map<String,Double> neg_score= model.getPos_score();
+        List<String> labels= model.getLabels();
 
         int i = 0;
 
-
         DatasetRowTFIDF dr;
-//        for (String id : ids) {
         for (String doc : docs) {
             List<Double> tf_idf= new ArrayList<>();
-           Map<String, Double> unigramsTFIDF = unigrams.get(i);
+            Map<String, Double> unigramsTFIDF = unigrams.get(i);
             Map<String, Double> bigramsTFIDF = bigrams.get(i);
             Map<String, Double> positivesTFIDF = positives.get(i);
             Map<String, Double> negativessTFIDF = negatives.get(i);
@@ -77,7 +78,10 @@ public class WriterCSV {
 
             dr = new DatasetRowTFIDF.DatasetRowBuilder()
                     .setDocument("t"+ i)
+                    .setPosScore(pos_score.get(doc))
+                    .setNegScore(neg_score.get(doc))
                     .setTf_idf(tf_idf)
+                    .setAffectiveLabel(labels.get(i))
                     .build();
             list.add(dr);
             i++;
@@ -87,6 +91,8 @@ public class WriterCSV {
         List<String> header = new ArrayList<>();
        // header.add("id");
         header.add("id");
+        header.add("pos_score");
+        header.add("neg_score");
 
         populateHeader(unigrams.get(0),header,"uni");
         populateHeader(bigrams.get(0),header,"bi");
@@ -94,6 +100,8 @@ public class WriterCSV {
         populateHeader(negatives.get(0),header,"");
         populateHeader(neutrals.get(0),header,"");
         populateHeader(ambiguos.get(0),header,"");
+
+        header.add("label");
 
         FileWriter fileWriter = null;
         CSVPrinter csvFilePrinter = null;
@@ -114,8 +122,11 @@ public class WriterCSV {
                 List l = new ArrayList();
               //  l.add(d.getId());
                 l.add(d.getDocument());
+                l.add(d.getPos_score());
+                l.add(d.getNeg_score());
                 //ATTENTO AD ADDALL !
                 l.addAll(d.getTf_idf());
+                l.add(d.getAffective_label());
 
                 csvFilePrinter.printRecord(l);
                 j++;

@@ -2,6 +2,7 @@ package tokenizer;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.HasWord;
+import edu.stanford.nlp.ling.Sentence;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 import edu.stanford.nlp.process.PTBTokenizer;
@@ -72,28 +73,20 @@ public class TokenizeCorpus {
     }
 
     //by sentence
-    public  void tokenizerBySentence(String pathIn,String pathOut) throws IOException {
-        String line = new String("");
-        String outfile = new String(pathOut);
-        FileWriter out = new FileWriter(outfile);
-
-            // option #1: By sentence.
-            DocumentPreprocessor dp = new DocumentPreprocessor(pathIn);
-            for (List<HasWord> sentence : dp) {
-                for (HasWord word : sentence) {
-                    line = line.concat(word + " ");
-                }
-
-                System.out.println(sentence);
-                out.append(line);
-                out.append(System.lineSeparator());
-                line = "";
-
+    public List<String> tokenizerBySentence(String doc){
+        List<String> sentences = new ArrayList<>();
+        String line ="";
+        Reader reader = new StringReader(doc);
+        DocumentPreprocessor dp = new DocumentPreprocessor(reader);
+        for (List<HasWord> sentence : dp) {
+            for (HasWord word : sentence) {
+                line = line.concat(word + " ");
             }
-
-            out.flush();
-            out.close();
-
+            sentences.add(Sentence.listToString(sentence));
+            System.out.println(Sentence.listToString(sentence));
+            line = "";
+        }
+        return sentences;
     }
 
 }

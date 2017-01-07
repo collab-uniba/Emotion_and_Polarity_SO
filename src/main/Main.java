@@ -1,6 +1,7 @@
 package main;
 
 
+import analysis.Politeness;
 import analysis.SentiStrengthSentiment;
 import computing.Grams;
 import computing.TF_IDFComputer;
@@ -9,8 +10,7 @@ import printing.PrintingFile;
 import printing.WriterCSV;
 import reading.ReadingCSV;
 import reading.ReadingFile;
-import replacing.POSTagger;
-import replacing.RemoveNotEnglishWords;
+import replacing.RemoveURL;
 import replacing.ReplacerTextWithMarks;
 import tokenizer.TokenizeCorpus;
 import utility.Utility;
@@ -31,33 +31,16 @@ public class Main {
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rdf= new ReadingFile();
 
-        Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV("res/inputCorpus.csv",';');
+       Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV(args[0],';');
         pr.print("res/onlyText", inputCorpus.get("comment"));
 
 
         TokenizeCorpus tk = new TokenizeCorpus();
         tk.tokenizerByToken("res/onlyText", "res/onlyText_TOKENIZED");
         List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED");
-     /*extracting bigram or unigram lists*/
-    /*   SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/onlyText_TOKENIZED"), 0, 1);
-        Set<String> keysUni = unigram.keySet();
-        for (String k : keysUni) {
-            System.out.println(k + ": " + "\n");
-            System.out.println(unigram.get(k) + " ");
-        }
-        System.out.println("\n");*/
-
-      /* SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/onlyText"), 0, 2);
-        Set<String> keysBi = bigram.keySet();
-        for (String k : keysBi) {
-            System.out.println(k + ": " + "\n");
-            System.out.println(bigram.get(k) + " ");
-        }
-        System.out.println("\n");*/
-
 
         //Remove non-english words
-        RemoveNotEnglishWords rmNotEnglishWords= new RemoveNotEnglishWords();
+      /*  RemoveNotEnglishWords rmNotEnglishWords= new RemoveNotEnglishWords();
         List<String> paths = new ArrayList<>();
         paths.add("res/neutral_emotion.csv");
         paths.add("res/ambiguos-emotion.csv");
@@ -66,12 +49,16 @@ public class Main {
 
         List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNotEnglishWords(inputCorpusTknz);
         System.out.println("printing docs without not english word...");
-        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
+        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);*/
 
         //Remove URL
-       /* RemoveURL rmurl= new RemoveURLOne();
-        List<String> docsWithoutURLndNotEnglishWordsTknz= rmurl.removeUrlOne(docsPostTagged);
-        pr.print("res/docsWithoutURLAndNotEnglishWords",docsWithoutURLAndNotEnglishWordsTknz);*/
+       RemoveURL rmurl= new RemoveURL();
+        List<String> docsWithoutURLtknz= rmurl.removeUrlOne(inputCorpusTknz);
+        pr.print("res/docsWithoutURLTknz",docsWithoutURLtknz);
+        //remove user mention
+        List<String> docsWithoutURLUserMentionTknz=gr.removeUserMention(docsWithoutURLtknz);
+        pr.print("res/docsWithoutURLUserMention",docsWithoutURLUserMentionTknz);
+
 
        /* Post tagger*/
        /* POSTagger pt = new POSTagger();
@@ -81,7 +68,7 @@ public class Main {
 
 
           /*extracting bigram or unigram lists*/
-      /* SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLAndNotEnglishWordsTokenized"), 0, 1);
+       SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLUserMention"), 0, 1);
         Set<String> keysUni = unigram.keySet();
         for (String k : keysUni) {
             System.out.println(k + ": " + "\n");
@@ -89,7 +76,7 @@ public class Main {
         }
         System.out.println("\n");
 
-        SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/docsWithoutURLTokenized"), 0, 2);
+        SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/docsWithoutURLUserMention"), 0, 2);
         Set<String> keysBi = bigram.keySet();
         for (String k : keysBi) {
             System.out.println(k + ": " + "\n");
@@ -97,7 +84,7 @@ public class Main {
         }
 
         System.out.println("\n");
-*/
+
         //FINE PREPROCESSING
 
 
@@ -111,55 +98,89 @@ public class Main {
         paths.add("res/ambiguos-emotion.csv");
         paths.add("res/positive_emotion.csv");
         paths.add("res/negative_emotion.csv");
+
         SortedMap<String, String> unigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("UnigramsList"));
         System.out.println("unigrams loaded");
         SortedMap<String, String> bigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("BigramsList"));
         System.out.println("bigrams loaded");
-        List<Map<String,Double>> unigramsTFIDF= cl.tf_idf(inputCorpusTknz,unigrams,1);
+        List<String> docsWithoutURLtknz= rdf.read("res/docsWithoutURLTknz");
+
+        List<Map<String,Double>> unigramsTFIDF= cl.tf_idf(docsWithoutURLtknz,unigrams,1);
         System.out.println("Tf-idf for unigrams , computed");
-       List<Map<String,Double>> bigramsTFIDF= cl.tf_idf(inputCorpusTknz,bigrams,2);
+       List<Map<String,Double>> bigramsTFIDF= cl.tf_idf(docsWithoutURLtknz,bigrams,2);
         System.out.println("Tf-idf for bigrams , computed");
 
 
        //
       ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
 
-        Map<String, List<String>> pos = rd.read_AllColumn_CSV("res/positive_emotion.csv",';');
-        Map<String, List<String>> neg = rd.read_AllColumn_CSV("res/negative_emotion.csv",';');
-        Map<String, List<String>> neu = rd.read_AllColumn_CSV("res/neutral_emotion.csv",';');
-        Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("res/ambiguos-emotion.csv",';');
+        Map<String, List<String>> pos = rd.read_AllColumn_CSV(args[1],';');
+        Map<String, List<String>> neg = rd.read_AllColumn_CSV(args[2],';');
+        Map<String, List<String>> neu = rd.read_AllColumn_CSV(args[3],';');
+        Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV(args[4],';');
 
 
-        List<String> replaced = replacer.replaceTermsWithMarks("res/onlyText_TOKENIZED",paths);
+        List<String> replaced = replacer.replaceTermsWithMarks("res/docsWithoutURLUserMention",paths);
         List<Map<String,Double>> posTFIDF= cl.tf_idf(replaced,u.createMap(pos),1);
         List<Map<String,Double>> negTFIDF= cl.tf_idf(replaced,u.createMap(neg),1);
         List<Map<String,Double>> neuTFIDF= cl.tf_idf(replaced,u.createMap(neu),1);
         List<Map<String,Double>> ambiTFIDF= cl.tf_idf(replaced,u.createMap(ambiguos),1);
 
+        Map<String, List<String>> joy = rd.read_AllColumn_CSV("res/EmotionsCSV/joy.csv",';');
+        Map<String, List<String>> love = rd.read_AllColumn_CSV("res/EmotionsCSV/love.csv",';');
+        Map<String, List<String>> surprise = rd.read_AllColumn_CSV("res/EmotionsCSV/surprise.csv",';');
+        Map<String, List<String>> sadness = rd.read_AllColumn_CSV("res/EmotionsCSV/sadness.csv",';');
+        Map<String, List<String>> fear = rd.read_AllColumn_CSV("res/EmotionsCSV/fear.csv",';');
+        Map<String, List<String>> anger = rd.read_AllColumn_CSV("res/EmotionsCSV/anger.csv",';');
+
+
+
+
+        SentiStrengthSentiment st = new SentiStrengthSentiment();
+        Map<String,Double> posScore= st.SentiStrengthgetScoreForAllDocs(docsWithoutURLUserMentionTknz,0);
+        System.out.println("Calculating positive score..");
+        Map<String,Double> negScore= st.SentiStrengthgetScoreForAllDocs(docsWithoutURLUserMentionTknz,1);
+        System.out.println("Calculating negative score...");
         //ora scrivo sul CSV
 
         //passo gli ID letti in ordine dal coso originale, con i vari documenti
         CsvElementsTFIDF csv= new CsvElementsTFIDF();
-        csv.setDocuments(inputCorpus.get("comment"));
+        csv.setDocuments(docsWithoutURLtknz);
         csv.setUnigramTFIDF(unigramsTFIDF);
         csv.setBigramTFIDF(bigramsTFIDF);
         csv.setPositiveTFIDF(posTFIDF);
         csv.setNegativeTFIDF(negTFIDF);
         csv.setNeutralTFIDF(neuTFIDF);
         csv.setAmbiguosTFIDF(ambiTFIDF);
+        csv.setPos_score(posScore);
+        csv.setNeg_score(negScore);
 
+
+
+        //Creazione dei csv
+        csv.setLabels(joy.get("joy"));
         WriterCSV writerCSV= new WriterCSV();
-        writerCSV.writeCsvFile("res/TFIDF.csv",csv);*/
+        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputJoy.csv",csv);
+        csv.setLabels(love.get("love"));
+        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputLove.csv",csv);
+        csv.setLabels(surprise.get("surprise"));
+        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputSurprise.csv",csv);
+        csv.setLabels(sadness.get("sadness"));
+        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputSadness.csv",csv);
+        csv.setLabels(fear.get("fear"));
+        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputFear.csv",csv);
+        csv.setLabels(anger.get("anger"));
+        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputAnger.csv",csv);*/
 
-      //  SentiStrengthSentiment st = new SentiStrengthSentiment();
-       // st.SentiStrengthgetScore("Excellent ! This is exactly what I needed . Thanks ! ");
-        //aggiungilo nella stessa posizione messa da federico
 
         //politeness
-        //fai prima post_tag
+        //Politeness  pt= new Politeness();
+        //pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUserMention"),"res/politeness");
+
 
 
     }
+
 }
 
 
