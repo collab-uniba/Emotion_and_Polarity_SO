@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Emotion_Marks:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/Senti4SDLists/NegatingWordList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/Senti4SDLists/NegativeEmoticon" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/Senti4SDLists/PositiveEmoticon" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BigramsList" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/UnigramsList" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/BigramsList" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/UnigramsList" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Examples.java" afterPath="$PROJECT_DIR$/src/Examples.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" afterPath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/computing/Grams.java" afterPath="$PROJECT_DIR$/src/computing/Grams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/printing/WriterCSV.java" afterPath="$PROJECT_DIR$/src/printing/WriterCSV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" afterPath="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" afterPath="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
+            <state relative-caret-position="2178">
+              <caret line="177" column="10" lean-forward="false" selection-start-line="177" selection-start-column="10" selection-end-line="177" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,65 +41,81 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wordsRejected.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/wordsRejected.txt">
+      <file leaf-file-name="UnigramsList" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnigramsList">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-218733">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Examples.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Examples.java">
+      <file leaf-file-name="UnigramsList" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UnigramsList">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RemoveNotEnglishWords.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="58" column="47" lean-forward="false" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="onlyText_TOKENIZED" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/onlyText_TOKENIZED">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="-217452">
+              <caret line="61" column="21" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WriterCSV.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/printing/WriterCSV.java">
+      <file leaf-file-name="docsWithoutURLUserMention" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/docsWithoutURLUserMention">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state relative-caret-position="-2193">
+              <caret line="1573" column="392" lean-forward="false" selection-start-line="1573" selection-start-column="391" selection-end-line="1573" selection-end-column="392" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docsWithoutNotEnglishWords" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/docsWithoutNotEnglishWords">
+      <file leaf-file-name="Grams.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/computing/Grams.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="504">
+              <caret line="94" column="38" lean-forward="false" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="politeness" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/politeness">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-201">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnigramsList" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/UnigramsList">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-217452">
+              <caret line="61" column="21" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BigramsList" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/BigramsList">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-450">
+              <caret line="5356" column="10" lean-forward="true" selection-start-line="5356" selection-start-column="10" selection-end-line="5356" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BigramsList" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BigramsList">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -113,28 +124,8 @@
       <file leaf-file-name="onlyText" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/onlyText">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-126">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inputCorpus.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="53" lean-forward="false" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="anger.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/anger.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="43" />
+            <state relative-caret-position="885">
+              <caret line="4762" column="40" lean-forward="false" selection-start-line="4762" selection-start-column="40" selection-end-line="4762" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -151,11 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>comment</find>
-      <find>have n't heard back after several days . Would like to get this fixed before I start adding more pages . thx</find>
-      <find>!!!!!_it</find>
-      <find>number</find>
-      <find>&quot;&quot;.</find>
       <find>and sometimes</find>
       <find>SVG</find>
       <find>!!!</find>
@@ -171,16 +157,21 @@
       <find>list</find>
       <find>setEmotions</find>
       <find>mixed</find>
-      <find>http</find>
       <find>:-).</find>
       <find>ciao</find>
       <find>would</find>
-      <find>:)</find>
       <find>%-(</find>
       <find>wouldn't</find>
       <find>texts</find>
       <find>thank</find>
       <find>wouldnt</find>
+      <find>http</find>
+      <find>:)</find>
+      <find>inputCorpus</find>
+      <find>inputCorpusTknz</find>
+      <find>sentences</find>
+      <find>@StoneFree</find>
+      <find>@</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,16 +185,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/BigramsList" />
-        <option value="$PROJECT_DIR$/src/BigramsList" />
-        <option value="$PROJECT_DIR$/src/printing/DatasetRow.java" />
-        <option value="$PROJECT_DIR$/src/Main/Main.java" />
-        <option value="$PROJECT_DIR$/src/model/DatasetRow.java" />
-        <option value="$PROJECT_DIR$/src/feature/Keyword.java" />
         <option value="$PROJECT_DIR$/src/Grams.java" />
         <option value="$PROJECT_DIR$/src/reading/GramExtractor.java" />
         <option value="$PROJECT_DIR$/src/UnigramsList" />
-        <option value="$PROJECT_DIR$/UnigramsList" />
         <option value="$PROJECT_DIR$/output.csv" />
         <option value="$PROJECT_DIR$/src/model/CsvElements.java" />
         <option value="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" />
@@ -211,15 +195,11 @@
         <option value="$PROJECT_DIR$/src/replacing/RemoveNonEnglishWords.java" />
         <option value="$PROJECT_DIR$/src/utility/Utility.java" />
         <option value="$PROJECT_DIR$/src/replacing/RemoveURL.java" />
-        <option value="$PROJECT_DIR$/src/model/DatasetRowTFIDF.java" />
-        <option value="$PROJECT_DIR$/src/model/CsvElementsTFIDF.java" />
         <option value="$PROJECT_DIR$/src/model/DatasetRowOrtu.java" />
-        <option value="$PROJECT_DIR$/src/model/Document.java" />
         <option value="$PROJECT_DIR$/src/model/DocumentOrtu.java" />
         <option value="$PROJECT_DIR$/src/reading/ReaderCSV.java" />
         <option value="$PROJECT_DIR$/src/model/Emotion.java" />
         <option value="$PROJECT_DIR$/src/model/EmotionOrtu.java" />
-        <option value="$PROJECT_DIR$/src/printing/PrintingFile.java" />
         <option value="$PROJECT_DIR$/src/main/MainOrtu.java" />
         <option value="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
         <option value="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
@@ -232,19 +212,30 @@
         <option value="$PROJECT_DIR$/outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithMixed.csv" />
         <option value="$PROJECT_DIR$/src/computing/Ortu.java" />
         <option value="$PROJECT_DIR$/res/docsPostTagged" />
-        <option value="$PROJECT_DIR$/src/printing/WriterCSV.java" />
-        <option value="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
         <option value="$PROJECT_DIR$/res/docsWithoutNotEnglishWords" />
         <option value="$PROJECT_DIR$/res/wordsRejected.txt" />
-        <option value="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
-        <option value="$PROJECT_DIR$/src/computing/Grams.java" />
-        <option value="$PROJECT_DIR$/res/onlyText" />
         <option value="$PROJECT_DIR$/src/analysis/Lemmatization.java" />
         <option value="$PROJECT_DIR$/src/Examples.java" />
-        <option value="$PROJECT_DIR$/src/main/Main.java" />
-        <option value="$PROJECT_DIR$/res/onlyText_TOKENIZED" />
-        <option value="$PROJECT_DIR$/res/inputCorpus.csv" />
         <option value="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" />
+        <option value="$PROJECT_DIR$/res/inputCorpus.csv" />
+        <option value="$PROJECT_DIR$/UnigramsList" />
+        <option value="$PROJECT_DIR$/BigramsList" />
+        <option value="$PROJECT_DIR$/src/model/DatasetRowTFIDF.java" />
+        <option value="$PROJECT_DIR$/src/model/CsvElementsTFIDF.java" />
+        <option value="$PROJECT_DIR$/src/printing/WriterCSV.java" />
+        <option value="$PROJECT_DIR$/res/onlyText_TOKENIZED" />
+        <option value="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
+        <option value="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
+        <option value="$PROJECT_DIR$/src/model/Document.java" />
+        <option value="$PROJECT_DIR$/src/model/DocumentValues.java" />
+        <option value="$PROJECT_DIR$/src/printing/PrintingFile.java" />
+        <option value="$PROJECT_DIR$/res/hello" />
+        <option value="$PROJECT_DIR$/src/analysis/Politeness.java" />
+        <option value="$PROJECT_DIR$/res/bysentences" />
+        <option value="$PROJECT_DIR$/src/computing/Grams.java" />
+        <option value="$PROJECT_DIR$/res/docsWithoutURLTknz" />
+        <option value="$PROJECT_DIR$/res/onlyText" />
+        <option value="$PROJECT_DIR$/src/main/Main.java" />
       </list>
     </option>
   </component>
@@ -313,43 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="tokenizer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="replacing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,47 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="computing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -438,16 +353,70 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmotionsCSV" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artifacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_Marks_jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="console&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/io/Console.java&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow" />
@@ -471,6 +440,13 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\lib" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src" />
+      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="computing" />
       <recent name="main" />
@@ -478,25 +454,18 @@
       <recent name="tokenizer" />
       <recent name="replacing" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\analysis" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\Senti4SDLists" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\Senti4SDList" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\lib" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\resOrtu" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="reading" />
       <recent name="model" />
       <recent name="Model" />
       <recent name="Utility" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\src" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask" />
-      <recent name="C:\Users\Francesco\IdeaProjects\emotionTask\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_Task\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_Task\lib" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\lib" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\EmotionsCSV" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\analysis" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\Senti4SDLists" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -504,7 +473,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="res/inputCorpus.csv res/positive_emotion.csv  res/negative_emotion.csv  res/neutral_emotion.csv  res/ambiguos-emotion.csv res/EmotionsCSV/joy.csv res/EmotionsCSV/love.csv  res/EmotionsCSV/surprise.csv  res/EmotionsCSV/sadness.csv   res/EmotionsCSV/fear.csv   res/EmotionsCSV/anger.csv" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -908,7 +877,21 @@
       <option name="project" value="LOCAL" />
       <updated>1483526153789</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Corretto l'utilizzo delle Api di Wordnet&#10;Prima &quot;is&quot; veniva saltato&#10;Ora fa prima lo stemming della parola: DOGS diventa DOG prima  di cercarla nel dizionario">
+      <created>1483624996751</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1483624996751</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Creato il file nel formato da a politeness.model.score&#10;&#10;">
+      <created>1483812839521</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1483812839521</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -922,20 +905,21 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.115800865" sideWeight="0.5335821" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28463203" sideWeight="0.54850745" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.4664179" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28463203" sideWeight="0.45149255" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17857143" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4936034" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22228146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18390192" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25541127" sideWeight="0.48560768" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32142857" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32142857" sideWeight="0.59008527" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -943,7 +927,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25541127" sideWeight="0.48958334" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1018,108 +1001,28 @@
     <MESSAGE value="Sistemato il main, era scomodo da capire" />
     <MESSAGE value="Creata una classe a parte per le elaborazioni di Ortu&#10;e sistemate un pò di cose" />
     <MESSAGE value="Aggiunte Api Wordnet &#10;per eliminare da ogni documento le paroli non inglesi,&#10;inclusi gli HTTP ecc.. &#10;&#10;Il db di wordnet è aggiornato alla versione 3.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunte Api Wordnet &#10;per eliminare da ogni documento le paroli non inglesi,&#10;inclusi gli HTTP ecc.. &#10;&#10;Il db di wordnet è aggiornato alla versione 3.1" />
+    <MESSAGE value="Corretto l'utilizzo delle Api di Wordnet&#10;Prima &quot;is&quot; veniva saltato&#10;Ora fa prima lo stemming della parola: DOGS diventa DOG prima  di cercarla nel dizionario" />
+    <MESSAGE value="Creato il file nel formato da a politeness.model.score&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creato il file nel formato da a politeness.model.score&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="96" />
+      <option name="time" value="107" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="parse.get(0)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/outOrtu/group1/group1_finalLabelForEachComment_MajAgOnPolarityWithMixed.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group1/group1_finalLabelForEachComment_MajAgOnEmotionsWithMixed.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3066">
-          <caret line="146" column="19" lean-forward="false" selection-start-line="146" selection-start-column="14" selection-end-line="146" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group1/group1_finalLabelForEachComment_MajAgOnEmotionsWithoutMixed.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="74" column="33" lean-forward="false" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group1/group1_finalLabelForEachRater.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group2/group2_1.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group2/group2_2.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group2/group2_3.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnEmotionsWithMixed.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18081">
-          <caret line="861" column="20" lean-forward="false" selection-start-line="861" selection-start-column="15" selection-end-line="861" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithMixed.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7644">
-          <caret line="364" column="121" lean-forward="false" selection-start-line="364" selection-start-column="116" selection-end-line="364" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reading/ReaderCSVOrtu.java" />
-    <entry file="file://$PROJECT_DIR$/src/replacing/RemoveURL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reading/ReadingFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="36" column="49" lean-forward="false" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MainOrtu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="146" column="5" lean-forward="false" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/MainOrtu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2898">
@@ -1156,13 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DocumentOrtu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/TFIDF.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1171,13 +1067,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BigramsList" />
-    <entry file="file://$PROJECT_DIR$/res/docsPostTagged">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/computing/TF_IDFComputer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1470">
@@ -1195,28 +1084,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="43" column="53" lean-forward="false" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#708#709#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/Senti4SDList/NegatingWordList" />
     <entry file="file://$PROJECT_DIR$/res/Senti4SDList/NegativeEmoticon" />
     <entry file="file://$PROJECT_DIR$/res/Senti4SDList/PositiveEmoticon" />
-    <entry file="file://$PROJECT_DIR$/src/printing/PrintingFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/positive_emotion.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1224,7 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/UnigramsList" />
     <entry file="file://$PROJECT_DIR$/src/UnigramsList" />
     <entry file="file://$PROJECT_DIR$/res/Senti4SDLists/NegatingWordList">
       <provider selected="true" editor-type-id="text-editor">
@@ -1255,38 +1124,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="53" column="47" lean-forward="true" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UnigramsList">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193662">
-          <caret line="9222" column="5" lean-forward="false" selection-start-line="9222" selection-start-column="0" selection-end-line="9222" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/analysis/Lemmatization.java" />
     <entry file="jar://$PROJECT_DIR$/lib/edu.mit.jwi_2.4.0.jar!/edu/mit/jwi/data/WordnetFile.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/computing/Grams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1300,61 +1142,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/onlyText">
+    <entry file="file://$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-84">
+          <caret line="58" column="47" lean-forward="false" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/wordsRejected.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/docsPostTagged">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/anger.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="43" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4776" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/EmotionsCSV/joy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/CsvElementsTFIDF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1233#1234#0" expanded="false" />
+            <element signature="e#1258#1259#0" expanded="false" />
+            <element signature="e#1300#1301#0" expanded="false" />
+            <element signature="e#1328#1329#0" expanded="false" />
+            <element signature="e#1370#1371#0" expanded="false" />
+            <element signature="e#1402#1403#0" expanded="false" />
+            <element signature="e#1458#1459#0" expanded="false" />
+            <element signature="e#1500#1501#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#1593#1594#0" expanded="false" />
+            <element signature="e#1668#1669#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="false" />
+            <element signature="e#1773#1774#0" expanded="false" />
+            <element signature="e#1807#1808#0" expanded="false" />
+            <element signature="e#1880#1881#0" expanded="false" />
+            <element signature="e#1926#1927#0" expanded="false" />
+            <element signature="e#1985#1986#0" expanded="false" />
+            <element signature="e#2021#2022#0" expanded="false" />
+            <element signature="e#2098#2099#0" expanded="false" />
+            <element signature="e#2148#2149#0" expanded="false" />
+            <element signature="e#2207#2208#0" expanded="false" />
+            <element signature="e#2243#2244#0" expanded="false" />
+            <element signature="e#2320#2321#0" expanded="false" />
+            <element signature="e#2370#2371#0" expanded="false" />
+            <element signature="e#2428#2429#0" expanded="false" />
+            <element signature="e#2463#2464#0" expanded="false" />
+            <element signature="e#2538#2539#0" expanded="false" />
+            <element signature="e#2586#2587#0" expanded="false" />
+            <element signature="e#2645#2646#0" expanded="false" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2758#2759#0" expanded="false" />
+            <element signature="e#2808#2809#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DatasetRowTFIDF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="987">
+          <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+          <folding>
+            <element signature="e#582#583#0" expanded="false" />
+            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#652#653#0" expanded="false" />
+            <element signature="e#681#682#0" expanded="false" />
+            <element signature="e#1970#1971#0" expanded="false" />
+            <element signature="e#2026#2027#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="85" column="33" lean-forward="false" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/onlyText_TOKENIZED">
+    <entry file="file://$PROJECT_DIR$/src/model/DocumentOrtu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="81">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/printing/WriterCSV.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="-1764">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/wordsRejected.txt">
+    <entry file="file://$PROJECT_DIR$/src/model/DocumentValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
+    <entry file="file://$PROJECT_DIR$/src/printing/PrintingFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="53" lean-forward="false" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
+        <state relative-caret-position="-6">
+          <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/hello">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analysis/Politeness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-174">
+          <caret line="51" column="71" lean-forward="false" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/bysentences">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1366,13 +1333,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java">
+    <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="58" column="47" lean-forward="false" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+        <state relative-caret-position="591">
+          <caret line="4776" column="0" lean-forward="false" selection-start-line="4776" selection-start-column="0" selection-end-line="4776" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/onlyText_TOKENIZED">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="4775" column="0" lean-forward="false" selection-start-line="4775" selection-start-column="0" selection-end-line="4775" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/politeness">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-201">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/computing/Grams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="94" column="38" lean-forward="false" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/docsWithoutURLTknz">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="4771" column="42" lean-forward="false" selection-start-line="4771" selection-start-column="42" selection-end-line="4771" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/onlyText">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="4762" column="40" lean-forward="false" selection-start-line="4762" selection-start-column="40" selection-end-line="4762" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/docsWithoutURLUserMention">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2193">
+          <caret line="1573" column="392" lean-forward="false" selection-start-line="1573" selection-start-column="391" selection-end-line="1573" selection-end-column="392" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2178">
+          <caret line="177" column="10" lean-forward="false" selection-start-line="177" selection-start-column="10" selection-end-line="177" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UnigramsList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-217452">
+          <caret line="61" column="21" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnigramsList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-218733">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BigramsList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/UnigramsList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-217452">
+          <caret line="61" column="21" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/BigramsList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="5356" column="10" lean-forward="true" selection-start-line="5356" selection-start-column="10" selection-end-line="5356" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
