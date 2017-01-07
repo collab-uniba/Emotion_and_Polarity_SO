@@ -46,9 +46,9 @@ public class ReplacerTextWithMarks {
             }
             //print
             texts= textMark;
-            for(String text : texts){
+          /*  for(String text : texts){
                 System.out.println(text + " ");
-            }
+            }*/
         }
         else
             System.err.println("key not found!");

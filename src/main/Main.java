@@ -68,7 +68,7 @@ public class Main {
 
 
           /*extracting bigram or unigram lists*/
-       SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLUserMention"), 0, 1);
+      /* SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLUserMention"), 0, 1);
         Set<String> keysUni = unigram.keySet();
         for (String k : keysUni) {
             System.out.println(k + ": " + "\n");
@@ -83,13 +83,13 @@ public class Main {
             System.out.println(bigram.get(k) + " ");
         }
 
-        System.out.println("\n");
+        System.out.println("\n");*/
 
         //FINE PREPROCESSING
 
 
         //tf-idf-bigrams
-       /* TF_IDFComputer cl= new TF_IDFComputer();
+        TF_IDFComputer cl= new TF_IDFComputer();
 
         Utility u = new Utility();
 
@@ -103,11 +103,10 @@ public class Main {
         System.out.println("unigrams loaded");
         SortedMap<String, String> bigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("BigramsList"));
         System.out.println("bigrams loaded");
-        List<String> docsWithoutURLtknz= rdf.read("res/docsWithoutURLTknz");
 
-        List<Map<String,Double>> unigramsTFIDF= cl.tf_idf(docsWithoutURLtknz,unigrams,1);
+        List<Map<String,Double>> unigramsTFIDF= cl.tf_idf(docsWithoutURLUserMentionTknz,unigrams,1);
         System.out.println("Tf-idf for unigrams , computed");
-       List<Map<String,Double>> bigramsTFIDF= cl.tf_idf(docsWithoutURLtknz,bigrams,2);
+       List<Map<String,Double>> bigramsTFIDF= cl.tf_idf(docsWithoutURLUserMentionTknz,bigrams,2);
         System.out.println("Tf-idf for bigrams , computed");
 
 
@@ -160,17 +159,17 @@ public class Main {
         //Creazione dei csv
         csv.setLabels(joy.get("joy"));
         WriterCSV writerCSV= new WriterCSV();
-        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputJoy.csv",csv);
-        csv.setLabels(love.get("love"));
-        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputLove.csv",csv);
+        writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputJoy.csv",csv);
+       /* csv.setLabels(love.get("love"));
+        writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputLove.csv",csv);
         csv.setLabels(surprise.get("surprise"));
-        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputSurprise.csv",csv);
+        writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputSurprise.csv",csv);
         csv.setLabels(sadness.get("sadness"));
-        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputSadness.csv",csv);
+        writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputSadness.csv",csv);
         csv.setLabels(fear.get("fear"));
-        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputFear.csv",csv);
+        writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputFear.csv",csv);
         csv.setLabels(anger.get("anger"));
-        writerCSV.writeCsvFile("output/ScoreTfIdfForEmotion/OutputAnger.csv",csv);*/
+        writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputAnger.csv",csv);*/
 
 
         //politeness

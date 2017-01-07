@@ -61,7 +61,6 @@ public class SentiStrengthSentiment {
 		String score = sentiStrength.computeSentimentScores(text);
 		String[] split = score.split("\\s+");
 
-		System.out.println(text +  split[0] +    split[1]);
 		return  split[0] + ";" + split[1];
 	}
 

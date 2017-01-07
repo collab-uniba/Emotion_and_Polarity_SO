@@ -1,5 +1,7 @@
 package computing;
 
+import printing.PrintingFile;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -23,9 +25,19 @@ public class TF_IDFComputer {
         List<Map<String, Double>> allTFIDF = new ArrayList<>();
 
         Map<String, Double> keyIDF = invertedDocumentFrequency(docs, grams.keySet(), n);
-
+        PrintingFile pr= new PrintingFile();
+        Set<String> k= grams.keySet();
+        for(String ke:k) {
+            pr.printIDF(keyIDF, "res/IDF_" + grams.get(ke)+"_"+n);
+            break;
+        }
+        int i=0;
         for (String doc : docs) {
             wordTF = termFrequency(doc, n);
+            for(String ke:k) {
+             pr.printIDF(wordTF, "res/TF_"+i+grams.get(ke)+"_"+n);
+             break;
+            }
             LinkedHashMap<String, Double> gramsAndTFIDF = new LinkedHashMap<>();
             //prendo la lista di unigrammi adesso  e controllo se sta nel documento per ogni termine
             for (String s : grams.keySet()) {
@@ -38,6 +50,7 @@ public class TF_IDFComputer {
                 }
             }
             allTFIDF.add(gramsAndTFIDF);
+            i++;
         }
 
         //stampa
@@ -68,6 +81,7 @@ public class TF_IDFComputer {
         Map<String, Double> mapTF = new LinkedHashMap<>();
         Collection<String> ss = gr.getNgrams(input, n);
         double numTermsInDoc = ss.size();
+        //se ci sono 0 termini nel documento il ciclo non inizia proprio
         for (String string : ss) {
             if (mapTF.keySet().contains(string)) {
                 occurrences = mapTF.get(string);
@@ -94,6 +108,7 @@ public class TF_IDFComputer {
         double numDocs = docs.size();
         double totdocsContainingTerm = 0;
         for (String t : terms){
+            //cerco il termine in tutti i documenti
             for (String doc : docs) {
                 Collection<String> ss = gr.getNgrams(doc, n);
                 for (String string : ss) {
@@ -103,8 +118,12 @@ public class TF_IDFComputer {
                     }
                 }
             }
-            double part = numDocs / totdocsContainingTerm;
-            double idf= Math.round(Logarithm.logb(part, 2));
+            double part=0.0;
+            double idf=0.0;
+            if(totdocsContainingTerm>0){
+                part = numDocs / totdocsContainingTerm;
+                idf= Math.round(Logarithm.logb(part, 2));
+            }
             termsIDF.put(t,idf);
             totdocsContainingTerm = 0;
         }
