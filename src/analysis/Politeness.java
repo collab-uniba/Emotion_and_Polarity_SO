@@ -36,21 +36,22 @@ public class Politeness {
             ReadingFile rd= new ReadingFile();
             List<String> docs = rd.read(pathIn);
             for(String doc: docs){
-                List<String> sentencesDoc=new ArrayList<>();
-                List<String> dependencyParse=new ArrayList<>();
+                DocumentValues dcVal = new DocumentValues();
+                List<String> sentencesDoc = new ArrayList<>();
+                List<String> dependencyParse = new ArrayList<>();
+                if(!doc.isEmpty()) {
+                    // create an empty Annotation just with the given text
+                    Annotation document = new Annotation(doc);
+                    // run all Annotators on this text
+                    pipeline.annotate(document);
 
-                DocumentValues dcVal= new DocumentValues();
-                // create an empty Annotation just with the given text
-                Annotation document = new Annotation(doc);
-                // run all Annotators on this text
-                pipeline.annotate(document);
+                    List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);
 
-                List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);
-
-                for(CoreMap sentence: sentences) {
-                    sentencesDoc.add(sentence.toString());
-                    String prediction= dp.predict(sentence).toString();
-                    dependencyParse.add(elaborateString(prediction));
+                    for (CoreMap sentence : sentences) {
+                        sentencesDoc.add(sentence.toString());
+                        String prediction = dp.predict(sentence).toString();
+                        dependencyParse.add(elaborateString(prediction));
+                    }
                 }
                  dcVal.setSentences(sentencesDoc);
                  dcVal.setParse(dependencyParse);

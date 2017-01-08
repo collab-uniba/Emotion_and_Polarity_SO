@@ -89,7 +89,7 @@ public class Main {
 
 
         //tf-idf-bigrams
-        TF_IDFComputer cl= new TF_IDFComputer();
+      /*  TF_IDFComputer cl= new TF_IDFComputer();
 
         Utility u = new Utility();
 
@@ -160,7 +160,7 @@ public class Main {
         csv.setLabels(joy.get("joy"));
         WriterCSV writerCSV= new WriterCSV();
         writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputJoy.csv",csv);
-       /* csv.setLabels(love.get("love"));
+        csv.setLabels(love.get("love"));
         writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputLove.csv",csv);
         csv.setLabels(surprise.get("surprise"));
         writerCSV.writeCsvFile("outputEmotion/ScoreTfIdfForEmotion/OutputSurprise.csv",csv);
@@ -173,8 +173,8 @@ public class Main {
 
 
         //politeness
-        //Politeness  pt= new Politeness();
-        //pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUserMention"),"res/politeness");
+        Politeness  pt= new Politeness();
+        pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUserMention"),"res/politeness");
 
 
 
