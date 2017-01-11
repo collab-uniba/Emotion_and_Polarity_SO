@@ -68,7 +68,7 @@ public class PrintingFile {
 
 
     public void writeDocsValuesOnFile(Map<String, DocumentValues> mp,String pathOut){
-        String header = "TEST_DOCUMENTS = [ \n  # Polite requests \n";
+        String header = "# -*- coding: utf-8 -*- \nTEST_DOCUMENTS = [ \n  # Polite requests \n";
         Set<String> keys = mp.keySet();
         int totDocs=0;
         try {

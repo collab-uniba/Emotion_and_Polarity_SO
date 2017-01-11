@@ -22,6 +22,7 @@ public class TF_IDFComputer {
     public List<Map<String,Double>> tf_idf(List<String> docs, Map<String, String> grams ,int n) throws IOException {
 
         Map<String, Double> wordTF;
+        //io creerei una classe document con text e il map associato
         List<Map<String, Double>> allTFIDF = new ArrayList<>();
 
         Map<String, Double> keyIDF = invertedDocumentFrequency(docs, grams.keySet(), n);
@@ -34,10 +35,10 @@ public class TF_IDFComputer {
         int i=0;
         for (String doc : docs) {
             wordTF = termFrequency(doc, n);
-            for(String ke:k) {
+           /* for(String ke:k) {
              pr.printIDF(wordTF, "res/TF_"+i+grams.get(ke)+"_"+n);
              break;
-            }
+            }*/
             LinkedHashMap<String, Double> gramsAndTFIDF = new LinkedHashMap<>();
             //prendo la lista di unigrammi adesso  e controllo se sta nel documento per ogni termine
             for (String s : grams.keySet()) {

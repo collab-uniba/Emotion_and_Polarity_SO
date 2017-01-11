@@ -1,8 +1,6 @@
 package tokenizer;
 
 import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.ling.HasWord;
-import edu.stanford.nlp.ling.Sentence;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 import edu.stanford.nlp.process.PTBTokenizer;
@@ -12,7 +10,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static edu.stanford.nlp.scoref.BestFirstCorefSystem.i;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -72,21 +69,5 @@ public class TokenizeCorpus {
         }
     }
 
-    //by sentence
-    public List<String> tokenizerBySentence(String doc){
-        List<String> sentences = new ArrayList<>();
-        String line ="";
-        Reader reader = new StringReader(doc);
-        DocumentPreprocessor dp = new DocumentPreprocessor(reader);
-        for (List<HasWord> sentence : dp) {
-            for (HasWord word : sentence) {
-                line = line.concat(word + " ");
-            }
-            sentences.add(Sentence.listToString(sentence));
-            System.out.println(Sentence.listToString(sentence));
-            line = "";
-        }
-        return sentences;
-    }
 
 }

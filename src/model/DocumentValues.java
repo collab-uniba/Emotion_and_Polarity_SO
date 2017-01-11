@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Francesco on 07/01/2017.ù
- *
+ * Created by Francesco on 07/01/2017.
+ *Serve per creare il modello da dare in input a politeness.model.score
  *
  */
 public class DocumentValues {

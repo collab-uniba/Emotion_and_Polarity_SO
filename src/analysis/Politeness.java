@@ -35,7 +35,9 @@ public class Politeness {
 
             ReadingFile rd= new ReadingFile();
             List<String> docs = rd.read(pathIn);
+            int i=1;
             for(String doc: docs){
+                System.out.println("Analyzing doc num:"+ i);
                 DocumentValues dcVal = new DocumentValues();
                 List<String> sentencesDoc = new ArrayList<>();
                 List<String> dependencyParse = new ArrayList<>();
@@ -58,6 +60,7 @@ public class Politeness {
                  dcVal.setText(doc);
 
                  docsValues.put(doc,dcVal);
+                 i++;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -72,14 +75,22 @@ public class Politeness {
         ss= st.split(",(?![^()]*+\\))");
         String quad= "[";
         String quadF="]";
-        ss[0]=ss[0].replace("[","");
-        ss[0]=quad+"\""+ss[0]+"\"";
-        ss[ss.length-1]= ss[ss.length-1].replace("]","");
-        ss[ss.length-1]=ss[ss.length-1].replace(" ","");
-        ss[ss.length-1]= ",\""+ ss[ss.length-1]+"\""+quadF;
-        for(int i=1;i<ss.length-1;i++) {
-            ss[i]=ss[i].replace(" ","");
-            ss[i] = ","+"\""+ss[i]+ "\"";
+
+        if(ss.length==1){
+            ss[0]=ss[0].replace("[","");
+            ss[0]=ss[0].replace("]","");
+            ss[0]=quad+"\""+ss[0]+"\""+quadF;
+        }
+        else {
+            ss[0]=ss[0].replace("[","");
+            ss[0]=quad+"\""+ss[0]+"\"";
+            ss[ss.length - 1] = ss[ss.length - 1].replace("]", "");
+            ss[ss.length - 1] = ss[ss.length - 1].replace(" ", "");
+            ss[ss.length - 1] = ",\"" + ss[ss.length - 1] + "\"" + quadF;
+            for (int i = 1; i < ss.length - 1; i++) {
+                ss[i] = ss[i].replace(" ", "");
+                ss[i] = "," + "\"" + ss[i] + "\"";
+            }
         }
         for (String s : ss) {
             finale += s;
