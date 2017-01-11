@@ -67,16 +67,14 @@ public class PrintingFile {
 
 
 
-    public void writeDocsValuesOnFile(Map<String, DocumentValues> mp,String pathOut){
+    public void writeDocsValuesOnFile(List<DocumentValues> docs,String pathOut){
         String header = "# -*- coding: utf-8 -*- \nTEST_DOCUMENTS = [ \n  # Polite requests \n";
-        Set<String> keys = mp.keySet();
         int totDocs=0;
         try {
             FileWriter out = new FileWriter(pathOut);
             out.append(header);
-            for(String k: keys){
+            for(DocumentValues d : docs){
                 out.append("{ \n ");
-                DocumentValues d= mp.get(k);
                 String text= "\"text\": "+ "\""+d.getText()+"\"" + ",\n ";
                 out.append(text);
 
@@ -107,7 +105,7 @@ public class PrintingFile {
                         text= d.getParse().get(i) +",\n   ";
                     out.append(text);
                 }
-                if(totDocs+1==keys.size())
+                if(totDocs+1==docs.size())
                     out.append(" }\n] ");
                 else
                     out.append("}, \n ");

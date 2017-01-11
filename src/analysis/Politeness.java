@@ -25,11 +25,11 @@ public class Politeness {
     private  StanfordCoreNLP pipeline = null;
     private final  DependencyParser dp = DependencyParser.loadFromModelFile(DependencyParser.DEFAULT_MODEL);
 
-    public Map<String,DocumentValues> createFormatForInput(String pathIn){
+    public List<DocumentValues> createFormatForInput(String pathIn){
         props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
         pipeline=new StanfordCoreNLP(props);
 
-        Map<String,DocumentValues> docsValues = new LinkedHashMap<>();
+        List<DocumentValues> docsValues = new ArrayList<>();
 
         try {
 
@@ -51,19 +51,16 @@ public class Politeness {
 
                     for (CoreMap sentence : sentences) {
                         sentencesDoc.add(sentence.toString());
-                       // String prediction = dp.predict(sentence).toString();
-                      //  dependencyParse.add(elaborateString(prediction));
+                        String prediction = dp.predict(sentence).toString();
+                        dependencyParse.add(elaborateString(prediction));
                     }
                 }
                  dcVal.setSentences(sentencesDoc);
                  dcVal.setParse(dependencyParse);
                  dcVal.setText(doc);
 
-                 docsValues.put(doc,dcVal);
-                 if(i!=docsValues.size()) {
-                     System.err.println("ERRORE NUMERO DIVERSO , doc : " + docsValues.size());
-                     break;
-                 }
+                 docsValues.add(dcVal);
+
                  i++;
             }
         } catch (IOException e) {
