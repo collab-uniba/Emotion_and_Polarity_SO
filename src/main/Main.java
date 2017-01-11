@@ -15,8 +15,10 @@ import replacing.ReplacerTextWithMarks;
 import tokenizer.TokenizeCorpus;
 import utility.Utility;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 
@@ -176,8 +178,15 @@ public class Main {
         Politeness  pt= new Politeness();
         pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUserMention"),"res/politeness");
 
-
-
+      /*  try {
+            Process p = Runtime.getRuntime().exec(
+                    "python  Politeness/model.py");
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    p.getInputStream()));
+            System.out.println(in.readLine());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
     }
 
 }

@@ -51,8 +51,8 @@ public class Politeness {
 
                     for (CoreMap sentence : sentences) {
                         sentencesDoc.add(sentence.toString());
-                        String prediction = dp.predict(sentence).toString();
-                        dependencyParse.add(elaborateString(prediction));
+                       // String prediction = dp.predict(sentence).toString();
+                      //  dependencyParse.add(elaborateString(prediction));
                     }
                 }
                  dcVal.setSentences(sentencesDoc);
@@ -60,6 +60,10 @@ public class Politeness {
                  dcVal.setText(doc);
 
                  docsValues.put(doc,dcVal);
+                 if(i!=docsValues.size()) {
+                     System.err.println("ERRORE NUMERO DIVERSO , doc : " + docsValues.size());
+                     break;
+                 }
                  i++;
             }
         } catch (IOException e) {

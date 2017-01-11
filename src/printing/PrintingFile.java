@@ -82,6 +82,9 @@ public class PrintingFile {
 
                 text= "\"sentences\": [ \n   ";
                 out.append(text);
+                if(d.getSentences().size()==0){
+                    out.append(" ], \n");
+                }
                 for(int i=0;i<d.getSentences().size();i++){
                         if(i+1==d.getSentences().size()){
                             text="\""+ d.getSentences().get(i) + "\""+ "\n  ],\n ";
@@ -93,6 +96,9 @@ public class PrintingFile {
                     }
                 text= "\"parses\": [ \n   ";
                 out.append(text);
+                if(d.getParse().size()==0){
+                    out.append(" ] \n");
+                }
                 for(int i=0;i<d.getParse().size();i++){
                     if(i+1==d.getParse().size()){
                         text= d.getParse().get(i)+ "\n  ]\n ";
