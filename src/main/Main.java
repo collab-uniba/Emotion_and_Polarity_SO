@@ -14,15 +14,25 @@ import replacing.ReplacerTextWithMarks;
 import tokenizer.TokenizeCorpus;
 import utility.Utility;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        try {
+            Process p =  Runtime.getRuntime().exec("python " + "Pol/model.py");
 
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    p.getInputStream()));
+            System.out.println(in.readLine());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+/*
         Grams gr = new Grams();
+
+
 
         //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
         //Tokenizzatore
@@ -48,9 +58,9 @@ public class Main {
 
         List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNotEnglishWords(inputCorpusTknz);
         System.out.println("printing docs without not english word...");
-        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);*/
+        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
 
-        //Remove URL,usermention and special string
+         //Remove URL,usermention and special string
         Removing rm= new Removing();
         List<String> docsWithoutURLtknz= rm.removeUrlOne(inputCorpusTknz);
        // pr.print("res/docsWithoutURLTknz",docsWithoutURLtknz);
@@ -68,8 +78,8 @@ public class Main {
         List<String> docsPostTagged =pt.posTag(inputCorpusTknz);
         pr.print("res/docsPostTagged",docsPostTagged);*/
 
-        /*extracting bigram or unigram lists*/
-       SortedMap<String, Integer> unigram= gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
+        /*extracting bigram or unigram lists
+      SortedMap<String, Integer> unigram = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
         Set<String> keysUni = unigram.keySet();
         for (String k : keysUni) {
             System.out.println(k + ": " + "\n");
@@ -77,7 +87,7 @@ public class Main {
         }
         System.out.println("\n");
 
-        SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
+       SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
         Set<String> keysBi = bigram.keySet();
         for (String k : keysBi) {
             System.out.println(k + ": " + "\n");
@@ -98,14 +108,14 @@ public class Main {
         //FINE PREPROCESSING
 
 
-        //*****tf-idf****//
-        TF_IDFComputer cl= new TF_IDFComputer();
+        //*****tf-idf****/
+    /*  TF_IDFComputer cl= new TF_IDFComputer();
 
         Utility u = new Utility();
 
-        SortedMap<String, String> unigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("UnigramsList"));
+        SortedMap<String, String> unigrams = gr.importNgrams("res/Grams/UnigramsList");
         System.out.println("unigrams loaded");
-        SortedMap<String, String> bigrams = gr.importNgrams(Main.class.getClassLoader().getResourceAsStream("BigramsList"));
+        SortedMap<String, String> bigrams = gr.importNgrams("res/Grams/BigramsList");
         System.out.println("bigrams loaded");
 
         List<Map<String,Double>> unigramsTFIDF= cl.tf_idf(docsWithotSpCUrlUsMtTknz,unigrams,1);
@@ -141,7 +151,7 @@ public class Main {
         System.out.println("Calculating negative score...");
 
 
-        Map<String,List<String>> docsAndPoliteness=rd.read_AllColumn_CSV("Politeness/textsPoliteAndImpolite.csv",'§');
+        Map<String,List<String>> docsAndPoliteness=rd.read_AllColumn_CSV("res/textsPoliteAndImpolite.csv",'§');
         List<String> politeness = docsAndPoliteness.get("polite");
         List<String> impoliteness = docsAndPoliteness.get("impolite");
 
@@ -168,6 +178,7 @@ public class Main {
             d.setImpoliteness(Double.valueOf(impoliteness.get(id)));
             d.setLabel(joy.get("joy").get(id));
         }
+        u.directoryCreator("outputEmotion");
         WriterCSV writerCSV= new WriterCSV();
         writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv",documents);
 
@@ -201,16 +212,6 @@ public class Main {
         //politeness
        /*Politeness pt= new Politeness();
         pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUsMentSpCharTknz"),"res/politeness");*/
-
-        /* try {
-            Process p =  Runtime.getRuntime().exec("python " + "C:/Users/francesco/desktop/pol/model.py");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    p.getInputStream()));
-            System.out.println(in.readLine());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
 
 
 

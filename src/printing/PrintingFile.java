@@ -4,6 +4,7 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
 import model.DocumentForPoliteness;
+import utility.Utility;
 
 import java.io.File;
 import java.io.FileReader;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 
 /**
  * Created by Francesco on 23/12/2016.
@@ -83,11 +85,11 @@ public class PrintingFile {
                 }
                 for(int i=0;i<d.getSentences().size();i++){
                         if(i+1==d.getSentences().size()){
-                            text="\""+ d.getSentences().get(i) + "\""+ "\n  ],\n ";
+                            text="\" "+ d.getSentences().get(i) + " \""+ "\n  ],\n ";
 
                         }
                         else
-                            text="\""+ d.getSentences().get(i) + "\"" +",\n   ";
+                            text="\" "+ d.getSentences().get(i) + " \"" +",\n   ";
                         out.append(text);
                     }
                 text= "\"parses\": [ \n   ";
@@ -127,4 +129,44 @@ public class PrintingFile {
         }
         print(pathOut,idf);
     }
+
+
+
+    /**
+     * Print "grram-integer" the integer is incremented during the map reading.
+     * * * @param map grams
+     * @param n
+     */
+    public void printNgrams(SortedMap<String, Integer> map, int n) {
+        String file = "";
+        String t = "";
+        Utility l= new Utility();
+        l.directoryCreator("res/Grams");
+        switch (n){
+            case 1:
+                file = "res/Grams/UnigramsList";
+                t = "uni";
+                break;
+            case 2:
+                file = "res/Grams/BigramsList";
+                t = "bi";
+                break;
+        }
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(new File(file));
+            int i = 1;
+            for (String s: map.keySet()) {
+                fw.append(s + "\t" + t + i);
+                fw.append(System.lineSeparator());
+                i++;
+            }
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

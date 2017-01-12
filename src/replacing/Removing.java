@@ -96,4 +96,38 @@ public class Removing {
         return docsWithoutSpString;
     }
 
+
+    /*
+       * Remove user mention from a string
+       */
+    public String removeUserMention(String s) {
+        String res = "";
+        try {
+            if (s.length() > 0) {
+                String[] ss = s.split("\\s+");
+                for (String string : ss) {
+
+                    if (string.length()>0 && !(string.charAt(0) == '@')) {
+                        res += string + " ";
+                    }
+                }
+                if (res.length() > 0)
+                    res = res.substring(0, res.length() - 1);
+            }
+        }
+        catch(StringIndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    public List<String> removeUserMention(List<String> docs){
+        List<String> docsWithoutUserMention = new ArrayList<>();
+        for(String doc:docs){
+            docsWithoutUserMention.add(removeUserMention(doc));
+        }
+        return docsWithoutUserMention;
+    }
+
+
 }

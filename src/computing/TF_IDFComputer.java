@@ -1,6 +1,7 @@
 package computing;
 
 import printing.PrintingFile;
+import utility.Utility;
 
 import java.io.IOException;
 import java.util.*;
@@ -29,7 +30,9 @@ public class TF_IDFComputer {
         PrintingFile pr= new PrintingFile();
         Set<String> k= grams.keySet();
         for(String ke:k) {
-            pr.printIDF(keyIDF, "res/IDF_" + grams.get(ke)+"_"+n);
+            Utility l= new Utility();
+            l.directoryCreator("res/IDF");
+            pr.printIDF(keyIDF, "res/IDF/IDF_" + grams.get(ke)+"_"+n);
             break;
         }
         int i=0;
