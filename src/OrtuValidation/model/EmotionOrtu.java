@@ -1,4 +1,4 @@
-package model;
+package OrtuValidation.model;
 
 /**
  * Created by Francesco on 03/01/2017.

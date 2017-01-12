@@ -75,7 +75,7 @@ public class PrintingFile {
             out.append(header);
             for(DocumentValues d : docs){
                 out.append("{ \n ");
-                String text= "\"text\": "+ "\""+d.getText()+"\"" + ",\n ";
+                String text= "\"text\": "+ "\""+d.getText()+" \"" + ",\n ";
                 out.append(text);
 
                 text= "\"sentences\": [ \n   ";

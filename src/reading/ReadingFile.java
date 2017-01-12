@@ -1,10 +1,10 @@
 package reading;
 
-import model.DocumentOrtu;
+import OrtuValidation.model.DocumentOrtu;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import replacing.RemoveURL;
+import replacing.Removing;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class ReadingFile {
 
 
     public List<DocumentOrtu> read_Tokenized_And_remove_Url(String pathFile){
-        RemoveURL rmurl= new RemoveURL();
+        Removing rmurl= new Removing();
 
         FileReader in = null;
         List<DocumentOrtu> l=new ArrayList<>();

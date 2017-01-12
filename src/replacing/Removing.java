@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Francesco on 23/12/2016.
  */
-public class RemoveURL {
+public class Removing {
     /*
          * Remove urls from string
          */
@@ -73,6 +73,27 @@ public class RemoveURL {
             docsWithoutURL.add(removeUrlTwo(s));
         }
         return docsWithoutURL;
+    }
+
+
+    private String removeQuotesSpecialString(String doc, String specialString){
+        String[] ss = doc.split("\\s+");
+        String res="";
+        for(int i=0 ; i<ss.length;i++){
+            if(ss[i].equals(specialString)){
+                ss[i]=ss[i].replaceAll("\"","'");
+            }
+            res+=" " + ss[i];
+        }
+        return res;
+    }
+
+    public List<String> removeQuotesSpecialString(List<String> docs,String toRemove){
+        List<String> docsWithoutSpString= new ArrayList<>();
+        for(String doc:docs){
+           docsWithoutSpString.add(removeQuotesSpecialString(doc,toRemove));
+        }
+        return docsWithoutSpString;
     }
 
 }

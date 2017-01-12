@@ -1,12 +1,11 @@
-package computing;
+package OrtuValidation.computing;
 
-import model.DocumentOrtu;
-import model.EmotionOrtu;
+import OrtuValidation.model.DocumentOrtu;
+import OrtuValidation.model.EmotionOrtu;
 import reading.ReadingCSV;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Francesco on 03/01/2017.

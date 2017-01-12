@@ -1,6 +1,4 @@
-package model;
-
-import java.util.List;
+package OrtuValidation.model;
 
 /**
  * Class for printing in .csv files

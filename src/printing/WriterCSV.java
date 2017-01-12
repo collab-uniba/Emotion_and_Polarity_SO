@@ -1,14 +1,12 @@
 package printing;
 
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.process.CoreLabelTokenFactory;
-import edu.stanford.nlp.process.PTBTokenizer;
+import OrtuValidation.model.DatasetRowOrtu;
+import OrtuValidation.model.DocumentOrtu;
+import OrtuValidation.model.EmotionOrtu;
 import model.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;

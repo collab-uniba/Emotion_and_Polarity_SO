@@ -1,7 +1,7 @@
-package main;
+package OrtuValidation;
 
-import computing.Ortu;
-import model.DocumentOrtu;
+import OrtuValidation.computing.Ortu;
+import OrtuValidation.model.DocumentOrtu;
 import printing.WriterCSV;
 import reading.ReadingFile;
 import tokenizer.TokenizeCorpus;

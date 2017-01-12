@@ -1,4 +1,4 @@
-package model;
+package OrtuValidation.model;
 
 public class DocumentOrtu implements Comparable<Object>{
     private String comment;

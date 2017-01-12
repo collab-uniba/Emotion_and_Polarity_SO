@@ -2,23 +2,14 @@ package main;
 
 
 import analysis.Politeness;
-import analysis.SentiStrengthSentiment;
 import computing.Grams;
-import computing.TF_IDFComputer;
-import model.CsvElementsTFIDF;
 import printing.PrintingFile;
-import printing.WriterCSV;
 import reading.ReadingCSV;
 import reading.ReadingFile;
-import replacing.RemoveURL;
-import replacing.ReplacerTextWithMarks;
+import replacing.Removing;
 import tokenizer.TokenizeCorpus;
-import utility.Utility;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 
 
@@ -37,7 +28,7 @@ public class Main {
         pr.print("res/onlyText", inputCorpus.get("comment"));
 
 
-        TokenizeCorpus tk = new TokenizeCorpus();
+       TokenizeCorpus tk = new TokenizeCorpus();
         tk.tokenizerByToken("res/onlyText", "res/onlyText_TOKENIZED");
         List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED");
 
@@ -54,13 +45,17 @@ public class Main {
         pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);*/
 
         //Remove URL
-       RemoveURL rmurl= new RemoveURL();
-        List<String> docsWithoutURLtknz= rmurl.removeUrlOne(inputCorpusTknz);
+       Removing rm= new Removing();
+        List<String> docsWithoutURLtknz= rm.removeUrlOne(inputCorpusTknz);
         pr.print("res/docsWithoutURLTknz",docsWithoutURLtknz);
         //remove user mention
         List<String> docsWithoutURLUserMentionTknz=gr.removeUserMention(docsWithoutURLtknz);
         pr.print("res/docsWithoutURLUserMention",docsWithoutURLUserMentionTknz);
 
+
+        //Remove special String
+        List<String> docsWithotSpCUrlUsMtTknz= rm.removeQuotesSpecialString(docsWithoutURLUserMentionTknz,"type="+"\"submit\""+">");
+        pr.print("res/docsWithoutURLUsMentSpCharTknz",docsWithotSpCUrlUsMtTknz);
 
        /* Post tagger*/
        /* POSTagger pt = new POSTagger();
@@ -175,12 +170,12 @@ public class Main {
 
 
         //politeness
-        Politeness  pt= new Politeness();
-        pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUserMention"),"res/politeness");
+        Politeness pt= new Politeness();
+        pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUsMentSpCharTknz"),"res/politeness");
 
-      /*  try {
-            Process p = Runtime.getRuntime().exec(
-                    "python  Politeness/model.py");
+       /* try {
+            Process p =  Runtime.getRuntime().exec("python " + "C:/Users/francesco/desktop/pol/model.py");
+
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     p.getInputStream()));
             System.out.println(in.readLine());
