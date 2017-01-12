@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Emotion_Marks.iml" filepath="$PROJECT_DIR$/Emotion_Marks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Emotion_And_Polarity_SO.iml" filepath="$PROJECT_DIR$/Emotion_And_Polarity_SO.iml" />
     </modules>
   </component>
 </project>

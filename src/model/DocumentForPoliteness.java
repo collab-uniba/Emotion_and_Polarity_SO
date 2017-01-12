@@ -8,7 +8,7 @@ import java.util.Map;
  *Serve per creare il modello da dare in input a politeness.model.score
  *
  */
-public class DocumentValues {
+public class DocumentForPoliteness {
 
     private String text;
     private List<String> sentences;

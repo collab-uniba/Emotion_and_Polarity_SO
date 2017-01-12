@@ -4,15 +4,11 @@ package analysis;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import edu.stanford.nlp.simple.Document;
-import edu.stanford.nlp.simple.Sentence;
-import edu.stanford.nlp.trees.Dependency;
 import edu.stanford.nlp.util.CoreMap;
-import model.DocumentValues;
+import model.DocumentForPoliteness;
 import reading.ReadingFile;
-import tokenizer.TokenizeCorpus;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -25,11 +21,11 @@ public class Politeness {
     private  StanfordCoreNLP pipeline = null;
     private final  DependencyParser dp = DependencyParser.loadFromModelFile(DependencyParser.DEFAULT_MODEL);
 
-    public List<DocumentValues> createFormatForInput(String pathIn){
+    public List<DocumentForPoliteness> createFormatForInput(String pathIn){
         props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
         pipeline=new StanfordCoreNLP(props);
 
-        List<DocumentValues> docsValues = new ArrayList<>();
+        List<DocumentForPoliteness> docsValues = new ArrayList<>();
 
         try {
 
@@ -38,7 +34,7 @@ public class Politeness {
             int i=1;
             for(String doc: docs){
                 System.out.println("Analyzing doc num:"+ i);
-                DocumentValues dcVal = new DocumentValues();
+                DocumentForPoliteness dcVal = new DocumentForPoliteness();
                 List<String> sentencesDoc = new ArrayList<>();
                 List<String> dependencyParse = new ArrayList<>();
                 if(!doc.isEmpty()) {

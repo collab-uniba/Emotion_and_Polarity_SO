@@ -3,8 +3,7 @@ package printing;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
-import javafx.scene.control.Separator;
-import model.DocumentValues;
+import model.DocumentForPoliteness;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Francesco on 23/12/2016.
@@ -67,13 +65,13 @@ public class PrintingFile {
 
 
 
-    public void writeDocsValuesOnFile(List<DocumentValues> docs,String pathOut){
+    public void writeDocsValuesOnFile(List<DocumentForPoliteness> docs, String pathOut){
         String header = "# -*- coding: utf-8 -*- \nTEST_DOCUMENTS = [ \n  # Polite requests \n";
         int totDocs=0;
         try {
             FileWriter out = new FileWriter(pathOut);
             out.append(header);
-            for(DocumentValues d : docs){
+            for(DocumentForPoliteness d : docs){
                 out.append("{ \n ");
                 String text= "\"text\": "+ "\""+d.getText()+" \"" + ",\n ";
                 out.append(text);

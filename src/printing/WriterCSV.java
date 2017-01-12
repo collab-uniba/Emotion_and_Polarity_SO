@@ -21,31 +21,48 @@ public class WriterCSV {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private Utility u = new Utility();
 
-    public void writeCsvFile(String outputName, CsvElementsTFIDF model) throws IOException {
+    public void writeCsvFile(String outputName,Map<Integer, Document> documents) throws IOException {
         List<DatasetRowTFIDF> list = new ArrayList<>();
-        List<String> ids = model.getId();
-        List<String> docs = model.getDocuments();
-        List<Map<String, Double>> unigrams = model.getUnigramTFIDF();
-        List<Map<String, Double>> bigrams = model.getBigramTFIDF();
+      //  List<String> ids = model.getId();
+       // List<String> docs = model.getDocuments();
+       // List<Map<String, Double>> unigrams = model.getUnigramTFIDF();
+      /*  List<Map<String, Double>> bigrams = model.getBigramTFIDF();
         List<Map<String, Double>> positives = model.getPositiveTFIDF();
         List<Map<String, Double>> negatives = model.getNegativeTFIDF();
         List<Map<String, Double>> neutrals = model.getNeutralTFIDF();
         List<Map<String, Double>> ambiguos = model.getAmbiguosTFIDF();
         Map<String,Double> pos_score= model.getPos_score();
         Map<String,Double> neg_score= model.getPos_score();
-        List<String> labels= model.getLabels();
+        List<String> labels= model.getLabels();*/
 
-        int i = 0;
-
+        Document d= null;
+        Map<String,Double> unigramsTFIDF=null;
+        Map<String,Double> bigramsTFIDF=null;
+        Map<String,Double> positivesTFIDF=null;
+        Map<String,Double> negativesTFIDF=null;
+        Map<String,Double> neutralsTFIDF=null;
+        Map<String,Double> ambiguosTFIDF=null;
+        double pos_score;
+        double neg_score;
+        double polite;
+        double impolite;
+        String label="";
         DatasetRowTFIDF dr;
-        for (String doc : docs) {
+        for(Integer id: documents.keySet()){
+            d=documents.get(id);
+            unigramsTFIDF= d.getUnigramTFIDF();
+            bigramsTFIDF=d.getBigramTFIDF();
+            positivesTFIDF=d.getPositiveTFIDF();
+            negativesTFIDF=d.getNegativeTFIDF();
+            neutralsTFIDF=d.getNeutralTFIDF();
+            ambiguosTFIDF= d.getAmbiguosTFIDF();
+            pos_score=d.getPos_score();
+            neg_score=d.getNeg_score();
+            polite=d.getPoliteness();
+            impolite=d.getImpoliteness();
+            label=d.getLabel();
+
             List<Double> tf_idf= new ArrayList<>();
-            Map<String, Double> unigramsTFIDF = unigrams.get(i);
-            Map<String, Double> bigramsTFIDF = bigrams.get(i);
-            Map<String, Double> positivesTFIDF = positives.get(i);
-            Map<String, Double> negativessTFIDF = negatives.get(i);
-            Map<String, Double> neutralsTFIDF = neutrals.get(i);
-            Map<String, Double> ambiguosTFIDF = ambiguos.get(i);
 
 
             //aggiungo la riga degli unigrammi
@@ -61,8 +78,8 @@ public class WriterCSV {
                 tf_idf.add(positivesTFIDF.get(s));
             }
             //aggiungo la riga dei negativi
-            for (String s : negativessTFIDF.keySet()) {
-                tf_idf.add(negativessTFIDF.get(s));
+            for (String s : negativesTFIDF.keySet()) {
+                tf_idf.add(negativesTFIDF.get(s));
             }
             //aggiungo la riga dei neutri
             for (String s : neutralsTFIDF.keySet()) {
@@ -73,17 +90,18 @@ public class WriterCSV {
                 tf_idf.add(ambiguosTFIDF.get(s));
             }
 
-
             dr = new DatasetRowTFIDF.DatasetRowBuilder()
-                    .setDocument("t"+ i)
-                    .setPosScore(pos_score.get(doc))
-                    .setNegScore(neg_score.get(doc))
+                    .setDocument("t"+ id)
+                    .setPosScore(pos_score)
+                    .setNegScore(neg_score)
+                    .setPoliteness(polite)
+                    .setImpoliteness(impolite)
                     .setTf_idf(tf_idf)
-                    .setAffectiveLabel(labels.get(i))
+                    .setAffectiveLabel(label)
                     .build();
             list.add(dr);
-            i++;
-    }
+        }
+
 
         //INTESTO LE COLONNE
         List<String> header = new ArrayList<>();
@@ -91,13 +109,15 @@ public class WriterCSV {
         header.add("id");
         header.add("pos_score");
         header.add("neg_score");
+        header.add("polite");
+        header.add("impolite");
 
-        populateHeader(unigrams.get(0),header,"uni");
-        populateHeader(bigrams.get(0),header,"bi");
-        populateHeader(positives.get(0),header,"");
-        populateHeader(negatives.get(0),header,"");
-        populateHeader(neutrals.get(0),header,"");
-        populateHeader(ambiguos.get(0),header,"");
+        populateHeader(unigramsTFIDF,header,"uni");
+        populateHeader(bigramsTFIDF,header,"bi");
+        populateHeader(positivesTFIDF,header,"");
+        populateHeader(negativesTFIDF,header,"");
+        populateHeader(neutralsTFIDF,header,"");
+        populateHeader(ambiguosTFIDF,header,"");
 
         header.add("label");
 
@@ -113,18 +133,20 @@ public class WriterCSV {
             //qui mette le colonne
             csvFilePrinter.printRecord(header);
             int j = 0;
-            for (DatasetRowTFIDF d : list) {
+            for (DatasetRowTFIDF dx: list) {
                 if ((j % 50) == 0) {
                     System.out.println("Printing line:" + j);
                 }
                 List l = new ArrayList();
               //  l.add(d.getId());
-                l.add(d.getDocument());
-                l.add(d.getPos_score());
-                l.add(d.getNeg_score());
+                l.add(dx.getDocument());
+                l.add(dx.getPos_score());
+                l.add(dx.getNeg_score());
+                l.add(dx.getPoliteness());
+                l.add(dx.getImpoliteness());
                 //ATTENTO AD ADDALL !
-                l.addAll(d.getTf_idf());
-                l.add(d.getAffective_label());
+                l.addAll(dx.getTf_idf());
+                l.add(dx.getAffective_label());
 
                 csvFilePrinter.printRecord(l);
                 j++;
