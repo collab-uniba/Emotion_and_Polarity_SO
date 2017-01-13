@@ -60,11 +60,10 @@ public class Removing {
 
 
     public List<String> removeUrlOne(List<String> doc){
-        List<String> docsWithoutURL= new ArrayList<String>();
-        for(String s : doc){
-            docsWithoutURL.add(removeUrlOne(s));
+        for(int i=0;i<doc.size();i++){
+            doc.set(i,removeUrlOne(doc.get(i)));
         }
-        return docsWithoutURL;
+        return doc;
     }
 
     public List<String> removeUrlTwo(List<String> doc){
@@ -89,11 +88,10 @@ public class Removing {
     }
 
     public List<String> removeQuotesSpecialString(List<String> docs,String toRemove){
-        List<String> docsWithoutSpString= new ArrayList<>();
-        for(String doc:docs){
-           docsWithoutSpString.add(removeQuotesSpecialString(doc,toRemove));
+        for(int i=0;i<docs.size();i++){
+            docs.set(i,removeQuotesSpecialString(docs.get(i),toRemove));
         }
-        return docsWithoutSpString;
+        return docs;
     }
 
 
@@ -122,11 +120,10 @@ public class Removing {
     }
 
     public List<String> removeUserMention(List<String> docs){
-        List<String> docsWithoutUserMention = new ArrayList<>();
-        for(String doc:docs){
-            docsWithoutUserMention.add(removeUserMention(doc));
+        for(int i=0;i<docs.size();i++){
+            docs.set(i,removeUserMention(docs.get(i)));
         }
-        return docsWithoutUserMention;
+        return docs;
     }
 
 

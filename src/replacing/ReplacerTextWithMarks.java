@@ -1,5 +1,6 @@
 package replacing;
 
+import model.Document;
 import reading.ReadingCSV;
 import reading.ReadingFile;
 
@@ -12,13 +13,12 @@ public class ReplacerTextWithMarks {
 
     /**
      * Per ogni documento, per ogni suo termine controlla sotto quale symset si trova. Sostituisce il termine con l'affective label
-     * @param pathDocuments
      * @param pathsMarks
      * @return
      */
-    public List<String> replaceTermsWithMarks(String pathDocuments,List<String> pathsMarks) throws IOException {
+    public Map<Integer,Document> replaceTermsWithMarks(Map<Integer, Document> docs, List<String> pathsMarks) throws IOException {
         ReadingCSV rd = new ReadingCSV();
-        ReadingFile rf= new ReadingFile();
+       // ReadingFile rf= new ReadingFile();
 
         List<Map<String,List<String>>> allList = new ArrayList<>();
         //read all files , each of them is formed by : n list's name and n terms for each of them
@@ -26,13 +26,12 @@ public class ReplacerTextWithMarks {
             Map<String, List<String>> listReaded = rd.read_AllColumn_CSV(path,';');
             allList.add(listReaded);
         }
-        List<String> texts = rf.read(pathDocuments);
 
-        List<String> textMark = new ArrayList<>();
-        if (texts != null) {
-            for (String text : texts) {
+        if (docs != null) {
+            for (Integer id:docs.keySet()) {
+                Document d= docs.get(id);
                 //check if a single term into a text is find out into an list and replace it with the list's name.
-                String[] textTerms = text.split("\\s+");
+                String[] textTerms = d.getText().split("\\s+");
                 String finalString = "";
                 for (String term : textTerms) {
                     String mark = null;
@@ -42,17 +41,12 @@ public class ReplacerTextWithMarks {
                     }
 
                 }
-                 textMark.add(finalString);
+                 docs.get(id).setTextReplaced(finalString);
             }
-            //print
-            texts= textMark;
-          /*  for(String text : texts){
-                System.out.println(text + " ");
-            }*/
         }
         else
             System.err.println("key not found!");
-         return textMark;
+         return docs;
     }
 
 

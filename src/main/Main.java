@@ -16,11 +16,7 @@ import utility.Utility;
 
 import java.io.*;
 import java.util.*;
-
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        try {
+  /*  try {
             Process p =  Runtime.getRuntime().exec("python " + "Pol/model.py");
 
             BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -28,11 +24,29 @@ public class Main {
             System.out.println(in.readLine());
         } catch (Exception e) {
             e.printStackTrace();
-        }
-/*
+        }*/
+//Remove non-english words
+      /*  RemoveNotEnglishWords rmNotEnglishWords= new RemoveNotEnglishWords();
+        List<String> paths = new ArrayList<>();
+        paths.add("res/neutral_emotion.csv");
+        paths.add("res/ambiguos-emotion.csv");
+        paths.add("res/positive_emotion.csv");
+        paths.add("res/negative_emotion.csv");
+
+        List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNotEnglishWords(inputCorpusTknz);
+        System.out.println("printing docs without not english word...");
+        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);*/
+           /* Post tagger*/
+       /* POSTagger pt = new POSTagger();
+        List<String> docsPostTagged =pt.posTag(inputCorpusTknz);
+        pr.print("res/docsPostTagged",docsPostTagged);*/
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
         Grams gr = new Grams();
-
-
+        Removing rem= new Removing();
+        Utility u= new Utility();
 
         //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
         //Tokenizzatore
@@ -48,57 +62,35 @@ public class Main {
         tk.tokenizerByToken("res/onlyText", "res/onlyText_TOKENIZED");
         List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED");
 
-        //Remove non-english words
-      /*  RemoveNotEnglishWords rmNotEnglishWords= new RemoveNotEnglishWords();
-        List<String> paths = new ArrayList<>();
-        paths.add("res/neutral_emotion.csv");
-        paths.add("res/ambiguos-emotion.csv");
-        paths.add("res/positive_emotion.csv");
-        paths.add("res/negative_emotion.csv");
-
-        List<String> docsWithoutNotEnglishWords= rmNotEnglishWords.removeNotEnglishWords(inputCorpusTknz);
-        System.out.println("printing docs without not english word...");
-        pr.print("res/docsWithoutNotEnglishWords",docsWithoutNotEnglishWords);
 
          //Remove URL,usermention and special string
-        Removing rm= new Removing();
-        List<String> docsWithoutURLtknz= rm.removeUrlOne(inputCorpusTknz);
+        List<String> docsWithoutURLtknz= rem.removeUrlOne(inputCorpusTknz);
        // pr.print("res/docsWithoutURLTknz",docsWithoutURLtknz);
         //remove user mention
-        List<String> docsWithoutURLUserMentionTknz=gr.removeUserMention(docsWithoutURLtknz);
+        List<String> docsWithoutURLUserMentionTknz=rem.removeUserMention(docsWithoutURLtknz);
        // pr.print("res/docsWithoutURLUserMention",docsWithoutURLUserMentionTknz);
 
 
         //Remove special String
-        List<String> docsWithotSpCUrlUsMtTknz= rm.removeQuotesSpecialString(docsWithoutURLUserMentionTknz,"type="+"\"submit\""+">");
+        List<String> docsWithotSpCUrlUsMtTknz= rem.removeQuotesSpecialString(docsWithoutURLUserMentionTknz,"type="+"\"submit\""+">");
         pr.print("res/docsWithoutURLUsMentSpCharTknz",docsWithotSpCUrlUsMtTknz);
 
-       /* Post tagger*/
-       /* POSTagger pt = new POSTagger();
-        List<String> docsPostTagged =pt.posTag(inputCorpusTknz);
-        pr.print("res/docsPostTagged",docsPostTagged);*/
 
-        /*extracting bigram or unigram lists
-      SortedMap<String, Integer> unigram = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
-        Set<String> keysUni = unigram.keySet();
-        for (String k : keysUni) {
-            System.out.println(k + ": " + "\n");
-            System.out.println(unigram.get(k) + " ");
-        }
-        System.out.println("\n");
 
-       SortedMap<String, Integer> bigram = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
-        Set<String> keysBi = bigram.keySet();
-        for (String k : keysBi) {
-            System.out.println(k + ": " + "\n");
-            System.out.println(bigram.get(k) + " ");
-        }
+        //extracting bigram or unigram lists
+        System.out.println("Extracting unigrams..");
+       SortedMap<String, String> unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
+        System.out.println("Unigrams Extracted successfully!");
+
+        System.out.println("Extracting bigrams...");
+       SortedMap<String,String> bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
+        System.out.println("Bigrams Extracted successfully!");
 
         System.out.println("\n");
 
         //Creo il map con indice del documento
         SortedMap<Integer, Document> documents= new TreeMap<>();
-        int i=1;
+        int i=0;
         for(String doc: docsWithotSpCUrlUsMtTknz) {
             Document d= new Document();
             d.setText(doc);
@@ -109,18 +101,16 @@ public class Main {
 
 
         //*****tf-idf****/
-    /*  TF_IDFComputer cl= new TF_IDFComputer();
+       TF_IDFComputer cl= new TF_IDFComputer();
 
-        Utility u = new Utility();
-
-        SortedMap<String, String> unigrams = gr.importNgrams("res/Grams/UnigramsList");
+       /* SortedMap<String, String> unigrams = gr.importNgrams("res/Grams/UnigramsList");
         System.out.println("unigrams loaded");
         SortedMap<String, String> bigrams = gr.importNgrams("res/Grams/BigramsList");
-        System.out.println("bigrams loaded");
+        System.out.println("bigrams loaded");*/
 
-        List<Map<String,Double>> unigramsTFIDF= cl.tf_idf(docsWithotSpCUrlUsMtTknz,unigrams,1);
+        cl.tf_idf(documents,unigrams,1,"unigrams");
         System.out.println("Tf-idf for unigrams , computed");
-        List<Map<String,Double>> bigramsTFIDF= cl.tf_idf(docsWithotSpCUrlUsMtTknz,bigrams,2);
+        cl.tf_idf(documents,bigrams,2,"bigrams");
         System.out.println("Tf-idf for bigrams , computed");
 
 
@@ -133,16 +123,17 @@ public class Main {
 
 
         List<String> paths = new ArrayList<>();
-        paths.add("res/EmotionCSV/neutral_emotion.csv");
-        paths.add("res/EmotionCSV/ambiguos-emotion.csv");
-        paths.add("res/EmotionCSV/positive_emotion.csv");
-        paths.add("res/EmotionCSV/negative_emotion.csv");
+        paths.add("res/EmotionsCSV/neutral_emotion.csv");
+        paths.add("res/EmotionsCSV/ambiguos-emotion.csv");
+        paths.add("res/EmotionsCSV/positive_emotion.csv");
+        paths.add("res/EmotionsCSV/negative_emotion.csv");
 
-        List<String> replaced = replacer.replaceTermsWithMarks("res/docsWithoutURLUsMentSpCharTknz",paths);
-        List<Map<String,Double>> posTFIDF= cl.tf_idf(replaced,u.createMap(pos),1);
-        List<Map<String,Double>> negTFIDF= cl.tf_idf(replaced,u.createMap(neg),1);
-        List<Map<String,Double>> neuTFIDF= cl.tf_idf(replaced,u.createMap(neu),1);
-        List<Map<String,Double>> ambiTFIDF= cl.tf_idf(replaced,u.createMap(ambiguos),1);
+        replacer.replaceTermsWithMarks(documents,paths);
+        cl.tf_idf(documents,u.createMap(pos),1,"positives");
+        cl.tf_idf(documents,u.createMap(neg),1,"negatives");
+        cl.tf_idf(documents,u.createMap(neu),1,"neutrals");
+        cl.tf_idf(documents,u.createMap(ambiguos),1,"ambiguos");
+
 
         SentiStrengthSentiment st = new SentiStrengthSentiment();
         Map<String,Double> posScore= st.SentiStrengthgetScoreForAllDocs(docsWithotSpCUrlUsMtTknz,0);
@@ -150,7 +141,7 @@ public class Main {
         Map<String,Double> negScore= st.SentiStrengthgetScoreForAllDocs(docsWithotSpCUrlUsMtTknz,1);
         System.out.println("Calculating negative score...");
 
-
+        System.out.println("Calculating politeness and impoliteness..");
         Map<String,List<String>> docsAndPoliteness=rd.read_AllColumn_CSV("res/textsPoliteAndImpolite.csv",'§');
         List<String> politeness = docsAndPoliteness.get("polite");
         List<String> impoliteness = docsAndPoliteness.get("impolite");
@@ -166,12 +157,7 @@ public class Main {
         Document d=null;
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setUnigramTFIDF(unigramsTFIDF.get(id));
-            d.setBigramTFIDF(bigramsTFIDF.get(id));
-            d.setPositiveTFIDF(posTFIDF.get(id));
-            d.setNegativeTFIDF(negTFIDF.get(id));
-            d.setNeutralTFIDF(neuTFIDF.get(id));
-            d.setAmbiguosTFIDF(ambiTFIDF.get(id));
+            d.setId(id);
             d.setPos_score(posScore.get(d.getText()));
             d.setNeg_score(negScore.get(d.getText()));
             d.setPoliteness(Double.valueOf(politeness.get(id)));

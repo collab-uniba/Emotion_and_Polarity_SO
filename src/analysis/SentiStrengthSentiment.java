@@ -54,9 +54,9 @@ public class SentiStrengthSentiment {
 		return docScore;
 	}
 
-	public String SentiStrengthgetScore(String text){
+	 String SentiStrengthgetScore(String text){
 		SentiStrength sentiStrength = new SentiStrength();
-		String ssthInitialisation[] = {"sentidata", "src/analysis/lib/SentiStrength_Data/", "explain"};
+		String ssthInitialisation[] = {"sentidata", "res/SentiStrength_Data/", "explain"};
 		sentiStrength.initialise(ssthInitialisation);
 		String score = sentiStrength.computeSentimentScores(text);
 		String[] split = score.split("\\s+");

@@ -10,6 +10,7 @@ public class Document {
 
     private int id;
     private String text;
+    private String textReplaced;
     private double pos_score;
     private double neg_score;
     private double politeness;
@@ -21,6 +22,14 @@ public class Document {
     private Map<String,Double>  neutralTFIDF;
     private Map<String,Double>  ambiguosTFIDF;
     private String label;
+
+    public String getTextReplaced() {
+        return textReplaced;
+    }
+
+    public void setTextReplaced(String textReplaced) {
+        this.textReplaced = textReplaced;
+    }
 
     public int getId() {
         return id;

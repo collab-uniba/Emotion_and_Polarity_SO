@@ -137,7 +137,7 @@ public class PrintingFile {
      * * * @param map grams
      * @param n
      */
-    public void printNgrams(SortedMap<String, Integer> map, int n) {
+    public void printNgrams(SortedMap<String,String> map, int n) {
         String file = "";
         String t = "";
         Utility l= new Utility();
