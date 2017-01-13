@@ -26,8 +26,8 @@ public class TF_IDFComputer {
         invertedDocumentFrequency(documents, grams.keySet(),n,type);
         PrintingFile pr = new PrintingFile();
         Set<String> k = grams.keySet();
+        Utility l = new Utility();
         for (String ke : k) {
-            Utility l = new Utility();
             l.directoryCreator("res/IDF");
             pr.printIDF(termsIDF, "res/IDF/IDF_" + grams.get(ke) + "_" + n);
             break;

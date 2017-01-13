@@ -1,5 +1,6 @@
 package analysis;
 
+import model.Document;
 import uk.ac.wlv.sentistrength.SentiStrength;
 
 import java.io.*;
@@ -43,18 +44,21 @@ public class SentiStrengthSentiment {
 	 * @param  ScoreType : 1 (negative ) , 0 (positive)
 	 * @return
 	 */
-	public Map<String,Double> SentiStrengthgetScoreForAllDocs(List<String> docs,int ScoreType){
-		List<Map<String,Double>> l= new ArrayList<>();
-		Map<String,Double> docScore = new LinkedHashMap<>();
-		for(String doc : docs){
-			String result=SentiStrengthgetScore(doc);
+	public Map<Integer,Document> SentiStrengthgetScoreForAllDocs(Map<Integer, Document> docs, int ScoreType){
+		Document d= null;
+		for(Integer id:docs.keySet()){
+			d=docs.get(id);
+			String result=SentiStrengthgetScore(d.getText());
 			String[] split = result.split(";");
-			docScore.put(doc,Double.valueOf(split[ScoreType]));
+			if(ScoreType==0)
+				d.setPos_score(Double.valueOf(split[0]));
+			else
+				d.setPos_score(Double.valueOf(split[1]));
 		}
-		return docScore;
+		return docs;
 	}
 
-	 String SentiStrengthgetScore(String text){
+	private String SentiStrengthgetScore(String text){
 		SentiStrength sentiStrength = new SentiStrength();
 		String ssthInitialisation[] = {"sentidata", "res/SentiStrength_Data/", "explain"};
 		sentiStrength.initialise(ssthInitialisation);

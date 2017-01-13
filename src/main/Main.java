@@ -94,6 +94,7 @@ public class Main {
         for(String doc: docsWithotSpCUrlUsMtTknz) {
             Document d= new Document();
             d.setText(doc);
+            d.setId(i);
             documents.put(i,d);
             i++;
         }
@@ -129,16 +130,18 @@ public class Main {
         paths.add("res/EmotionsCSV/negative_emotion.csv");
 
         replacer.replaceTermsWithMarks(documents,paths);
+
         cl.tf_idf(documents,u.createMap(pos),1,"positives");
         cl.tf_idf(documents,u.createMap(neg),1,"negatives");
         cl.tf_idf(documents,u.createMap(neu),1,"neutrals");
         cl.tf_idf(documents,u.createMap(ambiguos),1,"ambiguos");
 
 
+
         SentiStrengthSentiment st = new SentiStrengthSentiment();
-        Map<String,Double> posScore= st.SentiStrengthgetScoreForAllDocs(docsWithotSpCUrlUsMtTknz,0);
+        st.SentiStrengthgetScoreForAllDocs(documents,0);
         System.out.println("Calculating positive score..");
-        Map<String,Double> negScore= st.SentiStrengthgetScoreForAllDocs(docsWithotSpCUrlUsMtTknz,1);
+        st.SentiStrengthgetScoreForAllDocs(documents,1);
         System.out.println("Calculating negative score...");
 
         System.out.println("Calculating politeness and impoliteness..");
@@ -157,9 +160,6 @@ public class Main {
         Document d=null;
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setId(id);
-            d.setPos_score(posScore.get(d.getText()));
-            d.setNeg_score(negScore.get(d.getText()));
             d.setPoliteness(Double.valueOf(politeness.get(id)));
             d.setImpoliteness(Double.valueOf(impoliteness.get(id)));
             d.setLabel(joy.get("joy").get(id));
