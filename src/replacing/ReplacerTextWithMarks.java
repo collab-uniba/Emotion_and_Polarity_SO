@@ -52,7 +52,7 @@ public class ReplacerTextWithMarks {
 
 
 
-    String termToMark(String term, Map<String,List<String>> allMarksTerms){
+    private String termToMark(String term, Map<String,List<String>> allMarksTerms){
         Set<String> keys= allMarksTerms.keySet();
         for(String mark : keys){
 

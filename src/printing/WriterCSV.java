@@ -21,19 +21,9 @@ public class WriterCSV {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private Utility u = new Utility();
 
-    public void writeCsvFile(String outputName,Map<Integer, Document> documents) throws IOException {
+    public void writeCsvFile(String outputName,Map<Integer, Document> documents,int numUnigrams,int numBigrams,Set<String> pos,Set<String> neg ,Set<String> neutr,Set<String> amb) throws IOException {
         List<DatasetRowTFIDF> list = new ArrayList<>();
-      //  List<String> ids = model.getId();
-       // List<String> docs = model.getDocuments();
-       // List<Map<String, Double>> unigrams = model.getUnigramTFIDF();
-      /*  List<Map<String, Double>> bigrams = model.getBigramTFIDF();
-        List<Map<String, Double>> positives = model.getPositiveTFIDF();
-        List<Map<String, Double>> negatives = model.getNegativeTFIDF();
-        List<Map<String, Double>> neutrals = model.getNeutralTFIDF();
-        List<Map<String, Double>> ambiguos = model.getAmbiguosTFIDF();
-        Map<String,Double> pos_score= model.getPos_score();
-        Map<String,Double> neg_score= model.getPos_score();
-        List<String> labels= model.getLabels();*/
+
 
         Document d= null;
         Map<String,Double> unigramsTFIDF=null;
@@ -65,29 +55,59 @@ public class WriterCSV {
             List<Double> tf_idf= new ArrayList<>();
 
 
+
             //aggiungo la riga degli unigrammi
-            for (String s : unigramsTFIDF.keySet()) {
-                tf_idf.add(unigramsTFIDF.get(s));
+            for(int i=0;i<numUnigrams;i++){
+                if(unigramsTFIDF.keySet().contains(String.valueOf(i))){
+                    tf_idf.add(unigramsTFIDF.get(String.valueOf(i)));
+                }
+                else
+                    tf_idf.add(0.0);
             }
-            //aggiungo la riga dei brigrammi
-            for (String s : bigramsTFIDF.keySet()) {
-                tf_idf.add(bigramsTFIDF.get(s));
+            //aggiungo la riga dei bigrammi
+
+            for(int i=0;i<numBigrams;i++){
+                if(bigramsTFIDF.keySet().contains(String.valueOf(i))){
+                    tf_idf.add(bigramsTFIDF.get(String.valueOf(i)));
+                }
+                else
+                    tf_idf.add(0.0);
             }
             //aggiungo la riga dei positivi
-            for (String s : positivesTFIDF.keySet()) {
-                tf_idf.add(positivesTFIDF.get(s));
+//love joy ecc..
+            for(String s:pos){
+                if(positivesTFIDF.keySet().contains(s)){
+                    tf_idf.add(positivesTFIDF.get(s));
+                }
+                else
+                    tf_idf.add(0.0);
             }
+
             //aggiungo la riga dei negativi
-            for (String s : negativesTFIDF.keySet()) {
-                tf_idf.add(negativesTFIDF.get(s));
+            for(String s:neg){
+                if(negativesTFIDF.keySet().contains(s)){
+                    tf_idf.add(negativesTFIDF.get(s));
+                }
+                else
+                    tf_idf.add(0.0);
             }
+
             //aggiungo la riga dei neutri
-            for (String s : neutralsTFIDF.keySet()) {
-                tf_idf.add(neutralsTFIDF.get(s));
+            for(String s: neutr){
+                if(neutralsTFIDF.keySet().contains(s)){
+                    tf_idf.add(neutralsTFIDF.get(s));
+                }
+                else
+                    tf_idf.add(0.0);
             }
             //aggiungo la riga degli ambigui
-            for (String s : ambiguosTFIDF.keySet()) {
-                tf_idf.add(ambiguosTFIDF.get(s));
+
+            for(String s:amb){
+                if(ambiguosTFIDF.keySet().contains(s)){
+                    tf_idf.add(ambiguosTFIDF.get(s));
+                }
+                else
+                    tf_idf.add(0.0);
             }
 
             dr = new DatasetRowTFIDF.DatasetRowBuilder()

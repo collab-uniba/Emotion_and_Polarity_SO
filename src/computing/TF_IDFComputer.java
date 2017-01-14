@@ -22,19 +22,30 @@ public class TF_IDFComputer {
      * @throws IOException
      */
     public Map<Integer,Document> tf_idf( Map<Integer, Document> documents,Map<String, String> grams,int n,String type) throws IOException {
-
+        System.out.println("Computing idf for :  "+ type+"\n");
         invertedDocumentFrequency(documents, grams.keySet(),n,type);
+        System.out.println("IDF Computed for the type : "+ type+"\n");
         PrintingFile pr = new PrintingFile();
         Set<String> k = grams.keySet();
         Utility l = new Utility();
+        System.out.println("Printing idf for "+ type+"\n");
         for (String ke : k) {
             l.directoryCreator("res/IDF");
             pr.printIDF(termsIDF, "res/IDF/IDF_" + grams.get(ke) + "_" + n);
             break;
         }
+        System.out.println("Printed idf for "+ type+"\n");
         String text="";
+        System.out.println("Type: "+ type + "\n");
         for (Integer id : documents.keySet()) {
+            System.out.println("Doc num "+ id+ "\n");
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             text=getText(documents,id,type);
+
 
             termFrequency(text, n);
 
@@ -45,8 +56,6 @@ public class TF_IDFComputer {
                     //se è presente in questo documento allora
                     double idf = termsIDF.get(s);
                     gramsAndTFIDF.put(grams.get(s), wordTF.get(s) * idf);
-                } else {
-                    gramsAndTFIDF.put(grams.get(s), 0.0);
                 }
             }
             //aggiunta al documento
@@ -60,7 +69,7 @@ public class TF_IDFComputer {
                     d.setPositiveTFIDF(gramsAndTFIDF);
                 case "negatives":
                     d.setNegativeTFIDF(gramsAndTFIDF);
-                case "neutral":
+                case "neutrals":
                     d.setNeutralTFIDF(gramsAndTFIDF);
                 case "ambiguos":
                     d.setAmbiguosTFIDF(gramsAndTFIDF);
@@ -120,19 +129,25 @@ public class TF_IDFComputer {
         termsIDF.clear();
         double numDocs = docs.size();
         double totdocsContainingTerm = 0;
+        Collection<String> ss=null;
+        int i=0;
         for (String t : terms){
+            System.out.println("term num : "+ i+"\n");
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             //cerco il termine in tutti i documenti
             String text="";
             for (Integer id: docs.keySet()) {
 
                 text= getText(docs,id,type);
 
-                Collection<String> ss = gr.getNgrams(text, n);
-                for (String string : ss) {
-                    if (string.equals(t)) {
-                        totdocsContainingTerm++;
-                        break;
-                    }
+                ss = gr.getNgrams(text, n);
+                //eliminato il match diretto inutilissimo
+                if (ss.contains(t)) {
+                    totdocsContainingTerm++;
                 }
             }
             double part=0.0;
@@ -143,6 +158,7 @@ public class TF_IDFComputer {
             }
             termsIDF.put(t,idf);
             totdocsContainingTerm = 0;
+            i++;
         }
         return termsIDF;
     }

@@ -16,15 +16,7 @@ import utility.Utility;
 
 import java.io.*;
 import java.util.*;
-  /*  try {
-            Process p =  Runtime.getRuntime().exec("python " + "Pol/model.py");
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    p.getInputStream()));
-            System.out.println(in.readLine());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
 //Remove non-english words
       /*  RemoveNotEnglishWords rmNotEnglishWords= new RemoveNotEnglishWords();
         List<String> paths = new ArrayList<>();
@@ -47,7 +39,21 @@ public class Main {
         Grams gr = new Grams();
         Removing rem= new Removing();
         Utility u= new Utility();
+   /*try {
+       String[] cmd = {
+               "/bin/bash",
+               "-c",
+               "echo password | python script.py '" + packe.toString() + "'"
+       };
+       Runtime.getRuntime().exec(cmd);
+            Process p =  Runtime.getRuntime().exec("cmd python C:\\Users\\Francesco\\Desktop\\polFor27\\model.py");
 
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    p.getInputStream()));
+            System.out.println(in.readLine());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
         //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
         //Tokenizzatore
         PrintingFile pr = new PrintingFile();
@@ -78,7 +84,7 @@ public class Main {
 
 
         //extracting bigram or unigram lists
-        System.out.println("Extracting unigrams..");
+       /* System.out.println("Extracting unigrams..");
        SortedMap<String, String> unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
         System.out.println("Unigrams Extracted successfully!");
 
@@ -86,7 +92,7 @@ public class Main {
        SortedMap<String,String> bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
         System.out.println("Bigrams Extracted successfully!");
 
-        System.out.println("\n");
+        System.out.println("\n");*/
 
         //Creo il map con indice del documento
         SortedMap<Integer, Document> documents= new TreeMap<>();
@@ -104,10 +110,10 @@ public class Main {
         //*****tf-idf****/
        TF_IDFComputer cl= new TF_IDFComputer();
 
-       /* SortedMap<String, String> unigrams = gr.importNgrams("res/Grams/UnigramsList");
+       SortedMap<String, String> unigrams = gr.importNgrams("res/Grams/UnigramsList");
         System.out.println("unigrams loaded");
         SortedMap<String, String> bigrams = gr.importNgrams("res/Grams/BigramsList");
-        System.out.println("bigrams loaded");*/
+        System.out.println("bigrams loaded");
 
         cl.tf_idf(documents,unigrams,1,"unigrams");
         System.out.println("Tf-idf for unigrams , computed");
@@ -166,34 +172,38 @@ public class Main {
         }
         u.directoryCreator("outputEmotion");
         WriterCSV writerCSV= new WriterCSV();
-        writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv",documents);
+        int numUnig = unigrams.keySet().size();
+        int numBigr= bigrams.keySet().size();
+
+
+        writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
 
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(surprise.get("surprise").get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv",documents);
+        writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(sadness.get("sadness").get(id));
         }
 
-        writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv",documents);
+        writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(fear.get("fear").get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputFear.csv",documents);
+        writerCSV.writeCsvFile("outputEmotion/OutputFear.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(anger.get("anger").get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv",documents);
+        writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(love.get("love").get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputLove.csv",documents);
+        writerCSV.writeCsvFile("outputEmotion/OutputLove.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
 
         //politeness
        /*Politeness pt= new Politeness();
