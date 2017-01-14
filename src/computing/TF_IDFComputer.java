@@ -55,7 +55,9 @@ public class TF_IDFComputer {
                 if (wordTF.get(s) != null) {
                     //se è presente in questo documento allora
                     double idf = termsIDF.get(s);
-                    gramsAndTFIDF.put(grams.get(s), wordTF.get(s) * idf);
+                    double tf_idf= wordTF.get(s) * idf;
+                    if(tf_idf>0.0)
+                        gramsAndTFIDF.put(grams.get(s), tf_idf);
                 }
             }
             //aggiunta al documento
@@ -134,7 +136,7 @@ public class TF_IDFComputer {
         for (String t : terms){
             System.out.println("term num : "+ i+"\n");
             try {
-                Thread.sleep(5);
+                Thread.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
