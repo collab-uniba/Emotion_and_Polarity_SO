@@ -13,6 +13,39 @@ import java.util.*;
 
 public class ReadingCSV {
 
+
+
+    public List<String> read_Column_CSV(String pathFile,String columnName,Character delimiter){
+         List<String> tr= new ArrayList<>();
+        FileReader in = null;
+        try {
+            in = new FileReader(pathFile);
+            CSVFormat format =  CSVFormat.EXCEL.withFirstRecordAsHeader().withDelimiter(delimiter);
+            CSVParser csvFileParser = new CSVParser(in, format);
+            List<CSVRecord> csvRecords = csvFileParser.getRecords();
+
+            Map<String,Integer> mapHeader=  csvFileParser.getHeaderMap();
+            if(mapHeader.keySet().contains(columnName)) {
+                for (CSVRecord csvRecord : csvRecords) {
+                    tr.add(csvRecord.get(columnName));
+                }
+            }
+            else {
+                System.out.println("Csv doesn't countain the column!!!");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                in.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return tr;
+    }
     /**
      * Read all csv  columns
      * @param pathFile where is the file to read

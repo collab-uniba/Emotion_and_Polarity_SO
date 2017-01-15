@@ -13,7 +13,7 @@ public class DatasetRowTFIDF {
     private final Double neg_score;
     private final Double politeness;
     private final Double impoliteness;
-    private  final List<Double> tf_idf;
+    private  final List<String> tf_idf;
     private final String affective_label;
 
     public Double getPoliteness() {
@@ -40,7 +40,7 @@ public class DatasetRowTFIDF {
         return document;
     }
 
-    public List<Double> getTf_idf() {
+    public List<String> getTf_idf() {
         return tf_idf;
     }
 
@@ -61,7 +61,7 @@ public class DatasetRowTFIDF {
          private  Double neg_score;
          private Double politeness;
          private Double impoliteness;
-         private  List<Double> tf_idf;
+         private  List<String> tf_idf;
          private  String affective_label;
 
 
@@ -85,7 +85,7 @@ public class DatasetRowTFIDF {
              this.impoliteness= impoliteness;
              return this;
          }
-         public DatasetRowBuilder  setTf_idf(List<Double> tf_idf) {
+         public DatasetRowBuilder  setTf_idf(List<String> tf_idf) {
              this.tf_idf=tf_idf;
              return this;
          }

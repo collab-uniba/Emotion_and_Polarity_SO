@@ -52,62 +52,62 @@ public class WriterCSV {
             impolite=d.getImpoliteness();
             label=d.getLabel();
 
-            List<Double> tf_idf= new ArrayList<>();
+            List<String> tf_idf= new ArrayList<>();
 
 
 
             //aggiungo la riga degli unigrammi
             for(int i=0;i<numUnigrams;i++){
                 if(unigramsTFIDF.keySet().contains(String.valueOf(i))){
-                    tf_idf.add(unigramsTFIDF.get(String.valueOf(i)));
+                    tf_idf.add(unigramsTFIDF.get(String.valueOf(i)).toString());
                 }
                 else
-                    tf_idf.add(0.0);
+                    tf_idf.add(String.valueOf(0.0));
             }
             //aggiungo la riga dei bigrammi
 
             for(int i=0;i<numBigrams;i++){
                 if(bigramsTFIDF.keySet().contains(String.valueOf(i))){
-                    tf_idf.add(bigramsTFIDF.get(String.valueOf(i)));
+                    tf_idf.add(bigramsTFIDF.get(String.valueOf(i)).toString());
                 }
                 else
-                    tf_idf.add(0.0);
+                    tf_idf.add(String.valueOf(0.0));
             }
             //aggiungo la riga dei positivi
 //love joy ecc..
             for(String s:pos){
                 if(positivesTFIDF.keySet().contains(s)){
-                    tf_idf.add(positivesTFIDF.get(s));
+                    tf_idf.add(positivesTFIDF.get(s).toString());
                 }
                 else
-                    tf_idf.add(0.0);
+                    tf_idf.add(String.valueOf(0.0));
             }
 
             //aggiungo la riga dei negativi
             for(String s:neg){
                 if(negativesTFIDF.keySet().contains(s)){
-                    tf_idf.add(negativesTFIDF.get(s));
+                    tf_idf.add(negativesTFIDF.get(s).toString());
                 }
                 else
-                    tf_idf.add(0.0);
+                    tf_idf.add(String.valueOf(0.0));
             }
 
             //aggiungo la riga dei neutri
             for(String s: neutr){
                 if(neutralsTFIDF.keySet().contains(s)){
-                    tf_idf.add(neutralsTFIDF.get(s));
+                    tf_idf.add(neutralsTFIDF.get(s).toString());
                 }
                 else
-                    tf_idf.add(0.0);
+                    tf_idf.add(String.valueOf(0.0));
             }
             //aggiungo la riga degli ambigui
 
             for(String s:amb){
                 if(ambiguosTFIDF.keySet().contains(s)){
-                    tf_idf.add(ambiguosTFIDF.get(s));
+                    tf_idf.add(ambiguosTFIDF.get(s).toString());
                 }
                 else
-                    tf_idf.add(0.0);
+                    tf_idf.add(String.valueOf(0.0));
             }
 
             dr = new DatasetRowTFIDF.DatasetRowBuilder()
@@ -158,12 +158,12 @@ public class WriterCSV {
                     System.out.println("Printing line:" + j);
                 }
                 List l = new ArrayList();
-              //  l.add(d.getId());
+               // l.add(d.getId());
                 l.add(dx.getDocument());
-                l.add(dx.getPos_score());
-                l.add(dx.getNeg_score());
-                l.add(dx.getPoliteness());
-                l.add(dx.getImpoliteness());
+                l.add(dx.getPos_score().toString());
+                l.add(dx.getNeg_score().toString());
+                l.add(dx.getPoliteness().toString());
+                l.add(dx.getImpoliteness().toString());
                 //ATTENTO AD ADDALL !
                 l.addAll(dx.getTf_idf());
                 l.add(dx.getAffective_label());

@@ -60,8 +60,8 @@ public class Main {
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rdf= new ReadingFile();
 
-       Map<String, List<String>> inputCorpus = rd.read_AllColumn_CSV(args[0],';');
-        pr.print("res/onlyText", inputCorpus.get("comment"));
+        List<String> inputCorpus = rd.read_Column_CSV(args[0],"comment",';');
+        pr.print("res/onlyText", inputCorpus);
 
 
        TokenizeCorpus tk = new TokenizeCorpus();
@@ -151,16 +151,16 @@ public class Main {
         System.out.println("Calculating negative score...");
 
         System.out.println("Calculating politeness and impoliteness..");
-        Map<String,List<String>> docsAndPoliteness=rd.read_AllColumn_CSV("res/textsPoliteAndImpolite.csv",'§');
-        List<String> politeness = docsAndPoliteness.get("polite");
-        List<String> impoliteness = docsAndPoliteness.get("impolite");
+        List<String> politeness=rd.read_Column_CSV("res/textsPoliteAndImpolite.csv","polite",'§');
+        List<String> impoliteness=rd.read_Column_CSV("res/textsPoliteAndImpolite.csv","impolite",'§');
 
-        Map<String, List<String>> joy = rd.read_AllColumn_CSV("res/EmotionsCSV/joy.csv",';');
-        Map<String, List<String>> love = rd.read_AllColumn_CSV("res/EmotionsCSV/love.csv",';');
-        Map<String, List<String>> surprise = rd.read_AllColumn_CSV("res/EmotionsCSV/surprise.csv",';');
-        Map<String, List<String>> sadness = rd.read_AllColumn_CSV("res/EmotionsCSV/sadness.csv",';');
-        Map<String, List<String>> fear = rd.read_AllColumn_CSV("res/EmotionsCSV/fear.csv",';');
-        Map<String, List<String>> anger = rd.read_AllColumn_CSV("res/EmotionsCSV/anger.csv",';');
+
+        List<String> joy= rd.read_Column_CSV("res/EmotionsCSV/joy.csv","joy",';');
+        List<String> love = rd.read_Column_CSV("res/EmotionsCSV/love.csv","love",';');
+        List<String> surprise = rd.read_Column_CSV("res/EmotionsCSV/surprise.csv","surprise",';');
+        List<String> sadness = rd.read_Column_CSV("res/EmotionsCSV/sadness.csv","sadness",';');
+        List<String> fear = rd.read_Column_CSV("res/EmotionsCSV/fear.csv","fear",';');
+        List<String> anger = rd.read_Column_CSV("res/EmotionsCSV/anger.csv","anger",';');
 
         //SETTO I TF_IDF
         Document d=null;
@@ -168,7 +168,7 @@ public class Main {
             d= documents.get(id);
             d.setPoliteness(Double.valueOf(politeness.get(id)));
             d.setImpoliteness(Double.valueOf(impoliteness.get(id)));
-            d.setLabel(joy.get("joy").get(id));
+            d.setLabel(joy.get(id));
         }
         u.directoryCreator("outputEmotion");
         WriterCSV writerCSV= new WriterCSV();
@@ -180,28 +180,28 @@ public class Main {
 
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setLabel(surprise.get("surprise").get(id));
+            d.setLabel(surprise.get(id));
         }
         writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setLabel(sadness.get("sadness").get(id));
+            d.setLabel(sadness.get(id));
         }
 
         writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setLabel(fear.get("fear").get(id));
+            d.setLabel(fear.get(id));
         }
         writerCSV.writeCsvFile("outputEmotion/OutputFear.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setLabel(anger.get("anger").get(id));
+            d.setLabel(anger.get(id));
         }
         writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setLabel(love.get("love").get(id));
+            d.setLabel(love.get(id));
         }
         writerCSV.writeCsvFile("outputEmotion/OutputLove.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
 
