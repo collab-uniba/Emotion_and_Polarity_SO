@@ -132,12 +132,12 @@ public class WriterCSV {
         header.add("polite");
         header.add("impolite");
 
-        populateHeader(unigramsTFIDF,header,"uni");
-        populateHeader(bigramsTFIDF,header,"bi");
-        populateHeader(positivesTFIDF,header,"");
-        populateHeader(negativesTFIDF,header,"");
-        populateHeader(neutralsTFIDF,header,"");
-        populateHeader(ambiguosTFIDF,header,"");
+        populateHeader(numUnigrams,header,"uni");
+        populateHeader(numBigrams,header,"bi");
+        populateHeader(pos,header);
+        populateHeader(neg,header);
+        populateHeader(neutr,header);
+        populateHeader(amb,header);
 
         header.add("label");
 
@@ -188,16 +188,19 @@ public class WriterCSV {
         }
     }
 
-    /**this method populate header for tf-idf*/
-    private void populateHeader(Map<String, Double> grams,List<String> header,String head) {
+    /**this method populate header for tf-idf for unigrams and bigrams*/
+    private void populateHeader(int size,List<String> headerCsv,String head) {
         int ii = 1;
-        for (String k : grams.keySet()) {
-            if(head.isEmpty()){
-                header.add(k);
-            }
-            else
-                 header.add(head + ii);
+        for(int i=0;i<size;i++){
+            headerCsv.add(head+ii);
             ii++;
+        }
+    }
+
+    /**this method populate header for tf-idf for others , love joy ecc*/
+    private void populateHeader(Set<String> headers,List<String> headerCsv) {
+        for(String head : headers){
+            headerCsv.add(head);
         }
     }
 

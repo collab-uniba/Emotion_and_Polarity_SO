@@ -53,7 +53,7 @@ public class SentiStrengthSentiment {
 			if(ScoreType==0)
 				d.setPos_score(Double.valueOf(split[0]));
 			else
-				d.setPos_score(Double.valueOf(split[1]));
+				d.setNeg_score(Double.valueOf(split[1]));
 		}
 		return docs;
 	}
