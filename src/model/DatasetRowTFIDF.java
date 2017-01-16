@@ -9,26 +9,36 @@ public class DatasetRowTFIDF {
 
 	//private  final String id;
 	private  final String document;
-    private final Double pos_score;
-    private final Double neg_score;
-    private final Double politeness;
-    private final Double impoliteness;
+    private final String pos_score;
+    private final String neg_score;
+    private final String politeness;
+    private final String impoliteness;
+    private final String mood;
+    private final String modality;
     private  final List<String> tf_idf;
     private final String affective_label;
 
-    public Double getPoliteness() {
+    public String getMood() {
+        return mood;
+    }
+
+    public String getModality() {
+        return modality;
+    }
+
+    public String getPoliteness() {
         return politeness;
     }
 
-    public Double getImpoliteness() {
+    public String getImpoliteness() {
         return impoliteness;
     }
 
-    public Double getPos_score() {
+    public String getPos_score() {
         return pos_score;
     }
 
-    public Double getNeg_score() {
+    public String getNeg_score() {
         return neg_score;
     }
 
@@ -51,37 +61,49 @@ public class DatasetRowTFIDF {
         this.neg_score=builder.neg_score;
         this.politeness=builder.politeness;
         this.impoliteness=builder.impoliteness;
+        this.modality=builder.modality;
+        this.mood=builder.mood;
         this.tf_idf= builder.tf_idf;
         this.affective_label= builder.affective_label;
 
 	}
 	 public static class DatasetRowBuilder {
          private  String document;
-         private  Double pos_score;
-         private  Double neg_score;
-         private Double politeness;
-         private Double impoliteness;
+         private  String pos_score;
+         private  String neg_score;
+         private String politeness;
+         private String impoliteness;
+         private String modality;
+         private String mood;
          private  List<String> tf_idf;
          private  String affective_label;
+         public DatasetRowBuilder  setMood(String mood) {
+             this.mood = mood;
+             return this;
+         }
 
+         public DatasetRowBuilder  setModality(String modality) {
+             this.modality=modality;
+             return this;
+         }
 
          public DatasetRowBuilder  setDocument(String document) {
              this.document = document;
              return this;
          }
-         public DatasetRowBuilder  setPosScore(Double pos_score) {
+         public DatasetRowBuilder  setPosScore(String pos_score) {
              this.pos_score=pos_score;
              return this;
          }
-         public DatasetRowBuilder  setNegScore(Double neg_score) {
+         public DatasetRowBuilder  setNegScore(String neg_score) {
              this.neg_score= neg_score;
              return this;
          }
-         public DatasetRowBuilder  setPoliteness(Double politeness) {
+         public DatasetRowBuilder  setPoliteness(String politeness) {
              this.politeness= politeness;
              return this;
          }
-         public DatasetRowBuilder  setImpoliteness(Double impoliteness) {
+         public DatasetRowBuilder  setImpoliteness(String impoliteness) {
              this.impoliteness= impoliteness;
              return this;
          }

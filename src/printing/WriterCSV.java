@@ -36,6 +36,8 @@ public class WriterCSV {
         double neg_score;
         double polite;
         double impolite;
+        String mood;
+        double modality;
         String label="";
         DatasetRowTFIDF dr;
         for(Integer id: documents.keySet()){
@@ -50,6 +52,8 @@ public class WriterCSV {
             neg_score=d.getNeg_score();
             polite=d.getPoliteness();
             impolite=d.getImpoliteness();
+            mood= d.getMood();
+            modality=d.getModality();
             label=d.getLabel();
 
             List<String> tf_idf= new ArrayList<>();
@@ -112,10 +116,12 @@ public class WriterCSV {
 
             dr = new DatasetRowTFIDF.DatasetRowBuilder()
                     .setDocument("t"+ id)
-                    .setPosScore(pos_score)
-                    .setNegScore(neg_score)
-                    .setPoliteness(polite)
-                    .setImpoliteness(impolite)
+                    .setPosScore(String.valueOf(pos_score))
+                    .setNegScore(String.valueOf(neg_score))
+                    .setPoliteness(String.valueOf(polite))
+                    .setImpoliteness(String.valueOf(impolite))
+                    .setModality(String.valueOf(modality))
+                    .setMood(mood)
                     .setTf_idf(tf_idf)
                     .setAffectiveLabel(label)
                     .build();
@@ -131,6 +137,8 @@ public class WriterCSV {
         header.add("neg_score");
         header.add("polite");
         header.add("impolite");
+        header.add("modality");
+        header.add("mood");
 
         populateHeader(numUnigrams,header,"uni");
         populateHeader(numBigrams,header,"bi");
@@ -160,10 +168,12 @@ public class WriterCSV {
                 List l = new ArrayList();
                // l.add(d.getId());
                 l.add(dx.getDocument());
-                l.add(dx.getPos_score().toString());
-                l.add(dx.getNeg_score().toString());
-                l.add(dx.getPoliteness().toString());
-                l.add(dx.getImpoliteness().toString());
+                l.add(dx.getPos_score());
+                l.add(dx.getNeg_score());
+                l.add(dx.getPoliteness());
+                l.add(dx.getImpoliteness());
+                l.add(dx.getModality());
+                l.add(dx.getMood());
                 //ATTENTO AD ADDALL !
                 l.addAll(dx.getTf_idf());
                 l.add(dx.getAffective_label());

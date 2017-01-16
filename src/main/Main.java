@@ -150,10 +150,13 @@ public class Main {
         st.SentiStrengthgetScoreForAllDocs(documents,1);
         System.out.println("Calculating negative score...");
 
-        System.out.println("Calculating politeness and impoliteness..");
+        System.out.println("Reading politeness and impoliteness..");
         List<String> politeness=rd.read_Column_CSV("res/textsPoliteAndImpolite.csv","polite",'§');
         List<String> impoliteness=rd.read_Column_CSV("res/textsPoliteAndImpolite.csv","impolite",'§');
 
+        System.out.println("Reading mood and modality..");
+        List<String> mood=rd.read_Column_CSV("res/moodAndModality.csv","mood",'§');
+        List<String> modality=rd.read_Column_CSV("res/moodAndModality.csv","modality",'§');
 
         List<String> joy= rd.read_Column_CSV("res/EmotionsCSV/joy.csv","joy",';');
         List<String> love = rd.read_Column_CSV("res/EmotionsCSV/love.csv","love",';');
@@ -166,6 +169,8 @@ public class Main {
         Document d=null;
         for(Integer id:documents.keySet()){
             d= documents.get(id);
+            d.setMood(mood.get(id));
+            d.setModality(Double.valueOf(modality.get(id)));
             d.setPoliteness(Double.valueOf(politeness.get(id)));
             d.setImpoliteness(Double.valueOf(impoliteness.get(id)));
             d.setLabel(joy.get(id));

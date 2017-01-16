@@ -15,6 +15,8 @@ public class Document {
     private double neg_score;
     private double politeness;
     private double impoliteness;
+    private String mood;
+    private double modality;
     private Map<String,Double> unigramTFIDF;
     private Map<String,Double>  bigramTFIDF;
     private Map<String,Double>  positiveTFIDF;
@@ -22,6 +24,22 @@ public class Document {
     private Map<String,Double>  neutralTFIDF;
     private Map<String,Double>  ambiguosTFIDF;
     private String label;
+
+    public String getMood() {
+        return mood;
+    }
+
+    public void setMood(String mood) {
+        this.mood = mood;
+    }
+
+    public double getModality() {
+        return modality;
+    }
+
+    public void setModality(double modality) {
+        this.modality = modality;
+    }
 
     public String getTextReplaced() {
         return textReplaced;
