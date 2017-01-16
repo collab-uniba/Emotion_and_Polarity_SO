@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,17 +14,27 @@ public class DatasetRowTFIDF {
     private final String neg_score;
     private final String politeness;
     private final String impoliteness;
-    private final String mood;
-    private final String modality;
-    private  final List<String> tf_idf;
+    private final Document.Mood mood;
+    private final List<String> tf_idf;
     private final String affective_label;
+    private final String min_modality;
+    private final String max_modality;
 
-    public String getMood() {
-        return mood;
+    public String getMin_modality() {
+        return min_modality;
     }
 
-    public String getModality() {
-        return modality;
+    public String getMax_modality() {
+        return max_modality;
+    }
+
+    public List<String> getMood() {
+        List<String> moods= new ArrayList<String>();
+        moods.add(mood.getIndicative());
+        moods.add(mood.getImperative());
+        moods.add(mood.getConditional());
+        moods.add(mood.getSubjunctive());
+        return moods;
     }
 
     public String getPoliteness() {
@@ -61,32 +72,39 @@ public class DatasetRowTFIDF {
         this.neg_score=builder.neg_score;
         this.politeness=builder.politeness;
         this.impoliteness=builder.impoliteness;
-        this.modality=builder.modality;
+        this.min_modality=builder.min_modality;
+        this.max_modality=builder.max_modality;
         this.mood=builder.mood;
         this.tf_idf= builder.tf_idf;
         this.affective_label= builder.affective_label;
 
 	}
 	 public static class DatasetRowBuilder {
-         private  String document;
-         private  String pos_score;
-         private  String neg_score;
+         private String document;
+         private String pos_score;
+         private String neg_score;
          private String politeness;
          private String impoliteness;
-         private String modality;
-         private String mood;
-         private  List<String> tf_idf;
-         private  String affective_label;
-         public DatasetRowBuilder  setMood(String mood) {
-             this.mood = mood;
+         private String min_modality;
+         private String max_modality;
+         private Document.Mood mood;
+         private List<String> tf_idf;
+         private String affective_label;
+
+
+         public DatasetRowBuilder  setMood(Document.Mood mood) {
+             this.mood= mood;
              return this;
          }
 
-         public DatasetRowBuilder  setModality(String modality) {
-             this.modality=modality;
+         public DatasetRowBuilder  setMaxModality(String max_modality) {
+             this.max_modality=max_modality;
              return this;
          }
-
+         public DatasetRowBuilder  setMinModality(String min_modality) {
+             this.min_modality=min_modality;
+             return this;
+         }
          public DatasetRowBuilder  setDocument(String document) {
              this.document = document;
              return this;

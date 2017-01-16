@@ -154,10 +154,20 @@ public class Main {
         List<String> politeness=rd.read_Column_CSV("res/textsPoliteAndImpolite.csv","polite",'§');
         List<String> impoliteness=rd.read_Column_CSV("res/textsPoliteAndImpolite.csv","impolite",'§');
 
-        System.out.println("Reading mood and modality..");
-        List<String> mood=rd.read_Column_CSV("res/moodAndModality.csv","mood",'§');
-        List<String> modality=rd.read_Column_CSV("res/moodAndModality.csv","modality",'§');
+        System.out.println("Reading modality..");
+        List<String> min_modality= rd.read_Column_CSV("res/moodAndModality.csv","min_modality",'§');
+        List<String> max_modality= rd.read_Column_CSV("res/moodAndModality.csv","max_modality",'§');
 
+        System.out.println("Reading moods..");
+
+        System.out.println("Reading modality...");
+        List<String> indicatives=rd.read_Column_CSV("res/moodAndModality.csv","indicative",'§');
+        List<String> conditional=rd.read_Column_CSV("res/moodAndModality.csv","conditional",'§');
+        List<String> subjunctive= rd.read_Column_CSV("res/moodAndModality.csv","subjunctive",'§');
+        List<String> imperative= rd.read_Column_CSV("res/moodAndModality.csv","imperative",'§');
+
+
+        System.out.println("Reading emotions...");
         List<String> joy= rd.read_Column_CSV("res/EmotionsCSV/joy.csv","joy",';');
         List<String> love = rd.read_Column_CSV("res/EmotionsCSV/love.csv","love",';');
         List<String> surprise = rd.read_Column_CSV("res/EmotionsCSV/surprise.csv","surprise",';');
@@ -169,8 +179,9 @@ public class Main {
         Document d=null;
         for(Integer id:documents.keySet()){
             d= documents.get(id);
-            d.setMood(mood.get(id));
-            d.setModality(Double.valueOf(modality.get(id)));
+            d.setMood(new Document.Mood(conditional.get(id),imperative.get(id),subjunctive.get(id),indicatives.get(id)));
+            d.setMin_modality(Double.valueOf(min_modality.get(id)));
+            d.setMax_modality(Double.valueOf(max_modality.get(id)));
             d.setPoliteness(Double.valueOf(politeness.get(id)));
             d.setImpoliteness(Double.valueOf(impoliteness.get(id)));
             d.setLabel(joy.get(id));

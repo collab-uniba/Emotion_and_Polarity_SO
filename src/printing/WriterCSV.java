@@ -36,8 +36,9 @@ public class WriterCSV {
         double neg_score;
         double polite;
         double impolite;
-        String mood;
-        double modality;
+        Document.Mood mood;
+        double max_modality;
+        double min_modality;
         String label="";
         DatasetRowTFIDF dr;
         for(Integer id: documents.keySet()){
@@ -53,7 +54,8 @@ public class WriterCSV {
             polite=d.getPoliteness();
             impolite=d.getImpoliteness();
             mood= d.getMood();
-            modality=d.getModality();
+            min_modality=d.getMin_modality();
+            max_modality=d.getMax_modality();
             label=d.getLabel();
 
             List<String> tf_idf= new ArrayList<>();
@@ -120,7 +122,8 @@ public class WriterCSV {
                     .setNegScore(String.valueOf(neg_score))
                     .setPoliteness(String.valueOf(polite))
                     .setImpoliteness(String.valueOf(impolite))
-                    .setModality(String.valueOf(modality))
+                    .setMinModality(String.valueOf(min_modality))
+                    .setMaxModality(String.valueOf(max_modality))
                     .setMood(mood)
                     .setTf_idf(tf_idf)
                     .setAffectiveLabel(label)
@@ -137,8 +140,12 @@ public class WriterCSV {
         header.add("neg_score");
         header.add("polite");
         header.add("impolite");
-        header.add("modality");
-        header.add("mood");
+        header.add("min_modality");
+        header.add("max_modality");
+        header.add("#indicative");
+        header.add("#imperative");
+        header.add("#conditional");
+        header.add("#subjunctive");
 
         populateHeader(numUnigrams,header,"uni");
         populateHeader(numBigrams,header,"bi");
@@ -165,16 +172,16 @@ public class WriterCSV {
                 if ((j % 50) == 0) {
                     System.out.println("Printing line:" + j);
                 }
-                List l = new ArrayList();
-               // l.add(d.getId());
+                List<String> l = new ArrayList<>();
+
                 l.add(dx.getDocument());
                 l.add(dx.getPos_score());
                 l.add(dx.getNeg_score());
                 l.add(dx.getPoliteness());
                 l.add(dx.getImpoliteness());
-                l.add(dx.getModality());
-                l.add(dx.getMood());
-                //ATTENTO AD ADDALL !
+                l.add(dx.getMin_modality());
+                l.add(dx.getMax_modality());
+                l.addAll(dx.getMood());
                 l.addAll(dx.getTf_idf());
                 l.add(dx.getAffective_label());
 

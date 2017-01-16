@@ -15,8 +15,9 @@ public class Document {
     private double neg_score;
     private double politeness;
     private double impoliteness;
-    private String mood;
-    private double modality;
+    private Mood m;
+    private double min_modality;
+    private double max_modality;
     private Map<String,Double> unigramTFIDF;
     private Map<String,Double>  bigramTFIDF;
     private Map<String,Double>  positiveTFIDF;
@@ -25,20 +26,29 @@ public class Document {
     private Map<String,Double>  ambiguosTFIDF;
     private String label;
 
-    public String getMood() {
-        return mood;
+
+    public Mood getMood() {
+        return m;
     }
 
-    public void setMood(String mood) {
-        this.mood = mood;
+    public void setMood(Mood m) {
+        this.m = m;
     }
 
-    public double getModality() {
-        return modality;
+    public double getMin_modality() {
+        return min_modality;
     }
 
-    public void setModality(double modality) {
-        this.modality = modality;
+    public void setMin_modality(double min_modality) {
+        this.min_modality = min_modality;
+    }
+
+    public double getMax_modality() {
+        return max_modality;
+    }
+
+    public void setMax_modality(double max_modality) {
+        this.max_modality = max_modality;
     }
 
     public String getTextReplaced() {
@@ -151,5 +161,52 @@ public class Document {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+
+    public static class Mood{
+        private String conditional;
+        private String imperative;
+        private String subjunctive;
+        private String indicative;
+
+        public Mood(String conditional, String imperative, String subjunctive, String indicative) {
+            this.conditional = conditional;
+            this.imperative = imperative;
+            this.subjunctive = subjunctive;
+            this.indicative = indicative;
+        }
+
+        protected String getConditional() {
+            return conditional;
+        }
+
+        protected void setConditional(String conditional) {
+            this.conditional = conditional;
+        }
+
+        protected String getImperative() {
+            return imperative;
+        }
+
+        protected void setImperative(String imperative) {
+            this.imperative = imperative;
+        }
+
+        protected String getSubjunctive() {
+            return subjunctive;
+        }
+
+        protected void setSubjunctive(String subjunctive) {
+            this.subjunctive = subjunctive;
+        }
+
+        protected String getIndicative() {
+            return indicative;
+        }
+
+        protected void setIndicative(String indicative) {
+            this.indicative = indicative;
+        }
     }
 }
