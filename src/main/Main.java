@@ -3,6 +3,7 @@ package main;
 
 import analysis.SentiStrengthSentiment;
 import computing.Grams;
+import computing.Ids;
 import computing.TF_IDFComputer;
 import model.Document;
 import printing.PrintingFile;
@@ -115,9 +116,9 @@ public class Main {
         SortedMap<String, String> bigrams = gr.importNgrams("res/Grams/BigramsList");
         System.out.println("bigrams loaded");
 
-        cl.tf_idf(documents,unigrams,1,"unigrams");
+        Ids ids_unigrams=cl.tf_idf(documents,unigrams,1,"unigrams");
         System.out.println("Tf-idf for unigrams , computed");
-        cl.tf_idf(documents,bigrams,2,"bigrams");
+        Ids ids_bigrams=cl.tf_idf(documents,bigrams,2,"bigrams");
         System.out.println("Tf-idf for bigrams , computed");
 
 
@@ -137,10 +138,10 @@ public class Main {
 
         replacer.replaceTermsWithMarks(documents,paths);
 
-        cl.tf_idf(documents,u.createMap(pos),1,"positives");
-        cl.tf_idf(documents,u.createMap(neg),1,"negatives");
-        cl.tf_idf(documents,u.createMap(neu),1,"neutrals");
-        cl.tf_idf(documents,u.createMap(ambiguos),1,"ambiguos");
+        Ids ids_positives=cl.tf_idf(documents,u.createMap(pos),1,"positives");
+        Ids ids_negatives=cl.tf_idf(documents,u.createMap(neg),1,"negatives");
+        Ids ids_neutrals=cl.tf_idf(documents,u.createMap(neu),1,"neutrals");
+        Ids ids_ambiguos=cl.tf_idf(documents,u.createMap(ambiguos),1,"ambiguos");
 
 
 
@@ -188,38 +189,37 @@ public class Main {
         }
         u.directoryCreator("outputEmotion");
         WriterCSV writerCSV= new WriterCSV();
-        int numUnig = unigrams.keySet().size();
-        int numBigr= bigrams.keySet().size();
 
 
-        writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
+
+        writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());
 
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(surprise.get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
+        writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(sadness.get(id));
         }
 
-        writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
+        writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(fear.get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputFear.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
+        writerCSV.writeCsvFile("outputEmotion/OutputFear.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(anger.get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
+        writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());
         for(Integer id:documents.keySet()){
             d= documents.get(id);
             d.setLabel(love.get(id));
         }
-        writerCSV.writeCsvFile("outputEmotion/OutputLove.csv",documents,numUnig,numBigr,pos.keySet(),neg.keySet(),neu.keySet(),ambiguos.keySet());
+        writerCSV.writeCsvFile("outputEmotion/OutputLove.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());
 
         //politeness
        /*Politeness pt= new Politeness();

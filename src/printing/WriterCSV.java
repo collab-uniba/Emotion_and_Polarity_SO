@@ -21,7 +21,8 @@ public class WriterCSV {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private Utility u = new Utility();
 
-    public void writeCsvFile(String outputName,Map<Integer, Document> documents,int numUnigrams,int numBigrams,Set<String> pos,Set<String> neg ,Set<String> neutr,Set<String> amb) throws IOException {
+    public void writeCsvFile(String outputName,Map<Integer, Document> documents,Set<Integer> ids_unigrams,Set<Integer> ids_bigrams,Set<String> ids_positives,Set<String> ids_negatives,
+                             Set<String> ids_neutrals,Set<String> ids_ambiguos)throws IOException {
         List<DatasetRowTFIDF> list = new ArrayList<>();
 
 
@@ -63,7 +64,7 @@ public class WriterCSV {
 
 
             //aggiungo la riga degli unigrammi
-            for(int i=0;i<numUnigrams;i++){
+            for(Integer i: ids_unigrams){
                 if(unigramsTFIDF.keySet().contains(String.valueOf(i))){
                     tf_idf.add(unigramsTFIDF.get(String.valueOf(i)).toString());
                 }
@@ -72,16 +73,17 @@ public class WriterCSV {
             }
             //aggiungo la riga dei bigrammi
 
-            for(int i=0;i<numBigrams;i++){
+            for(Integer i:ids_bigrams){
                 if(bigramsTFIDF.keySet().contains(String.valueOf(i))){
                     tf_idf.add(bigramsTFIDF.get(String.valueOf(i)).toString());
                 }
                 else
                     tf_idf.add(String.valueOf(0.0));
             }
+
             //aggiungo la riga dei positivi
 //love joy ecc..
-            for(String s:pos){
+            for(String s: ids_positives){
                 if(positivesTFIDF.keySet().contains(s)){
                     tf_idf.add(positivesTFIDF.get(s).toString());
                 }
@@ -90,7 +92,7 @@ public class WriterCSV {
             }
 
             //aggiungo la riga dei negativi
-            for(String s:neg){
+            for(String s:ids_negatives){
                 if(negativesTFIDF.keySet().contains(s)){
                     tf_idf.add(negativesTFIDF.get(s).toString());
                 }
@@ -99,7 +101,7 @@ public class WriterCSV {
             }
 
             //aggiungo la riga dei neutri
-            for(String s: neutr){
+            for(String s: ids_neutrals){
                 if(neutralsTFIDF.keySet().contains(s)){
                     tf_idf.add(neutralsTFIDF.get(s).toString());
                 }
@@ -108,7 +110,7 @@ public class WriterCSV {
             }
             //aggiungo la riga degli ambigui
 
-            for(String s:amb){
+            for(String s:ids_ambiguos){
                 if(ambiguosTFIDF.keySet().contains(s)){
                     tf_idf.add(ambiguosTFIDF.get(s).toString());
                 }
@@ -147,12 +149,12 @@ public class WriterCSV {
         header.add("#conditional");
         header.add("#subjunctive");
 
-        populateHeader(numUnigrams,header,"uni");
-        populateHeader(numBigrams,header,"bi");
-        populateHeader(pos,header);
-        populateHeader(neg,header);
-        populateHeader(neutr,header);
-        populateHeader(amb,header);
+        populateHeader(ids_unigrams,header,"uni");
+        populateHeader(ids_bigrams,header,"bi");
+        populateHeader(ids_positives,header);
+        populateHeader(ids_negatives,header);
+        populateHeader(ids_neutrals,header);
+        populateHeader(ids_ambiguos,header);
 
         header.add("label");
 
@@ -206,19 +208,17 @@ public class WriterCSV {
     }
 
     /**this method populate header for tf-idf for unigrams and bigrams*/
-    private void populateHeader(int size,List<String> headerCsv,String head) {
-        int ii = 1;
-        for(int i=0;i<size;i++){
-            headerCsv.add(head+ii);
-            ii++;
+    private void populateHeader(Set<Integer> headers,List<String> headerCsv,String head) {
+        for(Integer h:headers) {
+            h=h+1;
+            headerCsv.add(head + h);
         }
     }
 
-    /**this method populate header for tf-idf for others , love joy ecc*/
+    /**this method populate header for tf-idf for unigrams and bigrams*/
     private void populateHeader(Set<String> headers,List<String> headerCsv) {
-        for(String head : headers){
-            headerCsv.add(head);
-        }
+        for(String h:headers)
+            headerCsv.add(h);
     }
 
 
