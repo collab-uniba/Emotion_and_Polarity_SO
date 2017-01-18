@@ -35,11 +35,17 @@ public class ReplacerTextWithMarks {
                 String finalString = "";
                 for (String term : textTerms) {
                     String mark = null;
-                    for (Map<String, List<String>> allMarkTerms : allList) {
-                        mark = termToMark(term, allMarkTerms);
-                        finalString = finalString + " " + mark;
+                    //in alcuni csv ci sono valori come "" quindi farebbe matching , restituendo una cosa errata..
+                    if(!term.equals("")) {
+                        //cerco nella lista dei positivi, negativi, neutrals e ambigui. Appena lo trovo blocco la ricerca e passo al prossimo termine del documento.
+                        for (Map<String, List<String>> allMarkTerms : allList) {
+                            mark = termToMark(term, allMarkTerms);
+                            if (!mark.equals(" ")) {
+                                finalString = finalString + " " + mark;
+                                break;
+                            }
+                        }
                     }
-
                 }
                  docs.get(id).setTextReplaced(finalString);
             }
@@ -56,8 +62,8 @@ public class ReplacerTextWithMarks {
         Set<String> keys= allMarksTerms.keySet();
         for(String mark : keys){
 
-            if(mark.equals(term)){
-                return mark;
+            if(mark.toLowerCase().equals(term)){
+                return mark.toLowerCase();
             }
             else {
                 //takes all mark's termns
