@@ -21,7 +21,7 @@ public class WriterCSV {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private Utility u = new Utility();
     private List<DatasetRowTFIDF> list = new ArrayList<>();
-
+    private List<String> l = new ArrayList<>();
     public void writeCsvFile(String outputName,Map<Integer, Document> documents,Set<Integer> ids_unigrams,Set<Integer> ids_bigrams,Set<String> ids_positives,Set<String> ids_negatives,
                              Set<String> ids_neutrals,Set<String> ids_ambiguos)throws IOException {
        if(!list.isEmpty()) {
@@ -174,7 +174,6 @@ public class WriterCSV {
                 if ((j % 50) == 0) {
                     System.out.println("Printing line:" + j);
                 }
-                List<String> l = new ArrayList<>();
 
                 l.add(dx.getDocument());
                 l.add(dx.getPos_score());
@@ -189,6 +188,7 @@ public class WriterCSV {
 
                 csvFilePrinter.printRecord(l);
                 j++;
+                l.clear();
             }
             System.out.println("CSV file " + outputName + " was created successfully.");
 
