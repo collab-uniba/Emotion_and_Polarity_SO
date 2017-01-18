@@ -175,7 +175,7 @@ public class Main {
         List<String> sadness = rd.read_Column_CSV("res/EmotionsCSV/sadness.csv","sadness",';');
         List<String> fear = rd.read_Column_CSV("res/EmotionsCSV/fear.csv","fear",';');
         List<String> anger = rd.read_Column_CSV("res/EmotionsCSV/anger.csv","anger",';');
-
+        System.out.println("Emotions readed...");
         //SETTO I TF_IDF
         Document d=null;
         for(Integer id:documents.keySet()){
@@ -187,9 +187,9 @@ public class Main {
             d.setImpoliteness(Double.valueOf(impoliteness.get(id)));
             d.setLabel(joy.get(id));
         }
+
         u.directoryCreator("outputEmotion");
         WriterCSV writerCSV= new WriterCSV();
-
 
 
         writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv",documents,ids_unigrams.getIds_grams(),ids_bigrams.getIds_grams(),ids_positives.getIds_emo(),ids_negatives.getIds_emo(),ids_neutrals.getIds_emo(),ids_ambiguos.getIds_emo());

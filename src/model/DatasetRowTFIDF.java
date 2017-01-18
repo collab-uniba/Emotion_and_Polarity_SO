@@ -16,7 +16,7 @@ public class DatasetRowTFIDF {
     private final String impoliteness;
     private final Document.Mood mood;
     private final List<String> tf_idf;
-    private final String affective_label;
+    private  String affective_label;
     private final String min_modality;
     private final String max_modality;
 
@@ -65,7 +65,9 @@ public class DatasetRowTFIDF {
         return tf_idf;
     }
 
-
+    public void setAAffectiveLabel(String affective_label){
+        this.affective_label=affective_label;
+    }
    private DatasetRowTFIDF(DatasetRowBuilder builder) {
         this.document= builder.document;
         this.pos_score= builder.pos_score;
@@ -135,7 +137,8 @@ public class DatasetRowTFIDF {
          }
 
          public DatasetRowTFIDF build() {
-            return new DatasetRowTFIDF(this);
+
+             return new DatasetRowTFIDF(this);
         }
 	}
 }
