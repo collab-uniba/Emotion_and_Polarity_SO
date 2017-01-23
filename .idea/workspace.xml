@@ -7,32 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/pattern-2.6.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/politeness.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/Readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/docs.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/docs.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/featbigrams.p" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/featunigrams.p" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/liu-negative-words.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/liu-positive-words.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/politeness_strategies.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/vectorizer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/model.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/politeness-svm.p" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/request_utils.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/requirements.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/scripts/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/scripts/train_model.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Readme.txt" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Examples.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,8 +34,18 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3687">
-              <caret line="213" column="9" lean-forward="true" selection-start-line="213" selection-start-column="9" selection-end-line="213" selection-end-column="9" />
+            <state relative-caret-position="441">
+              <caret line="221" column="121" lean-forward="false" selection-start-line="221" selection-start-column="121" selection-end-line="221" selection-end-column="121" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Readme.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,7 +101,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Readme.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/Readme.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -137,16 +126,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PrintingFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/printing/PrintingFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1238">
-              <caret line="109" column="20" lean-forward="false" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -207,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Ortu.java" />
         <option value="$PROJECT_DIR$/outOrtu/group1/group1_finalLabelForEachRater.csv" />
         <option value="$PROJECT_DIR$/src/main/Ortu.java" />
         <option value="$PROJECT_DIR$/src/reading/ReaderCSVOrtu.java" />
@@ -258,6 +236,7 @@
         <option value="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
         <option value="$PROJECT_DIR$/res/inputCorpus.csv" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/Readme.txt" />
       </list>
     </option>
   </component>
@@ -338,6 +317,48 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalculateMoodAndModality" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,7 +465,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="res/inputCorpus.csv res/textsPoliteAndImpolite.csv res/moodAndModality.csv " />
+      <option name="PROGRAM_PARAMETERS" value="res/inputCorpus.csv " />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
@@ -1094,7 +1115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485200330308</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Aggiunti i file usati per calcolare la politeness e il mood and modality, in python">
+      <created>1485201413146</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1485201413146</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1108,7 +1136,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
@@ -1117,15 +1145,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.5554371" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.6764392" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0026652452" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20887446" sideWeight="0.3251599" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.32356077" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17857143" sideWeight="0.48933902" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14069264" sideWeight="0.48933902" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4445629" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1195,7 +1223,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="Aggiunto RemoveURL&#10;Aggiunto POSTTagger&#10;Aggiunta rimozione delle parole non inglesi, servirebbero tutti i synset di wordnet.. basta darglieli tutti e funziona" />
     <MESSAGE value="Tentato di usare il metodo by sentence del tokenizzatore, non va bene" />
     <MESSAGE value="Inglobato il codice usato per la validazione di Ortu , migliorandolo leggermente" />
     <MESSAGE value="Sistemato il main, era scomodo da capire" />
@@ -1220,7 +1247,8 @@
     <MESSAGE value="Corretto un altro grande spreco di momoria in un ciclo del writerCSV.&#10;&#10;Creavo diverse liste per ogni documento, non serviva a niente, basta fare clear.&#10;(Testato)" />
     <MESSAGE value="Corretto un errore nella classe che rimpiazza i termini con le categorie di wordnet" />
     <MESSAGE value="Ora  è possibile avviare il jar richiedendo solo l'estrazione della struttura del file Politeness da dare in input al file Python" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ora  è possibile avviare il jar richiedendo solo l'estrazione della struttura del file Politeness da dare in input al file Python" />
+    <MESSAGE value="Aggiunti i file usati per calcolare la politeness e il mood and modality, in python" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti i file usati per calcolare la politeness e il mood and modality, in python" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1243,13 +1271,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/computing/Logarithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/Grams/BigramsList">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1658,14 +1679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3687">
-          <caret line="213" column="9" lean-forward="true" selection-start-line="213" selection-start-column="9" selection-end-line="213" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/outputEmotion/OutputFear.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -1710,6 +1723,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="221" column="121" lean-forward="false" selection-start-line="221" selection-start-column="121" selection-end-line="221" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
