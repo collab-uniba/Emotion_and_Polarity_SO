@@ -7,34 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/ambiguos-emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/anger.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/fear.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/joy.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/love.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/negative_emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/neutral_emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/positive_emotion.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/sadness.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/EmotionsCSV/surprise.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/Grams/BigramsList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/Grams/UnigramsList" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/BoosterWordList.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/EmoticonLookupTable.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/EmotionLookupTable.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/EnglishWordList.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/IdiomLookupTable.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/QuestionWords.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/SlangLookupTable.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Senti4SDLists/NegativeEmoticon" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Senti4SDLists/PositiveEmoticon" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/pattern-2.6.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/politeness.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/Readme.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/docs.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/docs.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/featbigrams.p" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/featunigrams.p" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/liu-negative-words.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/liu-positive-words.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/politeness_strategies.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/features/vectorizer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/model.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/politeness-svm.p" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/request_utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/requirements.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/scripts/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalculatePoliteness/scripts/train_model.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Examples.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pol/docs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pol/model.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/Senti4SDLists/NegatingWordList" afterPath="$PROJECT_DIR$/res/SentiStrength_Data/NegatingWordList.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,11 +72,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputSurprise.csv" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OutputSurprise.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/outputEmotion/OutputSurprise.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="256" lean-forward="false" selection-start-line="0" selection-start-column="256" selection-end-line="0" selection-end-column="256" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DocumentForPoliteness.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/DocumentForPoliteness.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CalculatePoliteness/docs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="moodAndModality.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Readme.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/Readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,130 +147,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1238">
               <caret line="109" column="20" lean-forward="false" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="positive_emotion.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/EmotionsCSV/positive_emotion.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Document.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Document.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="11" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#753#754#0" expanded="false" />
-                <element signature="e#777#778#0" expanded="false" />
-                <element signature="e#877#878#0" expanded="false" />
-                <element signature="e#912#913#0" expanded="false" />
-                <element signature="e#968#969#0" expanded="false" />
-                <element signature="e#1016#1017#0" expanded="false" />
-                <element signature="e#1055#1056#0" expanded="false" />
-                <element signature="e#1090#1091#0" expanded="false" />
-                <element signature="e#1146#1147#0" expanded="false" />
-                <element signature="e#1194#1195#0" expanded="false" />
-                <element signature="e#1233#1234#0" expanded="false" />
-                <element signature="e#1268#1269#0" expanded="false" />
-                <element signature="e#1324#1325#0" expanded="false" />
-                <element signature="e#1372#1373#0" expanded="false" />
-                <element signature="e#1398#1399#0" expanded="false" />
-                <element signature="e#1423#1424#0" expanded="false" />
-                <element signature="e#1456#1457#0" expanded="false" />
-                <element signature="e#1484#1485#0" expanded="false" />
-                <element signature="e#1515#1516#0" expanded="false" />
-                <element signature="e#1542#1543#0" expanded="false" />
-                <element signature="e#1582#1583#0" expanded="false" />
-                <element signature="e#1614#1615#0" expanded="false" />
-                <element signature="e#1650#1651#0" expanded="false" />
-                <element signature="e#1682#1683#0" expanded="false" />
-                <element signature="e#1732#1733#0" expanded="false" />
-                <element signature="e#1774#1775#0" expanded="false" />
-                <element signature="e#1810#1811#0" expanded="false" />
-                <element signature="e#1842#1843#0" expanded="false" />
-                <element signature="e#1892#1893#0" expanded="false" />
-                <element signature="e#1934#1935#0" expanded="false" />
-                <element signature="e#1971#1972#0" expanded="false" />
-                <element signature="e#2004#2005#0" expanded="false" />
-                <element signature="e#2056#2057#0" expanded="false" />
-                <element signature="e#2100#2101#0" expanded="false" />
-                <element signature="e#2139#2140#0" expanded="false" />
-                <element signature="e#2174#2175#0" expanded="false" />
-                <element signature="e#2230#2231#0" expanded="false" />
-                <element signature="e#2278#2279#0" expanded="false" />
-                <element signature="e#2330#2331#0" expanded="false" />
-                <element signature="e#2365#2366#0" expanded="false" />
-                <element signature="e#2434#2435#0" expanded="false" />
-                <element signature="e#2482#2483#0" expanded="false" />
-                <element signature="e#2533#2534#0" expanded="false" />
-                <element signature="e#2567#2568#0" expanded="false" />
-                <element signature="e#2634#2635#0" expanded="false" />
-                <element signature="e#2680#2681#0" expanded="false" />
-                <element signature="e#2733#2734#0" expanded="false" />
-                <element signature="e#2769#2770#0" expanded="false" />
-                <element signature="e#2840#2841#0" expanded="false" />
-                <element signature="e#2890#2891#0" expanded="false" />
-                <element signature="e#2943#2944#0" expanded="false" />
-                <element signature="e#2979#2980#0" expanded="false" />
-                <element signature="e#3050#3051#0" expanded="false" />
-                <element signature="e#3100#3101#0" expanded="false" />
-                <element signature="e#3152#3153#0" expanded="false" />
-                <element signature="e#3187#3188#0" expanded="false" />
-                <element signature="e#3256#3257#0" expanded="false" />
-                <element signature="e#3304#3305#0" expanded="false" />
-                <element signature="e#3357#3358#0" expanded="false" />
-                <element signature="e#3393#3394#0" expanded="false" />
-                <element signature="e#3464#3465#0" expanded="false" />
-                <element signature="e#3514#3515#0" expanded="false" />
-                <element signature="e#3546#3547#0" expanded="false" />
-                <element signature="e#3574#3575#0" expanded="false" />
-                <element signature="e#3616#3617#0" expanded="false" />
-                <element signature="e#3650#3651#0" expanded="false" />
-                <element signature="e#4152#4153#0" expanded="false" />
-                <element signature="e#4194#4195#0" expanded="false" />
-                <element signature="e#4255#4256#0" expanded="false" />
-                <element signature="e#4309#4310#0" expanded="false" />
-                <element signature="e#4353#4354#0" expanded="false" />
-                <element signature="e#4394#4395#0" expanded="false" />
-                <element signature="e#4453#4454#0" expanded="false" />
-                <element signature="e#4505#4506#0" expanded="false" />
-                <element signature="e#4550#4551#0" expanded="false" />
-                <element signature="e#4592#4593#0" expanded="false" />
-                <element signature="e#4653#4654#0" expanded="false" />
-                <element signature="e#4707#4708#0" expanded="false" />
-                <element signature="e#4751#4752#0" expanded="false" />
-                <element signature="e#4792#4793#0" expanded="false" />
-                <element signature="e#4851#4852#0" expanded="false" />
-                <element signature="e#4903#4904#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utility.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utility/Utility.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="love.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/EmotionsCSV/love.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="411" lean-forward="false" selection-start-line="7" selection-start-column="408" selection-end-line="7" selection-end-column="411" />
               <folding />
             </state>
           </provider>
@@ -396,6 +310,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -421,188 +338,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="replacing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="computing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resOrtu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -662,11 +397,11 @@
       <recent name="Utility" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\CalculateMoodAndModality" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\Politeness" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO" />
       <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res" />
       <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\main" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\analysis\libr" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\analysis" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\Pol" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -1352,7 +1087,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484779193309</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Ora  è possibile avviare il jar richiedendo solo l'estrazione della struttura del file Politeness da dare in input al file Python">
+      <created>1485200330308</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1485200330308</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1375,15 +1117,16 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.6748401" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.5554371" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0026652452" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.3251599" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20887446" sideWeight="0.3251599" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17857143" sideWeight="0.48933902" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14069264" sideWeight="0.48933902" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21162046" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4445629" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1396,7 +1139,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25108224" sideWeight="0.4466951" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1453,7 +1195,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="Aggiunti commenti&#10;e corretto alcuni errori" />
     <MESSAGE value="Aggiunto RemoveURL&#10;Aggiunto POSTTagger&#10;Aggiunta rimozione delle parole non inglesi, servirebbero tutti i synset di wordnet.. basta darglieli tutti e funziona" />
     <MESSAGE value="Tentato di usare il metodo by sentence del tokenizzatore, non va bene" />
     <MESSAGE value="Inglobato il codice usato per la validazione di Ortu , migliorandolo leggermente" />
@@ -1478,7 +1219,8 @@
     <MESSAGE value="Migliorata l'efficienza in scrittura : &#10;Se la lista delle righe non è già stata fatta in precedenza allora falla , &#10;altrimenti poiché dovrò soltanto cambiare la Label finale , non rimettere in memoria un altra lista di righe inutili. L'unica differenza è la label finale!" />
     <MESSAGE value="Corretto un altro grande spreco di momoria in un ciclo del writerCSV.&#10;&#10;Creavo diverse liste per ogni documento, non serviva a niente, basta fare clear.&#10;(Testato)" />
     <MESSAGE value="Corretto un errore nella classe che rimpiazza i termini con le categorie di wordnet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corretto un errore nella classe che rimpiazza i termini con le categorie di wordnet" />
+    <MESSAGE value="Ora  è possibile avviare il jar richiedendo solo l'estrazione della struttura del file Politeness da dare in input al file Python" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ora  è possibile avviare il jar richiedendo solo l'estrazione della struttura del file Politeness da dare in input al file Python" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1501,28 +1243,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/computing/Grams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="72" column="37" lean-forward="false" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/model.py" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/io/PrintStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="803" column="16" lean-forward="false" selection-start-line="803" selection-start-column="16" selection-end-line="803" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pol/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/computing/Logarithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1618,6 +1338,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
           <caret line="68" column="45" lean-forward="false" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+          <folding>
+            <element signature="e#1531#1532#0" expanded="false" />
+            <element signature="e#1583#1584#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1733,6 +1457,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1887,7 +1612,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1951,6 +1678,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="256" lean-forward="false" selection-start-line="0" selection-start-column="256" selection-end-line="0" selection-end-column="256" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DocumentForPoliteness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculatePoliteness/docs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
