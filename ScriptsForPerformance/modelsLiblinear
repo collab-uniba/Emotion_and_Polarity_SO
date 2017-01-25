@@ -1,0 +1,8 @@
+L2-regularized logistic regression (primal):0
+L2-regularized_L2_loss_support_vector_classification_(dual):1
+L2-regularized_L2_loss_support_vector_classification_(primal):2
+L2-regularized_L1_loss_support_vector_classification_(dual):3
+support_vector_classification_by_Crammer_and_Singer:4
+L1-regularized_L2-loss_support_vector_classification:5
+L1-regularized_logistic_regression:6
+L2-regularized logistic regression (dual):7
