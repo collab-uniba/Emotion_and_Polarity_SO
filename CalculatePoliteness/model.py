@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*- 
+from __future__ import unicode_literals
 import sys
 import os
 import cPickle
+
 
 """
 This file provides an interface to 
@@ -97,31 +99,26 @@ def score(request):
     probs = {"polite": probs[0][1], "impolite": probs[0][0]}
     return probs
 
-import os
+
 import codecs
-os.linesep
-f = open('textsPoliteAndImpolite.csv','w')
-f.write('Text§polite§impolite§\n')
-
-if __name__ == "__main__":
-
-
-    """
-    Sample classification of requests
-    """
-		
+import csv
+with open('textsPoliteAndImpolite.csv', 'wb') as csvfile:
+     fieldnames = ['texts', 'polite','impolite']
+   
+     writer = csv.DictWriter(csvfile,fieldnames=fieldnames)
+     writer.writeheader()
+ 
+     if __name__ == "__main__":
 
 
-    from docs import TEST_DOCUMENTS
+       """
+        Sample classification of requests
+      """
+     from docs import TEST_DOCUMENTS
 
-    for doc in TEST_DOCUMENTS:
-	
-        probs = score(doc)
-        f.write(doc['text']+"§")
-        f.write("%.3f" % probs['polite'])
-        f.write('§')
-        f.write("%.3f" % probs['impolite'])
-        f.write('§\n')
-		
-f.close()
+     for doc in TEST_DOCUMENTS:
+         probs = score(doc)
+         writer.writerow({'texts': doc['text'], 'polite': "%.3f" % probs['polite'], 'impolite' : "%.3f" % probs['impolite'] })
+          
+
 

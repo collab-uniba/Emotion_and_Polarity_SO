@@ -46,7 +46,9 @@ public class Main {
         ReadingFile rdf = new ReadingFile();
 
 
+
         if(args.length==2 || args.length==3) {
+
             //PRE-PROCESSING, tokenizing, urlRemoving, Post_Tagging
             //Tokenizzatore
 
@@ -142,20 +144,19 @@ public class Main {
                 System.out.println("Calculating negative score...");
 
                 System.out.println("Reading politeness and impoliteness..");
-                List<String> politeness = rd.read_Column_CSV(args[1], "polite", '§');
-                List<String> impoliteness = rd.read_Column_CSV(args[1], "impolite", '§');
+                List<String> politeness = rd.read_Column_CSV(args[1], "polite", ',');
+                List<String> impoliteness = rd.read_Column_CSV(args[1], "impolite", ',');
 
                 System.out.println("Reading modality..");
-                List<String> min_modality = rd.read_Column_CSV(args[2], "min_modality", '§');
-                List<String> max_modality = rd.read_Column_CSV(args[2], "max_modality", '§');
+                List<String> min_modality = rd.read_Column_CSV(args[2], "min_modality", ',');
+                List<String> max_modality = rd.read_Column_CSV(args[2], "max_modality", ',');
 
                 System.out.println("Reading moods..");
 
-                System.out.println("Reading modality...");
-                List<String> indicatives = rd.read_Column_CSV("res/moodAndModality.csv", "indicative", '§');
-                List<String> conditional = rd.read_Column_CSV("res/moodAndModality.csv", "conditional", '§');
-                List<String> subjunctive = rd.read_Column_CSV("res/moodAndModality.csv", "subjunctive", '§');
-                List<String> imperative = rd.read_Column_CSV("res/moodAndModality.csv", "imperative", '§');
+                List<String> indicatives = rd.read_Column_CSV(args[2], "indicative", ',');
+                List<String> conditional = rd.read_Column_CSV(args[2], "conditional", ',');
+                List<String> subjunctive = rd.read_Column_CSV(args[2], "subjunctive", ',');
+                List<String> imperative = rd.read_Column_CSV(args[2], "imperative", ',');
 
 
                 System.out.println("Reading emotions...");
