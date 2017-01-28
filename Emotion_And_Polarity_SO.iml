@@ -12,6 +12,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="commons-csv-1.4" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.3.1" level="project" />
+    <orderEntry type="library" name="commons-validator-1.4.0" level="project" />
+    <orderEntry type="library" name="SentiStrengthCom" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.12" level="project" />
+    <orderEntry type="library" name="slf4j-nop-1.6.1" level="project" />
+    <orderEntry type="library" name="stanford-corenlp-3.6.0" level="project" />
+    <orderEntry type="library" name="stanford-corenlp-models-current" level="project" />
   </component>
 </module>

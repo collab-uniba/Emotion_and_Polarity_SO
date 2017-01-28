@@ -44,9 +44,9 @@ public class SentiStrengthSentiment {
 	 * @param  ScoreType : 1 (negative ) , 0 (positive)
 	 * @return
 	 */
-	public Map<Integer,Document> SentiStrengthgetScoreForAllDocs(Map<Integer, Document> docs, int ScoreType){
+	public Map<String,Document> SentiStrengthgetScoreForAllDocs(Map<String, Document> docs, int ScoreType){
 		Document d= null;
-		for(Integer id:docs.keySet()){
+		for(String id:docs.keySet()){
 			d=docs.get(id);
 			String result=SentiStrengthgetScore(d.getText());
 			String[] split = result.split(";");

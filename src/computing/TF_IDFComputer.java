@@ -22,7 +22,7 @@ public class TF_IDFComputer {
      * @return
      * @throws IOException
      */
-    public Ids tf_idf( Map<Integer, Document> documents,Map<String, String> grams,int n,String type) throws IOException {
+    public Ids tf_idf( Map<String, Document> documents,Map<String, String> grams,int n,String type) throws IOException {
         Ids ids= new Ids();
         Set<String> ids_emo = new LinkedHashSet<>();
         Set<Integer> ids_grams= new TreeSet<>();
@@ -41,8 +41,8 @@ public class TF_IDFComputer {
         System.out.println("Printed idf for "+ type+"\n");
         String text="";
         System.out.println("Type: "+ type + "\n");
-        for (Integer id : documents.keySet()) {
-            System.out.println("Doc num "+ id+ "\n");
+        for (String id : documents.keySet()) {
+            System.out.println("Doc  "+ id+ "\n");
             try {
                 Thread.sleep(5);
             } catch (InterruptedException e) {
@@ -149,7 +149,7 @@ public class TF_IDFComputer {
      * @param n  indicates if it is a unigrams, bigrams ecc..
      * @return map of term-idf
      */
-    private Map<String,Double> invertedDocumentFrequency(Map<Integer,Document> docs, Set<String> terms, int n,String type) {
+    private Map<String,Double> invertedDocumentFrequency(Map<String,Document> docs, Set<String> terms, int n,String type) {
         termsIDF.clear();
         double numDocs = docs.size();
         double totdocsContainingTerm = 0;
@@ -164,7 +164,7 @@ public class TF_IDFComputer {
             }
             //cerco il termine in tutti i documenti
             String text="";
-            for (Integer id: docs.keySet()) {
+            for (String id: docs.keySet()) {
 
                 text= getText(docs,id,type);
 
@@ -188,7 +188,7 @@ public class TF_IDFComputer {
     }
 
 
-    private String getText(Map<Integer,Document> docs,int id,String type){
+    private String getText(Map<String,Document> docs,String id,String type){
         if(type.equals("unigrams") || type.equals("bigrams"))
            return  docs.get(id).getText();
         else

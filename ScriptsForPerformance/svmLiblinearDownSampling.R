@@ -62,8 +62,16 @@ xTest=x[-splitIndex,]
 yTrain=y[splitIndex]
 yTest=y[-splitIndex]
 
+training<- temp[splitIndex,]
 testing <- temp[-splitIndex, ]
 
+#save the training set
+trains <- c()
+for (i in 0:length(training[,"id"])){
+  trains <- c(trains, paste(training[i,"id"],training[i,"label"], sep=","))
+}
+outputTraining <- paste("trainingSet","csv",sep=".")
+write.table(trains, file=paste(output_dir,outputTraining,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
 #s=scale(xTrain, center=TRUE, scale=TRUE)
 

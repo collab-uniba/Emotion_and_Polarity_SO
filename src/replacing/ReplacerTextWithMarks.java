@@ -16,7 +16,7 @@ public class ReplacerTextWithMarks {
      * @param pathsMarks
      * @return
      */
-    public Map<Integer,Document> replaceTermsWithMarks(Map<Integer, Document> docs, List<String> pathsMarks) throws IOException {
+    public Map<String,Document> replaceTermsWithMarks(Map<String, Document> docs, List<String> pathsMarks) throws IOException {
         ReadingCSV rd = new ReadingCSV();
        // ReadingFile rf= new ReadingFile();
 
@@ -28,7 +28,7 @@ public class ReplacerTextWithMarks {
         }
 
         if (docs != null) {
-            for (Integer id:docs.keySet()) {
+            for (String id:docs.keySet()) {
                 Document d= docs.get(id);
                 //check if a single term into a text is find out into an list and replace it with the list's name.
                 String[] textTerms = d.getText().split("\\s+");

@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class Document {
 
-    private int id;
+    private String id;
     private String text;
     private String textReplaced;
     private double pos_score;
@@ -59,11 +59,11 @@ public class Document {
         this.textReplaced = textReplaced;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

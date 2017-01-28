@@ -22,12 +22,14 @@ public class WriterCSV {
     private Utility u = new Utility();
     private List<DatasetRowTFIDF> list = new ArrayList<>();
     private List<String> l = new ArrayList<>();
-    public void writeCsvFile(String outputName,Map<Integer, Document> documents,Set<Integer> ids_unigrams,Set<Integer> ids_bigrams,Set<String> ids_positives,Set<String> ids_negatives,
+    public void writeCsvFile(String outputName,Map<String, Document> documents,Set<Integer> ids_unigrams,Set<Integer> ids_bigrams,Set<String> ids_positives,Set<String> ids_negatives,
                              Set<String> ids_neutrals,Set<String> ids_ambiguos)throws IOException {
        if(!list.isEmpty()) {
            //cambio solo la label finale
-            for(Integer id: documents.keySet()){
-               list.get(id).setAAffectiveLabel(documents.get(id).getLabel());
+           int pos_doc=0;
+            for(String id: documents.keySet()){
+               list.get(pos_doc).setAAffectiveLabel(documents.get(id).getLabel());
+               pos_doc++;
             }
        }
        else {
@@ -47,7 +49,7 @@ public class WriterCSV {
             double min_modality;
             String label="";
             DatasetRowTFIDF dr;
-            for(Integer id: documents.keySet()) {
+            for(String id: documents.keySet()) {
                 System.out.println("Writing doc :" + id);
                 d = documents.get(id);
                 unigramsTFIDF = d.getUnigramTFIDF();

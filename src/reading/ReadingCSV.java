@@ -1,5 +1,6 @@
 package reading;
 
+import Exceptions.CsvColumnNotFound;
 import com.sun.prism.impl.Disposer;
 import edu.stanford.nlp.optimization.QNMinimizer;
 import org.apache.commons.csv.CSVFormat;
@@ -15,7 +16,7 @@ public class ReadingCSV {
 
 
 
-    public List<String> read_Column_CSV(String pathFile,String columnName,Character delimiter){
+    public List<String> read_Column_CSV(String pathFile,String columnName,Character delimiter) throws CsvColumnNotFound {
          List<String> tr= new ArrayList<>();
         FileReader in = null;
         try {
@@ -31,7 +32,18 @@ public class ReadingCSV {
                 }
             }
             else {
-                System.out.println("Csv doesn't countain the column!!!");
+                System.out.println("Problem during the search of the specified column!\n");
+                System.out.println("These are the columns : \n" );
+                for(String c : mapHeader.keySet()) {
+                    System.out.println(c + " all its chars: ");
+                    char[] chars= c.toCharArray();
+                    for (int i =0;i<c.length();i++){
+                        System.out.println(chars[i]+" ");
+                    }
+                    System.out.println("Probably there is a special char. The column that you would could be this \n "+ c+"\n");
+                    System.out.println("Retry with this column name : "+  c);
+                }
+                throw new CsvColumnNotFound("Csv doesn't countain the column: "+columnName);
             }
 
         } catch (IOException e) {

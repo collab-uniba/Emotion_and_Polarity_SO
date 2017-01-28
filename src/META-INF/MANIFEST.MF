@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Class-Path: commons-csv-1.4.jar slf4j-nop-1.6.1.jar SentiStrengthCom.j
- ar slf4j-api-1.7.12.jar commons-lang3-3.3.1.jar stanford-corenlp-3.6.
- 0.jar commons-validator-1.4.0.jar stanford-corenlp-models-current.jar
+Class-Path: slf4j-api-1.7.12.jar stanford-corenlp-3.6.0.jar SentiStren
+ gthCom.jar commons-validator-1.4.0.jar slf4j-nop-1.6.1.jar commons-cs
+ v-1.4.jar stanford-corenlp-models-current.jar commons-lang3-3.3.1.jar
 Main-Class: main.Main
 

@@ -7,13 +7,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/anger.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/fear.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/joy.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/love.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/sadness.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/surprise.csv" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Emotion_Marks_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/anger.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/fear.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/joy.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/love.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/sadness.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/surprise.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Examples.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/replacing/POSTagger.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/ambiguos-emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/ambiguos-emotion.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/negative_emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/negative_emotion.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/neutral_emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/neutral_emotion.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/positive_emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/positive_emotion.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py" afterPath="$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalculatePoliteness/model.py" afterPath="$PROJECT_DIR$/CalculatePoliteness/model.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Emotion_And_Polarity_SO.iml" afterPath="$PROJECT_DIR$/Emotion_And_Polarity_SO.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R" afterPath="$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" afterPath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" afterPath="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" afterPath="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Document.java" afterPath="$PROJECT_DIR$/src/model/Document.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/printing/WriterCSV.java" afterPath="$PROJECT_DIR$/src/printing/WriterCSV.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reading/ReadingCSV.java" afterPath="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" afterPath="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,68 +58,38 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TokenizeCorpus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="moodAndModality.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-903">
-              <caret line="153" column="52" lean-forward="true" selection-start-line="153" selection-start-column="52" selection-end-line="153" selection-end-column="52" />
+            <state relative-caret-position="509">
+              <caret line="168" column="99" lean-forward="false" selection-start-line="168" selection-start-column="99" selection-end-line="168" selection-end-column="99" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CalculatePoliteness/model.py">
+      <file leaf-file-name="svmLiblinearWithoutDownSampling.R" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearWithoutDownSampling.R">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="399">
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svmLiblinearDownSampling.R" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1071">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textsMoodAndModality.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/textsMoodAndModality.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadingCSV.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reading/ReadingCSV.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="textsPoliteAndImpolite.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/textsPoliteAndImpolite.csv">
+      <file leaf-file-name="IDF_0_1" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/IDF/IDF_0_1">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -106,6 +101,16 @@
       <file leaf-file-name="OutputAnger.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/outputEmotion/OutputAnger.csv">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="joy.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/OrtuGroup3CSV/joy.csv">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -114,10 +119,30 @@
         </entry>
       </file>
       <file leaf-file-name="anger.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/EmotionsCSV/anger.csv">
+        <entry file="file://$PROJECT_DIR$/res/OrtuGroup3CSV/anger.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4776" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReadingCSV.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reading/ReadingCSV.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OutputFear.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/outputEmotion/OutputFear.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2121">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,8 +151,8 @@
       <file leaf-file-name="inputCorpus.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="48" column="25" lean-forward="false" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+            <state relative-caret-position="630">
+              <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -145,7 +170,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>would</find>
       <find>%-(</find>
       <find>wouldn't</find>
       <find>texts</find>
@@ -175,6 +199,7 @@
       <find>yes</find>
       <find>YES</find>
       <find>pr</find>
+      <find>-S</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,8 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/outOrtu/group1/group1_finalLabelForEachRater.csv" />
-        <option value="$PROJECT_DIR$/src/main/Ortu.java" />
         <option value="$PROJECT_DIR$/src/reading/ReaderCSVOrtu.java" />
         <option value="$PROJECT_DIR$/src/reading/ReadingFile.java" />
         <option value="$PROJECT_DIR$/src/main/Main3.java" />
@@ -200,7 +223,6 @@
         <option value="$PROJECT_DIR$/res/wordsRejected.txt" />
         <option value="$PROJECT_DIR$/src/analysis/Lemmatization.java" />
         <option value="$PROJECT_DIR$/src/Examples.java" />
-        <option value="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" />
         <option value="$PROJECT_DIR$/UnigramsList" />
         <option value="$PROJECT_DIR$/BigramsList" />
         <option value="$PROJECT_DIR$/res/hello" />
@@ -224,20 +246,23 @@
         <option value="$PROJECT_DIR$/res/IDF/IDF_thing_1" />
         <option value="$PROJECT_DIR$/res/IDF/IDF_apathy_1" />
         <option value="$PROJECT_DIR$/res/EmotionsCSV/anger.csv" />
-        <option value="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
-        <option value="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
         <option value="$PROJECT_DIR$/res/moodAndModality.csv" />
-        <option value="$PROJECT_DIR$/src/model/Document.java" />
         <option value="$PROJECT_DIR$/src/computing/Ids.java" />
-        <option value="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" />
         <option value="$PROJECT_DIR$/src/model/DatasetRowTFIDF.java" />
-        <option value="$PROJECT_DIR$/src/printing/WriterCSV.java" />
         <option value="$PROJECT_DIR$/res/IDF/IDF_joy_1" />
         <option value="$PROJECT_DIR$/res/IDF/IDF_negative-fear_1" />
-        <option value="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
         <option value="$PROJECT_DIR$/Readme.txt" />
         <option value="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
+        <option value="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" />
+        <option value="$PROJECT_DIR$/src/model/Document.java" />
+        <option value="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" />
+        <option value="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
+        <option value="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
+        <option value="$PROJECT_DIR$/src/printing/WriterCSV.java" />
+        <option value="$PROJECT_DIR$/src/Exceptions/csvColumnNotFound.java" />
+        <option value="$PROJECT_DIR$/src/Exceptions/CsvColumnNotFound.java" />
         <option value="$PROJECT_DIR$/res/inputCorpus.csv" />
+        <option value="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
       </list>
     </option>
@@ -309,8 +334,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -405,24 +430,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="printing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -437,6 +444,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ScriptsForPerformance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -455,7 +476,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EmotionsCSV" />
+              <option name="myItemId" value="WordnetCategories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StackOverflowCSV" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OrtuGroup3CSV" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emotion_and_Polarity_SO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IDF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -473,23 +548,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CalculateMoodAndModality" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -499,7 +560,7 @@
     <property name="project.structure.side.proportion" value="0.1889401" />
     <property name="SearchEverywhereHistoryKey" value="console&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/io/Console.java&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Pol" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/stanford-corenlp-models-current.jar!/" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="473" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="472" />
@@ -521,13 +582,6 @@
     <property name="Repository.Attach.Sources" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\Pol" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\EmotionsCSV" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\Politeness" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="OrtuValidation.computing" />
       <recent name="OrtuValidation" />
@@ -535,18 +589,25 @@
       <recent name="computing" />
       <recent name="main" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\ScriptsForPerformance" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\OrtuCSV" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\CalculateMoodAndModality" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="reading" />
       <recent name="model" />
       <recent name="Model" />
       <recent name="Utility" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\CalculateMoodAndModality" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\WordnetCategories" />
       <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\CalculatePoliteness" />
       <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO" />
-      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\Politeness" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\src\Pol" />
+      <recent name="C:\Users\Francesco\IdeaProjects\Emotion_and_Polarity_SO\res\EmotionsCSV" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -589,7 +650,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="res/inputCorpus.csv res/textsPoliteAndImpolite.csv res/textsMoodAndModality.csv" />
+      <option name="PROGRAM_PARAMETERS" value="res/inputCorpus.csv res/textsPoliteAndImpolite.csv res/textsMoodAndModality.csv  , -O" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
@@ -1293,26 +1354,26 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18290043" sideWeight="0.3736674" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18290043" sideWeight="0.36886993" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42532468" sideWeight="0.67963755" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1904762" sideWeight="0.68603414" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0037313432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1904762" sideWeight="0.3139659" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17857143" sideWeight="0.48933902" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42532468" sideWeight="0.32036248" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14069264" sideWeight="0.48933902" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22654584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4428419" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1673774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.44083154" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21645021" sideWeight="0.54371" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21645021" sideWeight="0.5480769" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1407,7 +1468,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="162" />
+      <option name="time" value="164" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1423,6 +1484,54 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2877">
+          <caret line="153" column="52" lean-forward="true" selection-start-line="153" selection-start-column="52" selection-end-line="153" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculatePoliteness/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reading/ReadingCSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/StackOverflowCSV/anger.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4776" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1239">
@@ -1451,7 +1560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1487,20 +1595,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outputEmotion/OutputFear.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="1807" lean-forward="false" selection-start-line="21" selection-start-column="1804" selection-end-line="21" selection-end-column="1807" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputEmotion/OutputSurprise.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="256" lean-forward="false" selection-start-line="0" selection-start-column="256" selection-end-line="0" selection-end-column="256" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/outputEmotion/OutputSurprise.csv" />
     <entry file="file://$PROJECT_DIR$/src/model/DocumentForPoliteness.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1520,6 +1615,238 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textsPoliteAndImpolite.csv" />
+    <entry file="file://$PROJECT_DIR$/res/textsMoodAndModality.csv" />
+    <entry file="file://$PROJECT_DIR$/CalculatePoliteness/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/docs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resOrtu/emoiton_1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/StackOverflowCSV/surprise.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/IDF/IDF_apathy_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/IDF/IDF_joy_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/IDF/IDF_negative-fear_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/IDF/IDF_thing_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding>
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/computing/TF_IDFComputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-723">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="46" column="28" lean-forward="false" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/docsWithoutURLUsMentSpCharTknz">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/CsvColumnNotFound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#168#169#0" expanded="true" />
+            <element signature="e#206#207#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/printing/WriterCSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="207" column="13" lean-forward="true" selection-start-line="207" selection-start-column="13" selection-end-line="207" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/StackOverflowCSV/anger.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="129" column="53" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outputEmotion/OutputFear.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2121">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/OrtuGroup3CSV/anger.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/OrtuGroup3CSV/joy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reading/ReadingCSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/IDF/IDF_0_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outputEmotion/OutputAnger.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="168" column="99" lean-forward="false" selection-start-line="168" selection-start-column="99" selection-end-line="168" selection-end-column="99" />
           <folding />
         </state>
       </provider>
@@ -1532,89 +1859,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.txt">
+    <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/EmotionsCSV/anger.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4776" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reading/ReadingCSV.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textsPoliteAndImpolite.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textsMoodAndModality.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/inputCorpus.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="48" column="25" lean-forward="false" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputEmotion/OutputAnger.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CalculatePoliteness/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-903">
-          <caret line="153" column="52" lean-forward="true" selection-start-line="153" selection-start-column="52" selection-end-line="153" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CalculateMoodAndModality/moodAndModality.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-1071">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1631,7 +1878,7 @@
               <type id="artifact" />
             </show-content>
           </artifact-editor>
-          <last-edited>Emotion_Marks:jar</last-edited>
+          <last-edited>Emotion_And_Polarity_SO:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1703,7 +1950,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>stanford-corenlp-models-current</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
