@@ -7,38 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49028781-e6f0-4dfd-a872-4fa428af6660" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/anger.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/fear.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/joy.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/love.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/sadness.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/StackOverflowCSV/surprise.csv" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Emotion_Marks_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/anger.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/fear.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/joy.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/love.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/sadness.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/surprise.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Examples.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/replacing/POSTagger.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/ambiguos-emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/ambiguos-emotion.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/negative_emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/negative_emotion.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/neutral_emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/neutral_emotion.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/EmotionsCSV/positive_emotion.csv" afterPath="$PROJECT_DIR$/res/WordnetCategories/positive_emotion.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Emotion_And_Polarity_SO.iml" afterPath="$PROJECT_DIR$/Emotion_And_Polarity_SO.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R" afterPath="$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" afterPath="$PROJECT_DIR$/src/analysis/SentiStrengthSentiment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" afterPath="$PROJECT_DIR$/src/computing/TF_IDFComputer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Document.java" afterPath="$PROJECT_DIR$/src/model/Document.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/printing/WriterCSV.java" afterPath="$PROJECT_DIR$/src/printing/WriterCSV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reading/ReadingCSV.java" afterPath="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" afterPath="$PROJECT_DIR$/src/replacing/ReplacerTextWithMarks.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.txt" afterPath="$PROJECT_DIR$/Readme.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,11 +51,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svmLiblinearDownSampling.R" pinned="false" current-in-tab="true">
+      <file leaf-file-name="svmLiblinearDownSampling.R" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1071">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Readme.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -133,16 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
               <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OutputFear.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/outputEmotion/OutputFear.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2121">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -251,7 +224,6 @@
         <option value="$PROJECT_DIR$/src/model/DatasetRowTFIDF.java" />
         <option value="$PROJECT_DIR$/res/IDF/IDF_joy_1" />
         <option value="$PROJECT_DIR$/res/IDF/IDF_negative-fear_1" />
-        <option value="$PROJECT_DIR$/Readme.txt" />
         <option value="$PROJECT_DIR$/src/tokenizer/TokenizeCorpus.java" />
         <option value="$PROJECT_DIR$/src/replacing/RemoveNotEnglishWords.java" />
         <option value="$PROJECT_DIR$/src/model/Document.java" />
@@ -264,6 +236,7 @@
         <option value="$PROJECT_DIR$/res/inputCorpus.csv" />
         <option value="$PROJECT_DIR$/src/reading/ReadingCSV.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/Readme.txt" />
       </list>
     </option>
   </component>
@@ -1335,7 +1308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485340642963</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="1)Aggiunta l'elaborazione per il dataset di Ortu sul Gruppo 3&#10;2) Aggiunto script aggiornato di svmLiblinearDownSampling che permette di stampare il training e il testing set.">
+      <created>1485601866309</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1485601866309</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1436,7 +1416,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="Sistemato il main, era scomodo da capire" />
     <MESSAGE value="Creata una classe a parte per le elaborazioni di Ortu&#10;e sistemate un pò di cose" />
     <MESSAGE value="Aggiunte Api Wordnet &#10;per eliminare da ogni documento le paroli non inglesi,&#10;inclusi gli HTTP ecc.. &#10;&#10;Il db di wordnet è aggiornato alla versione 3.1" />
     <MESSAGE value="Corretto l'utilizzo delle Api di Wordnet&#10;Prima &quot;is&quot; veniva saltato&#10;Ora fa prima lo stemming della parola: DOGS diventa DOG prima  di cercarla nel dizionario" />
@@ -1461,7 +1440,8 @@
     <MESSAGE value="Aggiunti i file usati per calcolare la politeness e il mood and modality, in python" />
     <MESSAGE value="Aggiunto readme per parametri da dare in input" />
     <MESSAGE value="Aggiunti gli script usati per le performance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti gli script usati per le performance" />
+    <MESSAGE value="1)Aggiunta l'elaborazione per il dataset di Ortu sul Gruppo 3&#10;2) Aggiunto script aggiornato di svmLiblinearDownSampling che permette di stampare il training e il testing set." />
+    <option name="LAST_COMMIT_MESSAGE" value="1)Aggiunta l'elaborazione per il dataset di Ortu sul Gruppo 3&#10;2) Aggiunto script aggiornato di svmLiblinearDownSampling che permette di stampare il training e il testing set." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1618,13 +1598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/textsPoliteAndImpolite.csv" />
     <entry file="file://$PROJECT_DIR$/res/textsMoodAndModality.csv" />
     <entry file="file://$PROJECT_DIR$/CalculatePoliteness/model.py">
@@ -1720,8 +1693,8 @@
         <state relative-caret-position="252">
           <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
           <folding>
-            <element signature="e#1465#1466#0" expanded="true" />
-            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="false" />
+            <element signature="e#1493#1494#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1763,10 +1736,10 @@
         <state relative-caret-position="315">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#168#169#0" expanded="true" />
-            <element signature="e#206#207#0" expanded="true" />
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#168#169#0" expanded="false" />
+            <element signature="e#206#207#0" expanded="false" />
+            <element signature="e#279#280#0" expanded="false" />
+            <element signature="e#328#329#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1863,6 +1836,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1071">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding />
         </state>
       </provider>
