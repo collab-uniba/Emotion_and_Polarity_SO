@@ -34,7 +34,7 @@ public class Main {
 
 
 
-        if(args.length==2 || args.length==5) {
+        if(args.length==3 || args.length==5 || args.length==6) {
 
             //PRE-PROCESSING, tokenizing, urlRemoving
             //Tokenizzatore
@@ -42,7 +42,13 @@ public class Main {
 
             List<String> inputCorpus = null;
             try {
-                inputCorpus = rd.read_Column_CSV(args[0], "comment", args[3].charAt(0));
+                int l=0;
+                if(args.length==3){
+                    l=2;
+                }else
+                    l=3;
+
+                inputCorpus = rd.read_Column_CSV(args[0], "comment", args[l].charAt(0));
                 pr.print("res/onlyText", inputCorpus);
 
 
@@ -55,6 +61,7 @@ public class Main {
                 List<String> docsWithoutURLtknz = rem.removeUrlOne(inputCorpusTknz);
                 // pr.print("res/docsWithoutURLTknz",docsWithoutURLtknz);
                 //remove user mention
+
                 List<String> docsWithoutURLUserMentionTknz = rem.removeUserMention(docsWithoutURLtknz);
                 // pr.print("res/docsWithoutURLUserMention",docsWithoutURLUserMentionTknz);
 
@@ -65,21 +72,30 @@ public class Main {
 
 
                 if (!args[1].equals("-P")) {
-
+                    SortedMap<String, String> unigrams=null;
+                    SortedMap<String, String> bigrams=null;
                     //extracting bigram or unigram lists
-                /* System.out.println("Extracting unigrams..");
-               SortedMap<String, String> unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
-                System.out.println("Unigrams Extracted successfully!");
+                    if(args.length==6 && args[5].equals("-G")) {
+                        System.out.println("Extracting unigrams..");
+                         unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
+                        System.out.println("Unigrams Extracted successfully!");
 
-                System.out.println("Extracting bigrams...");
-               SortedMap<String,String> bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
-                System.out.println("Bigrams Extracted successfully!");
+                        System.out.println("Extracting bigrams...");
+                         bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 2);
+                        System.out.println("Bigrams Extracted successfully!");
+                    }
+                    else {
+                        unigrams = gr.importNgrams("res/Grams/UnigramsList");
+                        System.out.println("unigrams loaded");
+                        bigrams = gr.importNgrams("res/Grams/BigramsList");
+                         System.out.println("bigrams loaded");
+                    }
 
-                System.out.println("\n");*/
+                    System.out.println("\n");
 
                     //Creo il map con indice del documento
                     Map<String, Document> documents = new LinkedHashMap<>();
-                    List<String> ids= rd.read_Column_CSV(args[0],"\uFEFFid",args[3].charAt(0));
+                    List<String> ids= rd.read_Column_CSV(args[0], "id",args[3].charAt(0));
                     int pos_doc=0;
                     for (String i:ids) {
                         Document d = new Document();
@@ -94,10 +110,7 @@ public class Main {
                     //*****tf-idf****/
                     TF_IDFComputer cl = new TF_IDFComputer();
 
-                    SortedMap<String, String> unigrams = gr.importNgrams("res/Grams/UnigramsList");
-                    System.out.println("unigrams loaded");
-                    SortedMap<String, String> bigrams = gr.importNgrams("res/Grams/BigramsList");
-                    System.out.println("bigrams loaded");
+
 
                     Ids ids_unigrams = cl.tf_idf(documents, unigrams, 1, "unigrams");
                     System.out.println("Tf-idf for unigrams , computed");
@@ -130,9 +143,9 @@ public class Main {
 
                     SentiStrengthSentiment st = new SentiStrengthSentiment();
                     st.SentiStrengthgetScoreForAllDocs(documents, 0);
-                    System.out.println("Calculating positive score..");
+                    System.out.println("Reading positive score..");
                     st.SentiStrengthgetScoreForAllDocs(documents, 1);
-                    System.out.println("Calculating negative score...");
+                    System.out.println("Reading negative score...");
 
                     System.out.println("Reading politeness and impoliteness..");
                     List<String> politeness = rd.read_Column_CSV(args[1], "polite", ',');
@@ -153,7 +166,7 @@ public class Main {
                     System.out.println("Reading emotions...");
                     //costruisco il path in cui si trovano le emozioni in base al dominio che può essere Stack Overflow o quello di Ortu
                     String partial_path="res/";
-                    if(args[3].equals("-S")){
+                    if(args[4].equals("-S")){
                         partial_path+="StackOverflowCSV/";
                     }
                     else

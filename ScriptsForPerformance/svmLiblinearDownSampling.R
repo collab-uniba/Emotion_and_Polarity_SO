@@ -13,6 +13,7 @@ if(!dir.exists(output_dir))
 # Params
 models_file <- args[2]
 csv_file <- args[3]
+
 # logs errors to file
 error_file <- paste(date_time, "log", sep = ".")
 log.error <- function() {
@@ -65,13 +66,44 @@ yTest=y[-splitIndex]
 training<- temp[splitIndex,]
 testing <- temp[-splitIndex, ]
 
+#save the sampled SO complete
+sampled <- c()
+sampled<-c(sampled,(paste("id","label", sep=",")))
+for (i in 0:length(temp[,"id"])){
+  sampled <- c(sampled, paste(temp[i,"id"],temp[i,"label"], sep=","))
+}
+outputSampled <- paste("datasetAfterDownSampling","csv",sep=".")
+write.table(sampled, file=paste(output_dir,outputSampled,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
+
 #save the training set
 trains <- c()
+trains <- c(trains,(paste("id","label", sep=",")))
 for (i in 0:length(training[,"id"])){
   trains <- c(trains, paste(training[i,"id"],training[i,"label"], sep=","))
 }
 outputTraining <- paste("trainingSet","csv",sep=".")
 write.table(trains, file=paste(output_dir,outputTraining,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
+
+
+#save the testing set
+test <- c()
+test <- c(test,(paste("id","label", sep=",")))
+for (i in 0:length(testing[,"id"])){
+  test <- c(test, paste(testing[i,"id"],testing[i,"label"], sep=","))
+}
+outputTest <- paste("testingSet","csv",sep=".")
+write.table(test, file=paste(output_dir,outputTest,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
+
+# save training and test partition to txt files
+xTrain_saving <- paste(output_dir, paste("xTrain", "Rda", sep="."), sep="/")
+xTest_saving <- paste(output_dir, paste("xTest", "Rda", sep="."), sep="/")
+yTrain_saving <- paste(output_dir, paste("yTrain", "Rda", sep="."), sep="/")
+yTest_saving<- paste(output_dir, paste("yTest", "Rda", sep="."), sep="/")
+
+save(xTrain,file = xTrain_saving)
+save(xTest, file = xTest_saving)
+save(yTrain,file=yTrain_saving)
+save(yTest,file=yTest_saving)
 
 #s=scale(xTrain, center=TRUE, scale=TRUE)
 
@@ -136,14 +168,14 @@ for(i in 1:length(classifiers)){
   pred = p$predictions
   
   predictions <- c()
+  predictions<-c(predictions,(paste("id","predicted","Annotated", sep=",")))
   for (i in 0:length(testing[,"id"])){
 	predictions <- c(predictions, paste(testing[i,"id"],pred[i],testing[i,"label"], sep=","))
-	}
+  }
 	
  
   # save classification to text file
   outputPrediction <- paste(paste("predictions",number,sep="_"),"csv",sep=".")
- # cat("Row,Predicted,Actual(Annotated)\n",file=outputPrediction)
   write.table(predictions, file=paste(output_dir,outputPrediction,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
 
