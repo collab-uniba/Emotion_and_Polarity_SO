@@ -34,7 +34,16 @@ public class Main {
 
 
 
-        if(args.length==3 || args.length==5 || args.length==6) {
+        if(args.length==3 || args.length==5 || args.length==6  || args.length==7) {
+            String p6=null;
+            String p7=null;
+            if(args.length==6){
+                 p6=args[5];
+            }
+            if(args.length==7) {
+                p6 = args[5];
+                p7 = args[6];
+            }
 
             //PRE-PROCESSING, tokenizing, urlRemoving
             //Tokenizzatore
@@ -43,7 +52,8 @@ public class Main {
             List<String> inputCorpus = null;
             try {
                 int l=0;
-                if(args.length==3){
+                //se calcolo la politeness , trovo il delimitatore alla poszione numero 2
+                if(args[1].equals("-P")){
                     l=2;
                 }else
                     l=3;
@@ -75,7 +85,7 @@ public class Main {
                     SortedMap<String, String> unigrams=null;
                     SortedMap<String, String> bigrams=null;
                     //extracting bigram or unigram lists
-                    if(args.length==6 && args[5].equals("-G")) {
+                    if((p6!= null  && p6.equals("-G")) || (p7!= null  && p7.equals("-G"))) {
                         System.out.println("Extracting unigrams..");
                          unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz"), 0, 1);
                         System.out.println("Unigrams Extracted successfully!");
@@ -104,6 +114,7 @@ public class Main {
                         documents.put(i, d);
                         pos_doc++;
                     }
+                    System.out.println(documents.size());
                     //FINE PREPROCESSING
 
 
@@ -171,17 +182,70 @@ public class Main {
                     }
                     else
                         partial_path+="OrtuGroup3CSV/";
-                    List<String> joy = rd.read_Column_CSV(partial_path+"joy.csv", "joy", args[3].charAt(0));
-                    List<String> love = rd.read_Column_CSV(partial_path+"love.csv", "love", args[3].charAt(0));
-                    List<String> sadness = rd.read_Column_CSV(partial_path+"sadness.csv", "sadness", args[3].charAt(0));
-                    List<String> anger = rd.read_Column_CSV(partial_path+"anger.csv", "anger", args[3].charAt(0));
-                    //Se è per stack overflow allora ho 6 emozioni, altrimenti sono 4 per il dataset di ORtu gruppo 3
+
+                    List<String> joy=null;
+                    List<String> love=null;
+                    List<String> sadness=null;
+                    List<String> anger=null;
                     List<String> surprise =null;
                     List<String> fear=null;
-                    if(args[4].equals("-S")) {
-                        surprise=rd.read_Column_CSV(partial_path+"surprise.csv", "surprise", args[3].charAt(0));
-                        fear= rd.read_Column_CSV(partial_path+"fear.csv", "fear", args[3].charAt(0));
+                    String specific = "All";
+                    if(p6!= null && !p6.equals("-G")){
+                        switch(p6){
+                            case "-J":{
+                                specific="J";
+                                joy = rd.read_Column_CSV(partial_path+"joy.csv", "joy", args[3].charAt(0));
+                                break;
+                            }
+                            case "-L":{
+                                specific="L";
+                                love = rd.read_Column_CSV(partial_path+"love.csv", "love", args[3].charAt(0));
+                                break;
+                            }
+                            case "-S":{
+                                specific="S";
+                                sadness = rd.read_Column_CSV(partial_path+"sadness.csv", "sadness", args[3].charAt(0));
+                                break;
+                            }
+                            case "-A":{
+                                specific="A";
+                                anger = rd.read_Column_CSV(partial_path+"anger.csv", "anger", args[3].charAt(0));
+                                break;
+                            }
+                            case "-Sp":{
+                                specific="Sp";
+                                surprise = rd.read_Column_CSV(partial_path+"surprise.csv", "surprise", args[3].charAt(0));
+                                break;
+                            }
+                            case "-F":{
+                                specific="F";
+                                fear = rd.read_Column_CSV(partial_path+"fear.csv", "fear", args[3].charAt(0));
+                                break;
+                            }
+                            default :{
+                                joy = rd.read_Column_CSV(partial_path+"joy.csv", "joy", args[3].charAt(0));
+                                love = rd.read_Column_CSV(partial_path+"love.csv", "love", args[3].charAt(0));
+                                sadness = rd.read_Column_CSV(partial_path+"sadness.csv", "sadness", args[3].charAt(0));
+                                anger= rd.read_Column_CSV(partial_path+"anger.csv", "anger", args[3].charAt(0));
+                                if(args[4].equals("-S")) {
+                                    surprise=rd.read_Column_CSV(partial_path+"surprise.csv", "surprise", args[3].charAt(0));
+                                    fear= rd.read_Column_CSV(partial_path+"fear.csv", "fear", args[3].charAt(0));
+                                }
+                            }
+                        }
                     }
+                    else{
+                        joy = rd.read_Column_CSV(partial_path+"joy.csv", "joy", args[3].charAt(0));
+                        love = rd.read_Column_CSV(partial_path+"love.csv", "love", args[3].charAt(0));
+                        sadness = rd.read_Column_CSV(partial_path+"sadness.csv", "sadness", args[3].charAt(0));
+                        anger= rd.read_Column_CSV(partial_path+"anger.csv", "anger", args[3].charAt(0));
+                        //Se è per stack overflow allora ho 6 emozioni, altrimenti sono 4 per il dataset di ORtu gruppo
+                        if(args[4].equals("-S")) {
+                            surprise=rd.read_Column_CSV(partial_path+"surprise.csv", "surprise", args[3].charAt(0));
+                            fear= rd.read_Column_CSV(partial_path+"fear.csv", "fear", args[3].charAt(0));
+                        }
+                    }
+
                     System.out.println("Emotions readed...");
 
                     //SETTO I TF_IDF
@@ -194,53 +258,124 @@ public class Main {
                         d.setMax_modality(Double.valueOf(max_modality.get(pos_doc)));
                         d.setPoliteness(Double.valueOf(politeness.get(pos_doc)));
                         d.setImpoliteness(Double.valueOf(impoliteness.get(pos_doc)));
-                        d.setLabel(joy.get(pos_doc));
                         pos_doc++;
                     }
 
                     u.directoryCreator("outputEmotion");
                     WriterCSV writerCSV = new WriterCSV();
 
-                    writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
-                    pos_doc=0;
-                    for (String id : documents.keySet()) {
-                        d = documents.get(id);
-                        d.setLabel(sadness.get(pos_doc));
-                        pos_doc++;
-                    }
+                    switch(specific){
+                        case "All":{
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(joy.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
 
-                    writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
-                    pos_doc=0;
-                    for (String id : documents.keySet()) {
-                        d = documents.get(id);
-                        d.setLabel(anger.get(pos_doc));
-                        pos_doc++;
-                    }
-                    writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
-                    pos_doc=0;
-                    for (String id : documents.keySet()) {
-                        d = documents.get(id);
-                        d.setLabel(love.get(pos_doc));
-                        pos_doc++;
-                    }
-                    writerCSV.writeCsvFile("outputEmotion/OutputLove.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(sadness.get(pos_doc));
+                                pos_doc++;
+                            }
+
+                            writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(anger.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(love.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputLove.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
 
 
-                    if(args[4].equals("-S")) {
-                        pos_doc=0;
-                        for (String id : documents.keySet()) {
-                          d = documents.get(id);
-                          d.setLabel(surprise.get(pos_doc));
-                          pos_doc++;
-                      }
-                      writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
-                        pos_doc=0;
-                        for (String id : documents.keySet()) {
-                          d = documents.get(id);
-                          d.setLabel(fear.get(pos_doc));
-                          pos_doc++;
-                      }
-                      writerCSV.writeCsvFile("outputEmotion/OutputFear.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            if(args[4].equals("-S")) {
+                                pos_doc=0;
+                                for (String id : documents.keySet()) {
+                                    d = documents.get(id);
+                                    d.setLabel(surprise.get(pos_doc));
+                                    pos_doc++;
+                                }
+                                writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                                pos_doc=0;
+                                for (String id : documents.keySet()) {
+                                    d = documents.get(id);
+                                    d.setLabel(fear.get(pos_doc));
+                                    pos_doc++;
+                                }
+                                writerCSV.writeCsvFile("outputEmotion/OutputFear.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            }
+                            break;
+                        }
+                        case "A": {
+                            pos_doc = 0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(anger.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                             break;
+                        }
+                        case "J":{
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(joy.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            break;
+                        }
+                        case "F":{
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(fear.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputFear.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            break;
+                        }
+                        case "Sp":{
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(surprise.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            break;
+                        }
+                        case "L":{
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(love.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputLove.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            break;
+                        }
+                        case "S":{
+                            pos_doc=0;
+                            for (String id : documents.keySet()) {
+                                d = documents.get(id);
+                                d.setLabel(sadness.get(pos_doc));
+                                pos_doc++;
+                            }
+                            writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv", documents, ids_unigrams.getIds_grams(), ids_bigrams.getIds_grams(), ids_positives.getIds_emo(), ids_negatives.getIds_emo(), ids_neutrals.getIds_emo(), ids_ambiguos.getIds_emo());
+                            break;
+                        }
                   }
               } else {
                 //politeness

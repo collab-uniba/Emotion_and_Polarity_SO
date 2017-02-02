@@ -55,14 +55,6 @@ yTest=y[-splitIndex]
 training<- temp[splitIndex,]
 testing <- temp[-splitIndex, ]
 
-#save the sampled SO complete
-sampled <- c()
-sampled<-c(sampled,(paste("id","label", sep=",")))
-for (i in 0:length(temp[,"id"])){
-  sampled <- c(sampled, paste(temp[i,"id"],temp[i,"label"], sep=","))
-}
-outputSampled <- paste("datasetAfterDownSampling","csv",sep=".")
-write.table(sampled, file=paste(output_dir,outputSampled,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
 #save the training set
 trains <- c()
