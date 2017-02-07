@@ -1,5 +1,6 @@
 # enable commandline arguments from script launched using Rscript
 args<-commandArgs(TRUE)
+set.seed(846)
 
 # saves that script start time
 date_time <- ifelse(is.na(args[1]), format(Sys.time(), "%Y-%m-%d_%H.%M"), args[1])
@@ -43,7 +44,7 @@ SO <- na.omit(SO)
 x=SO[,predictorsNames]
 y=factor(SO[,outcomeName])
 
-set.seed(846)
+
 # create stratified training and test sets from SO dataset
 splitIndex <- createDataPartition(SO[,outcomeName], p = .70, list = FALSE)
 
