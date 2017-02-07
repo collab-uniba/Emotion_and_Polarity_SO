@@ -9,7 +9,7 @@
 train.sh file.csv -d delimiter [-G] [-e emotion] 
 ```
 where:
-* `file.csv`: the input file coded in UTF-8 without BOM [use notepad ++ , go in format and chose it], containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
+* `file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
 * `delimiter`: the delimiter `;` or `,` used in the csv file
 * `-G`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./<file.csv>/dictionary/unigrams.txt` and `./dictionary/<file.csv>/bigrams.txt`)
 * `-e emotion`: the specific emotion for training the model, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
@@ -23,7 +23,7 @@ As a result, the script will generate two output files:
 classify.sh -f file.csv -d delimiter -t text -e emotion -m model
 ```
 where:
-* `file.csv`: the input file coded in UTF-8 without BOM [use notepad ++ , go in format and chose it], containing the corpus to be annotated; the format of the output file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
+* `file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus to be classified; the format of the output file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
 * `delimiter`: the delimiter `;` or `,` used in the csv file
 * `-t "text"`: instead of parsing a csv file, detect emotion in the text (please, note the text must be surrounded by "...").
 * `-e emotion`: the specific emotion to be detected in the file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
