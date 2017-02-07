@@ -144,11 +144,11 @@ public class PrintingFile {
         l.directoryCreator("res/Grams");
         switch (n){
             case 1:
-                file = "res/Grams/UnigramsList";
+                file = "res/Grams/UnigramsList.txt";
                 t = "uni";
                 break;
             case 2:
-                file = "res/Grams/BigramsList";
+                file = "res/Grams/BigramsList.txt";
                 t = "bi";
                 break;
         }

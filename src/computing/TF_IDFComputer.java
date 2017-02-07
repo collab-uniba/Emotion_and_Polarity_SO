@@ -22,10 +22,10 @@ public class TF_IDFComputer {
      * @return
      * @throws IOException
      */
-    public Ids tf_idf( Map<String, Document> documents,Map<String, String> grams,int n,String type) throws IOException {
-        Ids ids= new Ids();
-        Set<String> ids_emo = new LinkedHashSet<>();
-        Set<Integer> ids_grams= new TreeSet<>();
+    public void tf_idf( Map<String, Document> documents,Map<String, String> grams,int n,String type) throws IOException {
+       // Ids ids= new Ids();
+      /*  Set<String> ids_emo = new LinkedHashSet<>();
+        Set<Integer> ids_grams= new TreeSet<>();*/
         System.out.println("Computing idf for :  "+ type+"\n");
         invertedDocumentFrequency(documents, grams.keySet(),n,type);
         System.out.println("IDF Computed for the type : "+ type+"\n");
@@ -33,11 +33,10 @@ public class TF_IDFComputer {
         Set<String> k = grams.keySet();
         Utility l = new Utility();
         System.out.println("Printing idf for "+ type+"\n");
-        for (String ke : k) {
-            l.directoryCreator("res/IDF");
-            pr.printIDF(termsIDF, "res/IDF/IDF_" + grams.get(ke) + "_" + n);
-            break;
-        }
+
+        l.directoryCreator("res/IDF");
+        pr.printIDF(termsIDF, "res/IDF/IDF_" + type);
+
         System.out.println("Printed idf for "+ type+"\n");
         String text="";
         System.out.println("Type: "+ type + "\n");
@@ -60,14 +59,14 @@ public class TF_IDFComputer {
                     //se è presente in questo documento allora
                     double idf = termsIDF.get(s);
                     double tf_idf= wordTF.get(s) * idf;
-                    if(tf_idf>0.0) {
+                  //  if(tf_idf>0.0) {
                         gramsAndTFIDF.put(grams.get(s), tf_idf);
                         //safe the id
-                        if(type.equals("unigrams") || type.equals("bigrams"))
+                      /*  if(type.equals("unigrams") || type.equals("bigrams"))
                             ids_grams.add(Integer.valueOf(grams.get(s)));
                         else
-                            ids_emo.add(grams.get(s));
-                    }
+                            ids_emo.add(grams.get(s));*/
+                  //  }
                 }
             }
             //aggiunta al documento
@@ -75,27 +74,27 @@ public class TF_IDFComputer {
             switch (type) {
                 case "unigrams": {
                     d.setUnigramTFIDF(gramsAndTFIDF);
-                    ids.setIds_grams(ids_grams);
+                  //  ids.setIds_grams(ids_grams);
                 }
                 case "bigrams": {
                     d.setBigramTFIDF(gramsAndTFIDF);
-                    ids.setIds_grams(ids_grams);
+                   // ids.setIds_grams(ids_grams);
                 }
                 case "positives": {
                     d.setPositiveTFIDF(gramsAndTFIDF);
-                    ids.setIds_emo(ids_emo);
+                    //  ids.setIds_emo(ids_emo);
                 }
                 case "negatives": {
                     d.setNegativeTFIDF(gramsAndTFIDF);
-                    ids.setIds_emo(ids_emo);
+                    //  ids.setIds_emo(ids_emo);
                 }
                 case "neutrals": {
                     d.setNeutralTFIDF(gramsAndTFIDF);
-                    ids.setIds_emo(ids_emo);
+                    //  ids.setIds_emo(ids_emo);
                 }
                 case "ambiguos":{
                     d.setAmbiguosTFIDF(gramsAndTFIDF);
-                    ids.setIds_emo(ids_emo);
+                    //   ids.setIds_emo(ids_emo);
                 }
             }
         }
@@ -111,7 +110,7 @@ public class TF_IDFComputer {
             i++;+
 
     }*/
-        return ids;
+
     }
 
 

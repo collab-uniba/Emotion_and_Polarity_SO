@@ -15,6 +15,57 @@ import utility.Utility;
 /**
  * Questa classe, usando la libreria di Apache : commons , crea un file CSV.
  */
+
+/*
+Old code :
+/*for (Integer i : ids_unigrams) {
+                    if (unigramsTFIDF.keySet().contains(String.valueOf(i))) {
+                        tf_idf.add(unigramsTFIDF.get(String.valueOf(i)).toString());
+                    } else
+                        tf_idf.add(String.valueOf(0.0));*/
+
+
+               /* for (Integer i : ids_bigrams) {
+                    if (bigramsTFIDF.keySet().contains(String.valueOf(i))) {
+                        tf_idf.add(bigramsTFIDF.get(String.valueOf(i)).toString());
+                    } else
+                        tf_idf.add(String.valueOf(0.0));
+                }*/
+
+//aggiungo la riga dei positivi
+//love joy ecc..
+
+
+               /* for (String s : ids_positives) {
+                    if (positivesTFIDF.keySet().contains(s)) {
+                        tf_idf.add(positivesTFIDF.get(s).toString());
+                    } else
+                        tf_idf.add(String.valueOf(0.0));
+                }*/
+
+//aggiungo la riga dei negativi
+              /*  for (String s : ids_negatives) {
+                    if (negativesTFIDF.keySet().contains(s)) {
+                        tf_idf.add(negativesTFIDF.get(s).toString());
+                    } else
+                        tf_idf.add(String.valueOf(0.0));
+                }
+
+                //aggiungo la riga dei neutri
+                for (String s : ids_neutrals) {
+                    if (neutralsTFIDF.keySet().contains(s)) {
+                        tf_idf.add(neutralsTFIDF.get(s).toString());
+                    } else
+                        tf_idf.add(String.valueOf(0.0));
+                }
+                //aggiungo la riga degli ambigui
+
+                for (String s : ids_ambiguos) {
+                    if (ambiguosTFIDF.keySet().contains(s)) {
+                        tf_idf.add(ambiguosTFIDF.get(s).toString());
+                    } else
+                        tf_idf.add(String.valueOf(0.0));
+                }*/
 public class WriterCSV {
 
     // Delimiter used in CSV file
@@ -22,9 +73,10 @@ public class WriterCSV {
     private Utility u = new Utility();
     private List<DatasetRowTFIDF> list = new ArrayList<>();
     private List<String> l = new ArrayList<>();
-    public void writeCsvFile(String outputName,Map<String, Document> documents,Set<Integer> ids_unigrams,Set<Integer> ids_bigrams,Set<String> ids_positives,Set<String> ids_negatives,
-                             Set<String> ids_neutrals,Set<String> ids_ambiguos)throws IOException {
-       if(!list.isEmpty()) {
+    public void writeCsvFile(String outputName,Map<String, Document> documents)throws IOException {
+        list.clear();
+        l.clear();
+      /* if(!list.isEmpty()) {
            //cambio solo la label finale
            int pos_doc=0;
             for(String id: documents.keySet()){
@@ -32,7 +84,7 @@ public class WriterCSV {
                pos_doc++;
             }
        }
-       else {
+       else {*/
             Document d= null;
             Map<String,Double> unigramsTFIDF=null;
             Map<String,Double> bigramsTFIDF=null;
@@ -70,57 +122,31 @@ public class WriterCSV {
                 List<String> tf_idf = new ArrayList<>();
 
 
+
                 //aggiungo la riga degli unigrammi
-                for (Integer i : ids_unigrams) {
-                    if (unigramsTFIDF.keySet().contains(String.valueOf(i))) {
-                        tf_idf.add(unigramsTFIDF.get(String.valueOf(i)).toString());
-                    } else
-                        tf_idf.add(String.valueOf(0.0));
+                for(String s : unigramsTFIDF.keySet()){
+                    tf_idf.add(unigramsTFIDF.get(s).toString());
                 }
                 //aggiungo la riga dei bigrammi
-
-                for (Integer i : ids_bigrams) {
-                    if (bigramsTFIDF.keySet().contains(String.valueOf(i))) {
-                        tf_idf.add(bigramsTFIDF.get(String.valueOf(i)).toString());
-                    } else
-                        tf_idf.add(String.valueOf(0.0));
+                for(String s : bigramsTFIDF.keySet()){
+                    tf_idf.add(bigramsTFIDF.get(s).toString());
+                }
+                for(String s : positivesTFIDF.keySet()){
+                    tf_idf.add(positivesTFIDF.get(s).toString());
+                }
+                for(String s : negativesTFIDF.keySet()){
+                    tf_idf.add(negativesTFIDF.get(s).toString());
+                }
+                for(String s : neutralsTFIDF.keySet()){
+                    tf_idf.add(neutralsTFIDF.get(s).toString());
+                }
+                for(String s : ambiguosTFIDF.keySet()){
+                    tf_idf.add(ambiguosTFIDF.get(s).toString());
                 }
 
-                //aggiungo la riga dei positivi
-    //love joy ecc..
-                for (String s : ids_positives) {
-                    if (positivesTFIDF.keySet().contains(s)) {
-                        tf_idf.add(positivesTFIDF.get(s).toString());
-                    } else
-                        tf_idf.add(String.valueOf(0.0));
-                }
-
-                //aggiungo la riga dei negativi
-                for (String s : ids_negatives) {
-                    if (negativesTFIDF.keySet().contains(s)) {
-                        tf_idf.add(negativesTFIDF.get(s).toString());
-                    } else
-                        tf_idf.add(String.valueOf(0.0));
-                }
-
-                //aggiungo la riga dei neutri
-                for (String s : ids_neutrals) {
-                    if (neutralsTFIDF.keySet().contains(s)) {
-                        tf_idf.add(neutralsTFIDF.get(s).toString());
-                    } else
-                        tf_idf.add(String.valueOf(0.0));
-                }
-                //aggiungo la riga degli ambigui
-
-                for (String s : ids_ambiguos) {
-                    if (ambiguosTFIDF.keySet().contains(s)) {
-                        tf_idf.add(ambiguosTFIDF.get(s).toString());
-                    } else
-                        tf_idf.add(String.valueOf(0.0));
-                }
 
                 dr = new DatasetRowTFIDF.DatasetRowBuilder()
-                        .setDocument("t" + id)
+                        .setDocument(id)
                         .setPosScore(String.valueOf(pos_score))
                         .setNegScore(String.valueOf(neg_score))
                         .setPoliteness(String.valueOf(polite))
@@ -133,7 +159,6 @@ public class WriterCSV {
                         .build();
                 list.add(dr);
              }
-        }
 
 
         //INTESTO LE COLONNE
@@ -151,12 +176,16 @@ public class WriterCSV {
         header.add("#conditional");
         header.add("#subjunctive");
 
-        populateHeader(ids_unigrams,header,"uni");
-        populateHeader(ids_bigrams,header,"bi");
-        populateHeader(ids_positives,header);
-        populateHeader(ids_negatives,header);
-        populateHeader(ids_neutrals,header);
-        populateHeader(ids_ambiguos,header);
+
+        for(String dc: documents.keySet()){
+            populateHeader(documents.get(dc).getUnigramTFIDF().keySet(),header,"uni");
+            populateHeader(documents.get(dc).getBigramTFIDF().keySet(),header,"bi");
+            populateHeader(documents.get(dc).getPositiveTFIDF().keySet(),header,"");
+            populateHeader(documents.get(dc).getNegativeTFIDF().keySet(),header,"");
+            populateHeader(documents.get(dc).getNeutralTFIDF().keySet(),header,"");
+            populateHeader(documents.get(dc).getAmbiguosTFIDF().keySet(),header,"");
+            break;
+        }
 
         header.add("label");
 
@@ -210,19 +239,18 @@ public class WriterCSV {
     }
 
     /**this method populate header for tf-idf for unigrams and bigrams*/
-    private void populateHeader(Set<Integer> headers,List<String> headerCsv,String head) {
+   /* private void populateHeader(Set<Integer> headers,List<String> headerCsv,String head) {
         for(Integer h:headers) {
             h=h+1;
             headerCsv.add(head + h);
         }
-    }
+    }*/
 
     /**this method populate header for tf-idf for unigrams and bigrams*/
-    private void populateHeader(Set<String> headers,List<String> headerCsv) {
+    private void populateHeader(Set<String> headers,List<String> headerCsv,String pre_id) {
         for(String h:headers)
-            headerCsv.add(h);
+            headerCsv.add(pre_id+h);
     }
-
 
     /**
      * this method is used for ortu validation

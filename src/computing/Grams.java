@@ -36,10 +36,7 @@ public class Grams{
     public SortedMap<String, String> importNgrams(String path)
             throws IOException {
         SortedMap<String, String> map = new TreeMap<>();
-
-       // InputStream is = .getResourceAsStream("res/UnigramsList");
         File file= new File(path);
-       // BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String line;
         String row;
         StringBuilder result = new StringBuilder("");

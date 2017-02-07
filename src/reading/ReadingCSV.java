@@ -17,11 +17,11 @@ public class ReadingCSV {
 
 
     public List<String> read_Column_CSV(String pathFile,String columnName,Character delimiter) throws CsvColumnNotFound {
-         List<String> tr= new ArrayList<>();
+        List<String> tr= new ArrayList<>();
         FileReader in = null;
         try {
             in = new FileReader(pathFile);
-            CSVFormat format =  CSVFormat.EXCEL.withFirstRecordAsHeader().withDelimiter(delimiter);
+            CSVFormat format =  CSVFormat.EXCEL.withFirstRecordAsHeader().withDelimiter(delimiter).withQuote('"');
             CSVParser csvFileParser = new CSVParser(in, format);
             List<CSVRecord> csvRecords = csvFileParser.getRecords();
 

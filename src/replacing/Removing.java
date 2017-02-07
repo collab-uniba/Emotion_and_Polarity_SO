@@ -1,9 +1,11 @@
 package replacing;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.validator.routines.UrlValidator;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by Francesco on 23/12/2016.
@@ -75,7 +77,7 @@ public class Removing {
     }
 
 
-    private String removeQuotesSpecialString(String doc, String specialString){
+    /*private String removeQuotesSpecialString(String doc, String specialString){
         String[] ss = doc.split("\\s+");
         String res="";
         for(int i=0 ; i<ss.length;i++){
@@ -92,8 +94,17 @@ public class Removing {
             docs.set(i,removeQuotesSpecialString(docs.get(i),toRemove));
         }
         return docs;
+    }*/
+    private String escaping(String doc){
+        return  StringEscapeUtils.escapeJava(doc);
     }
 
+    public List<String> escaping(List<String> docs){
+        for(int i=0;i<docs.size();i++){
+            docs.set(i,escaping(docs.get(i)));
+        }
+        return docs;
+    }
 
     /*
        * Remove user mention from a string
