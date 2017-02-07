@@ -96,15 +96,15 @@ outputTest <- paste("testingSet","csv",sep=".")
 write.table(test, file=paste(output_dir,outputTest,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
 # save training and test partition to txt files
-xTrain_saving <- paste(output_dir, paste("xTrain", "Rda", sep="."), sep="/")
-xTest_saving <- paste(output_dir, paste("xTest", "Rda", sep="."), sep="/")
-yTrain_saving <- paste(output_dir, paste("yTrain", "Rda", sep="."), sep="/")
-yTest_saving<- paste(output_dir, paste("yTest", "Rda", sep="."), sep="/")
+#xTrain_saving <- paste(output_dir, paste("xTrain", "Rda", sep="."), sep="/")
+#xTest_saving <- paste(output_dir, paste("xTest", "Rda", sep="."), sep="/")
+#yTrain_saving <- paste(output_dir, paste("yTrain", "Rda", sep="."), sep="/")
+#yTest_saving<- paste(output_dir, paste("yTest", "Rda", sep="."), sep="/")
 
-save(xTrain,file = xTrain_saving)
-save(xTest, file = xTest_saving)
-save(yTrain,file=yTrain_saving)
-save(yTest,file=yTest_saving)
+#save(xTrain,file = xTrain_saving)
+#save(xTest, file = xTest_saving)
+#save(yTrain,file=yTrain_saving)
+#save(yTest,file=yTest_saving)
 
 #s=scale(xTrain, center=TRUE, scale=TRUE)
 

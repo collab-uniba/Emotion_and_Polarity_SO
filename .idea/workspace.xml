@@ -32,11 +32,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="21">
               <caret line="345" column="261" lean-forward="false" selection-start-line="345" selection-start-column="261" selection-end-line="345" selection-end-column="261" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svmLiblinearWithoutDownSampling.R" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearWithoutDownSampling.R">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svmLiblinearDownSampling.R" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,26 +132,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="onlyText_TOKENIZED" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/onlyText_TOKENIZED">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="textsMoodAndModality.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/textsMoodAndModality.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -187,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Main3.java" />
         <option value="$PROJECT_DIR$/outOrtu/group2/group2_merged_finalLabelForEachComment_MajAgOnPolarityWithMixed.csv" />
         <option value="$PROJECT_DIR$/src/computing/Ortu.java" />
         <option value="$PROJECT_DIR$/res/docsPostTagged" />
@@ -238,6 +237,7 @@
         <option value="$PROJECT_DIR$/Readme.txt" />
         <option value="$PROJECT_DIR$/src/reading/ReadingFile.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R" />
       </list>
     </option>
   </component>
@@ -487,38 +487,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="OrtuGroup3CSV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grams" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Emotion_and_Polarity_SO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="outputEmotion" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1337,7 +1305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486053377902</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Aggiornati gli script">
+      <created>1486472242102</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1486472242102</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1438,7 +1413,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="Creato il file nel formato da a politeness.model.score&#10;&#10;" />
     <MESSAGE value="Corretto il file da dare in input a model.py&#10;" />
     <MESSAGE value="Modificato un contenitore errato : da un Map uso una lista in quanto eliminava i duplicati ; Usava come chiave il documento.." />
     <MESSAGE value="Corretto un errore nella creazione del file da dare in input a model.py&#10;Creato un package riguardo la validazione di Ortu&#10;Creata la classe removing che fa delle rimozioni varie su una stringa o una lista di stringhe" />
@@ -1463,7 +1437,8 @@
     <MESSAGE value="Aggiornato il readme" />
     <MESSAGE value="Ora è possibile scegliere se estrarre i bigrammi e gli unigrammi o meno.&#10;Aggiornati scripts per liblinear" />
     <MESSAGE value="Aggiunta la possibilità di lavorare anche su un solo dataset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta la possibilità di lavorare anche su un solo dataset" />
+    <MESSAGE value="Aggiornati gli script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiornati gli script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1631,20 +1606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearWithoutDownSampling.R">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1071">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/StackOverflowCSV/fear.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1802,6 +1763,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="345" column="261" lean-forward="false" selection-start-line="345" selection-start-column="261" selection-end-line="345" selection-end-column="261" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearWithoutDownSampling.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScriptsForPerformance/svmLiblinearDownSampling.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
