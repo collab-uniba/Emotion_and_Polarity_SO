@@ -1,3 +1,13 @@
+## Requirements
+
+
+## Usage
+
+### Training a new model
+
+
+### Classify a text or file
+
 If you want to create the file for calculate the politeness, run:
 ```
 inputCorpus.csv -P delimiter
