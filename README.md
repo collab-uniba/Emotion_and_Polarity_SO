@@ -26,7 +26,7 @@ where:
 * `file.csv`: the input file coded in UTF-8 without BOM [use notepad ++ , go in format and chose it], containing the corpus to be annotated.
 * `delimiter`: the delimiter `;` or `,` used in the csv file
 * `-t "text"`: instead of parsing a csv file, detect emotion in the text (please, note the text must be surrounded by "...").
-* `-e emotion`: the specific emotion to be detected in the file or text, defined in {joy, anger, sadness, love, surprise, fear}
+* `-e emotion`: the specific emotion to be detected in the file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 * `-m model`: the model file learned as a result of the training step (e.g., `model-anger.rda`)
 
 As a result, the script will generate one output file:
