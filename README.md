@@ -1,12 +1,11 @@
 If you want to create the file for calculate the politeness those are the params:
     inputCorpus.csv -P delimiter
-    specifing :
-    inputCorpus.csv : in UTF-8 WITHOUT BOM , use notepad ++ , go in format and chose it.
-    delimiter : ";" or ","
+where:
+    inputCorpus.csv: UTF-8 WITHOUT BOM, use notepad ++ , go in format and chose it.
+    delimiter: ";" or ","
 
-Else
-    you have to give those params :
-        inputCorpus.csv textsPoliteAndImpolite.csv textsMoodAndModality.csv delimiter -O/-S -J/-A/-L/-S/-Sp/-F -G
+Else, you have to give those params :
+    inputCorpus.csv textsPoliteAndImpolite.csv textsMoodAndModality.csv delimiter -O/-S -J/-A/-L/-S/-Sp/-F -G
     specifing :
     delimiter : ";" or ","
     -O : indicates we are working on Ortu group 3
