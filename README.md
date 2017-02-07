@@ -1,5 +1,6 @@
 ## Requirements
-
+* Python 2.7.x
+* Java 8+
 
 ## Usage
 
@@ -10,54 +11,27 @@ train.sh file.csv -d delimiter -t type [-G] [-e emotion]
 ```
 where:
 * `file.csv`: the input file coded in UTF-8 without BOM [use notepad ++ , go in format and chose it], containing the corpus for the training.
-* `delimiter`: the delimiter ";" or "," used in the csv file
-* `-G`: extract bigrams and unigrams in the output file (mandatory on the first run; extraction can be skipped afterwards for the same input file).
+* `delimiter`: the delimiter `;` or `,` used in the csv file
+* `-G`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./<file.csv>/dictionary/unigrams.txt` and `./dictionary/<file.csv>/bigrams.txt`)
 * `-e emotion`: the specific emotion for training the model, defined in {joy, anger, sadness, love, surprise, fear}
 
-As a result, the script will generate two files:
-* a csv file named `feature-emotion.csv` (e.g., if `-e anger` is used, output file is `feature-anger.csv`) containing all the features extracted from the input corpus
-* a file named `model-emotion.rda` (e.g., if `-e joy` is used, output file is `model-joy.rda`) containing the final model learned that can be used to detect (i.e., classify) that specific emotion in new, unseen text.
+As a result, the script will generate two output files:
+* a csv file named `./<file.csv>/feature-<emotion>.csv` (e.g., if `-e anger` is used, output file is `feature-anger.csv`) containing all the features extracted from the input corpus
+* a file named `./<file.csv>/model-<emotion>.rda` (e.g., if `-e joy` is used, output file is `model-joy.rda`) containing the final model learned that can be used to detect (i.e., classify) that specific emotion in new, unseen text.
 
 ### Classify a text or file
 
 ```
-classify.sh ...
-```
-
------
-
-If you want to create the file for calculate the politeness, run:
-```
-inputCorpus.csv -P delimiter
-```
-
-
-
-Else, you have to give use the following params:
-```
-inputCorpus.csv textsPoliteAndImpolite.csv textsMoodAndModality.csv delimiter -O/-S -J/-A/-L/-S/-Sp/-F -G
+classify.sh -f file.csv -d delimiter -t text -e emotion -m model
 ```
 where:
-* `delimiter`: ";" or ","
-* `-O`: use Ortu's dataset group 3
-* `-S`: use Stack Overflow dataset
-* `-J,-S,-A,-L`: indicates if you are yorking on a specific dataset emotion , J= joy, A = anger , S= sadness, L = love, Sp= surprise , -F = fear
-* `inputCorpus.csv`: in UTF-8 WITHOUT BOM , use notepad ++ , go in format and chose it.
+* `file.csv`: the input file coded in UTF-8 without BOM [use notepad ++ , go in format and chose it], containing the corpus to be annotated.
+* `delimiter`: the delimiter `;` or `,` used in the csv file
+* `-t "text"`: instead of parsing a csv file, detect emotion in the text (please, note the text must be surrounded by "...").
+* `-e emotion`: the specific emotion to be detected in the file or text, defined in {joy, anger, sadness, love, surprise, fear}
+* `-m model`: the model file learned as a result of the training step (e.g., `model-anger.rda`)
 
-
-To create `textsPoliteAndImpolite.csv` you have to run the following:
-```
-inputCorpus.csv -P
-```
-to generate the file,alias docs.py, given as input from CalculatePoliteness.model.py
-
-To create `textsMoodAndModality.csv` you have to run this jar as:
-```
-inputCorpus.csv -P
-```
-to generate the file,alias docs.py,given as input from CalculateMoodAndModality.moodAndModality.py
-
-To give docs.py in input to those python files you have to put those files into same directory where the python (model.py or moodAndModality.py) are.
-
+As a result, the script will generate one output file:
+* a csv file name `./<file.csv>/predictions-<emotion>.csv` (e.g., if `-e sad` is used, output file is `predictions-sad.csv`) containing the binary prediction (yes/no) made on each line of the input corpus.
 
 
