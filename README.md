@@ -6,7 +6,7 @@
 
 ### Training a new model
 ```
-train.sh file.csv -d delimiter [-G] [-e emotion] 
+train.sh file.csv -d delimiter [-G] -e emotion 
 ```
 where:
 * `file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
