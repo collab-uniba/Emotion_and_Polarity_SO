@@ -12,6 +12,10 @@ public class Utility {
 		return ps;
 	}
 
+	public boolean directoryExists(String directoryName){
+		File theDir = new File(directoryName);
+		return theDir.exists();
+	}
 	public void directoryCreator(String directoryName){
 		File theDir = new File(directoryName);
 

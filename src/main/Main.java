@@ -6,6 +6,7 @@ import analysis.Politeness;
 import analysis.SentiStrengthSentiment;
 import computing.Grams;
 import computing.TF_IDFComputer;
+import exceptions.UnigramsAndBigramsNotFoundException;
 import model.Document;
 import printing.PrintingFile;
 import printing.WriterCSV;
@@ -146,10 +147,15 @@ public class Main {
                         bigrams = gr.getPositionWordMap(new File(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"),path, 0, 2);
                         System.out.println("Bigrams Extracted successfully!");
                     } else {
-                        unigrams = gr.importNgrams(path+"/Dictionary/UnigramsList.txt");
-                        System.out.println("unigrams loaded");
-                        bigrams = gr.importNgrams(path+"/Dictionary/BigramsList.txt");
-                        System.out.println("bigrams loaded");
+                        if(u.directoryExists(path+"/Dictionary")) {
+                            unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList.txt");
+                            System.out.println("unigrams loaded");
+                            bigrams = gr.importNgrams(path + "/Dictionary/BigramsList.txt");
+                            System.out.println("bigrams loaded");
+                        }
+                        else {
+                            throw new UnigramsAndBigramsNotFoundException("Unigrams and bigrams not found");
+                        }
                     }
 
                     System.out.println("\n");
@@ -184,17 +190,17 @@ public class Main {
                     ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
 
 
-                    Map<String, List<String>> pos = rd.read_AllColumn_CSV("src/resources/WordnetCategories/positive_emotion.csv", ';');
-                    Map<String, List<String>> neg = rd.read_AllColumn_CSV("src/resources/WordnetCategories/negative_emotion.csv", ';');
-                    Map<String, List<String>> neu = rd.read_AllColumn_CSV("src/resources/WordnetCategories/neutral_emotion.csv", ';');
-                    Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("src/resources/WordnetCategories/ambiguos-emotion.csv", ';');
+                    Map<String, List<String>> pos = rd.read_AllColumn_CSV("Resources/WordnetCategories/positive_emotion.csv", ';');
+                    Map<String, List<String>> neg = rd.read_AllColumn_CSV("Resources/WordnetCategories/negative_emotion.csv", ';');
+                    Map<String, List<String>> neu = rd.read_AllColumn_CSV("Resources/WordnetCategories/neutral_emotion.csv", ';');
+                    Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("Resources/WordnetCategories/ambiguos-emotion.csv", ';');
 
 
                     List<String> paths = new ArrayList<>();
-                    paths.add("src/resources/WordnetCategories/neutral_emotion.csv");
-                    paths.add("src/resources/WordnetCategories/ambiguos-emotion.csv");
-                    paths.add("src/resources/WordnetCategories/positive_emotion.csv");
-                    paths.add("src/resources/WordnetCategories/negative_emotion.csv");
+                    paths.add("Resources/WordnetCategories/neutral_emotion.csv");
+                    paths.add("Resources/WordnetCategories/ambiguos-emotion.csv");
+                    paths.add("Resources/WordnetCategories/positive_emotion.csv");
+                    paths.add("Resources/WordnetCategories/negative_emotion.csv");
 
                     replacer.replaceTermsWithMarks(documents, paths);
 
@@ -271,8 +277,8 @@ public class Main {
                     Politeness pt = new Politeness();
                     pr.writeDocsValuesOnFile(pt.createFormatForInput(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"), path+"/ElaboratedFiles/docs.py");
                 }
-            } catch (CsvColumnNotFound csvColumnNotFound) {
-                System.err.println(csvColumnNotFound.getMessage());
+            } catch (CsvColumnNotFound | UnigramsAndBigramsNotFoundException e) {
+                System.err.println(e.getMessage());
             }
         } else
             System.err.println("Wrong params!!  You have to read the Readme file for check what are the parameters needed.");
