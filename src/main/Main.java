@@ -20,21 +20,9 @@ import java.io.*;
 import java.util.*;
 
 /*
-If you want to create the file for calculate the politeness those are the params:
-    inputCorpus.csv -P delimiter
-    specifing :
-    inputCorpus.csv : in UTF-8 WITHOUT BOM , use notepad ++ , go in format and chose it.
-     delimiter : ";" or ","
-
-Else you have to give those params :
-*  `file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
-* `delimiter`: the delimiter `;` or `,` used in the csv file
-* `-G`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./<file.csv>/dictionary/unigrams.txt` and `./dictionary/<file.csv>/bigrams.txt`)
-* `-e emotion`: the specific emotion for training the model, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
-
- To create textsPoliteAndImpolite.csv you have to run this jar with "inputCorpus.csv -P" to generate the file,alias docs.py, given as input from CalculatePoliteness.model.py To create textsMoodAndModality.csv you have to run this jar with "inputCorpus.csv -P" to generate the file,alias docs.py,given as input from CalculateMoodAndModality.moodAndModality.py
-
-To give docs.py in input to those python files you have to put those files into same directory where the python (model.py or moodAndModality.py) are.
+-i res/StackOverflowCSV/angerBlt.csv -P res/textsPoliteAndImpolite.csv -M res/textsMoodAndModality.csv -d ; -e emotion
+-i res/StackOverflowCSV/angerBlt.csv -P res/textsPoliteAndImpolite.csv -M res/textsMoodAndModality.csv -d ; -G -e emotion
+-i res/StackOverflowCSV/angerBlt.csv -P -d ;
  */
 
 public class Main {
@@ -47,24 +35,76 @@ public class Main {
         ReadingCSV rd = new ReadingCSV();
         ReadingFile rdf = new ReadingFile();
 
+        int numArgs= args.length;
 
-        if (args.length == 3 || args.length == 5 || args.length == 6 ) {
+        if (numArgs == 5 || numArgs == 10 || numArgs== 11 ) {
+            //Take the args values
+            String emotionIndicate="";
+            String input="";
+            String politeFile="";
+            boolean createFormatForPoliteness=false;
+            String moodFile="";
+            Character delimiter=' ';
+            boolean extractDictionary=false;
+            if(numArgs==5) {
+                for (int i = 0; i < args.length; i++) {
+                    switch (args[i]) {
+                        case "-i": {
+                            input = args[i + 1];
+                            break;
+                        }
+                        case "-P": {
+                            createFormatForPoliteness = true;
+                            break;
+                        }
+                        case "-d": {
+                            delimiter = args[i + 1].charAt(0);
+                            break;
+                        }
+
+                    }
+                }
+            }
+            else {
+                for(int i=0;i<args.length;i++) {
+                    switch (args[i]) {
+                        case "-i": {
+                            input = args[i + 1];
+                            break;
+                        }
+                        case "-P": {
+                            politeFile = args[i + 1];
+                            break;
+                        }
+                        case "-M": {
+                            moodFile = args[i + 1];
+                            break;
+                        }
+                        case "-e": {
+                            emotionIndicate = args[i + 1];
+                            break;
+                        }
+                        case "-G": {
+                            extractDictionary = true;
+                            break;
+                        }
+                        case "-d": {
+                            delimiter = args[i + 1].charAt(0);
+                            break;
+                        }
+                    }
+                }
+            }
+
             System.out.println("Creating output directory..");
-            String[] ss = args[0].split("/");
-            String emotionName= ss[ss.length-1].replaceAll(".csv","");
-            String path="Output_"+emotionName;
+            String[] ss = input.split("/");
+            String fileCsv= ss[ss.length-1].replaceAll(".csv","");
+            String path="Output_"+fileCsv;
             u.directoryCreator(path);
             u.directoryCreator(path+"/ElaboratedFiles");
 
-            String p5 = null;
-            String p6 = null;
-            if (args.length == 5) {
-                p5 = args[4];
-            }
-            if (args.length == 6) {
-                p5 = args[4];
-                p6 = args[5];
-            }
+
+
 
             //PRE-PROCESSING, tokenizing, urlRemoving
             //Tokenizzatore
@@ -72,14 +112,8 @@ public class Main {
 
             List<String> inputCorpus = null;
             try {
-                int l = 0;
-                //se calcolo la politeness , trovo il delimitatore alla poszione numero 2
-                if (args[1].equals("-P")) {
-                    l = 2;
-                } else
-                    l = 3;
 
-                inputCorpus = rd.read_Column_CSV(args[0], "text", args[l].charAt(0));
+                inputCorpus = rd.read_Column_CSV(input, "text", delimiter);
                 pr.print(path+"/ElaboratedFiles/onlyText.txt", inputCorpus);
 
 
@@ -98,13 +132,12 @@ public class Main {
                 List<String> docsWithotSpCUrlUsMtTknz = rem.escaping(docsWithoutURLUserMentionTknz);
                 pr.print(path+"/ElaboratedFiles/onlyText_PreProcessed.txt", docsWithotSpCUrlUsMtTknz);
 
-                if (!args[1].equals("-P")) {
-
+                if (!createFormatForPoliteness) {
 
                     SortedMap<String, String> unigrams = null;
                     SortedMap<String, String> bigrams = null;
                     //extracting bigram or unigram lists
-                    if ((p5 != null && p5.equals("-G")) || (p6 != null && p6.equals("-G"))) {
+                    if (extractDictionary) {
                         System.out.println("Extracting unigrams..");
                         unigrams = gr.getPositionWordMap(new File(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"),path,0, 1);
                         System.out.println("Unigrams Extracted successfully!");
@@ -123,7 +156,7 @@ public class Main {
 
                     //Creo il map con indice del documento
                     Map<String, Document> documents = new LinkedHashMap<>();
-                    List<String> ids = rd.read_Column_CSV(args[0], "id", args[3].charAt(0));
+                    List<String> ids = rd.read_Column_CSV(input, "id", delimiter);
                     int pos_doc = 0;
                     for (String i : ids) {
                         Document d = new Document();
@@ -151,17 +184,17 @@ public class Main {
                     ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
 
 
-                    Map<String, List<String>> pos = rd.read_AllColumn_CSV("./resources/WordnetCategories/positive_emotion.csv", ';');
-                    Map<String, List<String>> neg = rd.read_AllColumn_CSV("./resources/WordnetCategories/negative_emotion.csv", ';');
-                    Map<String, List<String>> neu = rd.read_AllColumn_CSV("./resources/WordnetCategories/neutral_emotion.csv", ';');
-                    Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("./resources/WordnetCategories/ambiguos-emotion.csv", ';');
+                    Map<String, List<String>> pos = rd.read_AllColumn_CSV("src/resources/WordnetCategories/positive_emotion.csv", ';');
+                    Map<String, List<String>> neg = rd.read_AllColumn_CSV("src/resources/WordnetCategories/negative_emotion.csv", ';');
+                    Map<String, List<String>> neu = rd.read_AllColumn_CSV("src/resources/WordnetCategories/neutral_emotion.csv", ';');
+                    Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("src/resources/WordnetCategories/ambiguos-emotion.csv", ';');
 
 
                     List<String> paths = new ArrayList<>();
-                    paths.add("./resources/WordnetCategories/neutral_emotion.csv");
-                    paths.add("./resources/WordnetCategories/ambiguos-emotion.csv");
-                    paths.add("./resources/WordnetCategories/positive_emotion.csv");
-                    paths.add("./resources/WordnetCategories/negative_emotion.csv");
+                    paths.add("src/resources/WordnetCategories/neutral_emotion.csv");
+                    paths.add("src/resources/WordnetCategories/ambiguos-emotion.csv");
+                    paths.add("src/resources/WordnetCategories/positive_emotion.csv");
+                    paths.add("src/resources/WordnetCategories/negative_emotion.csv");
 
                     replacer.replaceTermsWithMarks(documents, paths);
 
@@ -179,19 +212,19 @@ public class Main {
                     System.out.println("Reading negative score...");
 
                     System.out.println("Reading politeness and impoliteness..");
-                    List<String> politeness = rd.read_Column_CSV(args[1], "polite", ',');
-                    List<String> impoliteness = rd.read_Column_CSV(args[1], "impolite", ',');
+                    List<String> politeness = rd.read_Column_CSV(politeFile, "polite", ',');
+                    List<String> impoliteness = rd.read_Column_CSV(politeFile, "impolite", ',');
 
                     System.out.println("Reading modality..");
-                    List<String> min_modality = rd.read_Column_CSV(args[2], "min_modality", ',');
-                    List<String> max_modality = rd.read_Column_CSV(args[2], "max_modality", ',');
+                    List<String> min_modality = rd.read_Column_CSV(moodFile, "min_modality", ',');
+                    List<String> max_modality = rd.read_Column_CSV(moodFile, "max_modality", ',');
 
                     System.out.println("Reading moods..");
 
-                    List<String> indicatives = rd.read_Column_CSV(args[2], "indicative", ',');
-                    List<String> conditional = rd.read_Column_CSV(args[2], "conditional", ',');
-                    List<String> subjunctive = rd.read_Column_CSV(args[2], "subjunctive", ',');
-                    List<String> imperative = rd.read_Column_CSV(args[2], "imperative", ',');
+                    List<String> indicatives = rd.read_Column_CSV(moodFile, "indicative", ',');
+                    List<String> conditional = rd.read_Column_CSV(moodFile, "conditional", ',');
+                    List<String> subjunctive = rd.read_Column_CSV(moodFile, "subjunctive", ',');
+                    List<String> imperative = rd.read_Column_CSV(moodFile, "imperative", ',');
 
 
                     System.out.println("Reading emotions...");
@@ -200,7 +233,7 @@ public class Main {
                     List<String> emotion=null;
 
 
-                    emotion = rd.read_Column_CSV( args[0], "label", args[3].charAt(0));
+                    emotion = rd.read_Column_CSV(input, "label", delimiter);
 
 
                     System.out.println("Emotion readed...");
@@ -224,8 +257,13 @@ public class Main {
                         d.setLabel(emotion.get(pos_doc));
                         pos_doc++;
                     }
-                    String nameOutput= path+"/features-"+emotionName+".csv";
+
+
+                    String nameOutput= path+"/features-"+emotionIndicate+".csv";
                     writerCSV.writeCsvFile(nameOutput, documents);
+
+
+
 
                     }
                  else {
