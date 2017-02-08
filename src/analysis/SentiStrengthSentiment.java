@@ -4,9 +4,6 @@ import model.Document;
 import uk.ac.wlv.sentistrength.SentiStrength;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SentiStrengthSentiment {
@@ -60,7 +57,7 @@ public class SentiStrengthSentiment {
 
 	private String SentiStrengthgetScore(String text){
 		SentiStrength sentiStrength = new SentiStrength();
-		String ssthInitialisation[] = {"sentidata", "res/SentiStrength_Data/", "explain"};
+		String ssthInitialisation[] = {"sentidata", "./resources/SentiStrength_Data/", "explain"};
 		sentiStrength.initialise(ssthInitialisation);
 		String score = sentiStrength.computeSentimentScores(text);
 		String[] split = score.split("\\s+");

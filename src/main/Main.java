@@ -1,11 +1,10 @@
 package main;
 
 
-import Exceptions.CsvColumnNotFound;
+import exceptions.CsvColumnNotFound;
 import analysis.Politeness;
 import analysis.SentiStrengthSentiment;
 import computing.Grams;
-import computing.Ids;
 import computing.TF_IDFComputer;
 import model.Document;
 import printing.PrintingFile;
@@ -152,17 +151,17 @@ public class Main {
                     ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
 
 
-                    Map<String, List<String>> pos = rd.read_AllColumn_CSV("res/WordnetCategories/positive_emotion.csv", ';');
-                    Map<String, List<String>> neg = rd.read_AllColumn_CSV("res/WordnetCategories/negative_emotion.csv", ';');
-                    Map<String, List<String>> neu = rd.read_AllColumn_CSV("res/WordnetCategories/neutral_emotion.csv", ';');
-                    Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("res/WordnetCategories/ambiguos-emotion.csv", ';');
+                    Map<String, List<String>> pos = rd.read_AllColumn_CSV("./resources/WordnetCategories/positive_emotion.csv", ';');
+                    Map<String, List<String>> neg = rd.read_AllColumn_CSV("./resources/WordnetCategories/negative_emotion.csv", ';');
+                    Map<String, List<String>> neu = rd.read_AllColumn_CSV("./resources/WordnetCategories/neutral_emotion.csv", ';');
+                    Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("./resources/WordnetCategories/ambiguos-emotion.csv", ';');
 
 
                     List<String> paths = new ArrayList<>();
-                    paths.add("res/WordnetCategories/neutral_emotion.csv");
-                    paths.add("res/WordnetCategories/ambiguos-emotion.csv");
-                    paths.add("res/WordnetCategories/positive_emotion.csv");
-                    paths.add("res/WordnetCategories/negative_emotion.csv");
+                    paths.add("./resources/WordnetCategories/neutral_emotion.csv");
+                    paths.add("./resources/WordnetCategories/ambiguos-emotion.csv");
+                    paths.add("./resources/WordnetCategories/positive_emotion.csv");
+                    paths.add("./resources/WordnetCategories/negative_emotion.csv");
 
                     replacer.replaceTermsWithMarks(documents, paths);
 

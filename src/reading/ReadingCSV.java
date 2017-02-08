@@ -1,8 +1,6 @@
 package reading;
 
-import Exceptions.CsvColumnNotFound;
-import com.sun.prism.impl.Disposer;
-import edu.stanford.nlp.optimization.QNMinimizer;
+import exceptions.CsvColumnNotFound;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
