@@ -121,8 +121,6 @@ public class WriterCSV {
 
                 List<String> tf_idf = new ArrayList<>();
 
-
-
                 //aggiungo la riga degli unigrammi
                 for(String s : unigramsTFIDF.keySet()){
                     tf_idf.add(unigramsTFIDF.get(s).toString());

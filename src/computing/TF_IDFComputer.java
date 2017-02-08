@@ -59,14 +59,10 @@ public class TF_IDFComputer {
                     //se è presente in questo documento allora
                     double idf = termsIDF.get(s);
                     double tf_idf= wordTF.get(s) * idf;
-                  //  if(tf_idf>0.0) {
-                        gramsAndTFIDF.put(grams.get(s), tf_idf);
-                        //safe the id
-                      /*  if(type.equals("unigrams") || type.equals("bigrams"))
-                            ids_grams.add(Integer.valueOf(grams.get(s)));
-                        else
-                            ids_emo.add(grams.get(s));*/
-                  //  }
+                    gramsAndTFIDF.put(grams.get(s), tf_idf);
+                }
+                else{
+                    gramsAndTFIDF.put(grams.get(s), 0.0);
                 }
             }
             //aggiunta al documento
