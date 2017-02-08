@@ -19,6 +19,7 @@ import java.util.SortedMap;
  * Created by Francesco on 23/12/2016.
  */
 public class PrintingFile {
+    Utility l= new Utility();
     public void print(String pathOu,List<String> texts){
         File input = new File(pathOu);
         FileWriter fw = null;
@@ -137,18 +138,19 @@ public class PrintingFile {
      * * * @param map grams
      * @param n
      */
-    public void printNgrams(SortedMap<String,String> map, int n) {
+    public void printNgrams(SortedMap<String,String> map, int n,String path) {
         String file = "";
         String t = "";
-        Utility l= new Utility();
-        l.directoryCreator("res/Grams");
+        //Create underDirectory
+        l.directoryCreator(path+"/Dictionary");
+
         switch (n){
             case 1:
-                file = "res/Grams/UnigramsList.txt";
+                file = path+"/Dictionary/"+"UnigramsList.txt";
                 t = "uni";
                 break;
             case 2:
-                file = "res/Grams/BigramsList.txt";
+                file = path+"/Dictionary/"+"BigramsList.txt";
                 t = "bi";
                 break;
         }

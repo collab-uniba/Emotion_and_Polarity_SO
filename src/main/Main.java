@@ -28,11 +28,12 @@ If you want to create the file for calculate the politeness those are the params
      delimiter : ";" or ","
 
 Else you have to give those params :
- inputCorpus.csv textsPoliteAndImpolite.csv textsMoodAndModality.csv delimiter -O/-S -J/-A/-L/-S/-Sp/-F -G
- specifing :
- delimiter : ";" or "," -O : indicates we are working on Ortu group 3 -S : indicates we are working on Stack Overflow Dataset -J,-S,-A,-L: indicates if you are yorking on a specific dataset emotion , J= joy, A = anger , S= sadness, L = love, Sp= surprise , -F = fear inputCorpus.csv : in UTF-8 WITHOUT BOM , use notepad ++ , go in format and chose it. -G: Extract bigrams and unigrams if present.
+*  `file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
+* `delimiter`: the delimiter `;` or `,` used in the csv file
+* `-G`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./<file.csv>/dictionary/unigrams.txt` and `./dictionary/<file.csv>/bigrams.txt`)
+* `-e emotion`: the specific emotion for training the model, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 
-To create textsPoliteAndImpolite.csv you have to run this jar with "inputCorpus.csv -P" to generate the file,alias docs.py, given as input from CalculatePoliteness.model.py To create textsMoodAndModality.csv you have to run this jar with "inputCorpus.csv -P" to generate the file,alias docs.py,given as input from CalculateMoodAndModality.moodAndModality.py
+ To create textsPoliteAndImpolite.csv you have to run this jar with "inputCorpus.csv -P" to generate the file,alias docs.py, given as input from CalculatePoliteness.model.py To create textsMoodAndModality.csv you have to run this jar with "inputCorpus.csv -P" to generate the file,alias docs.py,given as input from CalculateMoodAndModality.moodAndModality.py
 
 To give docs.py in input to those python files you have to put those files into same directory where the python (model.py or moodAndModality.py) are.
  */
@@ -48,15 +49,21 @@ public class Main {
         ReadingFile rdf = new ReadingFile();
 
 
-        if (args.length == 3 || args.length == 5 || args.length == 6 || args.length == 7) {
+        if (args.length == 3 || args.length == 5 || args.length == 6 ) {
+            System.out.println("Creating output directory..");
+            String[] ss = args[0].split("/");
+            String emotionName= ss[ss.length-1].replaceAll(".csv","");
+            String path="Output_"+emotionName;
+            u.directoryCreator(path);
+
+            String p5 = null;
             String p6 = null;
-            String p7 = null;
-            if (args.length == 6) {
-                p6 = args[5];
+            if (args.length == 5) {
+                p5 = args[4];
             }
-            if (args.length == 7) {
+            if (args.length == 6) {
+                p5 = args[4];
                 p6 = args[5];
-                p7 = args[6];
             }
 
             //PRE-PROCESSING, tokenizing, urlRemoving
@@ -92,16 +99,21 @@ public class Main {
                 pr.print("res/docsWithoutURLUsMentSpCharTknz.txt", docsWithotSpCUrlUsMtTknz);
 
                 if (!args[1].equals("-P")) {
+
+
                     SortedMap<String, String> unigrams = null;
                     SortedMap<String, String> bigrams = null;
                     //extracting bigram or unigram lists
-                    if ((p6 != null && p6.equals("-G")) || (p7 != null && p7.equals("-G"))) {
+                    if ((p5 != null && p5.equals("-G")) || (p6 != null && p6.equals("-G"))) {
+
+
+
                         System.out.println("Extracting unigrams..");
-                        unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz.txt"), 0, 1);
+                        unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz.txt"),path,0, 1);
                         System.out.println("Unigrams Extracted successfully!");
 
                         System.out.println("Extracting bigrams...");
-                        bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz.txt"), 0, 2);
+                        bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz.txt"),path, 0, 2);
                         System.out.println("Bigrams Extracted successfully!");
                     } else {
                         unigrams = gr.importNgrams("res/Grams/UnigramsList.txt");
@@ -132,10 +144,10 @@ public class Main {
 
 
                    // Ids ids_unigrams =
-                    cl.tf_idf(documents, unigrams, 1, "unigrams");
+                    cl.tf_idf(documents, unigrams, 1, "unigrams",path);
                     System.out.println("Tf-idf for unigrams , computed");
                    // Ids ids_bigrams =
-                    cl.tf_idf(documents, bigrams, 2, "bigrams");
+                    cl.tf_idf(documents, bigrams, 2, "bigrams",path);
                     System.out.println("Tf-idf for bigrams , computed");
 
 
@@ -156,14 +168,11 @@ public class Main {
 
                     replacer.replaceTermsWithMarks(documents, paths);
 
-                   // Ids ids_positives =
-                            cl.tf_idf(documents, u.createMap(pos), 1, "positives");
-                    // Ids ids_negatives =
-                             cl.tf_idf(documents, u.createMap(neg), 1, "negatives");
-                    //Ids ids_neutrals =
-                    cl.tf_idf(documents, u.createMap(neu), 1, "neutrals");
-                    //Ids ids_ambiguos =
-                            cl.tf_idf(documents, u.createMap(ambiguos), 1, "ambiguos");
+
+                    cl.tf_idf(documents, u.createMap(pos), 1, "positives",path);
+                    cl.tf_idf(documents, u.createMap(neg), 1, "negatives",path);
+                    cl.tf_idf(documents, u.createMap(neu), 1, "neutrals",path);
+                    cl.tf_idf(documents, u.createMap(ambiguos), 1, "ambiguos",path);
 
 
                     SentiStrengthSentiment st = new SentiStrengthSentiment();
@@ -189,76 +198,15 @@ public class Main {
 
 
                     System.out.println("Reading emotions...");
-                    //costruisco il path in cui si trovano le emozioni in base al dominio che può essere Stack Overflow o quello di Ortu
-                    String partial_path = "res/";
-                    if (args[4].equals("-S")) {
-                        partial_path += "StackOverflowCSV/";
-                    } else
-                        partial_path += "OrtuGroup3CSV/";
 
-                    List<String> joy = null;
-                    List<String> love = null;
-                    List<String> sadness = null;
-                    List<String> anger = null;
-                    List<String> surprise = null;
-                    List<String> fear = null;
-                    String specific = "All";
-                    if (p6 != null && !p6.equals("-G")) {
-                        switch (p6) {
-                            case "-J": {
-                                specific = "J";
-                                joy = rd.read_Column_CSV(partial_path + "joy.csv", "label", args[3].charAt(0));
-                                break;
-                            }
-                            case "-L": {
-                                specific = "L";
-                                love = rd.read_Column_CSV(partial_path + "love.csv", "label", args[3].charAt(0));
-                                break;
-                            }
-                            case "-S": {
-                                specific = "S";
-                                sadness = rd.read_Column_CSV(partial_path + "sadness.csv", "label", args[3].charAt(0));
-                                break;
-                            }
-                            case "-A": {
-                                specific = "A";
-                                anger = rd.read_Column_CSV(partial_path + "anger.csv", "label", args[3].charAt(0));
-                                break;
-                            }
-                            case "-Sp": {
-                                specific = "Sp";
-                                surprise = rd.read_Column_CSV(partial_path + "surprise.csv", "label", args[3].charAt(0));
-                                break;
-                            }
-                            case "-F": {
-                                specific = "F";
-                                fear = rd.read_Column_CSV(partial_path + "fear.csv", "label", args[3].charAt(0));
-                                break;
-                            }
-                            default: {
-                                joy = rd.read_Column_CSV(partial_path + "joy.csv", "label", args[3].charAt(0));
-                                love = rd.read_Column_CSV(partial_path + "love.csv", "label", args[3].charAt(0));
-                                sadness = rd.read_Column_CSV(partial_path + "sadness.csv", "label", args[3].charAt(0));
-                                anger = rd.read_Column_CSV(partial_path + "anger.csv", "label", args[3].charAt(0));
-                                if (args[4].equals("-S")) {
-                                    surprise = rd.read_Column_CSV(partial_path + "surprise.csv", "label", args[3].charAt(0));
-                                    fear = rd.read_Column_CSV(partial_path + "fear.csv", "label", args[3].charAt(0));
-                                }
-                            }
-                        }
-                    } else {
-                        joy = rd.read_Column_CSV(partial_path + "joy.csv", "label", args[3].charAt(0));
-                        love = rd.read_Column_CSV(partial_path + "love.csv", "label", args[3].charAt(0));
-                        sadness = rd.read_Column_CSV(partial_path + "sadness.csv", "label", args[3].charAt(0));
-                        anger = rd.read_Column_CSV(partial_path + "anger.csv", "label", args[3].charAt(0));
-                        //Se è per stack overflow allora ho 6 emozioni, altrimenti sono 4 per il dataset di ORtu gruppo
-                        if (args[4].equals("-S")) {
-                            surprise = rd.read_Column_CSV(partial_path + "surprise.csv", "label", args[3].charAt(0));
-                            fear = rd.read_Column_CSV(partial_path + "fear.csv", "label", args[3].charAt(0));
-                        }
-                    }
+                    //1 dataset per volta.
+                    List<String> emotion=null;
 
-                    System.out.println("Emotions readed...");
+
+                    emotion = rd.read_Column_CSV( args[0], "label", args[3].charAt(0));
+
+
+                    System.out.println("Emotion readed...");
 
                     //SETTO I TF_IDF
                     Document d = null;
@@ -273,123 +221,20 @@ public class Main {
                         pos_doc++;
                     }
 
-                    u.directoryCreator("outputEmotion");
+
+
                     WriterCSV writerCSV = new WriterCSV();
-
-                    switch (specific) {
-                        case "All": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(joy.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv", documents);
-
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(sadness.get(pos_doc));
-                                pos_doc++;
-                            }
-
-                            writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv", documents);
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(anger.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv", documents);
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(love.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputLove.csv", documents);
-
-
-                            if (args[4].equals("-S")) {
-                                pos_doc = 0;
-                                for (String id : documents.keySet()) {
-                                    d = documents.get(id);
-                                    d.setLabel(surprise.get(pos_doc));
-                                    pos_doc++;
-                                }
-                                writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv", documents);
-                                pos_doc = 0;
-                                for (String id : documents.keySet()) {
-                                    d = documents.get(id);
-                                    d.setLabel(fear.get(pos_doc));
-                                    pos_doc++;
-                                }
-                                writerCSV.writeCsvFile("outputEmotion/OutputFear.csv", documents);
-                            }
-                            break;
-                        }
-                        case "A": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(anger.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputAnger.csv", documents);
-                            break;
-                        }
-                        case "J": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(joy.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputJoy.csv", documents);
-                            break;
-                        }
-                        case "F": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(fear.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputFear.csv", documents);
-                            break;
-                        }
-                        case "Sp": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(surprise.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputSurprise.csv", documents);
-                            break;
-                        }
-                        case "L": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(love.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputLove.csv", documents);
-                            break;
-                        }
-                        case "S": {
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setLabel(sadness.get(pos_doc));
-                                pos_doc++;
-                            }
-                            writerCSV.writeCsvFile("outputEmotion/OutputSadness.csv", documents);
-                            break;
-                        }
+                    pos_doc = 0;
+                    for (String id : documents.keySet()) {
+                        d = documents.get(id);
+                        d.setLabel(emotion.get(pos_doc));
+                        pos_doc++;
                     }
-                } else {
+                    String nameOutput= path+"/features-"+emotionName+".csv";
+                    writerCSV.writeCsvFile(nameOutput, documents);
+
+                    }
+                 else {
                     //politeness
                     Politeness pt = new Politeness();
                     u.directoryCreator("docsFormattedForPoliteness");

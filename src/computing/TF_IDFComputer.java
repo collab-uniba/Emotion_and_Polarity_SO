@@ -22,7 +22,7 @@ public class TF_IDFComputer {
      * @return
      * @throws IOException
      */
-    public void tf_idf( Map<String, Document> documents,Map<String, String> grams,int n,String type) throws IOException {
+    public void tf_idf( Map<String, Document> documents,Map<String, String> grams,int n,String type,String path) throws IOException {
        // Ids ids= new Ids();
       /*  Set<String> ids_emo = new LinkedHashSet<>();
         Set<Integer> ids_grams= new TreeSet<>();*/
@@ -34,8 +34,8 @@ public class TF_IDFComputer {
         Utility l = new Utility();
         System.out.println("Printing idf for "+ type+"\n");
 
-        l.directoryCreator("res/IDF");
-        pr.printIDF(termsIDF, "res/IDF/IDF_" + type);
+        l.directoryCreator(path+"/InvertedDocumentFrequency");
+        pr.printIDF(termsIDF, path+"/InvertedDocumentFrequency/"+ type);
 
         System.out.println("Printed idf for "+ type+"\n");
         String text="";

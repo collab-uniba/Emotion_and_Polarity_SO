@@ -67,7 +67,7 @@ public class Grams{
      * @return Unigrams and its id. <Ngram , ID>
      * @throws IOException  file not found or reading problem
      * */
-    public SortedMap<String, String> getPositionWordMap(File f, int j, int n)  {
+    public SortedMap<String, String> getPositionWordMap(File f,String fileCsv,int j, int n)  {
         SortedMap<String, String> map = new TreeMap<>();
         BufferedReader br = null;
         PrintingFile pr = new PrintingFile();
@@ -91,7 +91,7 @@ public class Grams{
                                 map.put(string,String.valueOf(i));
                                 i++;
                             }}}}
-            pr.printNgrams(map, n);
+            pr.printNgrams(map, n,fileCsv);
             br.close();
         } catch (IOException e) {
             e.printStackTrace();

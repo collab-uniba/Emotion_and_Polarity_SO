@@ -70,7 +70,7 @@ public class WriterCSV {
 
     // Delimiter used in CSV file
     private static final String NEW_LINE_SEPARATOR = "\n";
-    private Utility u = new Utility();
+
     private List<DatasetRowTFIDF> list = new ArrayList<>();
     private List<String> l = new ArrayList<>();
     public void writeCsvFile(String outputName,Map<String, Document> documents)throws IOException {
@@ -120,6 +120,8 @@ public class WriterCSV {
                 label = d.getLabel();
 
                 List<String> tf_idf = new ArrayList<>();
+
+
 
                 //aggiungo la riga degli unigrammi
                 for(String s : unigramsTFIDF.keySet()){
