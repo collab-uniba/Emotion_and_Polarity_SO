@@ -55,6 +55,7 @@ public class Main {
             String emotionName= ss[ss.length-1].replaceAll(".csv","");
             String path="Output_"+emotionName;
             u.directoryCreator(path);
+            u.directoryCreator(path+"/ElaboratedFiles");
 
             String p5 = null;
             String p6 = null;
@@ -80,12 +81,12 @@ public class Main {
                     l = 3;
 
                 inputCorpus = rd.read_Column_CSV(args[0], "text", args[l].charAt(0));
-                pr.print("res/onlyText.txt", inputCorpus);
+                pr.print(path+"/ElaboratedFiles/onlyText.txt", inputCorpus);
 
 
                 TokenizeCorpus tk = new TokenizeCorpus();
-                tk.tokenizerByToken("res/onlyText.txt", "res/onlyText_TOKENIZED.txt");
-                List<String> inputCorpusTknz = rdf.read("res/onlyText_TOKENIZED.txt");
+                tk.tokenizerByToken(path+"/ElaboratedFiles/onlyText.txt", path+"/ElaboratedFiles/onlyText_TOKENIZED.txt");
+                List<String> inputCorpusTknz = rdf.read(path+"/ElaboratedFiles/onlyText_TOKENIZED.txt");
 
 
                 //Remove URL,usermention and special string
@@ -96,7 +97,7 @@ public class Main {
 
                 //Remove special String
                 List<String> docsWithotSpCUrlUsMtTknz = rem.escaping(docsWithoutURLUserMentionTknz);
-                pr.print("res/docsWithoutURLUsMentSpCharTknz.txt", docsWithotSpCUrlUsMtTknz);
+                pr.print(path+"/ElaboratedFiles/onlyText_PreProcessed.txt", docsWithotSpCUrlUsMtTknz);
 
                 if (!args[1].equals("-P")) {
 
@@ -105,20 +106,17 @@ public class Main {
                     SortedMap<String, String> bigrams = null;
                     //extracting bigram or unigram lists
                     if ((p5 != null && p5.equals("-G")) || (p6 != null && p6.equals("-G"))) {
-
-
-
                         System.out.println("Extracting unigrams..");
-                        unigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz.txt"),path,0, 1);
+                        unigrams = gr.getPositionWordMap(new File(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"),path,0, 1);
                         System.out.println("Unigrams Extracted successfully!");
 
                         System.out.println("Extracting bigrams...");
-                        bigrams = gr.getPositionWordMap(new File("res/docsWithoutURLUsMentSpCharTknz.txt"),path, 0, 2);
+                        bigrams = gr.getPositionWordMap(new File(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"),path, 0, 2);
                         System.out.println("Bigrams Extracted successfully!");
                     } else {
-                        unigrams = gr.importNgrams("res/Grams/UnigramsList.txt");
+                        unigrams = gr.importNgrams(path+"/Dictionary/UnigramsList.txt");
                         System.out.println("unigrams loaded");
-                        bigrams = gr.importNgrams("res/Grams/BigramsList.txt");
+                        bigrams = gr.importNgrams(path+"/Dictionary/BigramsList.txt");
                         System.out.println("bigrams loaded");
                     }
 
@@ -220,9 +218,6 @@ public class Main {
                         d.setImpoliteness(Double.valueOf(impoliteness.get(pos_doc)));
                         pos_doc++;
                     }
-
-
-
                     WriterCSV writerCSV = new WriterCSV();
                     pos_doc = 0;
                     for (String id : documents.keySet()) {
@@ -237,8 +232,7 @@ public class Main {
                  else {
                     //politeness
                     Politeness pt = new Politeness();
-                    u.directoryCreator("docsFormattedForPoliteness");
-                    pr.writeDocsValuesOnFile(pt.createFormatForInput("res/docsWithoutURLUsMentSpCharTknz"), "docsFormattedForPoliteness/docs.py");
+                    pr.writeDocsValuesOnFile(pt.createFormatForInput(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"), path+"/ElaboratedFiles/docs.py");
                 }
             } catch (CsvColumnNotFound csvColumnNotFound) {
                 System.err.println(csvColumnNotFound.getMessage());
