@@ -1,6 +1,7 @@
 package replacing;
 
 import model.Document;
+import printing.PrintingFile;
 import reading.ReadingCSV;
 import reading.ReadingFile;
 
@@ -16,9 +17,10 @@ public class ReplacerTextWithMarks {
      * @param pathsMarks
      * @return
      */
-    public Map<String,Document> replaceTermsWithMarks(Map<String, Document> docs, List<String> pathsMarks) throws IOException {
+    public Map<String,Document> replaceTermsWithMarks(Map<String, Document> docs, List<String> pathsMarks,String pathDir) throws IOException {
         ReadingCSV rd = new ReadingCSV();
-       // ReadingFile rf= new ReadingFile();
+        PrintingFile pr = new PrintingFile();
+        List<String> txt = new ArrayList<>();
 
         List<Map<String,List<String>>> allList = new ArrayList<>();
         //read all files , each of them is formed by : n list's name and n terms for each of them
@@ -48,7 +50,11 @@ public class ReplacerTextWithMarks {
                     }
                 }
                  docs.get(id).setTextReplaced(finalString);
+                finalString = id + "\t" + finalString;
+                 txt.add(finalString);
             }
+
+            pr.print(pathDir+"/ElaboratedFiles/TextsReplacedWithWordnetCategories.txt",txt);
         }
         else
             System.err.println("key not found!");

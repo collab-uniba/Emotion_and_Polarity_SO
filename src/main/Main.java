@@ -187,7 +187,7 @@ public class Main {
                     paths.add("Resources/WordnetCategories/positive_emotion.csv");
                     paths.add("Resources/WordnetCategories/negative_emotion.csv");
 
-                    replacer.replaceTermsWithMarks(documents, paths);
+                    replacer.replaceTermsWithMarks(documents, paths,path);
 
 
                     cl.tf_idf(documents, u.createMap(pos), 1, "positives",path);

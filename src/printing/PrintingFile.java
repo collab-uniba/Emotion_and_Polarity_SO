@@ -67,7 +67,7 @@ public class PrintingFile {
 
 
 
-
+/*This create the format for the python files , for calculating politeness , impoliteness , mood and modality*/
     public void writeDocsValuesOnFile(List<DocumentForPoliteness> docs, String pathOut){
         String header = "# -*- coding: utf-8 -*- \nTEST_DOCUMENTS = [ \n  # Polite requests \n";
         int totDocs=0;
