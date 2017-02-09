@@ -16,6 +16,7 @@ print_help() {
 		exit 1
 }
 
+
 # redefine an echo function depending on verbose switch 
 print() {
 	local level=$1
