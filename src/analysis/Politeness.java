@@ -16,7 +16,6 @@ import java.util.*;
 public class Politeness {
 
 
-
     private final Properties props = new Properties();
     private  StanfordCoreNLP pipeline = null;
     private final  DependencyParser dp = DependencyParser.loadFromModelFile(DependencyParser.DEFAULT_MODEL);
