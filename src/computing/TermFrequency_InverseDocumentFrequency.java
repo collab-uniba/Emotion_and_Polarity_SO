@@ -5,16 +5,19 @@ import printing.PrintingFile;
 import utility.Utility;
 
 import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.util.*;
 
 /**
  * Created by Francesco on 30/12/2016.
  */
-public class TF_IDFComputer {
-    private Grams gr= new Grams();
-    private Map<String, Double> wordTF=new LinkedHashMap<>();
+public class TermFrequency_InverseDocumentFrequency {
+    private Grams gr = new Grams();
+    private Map<String, Double> wordTF = new LinkedHashMap<>();
     private Map<String, Double> termsIDF = new LinkedHashMap<>();
-
+    private Utility l = new Utility();
+    private PrintingFile pr = new PrintingFile();
+    private String path="";
     /**
      * Calculate tf_idf
      * @param grams eg : unigrams -> !! uni1 , or bigrams -> zoom_out?	bi76368 ecc..
@@ -22,92 +25,59 @@ public class TF_IDFComputer {
      * @return
      * @throws IOException
      */
-    public void tf_idf( Map<String, Document> documents,Map<String, String> grams,int n,String type,String path) throws IOException {
-       // Ids ids= new Ids();
-      /*  Set<String> ids_emo = new LinkedHashSet<>();
-        Set<Integer> ids_grams= new TreeSet<>();*/
-        System.out.println("Computing idf for :  "+ type+"\n");
-        invertedDocumentFrequency(documents, grams.keySet(),n,type);
-        System.out.println("IDF Computed for the type : "+ type+"\n");
-        PrintingFile pr = new PrintingFile();
-        Set<String> k = grams.keySet();
-        Utility l = new Utility();
-        System.out.println("Printing idf for "+ type+"\n");
+    public void tf_idf(Map<String, Document> documents, Map<String, String> grams, int n, String type, String path) throws InterruptedException {
 
-        l.directoryCreator(path+"/InvertedDocumentFrequency");
-        pr.printIDF(termsIDF, path+"/InvertedDocumentFrequency/"+ type);
+        this.path=path;
+        invertedDocumentFrequency(documents, grams.keySet(), n, type);
 
-        System.out.println("Printed idf for "+ type+"\n");
-        String text="";
-        System.out.println("Type: "+ type + "\n");
+        String text = "";
+
         for (String id : documents.keySet()) {
-            System.out.println("Doc  "+ id+ "\n");
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            text=getText(documents,id,type);
+            System.out.println("Computing tf_idf for the doc " + id + "\n");
+            Thread.sleep(5);
 
-
+            //recover the text
+            text = getText(documents, id, type);
+            //calculate TF
             termFrequency(text, n);
 
             LinkedHashMap<String, Double> gramsAndTFIDF = new LinkedHashMap<>();
-            //prendo la lista di unigrammi adesso  e controllo se sta nel documento per ogni termine
+            //Check into the type list [unigrams, bigrams or wornet categories(pos, neg , ambiguos and neutrals)] if the document contains the term.
             for (String s : grams.keySet()) {
                 if (wordTF.get(s) != null) {
-                    //se è presente in questo documento allora
+                    //if the list's term is present in the document , recovers the IDF and put the tf*idf into the map
                     double idf = termsIDF.get(s);
-                    double tf_idf= wordTF.get(s) * idf;
+                    double tf_idf = wordTF.get(s) * idf;
                     gramsAndTFIDF.put(grams.get(s), tf_idf);
-                }
-                else{
+                } else {
                     gramsAndTFIDF.put(grams.get(s), 0.0);
                 }
             }
-            //aggiunta al documento
+            //adding the map (term, tf-idf) to the document
             Document d = documents.get(id);
             switch (type) {
                 case "unigrams": {
                     d.setUnigramTFIDF(gramsAndTFIDF);
-                  //  ids.setIds_grams(ids_grams);
                 }
                 case "bigrams": {
                     d.setBigramTFIDF(gramsAndTFIDF);
-                   // ids.setIds_grams(ids_grams);
                 }
                 case "positives": {
                     d.setPositiveTFIDF(gramsAndTFIDF);
-                    //  ids.setIds_emo(ids_emo);
                 }
                 case "negatives": {
                     d.setNegativeTFIDF(gramsAndTFIDF);
-                    //  ids.setIds_emo(ids_emo);
                 }
                 case "neutrals": {
                     d.setNeutralTFIDF(gramsAndTFIDF);
-                    //  ids.setIds_emo(ids_emo);
                 }
-                case "ambiguos":{
+                case "ambiguos": {
                     d.setAmbiguosTFIDF(gramsAndTFIDF);
-                    //   ids.setIds_emo(ids_emo);
                 }
             }
         }
-
-        //stampa
-     /*   int i=1;
-        for (LinkedHashMap<String, Double> l : allTFIDF){
-            System.out.println("Documento: " + i +"\n" );
-            for(String s: l.keySet()){
-                if(l.get(s)>0.0)
-                  System.out.println("grams: " + s + "tf-idf "+ new DecimalFormat("#.##").format(l.get(s))+"\n");
-            }
-            i++;+
-
-    }*/
-
     }
+
 
 
 
@@ -119,6 +89,7 @@ public class TF_IDFComputer {
      */
    private Map<String,Double> termFrequency(String input, int n){
         double occurrences=0;
+        double tf=0;
         wordTF.clear();
         Collection<String> ss = gr.getNgrams(input, n);
         double numTermsInDoc = ss.size();
@@ -127,15 +98,20 @@ public class TF_IDFComputer {
             if (wordTF.keySet().contains(string)) {
                 occurrences = wordTF.get(string);
                 occurrences++;
-                double tf= occurrences/numTermsInDoc;
-                wordTF.put(string, tf);
+                wordTF.put(string, occurrences);
             } else {
-                double tf= 1.0/numTermsInDoc;
-                wordTF.put(string,tf);
+                wordTF.put(string,1.0);
             }
+        }
+        //Change the occourrences in tf.
+        for(String k: wordTF.keySet()){
+           occurrences=  wordTF.get(k);
+           tf = occurrences/numTermsInDoc;
+           wordTF.put(k, tf);
         }
         return wordTF;
     }
+
 
     /**
      * idf is : log _ 2 (totdocs / docsContainingTheTerm)
@@ -144,7 +120,9 @@ public class TF_IDFComputer {
      * @param n  indicates if it is a unigrams, bigrams ecc..
      * @return map of term-idf
      */
-    private Map<String,Double> invertedDocumentFrequency(Map<String,Document> docs, Set<String> terms, int n,String type) {
+    private Map<String,Double> invertedDocumentFrequency(Map<String,Document> docs, Set<String> terms, int n,String type) throws InterruptedException {
+        System.out.println("Computing idf for :  " + type + "\n");
+        Thread.sleep(100);
         termsIDF.clear();
         double numDocs = docs.size();
         double totdocsContainingTerm = 0;
@@ -152,19 +130,15 @@ public class TF_IDFComputer {
         int i=0;
         for (String t : terms){
             System.out.println("term num : "+ i+"\n");
-            try {
-                Thread.sleep(3);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            //cerco il termine in tutti i documenti
+            Thread.sleep(3);
+            //finding terms into all documents
             String text="";
             for (String id: docs.keySet()) {
 
                 text= getText(docs,id,type);
 
                 ss = gr.getNgrams(text, n);
-                //eliminato il match diretto inutilissimo
+
                 if (ss.contains(t)) {
                     totdocsContainingTerm++;
                 }
@@ -173,12 +147,28 @@ public class TF_IDFComputer {
             double idf=0.0;
             if(totdocsContainingTerm>0){
                 part = numDocs / totdocsContainingTerm;
-                idf= Math.round(Logarithm.logb(part, 2));
+                idf= Math.round(Logarithm.logb(part, 10));
             }
             termsIDF.put(t,idf);
             totdocsContainingTerm = 0;
             i++;
         }
+        System.out.println("Idf computer for " + type + "\n");
+        Thread.sleep(100);
+
+
+        //PRINTING
+
+        System.out.println("Printing idf for " + type + "\n");
+        Thread.sleep(100);
+
+        l.directoryCreator(path + "/InverseDocumentFrequency");
+        pr.printIDF(termsIDF, path + "/InverseDocumentFrequency/" + type + ".txt");
+
+        System.out.println("Printed idf for " + type + "\n");
+        Thread.sleep(100);
+
+
         return termsIDF;
     }
 

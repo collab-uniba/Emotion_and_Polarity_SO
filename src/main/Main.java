@@ -5,8 +5,7 @@ import exceptions.CsvColumnNotFound;
 import analysis.Politeness;
 import analysis.SentiStrengthSentiment;
 import computing.Grams;
-import computing.TF_IDFComputer;
-import exceptions.UnigramsAndBigramsNotFoundException;
+import computing.TermFrequency_InverseDocumentFrequency;
 import model.Document;
 import printing.PrintingFile;
 import printing.WriterCSV;
@@ -21,9 +20,9 @@ import java.io.*;
 import java.util.*;
 
 /*
--i res/StackOverflowCSV/angerBlt.csv -P res/textsPoliteAndImpolite.csv -M res/textsMoodAndModality.csv -d ; -e emotion
--i res/StackOverflowCSV/angerBlt.csv -P res/textsPoliteAndImpolite.csv -M res/textsMoodAndModality.csv -d ; -G -e emotion
--i res/StackOverflowCSV/angerBlt.csv -P -d ;
+-i res/StackOverflowCSV/anger.csv -P res/textsPoliteAndImpolite.csv -M res/textsMoodAndModality.csv -d ; -e emotion
+-i res/StackOverflowCSV/anger.csv -P res/textsPoliteAndImpolite.csv -M res/textsMoodAndModality.csv -d ; -G -e emotion
+-i res/StackOverflowCSV/anger.csv -P -d ;
  */
 
 public class Main {
@@ -97,7 +96,7 @@ public class Main {
                 }
             }
 
-            System.out.println("Creating output directory..");
+
             String[] ss = input.split("/");
             String fileCsv= ss[ss.length-1].replaceAll(".csv","");
             String path="Output_"+fileCsv;
@@ -130,8 +129,8 @@ public class Main {
                 List<String> docsWithoutURLUserMentionTknz = rem.removeUserMention(docsWithoutURLtknz);
 
                 //Remove special String
-                List<String> docsWithotSpCUrlUsMtTknz = rem.escaping(docsWithoutURLUserMentionTknz);
-                pr.print(path+"/ElaboratedFiles/onlyText_PreProcessed.txt", docsWithotSpCUrlUsMtTknz);
+                List<String> docsPrePreProcessed = rem.escaping(docsWithoutURLUserMentionTknz);
+                pr.print(path+"/ElaboratedFiles/onlyText_PreProcessed.txt", docsPrePreProcessed);
 
                 if (!createFormatForPoliteness) {
 
@@ -139,26 +138,13 @@ public class Main {
                     SortedMap<String, String> bigrams = null;
                     //extracting bigram or unigram lists
                     if (extractDictionary) {
-                        System.out.println("Extracting unigrams..");
                         unigrams = gr.getPositionWordMap(new File(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"),path,0, 1);
-                        System.out.println("Unigrams Extracted successfully!");
-
-                        System.out.println("Extracting bigrams...");
                         bigrams = gr.getPositionWordMap(new File(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"),path, 0, 2);
-                        System.out.println("Bigrams Extracted successfully!");
                     } else {
-                        if(u.directoryExists(path+"/Dictionary")) {
-                            unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList.txt");
-                            System.out.println("unigrams loaded");
-                            bigrams = gr.importNgrams(path + "/Dictionary/BigramsList.txt");
-                            System.out.println("bigrams loaded");
-                        }
-                        else {
-                            throw new UnigramsAndBigramsNotFoundException("Unigrams and bigrams not found");
-                        }
+                        unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList.txt", 1);
+                        bigrams = gr.importNgrams(path + "/Dictionary/BigramsList.txt", 2);
                     }
 
-                    System.out.println("\n");
 
                     //Creo il map con indice del documento
                     Map<String, Document> documents = new LinkedHashMap<>();
@@ -166,23 +152,22 @@ public class Main {
                     int pos_doc = 0;
                     for (String i : ids) {
                         Document d = new Document();
-                        d.setText(docsWithotSpCUrlUsMtTknz.get(pos_doc));
+                        d.setText(docsPrePreProcessed.get(pos_doc));
                         d.setId(i);
                         documents.put(i, d);
                         pos_doc++;
                     }
-                    System.out.println(documents.size());
-                    //FINE PREPROCESSING
+                    //END PREPROCESSING
 
 
                     //*****tf-idf****/
-                    TF_IDFComputer cl = new TF_IDFComputer();
+                    TermFrequency_InverseDocumentFrequency cl = new TermFrequency_InverseDocumentFrequency();
 
 
-                   // Ids ids_unigrams =
                     cl.tf_idf(documents, unigrams, 1, "unigrams",path);
                     System.out.println("Tf-idf for unigrams , computed");
-                   // Ids ids_bigrams =
+
+
                     cl.tf_idf(documents, bigrams, 2, "bigrams",path);
                     System.out.println("Tf-idf for bigrams , computed");
 
@@ -277,12 +262,11 @@ public class Main {
                     Politeness pt = new Politeness();
                     pr.writeDocsValuesOnFile(pt.createFormatForInput(path+"/ElaboratedFiles/onlyText_PreProcessed.txt"), path+"/ElaboratedFiles/docs.py");
                 }
-            } catch (CsvColumnNotFound | UnigramsAndBigramsNotFoundException e) {
+            } catch (CsvColumnNotFound | FileNotFoundException | InterruptedException e) {
                 System.err.println(e.getMessage());
             }
         } else
             System.err.println("Wrong params!!  You have to read the Readme file for check what are the parameters needed.");
-
     }
 }
 

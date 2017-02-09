@@ -33,27 +33,25 @@ public class Grams{
      *  Return the map of goldstandard's ngrams with an incremental integer converted in string.
      *
 	 */
-    public SortedMap<String, String> importNgrams(String path)
-            throws IOException {
+    public SortedMap<String, String> importNgrams(String path,int n) throws FileNotFoundException{
         SortedMap<String, String> map = new TreeMap<>();
         File file= new File(path);
         String gram;
         String row;
-        StringBuilder result = new StringBuilder("");
         int i = 0;
-        try (Scanner scanner = new Scanner(file)) {
-            while (scanner.hasNextLine()) {
-                row = scanner.nextLine();
-                gram = row.split("\\s+")[0];
-                map.put(gram, String.valueOf(i));
-                i++;
-            }
+        Scanner scanner = new Scanner(file);
+        if (n == 1)
+            System.out.println("Loading unigrams..");
+        else
+            System.out.println("Loading bigrams..");
 
-            scanner.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        while (scanner.hasNextLine()) {
+            row = scanner.nextLine();
+            gram = row.split("\\s+")[0];
+            map.put(gram, String.valueOf(i));
+            i++;
         }
+        scanner.close();
         return map;
     }
 
@@ -72,7 +70,12 @@ public class Grams{
         BufferedReader br = null;
         PrintingFile pr = new PrintingFile();
         Removing rm= new Removing();
+
         try {
+            if (n==1)
+              System.out.println("Extracting unigrams..");
+            else
+                System.out.println("Extracting bigrams..");
             br = new BufferedReader(new FileReader(f));
             String line;
             String row;
@@ -101,7 +104,7 @@ public class Grams{
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("File not found or reading problem");
+            System.err.println("File: "+ f.getAbsolutePath());
         }
         return map;
     }
