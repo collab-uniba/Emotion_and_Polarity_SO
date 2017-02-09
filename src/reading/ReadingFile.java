@@ -7,8 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import replacing.Removing;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Francesco on 29/12/2016.
@@ -31,6 +30,22 @@ public class ReadingFile {
             br.close();
         }
         return l;
+    }
+
+    public Map<String,Double> readIDF(String type , String path) throws FileNotFoundException{
+        path = path + type+".txt";
+        Map<String, Double> map = new LinkedHashMap<>();
+        File file= new File(path);
+        String row;
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNextLine()) {
+            row = scanner.nextLine();
+            String[] ss=  row.split("\\s+");
+            map.put(ss[0], Double.valueOf(ss[1]));
+        }
+        scanner.close();
+        return map;
     }
 
 

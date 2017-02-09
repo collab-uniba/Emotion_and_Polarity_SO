@@ -2,8 +2,10 @@ package computing;
 
 import model.Document;
 import printing.PrintingFile;
+import reading.ReadingFile;
 import utility.Utility;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.*;
@@ -16,6 +18,7 @@ public class TermFrequency_InverseDocumentFrequency {
     private Map<String, Double> wordTF = new LinkedHashMap<>();
     private Map<String, Double> termsIDF = new LinkedHashMap<>();
     private Utility l = new Utility();
+    private ReadingFile rd = new ReadingFile();
     private PrintingFile pr = new PrintingFile();
     private String path="";
     /**
@@ -25,10 +28,15 @@ public class TermFrequency_InverseDocumentFrequency {
      * @return
      * @throws IOException
      */
-    public void tf_idf(Map<String, Document> documents, Map<String, String> grams, int n, String type, String path) throws InterruptedException {
+    public void tf_idf(Map<String, Document> documents, Map<String, String> grams, int n, String gramsType, String path,String taskType) throws InterruptedException, FileNotFoundException{
 
         this.path=path;
-        invertedDocumentFrequency(documents, grams.keySet(), n, type);
+
+        if(taskType.equals("classification")){
+            termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
+        }
+        else if(taskType.equals("training"))
+             invertedDocumentFrequency(documents, grams.keySet(), n, gramsType);
 
         String text = "";
 
@@ -37,7 +45,7 @@ public class TermFrequency_InverseDocumentFrequency {
             Thread.sleep(5);
 
             //recover the text
-            text = getText(documents, id, type);
+            text = getText(documents, id, gramsType);
             //calculate TF
             termFrequency(text, n);
 
@@ -55,7 +63,7 @@ public class TermFrequency_InverseDocumentFrequency {
             }
             //adding the map (term, tf-idf) to the document
             Document d = documents.get(id);
-            switch (type) {
+            switch (gramsType) {
                 case "unigrams": {
                     d.setUnigramTFIDF(gramsAndTFIDF);
                 }
@@ -179,6 +187,7 @@ public class TermFrequency_InverseDocumentFrequency {
         else
            return docs.get(id).getTextReplaced();
     }
+
 
 
 }
