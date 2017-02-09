@@ -4,3 +4,5 @@ Emotion_And_Polarity_SO.iml
 src/META-INF
 /lib/stanford-corenlp-models-current.jar
 lib/
+src/replacing/POSTagger.java
+src/replacing/RemoveNotEnglishWords.java

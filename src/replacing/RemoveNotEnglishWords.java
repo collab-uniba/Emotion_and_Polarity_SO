@@ -1,9 +1,6 @@
 package replacing;
 
-import edu.mit.jwi.Dictionary;
-import edu.mit.jwi.IDictionary;
-import edu.mit.jwi.data.IDataSource;
-import edu.mit.jwi.item.*;
+
 import printing.PrintingFile;
 import reading.ReadingCSV;
 import reading.ReadingFile;
@@ -13,7 +10,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
-import edu.mit.jwi.morph.WordnetStemmer;
+
 
 /**
  * Created by Francesco on 02/01/2017.
@@ -44,8 +41,8 @@ public class RemoveNotEnglishWords {
         try{
             url = new URL("file", null, path);
             // construct the dictionary object and open it
-            IDictionary dict = new Dictionary(url);
-            dict.open();
+            //IDictionary dict = new Dictionary(url);
+            //dict.open();
 
             positiveEmoticon= rd.read(posEmoticon);
             negativeEmoticon= rd.read(negEmoticon);
@@ -57,11 +54,11 @@ public class RemoveNotEnglishWords {
                 String[] textTerms = doc.split("\\s+");
                 String finalString = "";
                 for (String term : textTerms) {
-                    if (existInWordnet(dict, term) || isInPositiveNegativeList(positiveEmoticon,negativeEmoticon,term))
+                  /*  if (existInWordnet(dict, term) || isInPositiveNegativeList(positiveEmoticon,negativeEmoticon,term))
                         finalString = finalString + " " + term;
                     else{
                         wordsRejectedOrdering.add(term);
-                    }
+                    }*/
                 }
                 //I documenti vuoti li elimino, non li metto
                 if (!finalString.isEmpty())
@@ -84,7 +81,7 @@ public class RemoveNotEnglishWords {
      * @param term term taken in exam
      * @return true if the term exists else false
      */
-    private boolean existInWordnet(IDictionary dict,String term){
+  /*  private boolean existInWordnet(IDictionary dict,String term){
         try{
             WordnetStemmer wd = new WordnetStemmer(dict);
             for (POS pos : POS.values()) {
@@ -116,7 +113,7 @@ public class RemoveNotEnglishWords {
         }
         return false;
     }
-
+*/
 
     private boolean isInPositiveNegativeList(List<String> positiveEmoticon, List<String> negativeEmoticon,String term){
             return (positiveEmoticon.contains(term) || negativeEmoticon.contains(term));
