@@ -125,7 +125,7 @@ public class PrintingFile {
     public void printIDF(Map<String,Double> idfs,String pathOut){
         List<String> idf= new ArrayList<>();
         for(String k : idfs.keySet()){
-            String finale = k + " " + idfs.get(k)+ "\n";
+            String finale = k + " " + idfs.get(k);
             idf.add(finale);
         }
         print(pathOut,idf);

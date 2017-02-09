@@ -147,7 +147,7 @@ public class TermFrequency_InverseDocumentFrequency {
             double idf=0.0;
             if(totdocsContainingTerm>0){
                 part = numDocs / totdocsContainingTerm;
-                idf= Math.round(Logarithm.logb(part, 10));
+                idf= Logarithm.logb(part, 10);
             }
             termsIDF.put(t,idf);
             totdocsContainingTerm = 0;

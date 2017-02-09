@@ -249,12 +249,8 @@ public class Main {
                         pos_doc++;
                     }
 
-
                     String nameOutput= path+"/features-"+emotionIndicate+".csv";
                     writerCSV.writeCsvFile(nameOutput, documents);
-
-
-
 
                     }
                  else {

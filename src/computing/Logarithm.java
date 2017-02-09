@@ -7,7 +7,7 @@ public class Logarithm {
 
         public static double logb( double a, double b )
         {
-            return  Math.round(Math.log(a) / Math.log(b));
+            return Math.log(a) / Math.log(b);
         }
 
         public static double log2( double a )
