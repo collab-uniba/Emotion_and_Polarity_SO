@@ -37,15 +37,15 @@ public class Grams{
             throws IOException {
         SortedMap<String, String> map = new TreeMap<>();
         File file= new File(path);
-        String line;
+        String gram;
         String row;
         StringBuilder result = new StringBuilder("");
         int i = 0;
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 row = scanner.nextLine();
-                line = row.split("\\s+")[0];
-                map.put(line, String.valueOf(i));
+                gram = row.split("\\s+")[0];
+                map.put(gram, String.valueOf(i));
                 i++;
             }
 
@@ -91,6 +91,12 @@ public class Grams{
                                 map.put(string,String.valueOf(i));
                                 i++;
                             }}}}
+            //reset id after the map has order by keys
+            i=0;
+            for(String s: map.keySet()){
+                map.put(s,String.valueOf(i));
+                i++;
+            }
             pr.printNgrams(map, n,fileCsv);
             br.close();
         } catch (IOException e) {

@@ -248,8 +248,9 @@ public class WriterCSV {
 
     /**this method populate header for tf-idf for unigrams and bigrams*/
     private void populateHeader(Set<String> headers,List<String> headerCsv,String pre_id) {
-        for(String h:headers)
-            headerCsv.add(pre_id+h);
+        for(String h:headers) {
+            headerCsv.add(pre_id + h);
+        }
     }
 
     /**

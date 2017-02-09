@@ -157,7 +157,7 @@ public class PrintingFile {
         FileWriter fw = null;
         try {
             fw = new FileWriter(new File(file));
-            int i = 1;
+            int i = 0;
             for (String s: map.keySet()) {
                 fw.append(s + "\t" + t + i);
                 fw.append(System.lineSeparator());
