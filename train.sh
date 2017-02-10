@@ -3,16 +3,15 @@
 #Set Script Name variable
 SCRIPT="train.sh"
 
-# print help instructions, da rivedere, questi sono da buttare , sono solo esemplari
 print_help() {
 		printf "\nHelp documentation for ${BOLD}$SCRIPT ${NC}\n\n"
 		printf "The following command line options are recognized:\n"
-		printf "\t ${BOLD}-i ${NC}\t -- the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).\n"
-		printf "\t ${BOLD}-d ${NC}\t -- the delimiter semicolon or  comma used in the csv file\n"
-		printf "\t ${BOLD}-g ${NC}\t\t -- extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./<file.csv>/dictionary/unigrams.txt` and `./dictionary/<file.csv>/bigrams.txt`)\n"
-		printf "\t ${BOLD}-e ${NC}\t\t -- the specific emotion for training the model, defined in `joy`, `anger`, `sadness`, `love`, `surprise`, `fear`.\n"
-		printf "\t ${BOLD}-h ${NC}\t\t -- Displays this help message. No further functions are performed.\n\n"
-		printf "Example: ${BOLD} bash $SCRIPT -i input.csv -e anger -d semicolon -g ${NC}\n\n"
+		printf " ${BOLD}-i ${NC}\t -- the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).\n"
+		printf " ${BOLD}-d ${NC}\t -- the delimiter semicolon or  comma used in the csv file.\n"
+		printf " ${BOLD}-g ${NC}\t-- extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_filename/dictionary/UnigramsList.txt` and `./training_filename/dictionary/BigramsList.txt`).\n"
+		printf " ${BOLD}-e ${NC}\t -- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
+		printf " ${BOLD}-h ${NC}\t -- Displays this help message. No further functions are performed.\n\n"
+		printf "Example: ${BOLD} bash $SCRIPT -i path/file.csv -e anger -d semicolon -g ${NC}\n\n"
 		exit 1
 }
 
