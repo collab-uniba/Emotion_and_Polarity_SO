@@ -16,7 +16,6 @@ print_help() {
 		exit 1
 }
 
-
 # redefine an echo function depending on verbose switch 
 print() {
 	local level=$1
@@ -108,9 +107,9 @@ fi;
 
 #Creating the format to give at python files.
 if [ "$DELIMITER" = 'semicolon' ] ; then 
-	java -jar Emotion_And_Polarity_SO.jar -i $INPUT -P -d ';' 
+	java  -jar -Xmx30000m Emotion_And_Polarity_SO.jar  -i $INPUT -P -d ';' 
 	 elif [ "$DELIMITER"='comma' ] ; then 
-	java -jar Emotion_And_Polarity_SO.jar -i $INPUT -P -d ',' 
+	java  -jar -Xmx30000m Emotion_And_Polarity_SO.jar -i $INPUT -P -d ',' 
 fi;
 
 #taking only the file.csv name, deleting path and the extension
@@ -146,9 +145,9 @@ rm  CalculateMoodModality/textsMoodAndModality.csv
 echo $EXTRACTDICTIONARY
 #Creating the format to give at python files.
 if [ "$DELIMITER" = 'semicolon' ] ; then 
-	java -jar Emotion_And_Polarity_SO.jar -i $INPUT -P Output_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M Output_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY -e $EMOTION
+	java -jar -Xmx30000m Emotion_And_Polarity_SO.jar  -i $INPUT -P Output_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M Output_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY -e $EMOTION
 	 elif [ "$DELIMITER"='comma' ] ; then 
-	java -jar Emotion_And_Polarity_SO.jar -i $INPUT -P Output_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M Output_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -e $EMOTION
+	java -jar -Xmx30000m Emotion_And_Polarity_SO.jar  -i $INPUT -P Output_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M Output_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -e $EMOTION
 fi;
 
 #run the R script without downSamping (save the model) , and with downsampling(save the model)
