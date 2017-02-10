@@ -37,12 +37,13 @@ public class Main {
 
         int numArgs= args.length;
 
-        if (numArgs == 7 || numArgs == 12 || numArgs== 13 || numArgs== 14 ) {
+        if (numArgs == 7 || numArgs == 14 || numArgs== 15 || numArgs== 16 ) {
             //Take the args values
             String Tasktype= "";
             String emotionIndicate="";
             String input="";
             String politeFile="";
+            String executionMode="";
             boolean createFormatForPoliteness=false;
             String moodFile="";
             Character delimiter=' ';
@@ -111,10 +112,14 @@ public class Main {
                             hasLabel=true;
                             break;
                         }
+                        case "-Ex":{
+                            executionMode= args[i+1];
+                        }
                     }
                 }
             }
 
+            //Create the output folder
                 String[] ss = input.split("/");
                 String fileCsv = ss[ss.length - 1].replaceAll(".csv", "");
                 String path=Tasktype+"_"+ fileCsv;
@@ -122,13 +127,10 @@ public class Main {
                 u.directoryCreator(path + "/ElaboratedFiles");
 
 
-                //PRE-PROCESSING, tokenizing, urlRemoving
-                //Tokenizzatore
-
-
                 List<String> inputCorpus = null;
                 try {
-
+                    //PRE-PROCESSING, tokenizing, urlRemoving
+                    //Tokenizzatore
                     inputCorpus = rd.read_Column_CSV(input, "text", delimiter);
                     pr.print(path + "/ElaboratedFiles/onlyText.txt", inputCorpus);
 
@@ -150,7 +152,9 @@ public class Main {
 
 
                     if (!createFormatForPoliteness) {
+
                         if(Tasktype.equals("classification") || Tasktype.equals("training")) {
+
                             SortedMap<String, String> unigrams = null;
                             SortedMap<String, String> bigrams = null;
                             //extracting bigram or unigram lists
@@ -175,89 +179,111 @@ public class Main {
                             }
                             //END PREPROCESSING
 
+                            //First csv file
                             //*****tf-idf****/
                             TermFrequency_InverseDocumentFrequency cl = new TermFrequency_InverseDocumentFrequency();
+                            if(executionMode.equals("SenPolImpolMoodModality")) {
+                                SentiStrengthSentiment st = new SentiStrengthSentiment();
+                                st.SentiStrengthgetScoreForAllDocs(documents, 0);
+                                System.out.println("Reading positive score..");
+                                st.SentiStrengthgetScoreForAllDocs(documents, 1);
+                                System.out.println("Reading negative score...");
+
+                                System.out.println("Reading politeness and impoliteness..");
+                                List<String> politeness = rd.read_Column_CSV(politeFile, "polite", ',');
+                                List<String> impoliteness = rd.read_Column_CSV(politeFile, "impolite", ',');
+
+                                System.out.println("Reading modality..");
+                                List<String> min_modality = rd.read_Column_CSV(moodFile, "min_modality", ',');
+                                List<String> max_modality = rd.read_Column_CSV(moodFile, "max_modality", ',');
+
+                                System.out.println("Reading moods..");
+
+                                List<String> indicatives = rd.read_Column_CSV(moodFile, "indicative", ',');
+                                List<String> conditional = rd.read_Column_CSV(moodFile, "conditional", ',');
+                                List<String> subjunctive = rd.read_Column_CSV(moodFile, "subjunctive", ',');
+                                List<String> imperative = rd.read_Column_CSV(moodFile, "imperative", ',');
 
 
-                            cl.tf_idf(documents, unigrams, 1, "unigrams", path, Tasktype);
-                            cl.tf_idf(documents, bigrams, 2, "bigrams", path, Tasktype);
+                                Document d = null;
+                                pos_doc = 0;
+                                for (String id : documents.keySet()) {
+                                    d = documents.get(id);
+                                    d.setMood(new Document.Mood(conditional.get(pos_doc), imperative.get(pos_doc), subjunctive.get(pos_doc), indicatives.get(pos_doc)));
+                                    d.setMin_modality(Double.valueOf(min_modality.get(pos_doc)));
+                                    d.setMax_modality(Double.valueOf(max_modality.get(pos_doc)));
+                                    d.setPoliteness(Double.valueOf(politeness.get(pos_doc)));
+                                    d.setImpoliteness(Double.valueOf(impoliteness.get(pos_doc)));
+                                    pos_doc++;
+                                }
 
+                                WriterCSV writerCSV = new WriterCSV();
 
-                            ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
-
-
-                            Map<String, List<String>> pos = rd.read_AllColumn_CSV("Resources/WordnetCategories/positive_emotion.csv", ';');
-                            Map<String, List<String>> neg = rd.read_AllColumn_CSV("Resources/WordnetCategories/negative_emotion.csv", ';');
-                            Map<String, List<String>> neu = rd.read_AllColumn_CSV("Resources/WordnetCategories/neutral_emotion.csv", ';');
-                            Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("Resources/WordnetCategories/ambiguos-emotion.csv", ';');
-
-
-                            List<String> paths = new ArrayList<>();
-                            paths.add("Resources/WordnetCategories/neutral_emotion.csv");
-                            paths.add("Resources/WordnetCategories/ambiguos-emotion.csv");
-                            paths.add("Resources/WordnetCategories/positive_emotion.csv");
-                            paths.add("Resources/WordnetCategories/negative_emotion.csv");
-
-                            replacer.replaceTermsWithMarks(documents, paths, path);
-
-
-                            cl.tf_idf(documents, u.createMap(pos), 1, "positives", path, Tasktype);
-                            cl.tf_idf(documents, u.createMap(neg), 1, "negatives", path, Tasktype);
-                            cl.tf_idf(documents, u.createMap(neu), 1, "neutrals", path, Tasktype);
-                            cl.tf_idf(documents, u.createMap(ambiguos), 1, "ambiguos", path, Tasktype);
-
-
-                            SentiStrengthSentiment st = new SentiStrengthSentiment();
-                            st.SentiStrengthgetScoreForAllDocs(documents, 0);
-                            System.out.println("Reading positive score..");
-                            st.SentiStrengthgetScoreForAllDocs(documents, 1);
-                            System.out.println("Reading negative score...");
-
-                            System.out.println("Reading politeness and impoliteness..");
-                            List<String> politeness = rd.read_Column_CSV(politeFile, "polite", ',');
-                            List<String> impoliteness = rd.read_Column_CSV(politeFile, "impolite", ',');
-
-                            System.out.println("Reading modality..");
-                            List<String> min_modality = rd.read_Column_CSV(moodFile, "min_modality", ',');
-                            List<String> max_modality = rd.read_Column_CSV(moodFile, "max_modality", ',');
-
-                            System.out.println("Reading moods..");
-
-                            List<String> indicatives = rd.read_Column_CSV(moodFile, "indicative", ',');
-                            List<String> conditional = rd.read_Column_CSV(moodFile, "conditional", ',');
-                            List<String> subjunctive = rd.read_Column_CSV(moodFile, "subjunctive", ',');
-                            List<String> imperative = rd.read_Column_CSV(moodFile, "imperative", ',');
-
-
-                            System.out.println("Reading emotions...");
-
-                            //1 dataset per volta.
-                            List<String> emotion = null;
-
-
-                            if(hasLabel){
-                                emotion = rd.read_Column_CSV(input, "label", delimiter);
-                                System.out.println("Emotion readed successfully!!");}
-
-                            //SETTO I TF_IDF
-                            Document d = null;
-                            pos_doc = 0;
-                            for (String id : documents.keySet()) {
-                                d = documents.get(id);
-                                d.setMood(new Document.Mood(conditional.get(pos_doc), imperative.get(pos_doc), subjunctive.get(pos_doc), indicatives.get(pos_doc)));
-                                d.setMin_modality(Double.valueOf(min_modality.get(pos_doc)));
-                                d.setMax_modality(Double.valueOf(max_modality.get(pos_doc)));
-                                d.setPoliteness(Double.valueOf(politeness.get(pos_doc)));
-                                d.setImpoliteness(Double.valueOf(impoliteness.get(pos_doc)));
-                                if(hasLabel)
-                                    d.setLabel(emotion.get(pos_doc));
-                                pos_doc++;
+                                String nameOutput = path + "/features-" + executionMode + ".csv";
+                                writerCSV.writeCsvFile(nameOutput, documents, hasLabel,executionMode);
                             }
-                            WriterCSV writerCSV = new WriterCSV();
+                            else if(executionMode.equals("unigrams")){
+                                //*****tf-idf*
+                                cl.tf_idf(documents, unigrams, 1, "unigrams", path, Tasktype);
 
-                            String nameOutput = path + "/features-" + emotionIndicate + ".csv";
-                            writerCSV.writeCsvFile(nameOutput, documents,hasLabel);
+                                WriterCSV writerCSV = new WriterCSV();
+                                String nameOutput = path + "/features-" + "unigrams" + ".csv";
+                                writerCSV.writeCsvFile(nameOutput, documents,hasLabel,executionMode);
                             }
+                            else if(executionMode.equals("bigrams")){
+                                cl.tf_idf(documents, bigrams, 2, "bigrams", path, Tasktype);
+
+                                WriterCSV writerCSV = new WriterCSV();
+                                String nameOutput = path + "/features-" + "bigrams" + ".csv";
+                                writerCSV.writeCsvFile(nameOutput, documents,hasLabel,executionMode);
+                            }
+                            else if(executionMode.equals("wordnet")){
+                                ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
+
+                                Map<String, List<String>> pos = rd.read_AllColumn_CSV("Resources/WordnetCategories/positive_emotion.csv", ';');
+                                Map<String, List<String>> neg = rd.read_AllColumn_CSV("Resources/WordnetCategories/negative_emotion.csv", ';');
+                                Map<String, List<String>> neu = rd.read_AllColumn_CSV("Resources/WordnetCategories/neutral_emotion.csv", ';');
+                                Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("Resources/WordnetCategories/ambiguos-emotion.csv", ';');
+
+                                List<String> paths = new ArrayList<>();
+                                paths.add("Resources/WordnetCategories/neutral_emotion.csv");
+                                paths.add("Resources/WordnetCategories/ambiguos-emotion.csv");
+                                paths.add("Resources/WordnetCategories/positive_emotion.csv");
+                                paths.add("Resources/WordnetCategories/negative_emotion.csv");
+
+                                replacer.replaceTermsWithMarks(documents, paths, path);
+
+                                cl.tf_idf(documents, u.createMap(pos), 1, "positives", path, Tasktype);
+                                cl.tf_idf(documents, u.createMap(neg), 1, "negatives", path, Tasktype);
+                                cl.tf_idf(documents, u.createMap(neu), 1, "neutrals", path, Tasktype);
+                                cl.tf_idf(documents, u.createMap(ambiguos), 1, "ambiguos", path, Tasktype);
+
+
+
+                                //1 dataset per volta.
+                                List<String> emotion = null;
+
+
+                                if(hasLabel){
+                                    System.out.println("Reading emotions...");
+                                    emotion = rd.read_Column_CSV(input, "label", delimiter);
+                                    System.out.println("Emotion readed successfully!!");
+                                }
+
+                                Document d = null;
+                                pos_doc = 0;
+                                for (String id : documents.keySet()) {
+                                    d = documents.get(id);
+                                    if(hasLabel)
+                                        d.setLabel(emotion.get(pos_doc));
+                                    pos_doc++;
+                                }
+                                WriterCSV writerCSV = new WriterCSV();
+
+                                String nameOutput = path + "/features-" + "wordnet" + ".csv";
+                                writerCSV.writeCsvFile(nameOutput, documents,hasLabel,executionMode);
+                            }
+                        }
                         else
                             System.err.println("Task type wrong!  Chose in : classification or training");
                     } else {

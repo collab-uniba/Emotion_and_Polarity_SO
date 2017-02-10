@@ -20,10 +20,9 @@ public class WriterCSV {
 
     // Delimiter used in CSV file
     private static final String NEW_LINE_SEPARATOR = "\n";
-
     private List<DatasetRowTFIDF> list = new ArrayList<>();
     private List<String> l = new ArrayList<>();
-    public void writeCsvFile(String outputName,Map<String, Document> documents,boolean hasLabel)throws IOException {
+    public void writeCsvFile(String outputName,Map<String, Document> documents,boolean hasLabel,String executionMode)throws IOException {
         list.clear();
         l.clear();
         Document d= null;
@@ -42,108 +41,133 @@ public class WriterCSV {
         double min_modality;
         String label="";
         DatasetRowTFIDF dr;
+
         for(String id: documents.keySet()) {
             System.out.println("Writing doc :" + id);
             d = documents.get(id);
-            unigramsTFIDF = d.getUnigramTFIDF();
-            bigramsTFIDF = d.getBigramTFIDF();
-            positivesTFIDF = d.getPositiveTFIDF();
-            negativesTFIDF = d.getNegativeTFIDF();
-            neutralsTFIDF = d.getNeutralTFIDF();
-            ambiguosTFIDF = d.getAmbiguosTFIDF();
-            pos_score = d.getPos_score();
-            neg_score = d.getNeg_score();
-            polite = d.getPoliteness();
-            impolite = d.getImpoliteness();
-            mood = d.getMood();
-            min_modality = d.getMin_modality();
-            max_modality = d.getMax_modality();
-            label = d.getLabel();
 
-            List<String> tf_idf = new ArrayList<>();
+            if(executionMode.equals("SenPolImpolMoodModality")){
+                pos_score = d.getPos_score();
+                neg_score = d.getNeg_score();
+                polite = d.getPoliteness();
+                impolite = d.getImpoliteness();
+                mood = d.getMood();
+                min_modality = d.getMin_modality();
+                max_modality = d.getMax_modality();
 
-
-
-            //aggiungo la riga degli unigrammi
-            for(String s : unigramsTFIDF.keySet()){
-                tf_idf.add(unigramsTFIDF.get(s).toString());
-            }
-            //aggiungo la riga dei bigrammi
-            for(String s : bigramsTFIDF.keySet()){
-                tf_idf.add(bigramsTFIDF.get(s).toString());
-            }
-            for(String s : positivesTFIDF.keySet()){
-                tf_idf.add(positivesTFIDF.get(s).toString());
-            }
-            for(String s : negativesTFIDF.keySet()){
-                tf_idf.add(negativesTFIDF.get(s).toString());
-            }
-            for(String s : neutralsTFIDF.keySet()){
-                tf_idf.add(neutralsTFIDF.get(s).toString());
-            }
-            for(String s : ambiguosTFIDF.keySet()){
-                tf_idf.add(ambiguosTFIDF.get(s).toString());
-            }
-
-            if(hasLabel) {
                 dr = new DatasetRowTFIDF.DatasetRowBuilder()
-                        .setDocument(id)
-                        .setPosScore(String.valueOf(pos_score))
-                        .setNegScore(String.valueOf(neg_score))
-                        .setPoliteness(String.valueOf(polite))
-                        .setImpoliteness(String.valueOf(impolite))
-                        .setMinModality(String.valueOf(min_modality))
-                        .setMaxModality(String.valueOf(max_modality))
-                        .setMood(mood)
-                        .setTf_idf(tf_idf)
-                        .setAffectiveLabel(label)
-                        .build();
+                            .setDocument(id)
+                            .setPosScore(String.valueOf(pos_score))
+                            .setNegScore(String.valueOf(neg_score))
+                            .setPoliteness(String.valueOf(polite))
+                            .setImpoliteness(String.valueOf(impolite))
+                            .setMinModality(String.valueOf(min_modality))
+                            .setMaxModality(String.valueOf(max_modality))
+                            .setMood(mood)
+                            .build();
+                list.add(dr);
             }
-            else {
+            else if(executionMode.equals("unigrams")){
+                List<String> tf_idf = new ArrayList<>();
+                unigramsTFIDF = d.getUnigramTFIDF();
+                //aggiungo la riga degli unigrammi
+                for(String s : unigramsTFIDF.keySet()){
+                    tf_idf.add(unigramsTFIDF.get(s).toString());
+                }
                 dr = new DatasetRowTFIDF.DatasetRowBuilder()
-                        .setDocument(id)
-                        .setPosScore(String.valueOf(pos_score))
-                        .setNegScore(String.valueOf(neg_score))
-                        .setPoliteness(String.valueOf(polite))
-                        .setImpoliteness(String.valueOf(impolite))
-                        .setMinModality(String.valueOf(min_modality))
-                        .setMaxModality(String.valueOf(max_modality))
-                        .setMood(mood)
                         .setTf_idf(tf_idf)
                         .build();
+                list.add(dr);
             }
-            list.add(dr);
+            else if (executionMode.equals("bigrams")){
+                List<String> tf_idf = new ArrayList<>();
+                bigramsTFIDF = d.getBigramTFIDF();
+                //aggiungo la riga degli unigrammi
+                //aggiungo la riga dei bigrammi
+                for(String s : bigramsTFIDF.keySet()){
+                    tf_idf.add(bigramsTFIDF.get(s).toString());
+                }
+                dr = new DatasetRowTFIDF.DatasetRowBuilder()
+                        .setTf_idf(tf_idf)
+                        .build();
+                list.add(dr);
+            }
+
+            else if (executionMode.equals("wordnet")) {
+                List<String> tf_idf = new ArrayList<>();
+                positivesTFIDF = d.getPositiveTFIDF();
+                negativesTFIDF = d.getNegativeTFIDF();
+                neutralsTFIDF = d.getNeutralTFIDF();
+                ambiguosTFIDF = d.getAmbiguosTFIDF();
+                for(String s : positivesTFIDF.keySet()){
+                    tf_idf.add(positivesTFIDF.get(s).toString());
+                }
+                for(String s : negativesTFIDF.keySet()){
+                    tf_idf.add(negativesTFIDF.get(s).toString());
+                }
+                for(String s : neutralsTFIDF.keySet()){
+                    tf_idf.add(neutralsTFIDF.get(s).toString());
+                }
+                for(String s : ambiguosTFIDF.keySet()){
+                    tf_idf.add(ambiguosTFIDF.get(s).toString());
+                }
+                if(hasLabel) {
+                    label = d.getLabel();
+                    dr = new DatasetRowTFIDF.DatasetRowBuilder()
+                            .setTf_idf(tf_idf)
+                            .setAffectiveLabel(label)
+                            .build();
+                }
+                else {
+                    dr = new DatasetRowTFIDF.DatasetRowBuilder()
+                            .setTf_idf(tf_idf)
+                            .build();
+                }
+                list.add(dr);
+            }
          }
 
 
         //INTESTO LE COLONNE
         List<String> header = new ArrayList<>();
-       // header.add("id");
-        header.add("id");
-        header.add("pos_score");
-        header.add("neg_score");
-        header.add("polite");
-        header.add("impolite");
-        header.add("min_modality");
-        header.add("max_modality");
-        header.add("#indicative");
-        header.add("#imperative");
-        header.add("#conditional");
-        header.add("#subjunctive");
 
 
-        for(String dc: documents.keySet()){
-            populateHeader(documents.get(dc).getUnigramTFIDF().keySet(),header,"uni");
-            populateHeader(documents.get(dc).getBigramTFIDF().keySet(),header,"bi");
-            populateHeader(documents.get(dc).getPositiveTFIDF().keySet(),header,"");
-            populateHeader(documents.get(dc).getNegativeTFIDF().keySet(),header,"");
-            populateHeader(documents.get(dc).getNeutralTFIDF().keySet(),header,"");
-            populateHeader(documents.get(dc).getAmbiguosTFIDF().keySet(),header,"");
-            break;
+        if(executionMode.equals("SenPolImpolMoodModality")) {
+            header.add("id");
+            header.add("pos_score");
+            header.add("neg_score");
+            header.add("polite");
+            header.add("impolite");
+            header.add("min_modality");
+            header.add("max_modality");
+            header.add("#indicative");
+            header.add("#imperative");
+            header.add("#conditional");
+            header.add("#subjunctive");
         }
-
-        if(hasLabel)
-            header.add("label");
+        else if(executionMode.equals("unigrams")) {
+            for(String dc: documents.keySet()){
+                populateHeader(documents.get(dc).getUnigramTFIDF().keySet(),header,"uni");
+                break;
+            }
+        }
+        else if(executionMode.equals("bigrams")) {
+            for(String dc: documents.keySet()){
+                populateHeader(documents.get(dc).getBigramTFIDF().keySet(),header,"bi");
+                break;
+            }
+        }
+        else if(executionMode.equals("wordnet")) {
+            for(String dc: documents.keySet()){
+                populateHeader(documents.get(dc).getPositiveTFIDF().keySet(),header,"");
+                populateHeader(documents.get(dc).getNegativeTFIDF().keySet(),header,"");
+                populateHeader(documents.get(dc).getNeutralTFIDF().keySet(),header,"");
+                populateHeader(documents.get(dc).getAmbiguosTFIDF().keySet(),header,"");
+                break;
+            }
+            if(hasLabel)
+                header.add("label");
+        }
 
         FileWriter fileWriter = null;
         CSVPrinter csvFilePrinter = null;
@@ -161,19 +185,23 @@ public class WriterCSV {
                 if ((j % 50) == 0) {
                     System.out.println("Printing line:" + j);
                 }
-
-                l.add(dx.getDocument());
-                l.add(dx.getPos_score());
-                l.add(dx.getNeg_score());
-                l.add(dx.getPoliteness());
-                l.add(dx.getImpoliteness());
-                l.add(dx.getMin_modality());
-                l.add(dx.getMax_modality());
-                l.addAll(dx.getMood());
-                l.addAll(dx.getTf_idf());
-                if(hasLabel)
-                 l.add(dx.getAffective_label());
-
+                if(executionMode.equals("SenPolImpolMoodModality")) {
+                    l.add(dx.getDocument());
+                    l.add(dx.getPos_score());
+                    l.add(dx.getNeg_score());
+                    l.add(dx.getPoliteness());
+                    l.add(dx.getImpoliteness());
+                    l.add(dx.getMin_modality());
+                    l.add(dx.getMax_modality());
+                    l.addAll(dx.getMood());
+                }
+                else if(executionMode.equals("unigrams") || executionMode.equals("bigrams")) {
+                    l.addAll(dx.getTf_idf());}
+                else if(executionMode.equals("wordnet")) {
+                    l.addAll(dx.getTf_idf());
+                    if (hasLabel)
+                        l.add(dx.getAffective_label());
+                }
                 csvFilePrinter.printRecord(l);
                 j++;
                 l.clear();
