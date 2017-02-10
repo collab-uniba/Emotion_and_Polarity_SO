@@ -20,13 +20,13 @@ As a result, the script will generate the following output files:
 
 * The principal folder named `training_<file.csv>/` contains:
    * `liblinear`:
-     * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains the following files  (note, `IDMODEL` is in {0,...,7}):
+     * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains the following files  (note, `IDMODEL` is in `{0,...,7}`):
           * `modelLiblinear_IDMODEL.Rda`
           * `confusion_matrix_model_IDMODEL.txt`
           * `predictions_model_IDMODEL.csv`
    * `Directory` : it is a directory containing the UnigramsList.txt and the BigramsList.txt
    * `InverseDocumentFrequency`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
-   * `feature-<emotion>.csv` : it is a file,in csv fomat, containing all the features extracted from the input corpus
+   * `feature-<emotion>.csv`: it is a file,in csv fomat, containing all the features extracted from the input corpus
 
 
 ### Classify a file
@@ -44,7 +44,8 @@ where:
 
 As a result, the script will generate the following output files:
 * The principal folder named `classification_<file.csv>` contains :
-  * `predictions-<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
-  * `confusion_matrix.txt` : this file appears only if the `<file.csv>` contains the column `label`;
-     * the formats of the output files are specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
+* `predictions-<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
+* `confusion_matrix.txt` : this file appears only if the `<file.csv>` contains the column `label`.
+
+The different formats of the output files are specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
 
