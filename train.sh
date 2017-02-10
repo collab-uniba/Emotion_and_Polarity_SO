@@ -37,6 +37,7 @@ print() {
 
 
 
+
 EXTRACTDICTIONARY=""
 CALCPOLITEIMPOLITEMOODMODALITY=""
 # parse args
