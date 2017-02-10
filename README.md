@@ -1,6 +1,6 @@
 ## Requirements
 * Python 2.7.x
-*python libreries : nltk-3.2.2 , numpy-1.11.3+mkl-cp27 , scikit_learn-0.15.1-cp27 , scipy-0.18.1-cp27 , pattern-2.6
+  * libraries: nltk-3.2.2 , numpy-1.11.3+mkl-cp27 , scikit_learn-0.15.1-cp27 , scipy-0.18.1-cp27 , pattern-2.6
 * Java 8+
 
 ## Usage
@@ -17,14 +17,15 @@ where:
 
 As a result, the script will generate the following output files:
 
-* The principal folder named `training_<file.csv>` contains :
-* `liblinear`: it is a directory containing the models.Rda ,confusion_matrix and the prediction producted by each model. The model used are 8 , and all files end with the model id : (e.g., 'confusion_matrix_model_0.txt` indicates the confusion_matrix associated to the model 0. )
-		** there are two subfolders : DownSampling and NoDownSampling. 
-			Each one contains the following files types : 8 of `modelLiblinear_IDMODEL.Rda` , 8 of `confusion_matrix_model_IDMODEL.txt` , 8 of `predictions_model_IDMODEL.csv'  (NOTE: IDMODEL can be in {0...7})
+* The principal folder named `training_<file.csv>/` contains:
+   * `liblinear`: it is a directory containing the models.Rda ,confusion_matrix and the prediction producted by each model. The model used are 8 , and all files end with the model id : (e.g., `confusion_matrix_model_0.txt` indicates the confusion_matrix associated to the model 0)
+   * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains the following files  (note, `IDMODEL` is in {0,...,7}):
+      * `modelLiblinear_IDMODEL.Rda` 
+      * `confusion_matrix_model_IDMODEL.txt` 
+      * `predictions_model_IDMODEL.csv`
 * `Directory` : it is a directory containing the UnigramsList.txt and the BigramsList.txt 
 * `InverseDocumentFrequency`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
 * `feature-<emotion>.csv` : it is a file,in csv fomat, containing all the features extracted from the input corpus
-
 
 
 ### Classify a file
