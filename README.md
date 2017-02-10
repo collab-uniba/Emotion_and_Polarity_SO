@@ -43,7 +43,7 @@ where:
 
 As a result, the script will generate the following output files:
 * The principal folder named `classification_<file.csv>` contains :
-  * 'predictions-<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
-  * 'confusion_matrix.txt' : this file appears only if the `<file.csv>` contains the column `label`;
+  * `predictions-<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
+  * `confusion_matrix.txt` : this file appears only if the `<file.csv>` contains the column `label`;
      * the formats of the output files are specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
 
