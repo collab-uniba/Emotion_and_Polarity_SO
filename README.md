@@ -1,6 +1,7 @@
 ## Requirements
 * Python 2.7.x
   * libraries: nltk-3.2.2 , numpy-1.11.3+mkl-cp27 , scikit_learn-0.15.1-cp27 , scipy-0.18.1-cp27 , pattern-2.6
+  * run pip install -r `PythonRequirements.txt`
 * Java 8+
 
 ## Usage
