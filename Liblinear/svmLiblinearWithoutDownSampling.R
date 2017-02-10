@@ -76,18 +76,6 @@ for (i in 0:length(testing[,"id"])){
 outputTest <- paste("testingSet","csv",sep=".")
 write.table(test, file=paste(output_dir,outputTest,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
-# save training and test partition to txt files
-#xTrain_saving <- paste(output_dir, paste("xTrain", "Rda", sep="."), sep="/")
-#xTest_saving <- paste(output_dir, paste("xTest", "Rda", sep="."), sep="/")
-#yTrain_saving <- paste(output_dir, paste("yTrain", "Rda", sep="."), sep="/")
-#yTest_saving<- paste(output_dir, paste("yTest", "Rda", sep="."), sep="/")
-
-#save(xTrain,file = xTrain_saving)
-#save(xTest, file = xTest_saving)
-#save(yTrain,file=yTrain_saving)
-#save(yTest,file=yTest_saving)
-
-#s=scale(xTrain, center=TRUE, scale=TRUE)
 
 # load all the classifiers to tune
 classifiers <- readLines(models_file)
@@ -104,7 +92,7 @@ for(i in 1:length(classifiers)){
   bestAcc=0
  
    # output file for the classifier at nad
-  output_file <- paste(output_dir, paste(number, "txt", sep="."), sep = "/")
+  output_file <- paste(output_dir, paste(paste("confusion_matrix_model",number,sep="_"),"txt", sep="."), sep = "/")
   
   cat("Input file:",csv_file,"\n",sep=" ",file=output_file)
   cat("Classifier:",classifier,"\n",sep=" ",file=output_file,append=TRUE)
@@ -135,16 +123,15 @@ for(i in 1:length(classifiers)){
   start.time <- Sys.time()
   # Re-train best model with best cost value.
   m=LiblineaR(data=xTrain,target=yTrain,type=number,cost=bestCost,bias=TRUE,verbose=FALSE)
+  #save the model
+  output_model <- paste(output_dir, paste(paste("modelLiblinear",number,sep="_"),"Rda", sep="."), sep="/")
+  save(m, file=output_model)
+  
   
   end.time <- Sys.time()
   time.taken <- end.time - start.time
   cat("Time taken for training on test set: ",capture.output(time.taken),"\n",file=output_file,sep="",append=TRUE)
-  # Scale the test data
-  #s2=scale(xTest,attr(s,"scaled:center"),attr(s,"scaled:scale"))
-  # Make prediction
-  #p=predict(m,s2)
-    
-  #p=predict(m,xTest)
+
   p <- predict(m,xTest) 
   
   pred = p$predictions
@@ -155,7 +142,7 @@ for(i in 1:length(classifiers)){
     predictions <- c(predictions, paste(testing[i,"id"],pred[i],testing[i,"label"], sep=","))
   }
   # save classification to text file
-  outputPrediction <- paste(paste("predictions",number,sep="_"),"csv",sep=".")
+  outputPrediction <- paste(paste("predictions_model",number,sep="_"),"csv",sep=".")
   write.table(predictions, file=paste(output_dir,outputPrediction,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
 
@@ -163,6 +150,5 @@ for(i in 1:length(classifiers)){
   res=table(pred,yTest)
   cat("\nConfusion Matrix\n",file=output_file,append=TRUE)
   capture.output( print(res), file=output_file,append=TRUE)
-#  write.table(as.data.frame.matrix(res),file=output_file,append=TRUE,quote=FALSE,sep="\t")
   print(res)
 }
