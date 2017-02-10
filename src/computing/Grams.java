@@ -33,10 +33,9 @@ public class Grams{
      *  Return the map of goldstandard's ngrams with an incremental integer converted in string.
      *
 	 */
-    public SortedMap<String, String> importNgrams(String path,int n) throws FileNotFoundException{
+    public SortedMap<String, String> importNgrams(String path, int n) throws FileNotFoundException{
         SortedMap<String, String> map = new TreeMap<>();
         File file= new File(path);
-        String gram;
         String row;
         int i = 0;
         Scanner scanner = new Scanner(file);
@@ -47,8 +46,10 @@ public class Grams{
 
         while (scanner.hasNextLine()) {
             row = scanner.nextLine();
-            gram = row.split("\\s+")[0];
-            map.put(gram, String.valueOf(i));
+            String[] ss = row.split("\\s+");
+            ss[1] = ss[1].replace("uni","");
+            ss[1] = ss[1].replace("bi","");
+            map.put(ss[0], ss[1]);
             i++;
         }
         scanner.close();

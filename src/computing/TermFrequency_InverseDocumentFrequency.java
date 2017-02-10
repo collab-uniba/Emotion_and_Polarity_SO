@@ -36,8 +36,8 @@ public class TermFrequency_InverseDocumentFrequency {
             termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
         }
         else if(taskType.equals("training"))
-             //invertedDocumentFrequency(documents, grams.keySet(), n, gramsType);
-            termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
+            invertedDocumentFrequency(documents, grams.keySet(), n, gramsType);
+            //termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
 
         String text = "";
 
@@ -65,10 +65,16 @@ public class TermFrequency_InverseDocumentFrequency {
             //adding the map (term, tf-idf) to the document
             Document d = documents.get(id);
             switch (gramsType) {
-                case "unigrams": {
+                case "unigrams_1": {
                     d.setUnigramTFIDF(gramsAndTFIDF);
                 }
-                case "bigrams": {
+                case "bigrams_1": {
+                    d.setBigramTFIDF(gramsAndTFIDF);
+                }
+                case "unigrams_2": {
+                    d.setUnigramTFIDF(gramsAndTFIDF);
+                }
+                case "bigrams_2": {
                     d.setBigramTFIDF(gramsAndTFIDF);
                 }
                 case "positives": {
@@ -183,7 +189,7 @@ public class TermFrequency_InverseDocumentFrequency {
 
 
     private String getText(Map<String,Document> docs,String id,String type){
-        if(type.equals("unigrams") || type.equals("bigrams"))
+        if(type.equals("unigrams_1") || type.equals("bigrams_1") || type.equals("unigrams_2") || type.equals("bigrams_2"))
            return  docs.get(id).getText();
         else
            return docs.get(id).getTextReplaced();

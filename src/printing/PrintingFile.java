@@ -10,10 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
+import java.util.*;
 
 /**
  * Created by Francesco on 23/12/2016.
@@ -139,30 +136,44 @@ public class PrintingFile {
      * @param n
      */
     public void printNgrams(SortedMap<String,String> map, int n,String path) {
-        String file = "";
+        String file_1 = "";
+        String file_2 = "";
         String t = "";
         //Create underDirectory
         l.directoryCreator(path+"/Dictionary");
 
         switch (n){
             case 1:
-                file = path+"/Dictionary/"+"UnigramsList.txt";
+                file_1 = path+"/Dictionary/"+"UnigramsList_1.txt";
+                file_2 = path+"/Dictionary/"+"UnigramsList_2.txt";
                 t = "uni";
                 break;
             case 2:
-                file = path+"/Dictionary/"+"BigramsList.txt";
+                file_1 = path+"/Dictionary/"+"BigramsList_1.txt";
+                file_2 =path+"/Dictionary/"+"BigramsList_2.txt";
                 t = "bi";
                 break;
         }
         FileWriter fw = null;
+        FileWriter fw2 = null;
         try {
-            fw = new FileWriter(new File(file));
-            int i = 0;
-            for (String s: map.keySet()) {
-                fw.append(s + "\t" + t + i);
-                fw.append(System.lineSeparator());
-                i++;
+            fw = new FileWriter(new File(file_1));
+            fw2 = new FileWriter(new File(file_2));
+            int j=0;
+            int half_map_size= map.keySet().size()/2;
+            for(String k : map.keySet()){
+                if(j>half_map_size){
+                    fw2.append(k + "\t" + t + map.get(k));
+                    fw2.append(System.lineSeparator());
+                }
+                else{
+                    fw.append(k + "\t" + t + map.get(k));
+                    fw.append(System.lineSeparator());
+                    j++;
+                }
             }
+            fw2.flush();
+            fw2.close();
             fw.flush();
             fw.close();
         } catch (IOException e) {

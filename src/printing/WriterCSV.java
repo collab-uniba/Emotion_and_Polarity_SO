@@ -22,6 +22,13 @@ public class WriterCSV {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private List<DatasetRowTFIDF> list = new ArrayList<>();
     private List<String> l = new ArrayList<>();
+    private final String unigrams_1 ="unigrams_1";
+    private final String unigrams_2 ="unigrams_1";
+    private final String bigrams_1 ="bigrams_1";
+    private final String bigrams_2 ="bigrams_2";
+    private final String wordnet ="wordnet";
+    private final String SenPolImpolMoodModality ="SenPolImpolMoodModality";
+
     public void writeCsvFile(String outputName,Map<String, Document> documents,boolean hasLabel,String executionMode)throws IOException {
         list.clear();
         l.clear();
@@ -46,7 +53,7 @@ public class WriterCSV {
             System.out.println("Writing doc :" + id);
             d = documents.get(id);
 
-            if(executionMode.equals("SenPolImpolMoodModality")){
+            if(executionMode.equals(SenPolImpolMoodModality)){
                 pos_score = d.getPos_score();
                 neg_score = d.getNeg_score();
                 polite = d.getPoliteness();
@@ -67,7 +74,7 @@ public class WriterCSV {
                             .build();
                 list.add(dr);
             }
-            else if(executionMode.equals("unigrams")){
+            else if(executionMode.equals(unigrams_1) || executionMode.equals(unigrams_2)){
                 List<String> tf_idf = new ArrayList<>();
                 unigramsTFIDF = d.getUnigramTFIDF();
                 //aggiungo la riga degli unigrammi
@@ -79,7 +86,7 @@ public class WriterCSV {
                         .build();
                 list.add(dr);
             }
-            else if (executionMode.equals("bigrams")){
+            else if (executionMode.equals(bigrams_1) || executionMode.equals(bigrams_2)){
                 List<String> tf_idf = new ArrayList<>();
                 bigramsTFIDF = d.getBigramTFIDF();
                 //aggiungo la riga degli unigrammi
@@ -93,7 +100,7 @@ public class WriterCSV {
                 list.add(dr);
             }
 
-            else if (executionMode.equals("wordnet")) {
+            else if (executionMode.equals(wordnet)) {
                 List<String> tf_idf = new ArrayList<>();
                 positivesTFIDF = d.getPositiveTFIDF();
                 negativesTFIDF = d.getNegativeTFIDF();
@@ -132,7 +139,7 @@ public class WriterCSV {
         List<String> header = new ArrayList<>();
 
 
-        if(executionMode.equals("SenPolImpolMoodModality")) {
+        if(executionMode.equals(SenPolImpolMoodModality)) {
             header.add("id");
             header.add("pos_score");
             header.add("neg_score");
@@ -145,19 +152,19 @@ public class WriterCSV {
             header.add("#conditional");
             header.add("#subjunctive");
         }
-        else if(executionMode.equals("unigrams")) {
+        else if(executionMode.equals(unigrams_1) || executionMode.equals(unigrams_2)) {
             for(String dc: documents.keySet()){
                 populateHeader(documents.get(dc).getUnigramTFIDF().keySet(),header,"uni");
                 break;
             }
         }
-        else if(executionMode.equals("bigrams")) {
+        else if(executionMode.equals(bigrams_1) || executionMode.equals(bigrams_2)) {
             for(String dc: documents.keySet()){
                 populateHeader(documents.get(dc).getBigramTFIDF().keySet(),header,"bi");
                 break;
             }
         }
-        else if(executionMode.equals("wordnet")) {
+        else if(executionMode.equals(wordnet)) {
             for(String dc: documents.keySet()){
                 populateHeader(documents.get(dc).getPositiveTFIDF().keySet(),header,"");
                 populateHeader(documents.get(dc).getNegativeTFIDF().keySet(),header,"");
@@ -185,7 +192,7 @@ public class WriterCSV {
                 if ((j % 50) == 0) {
                     System.out.println("Printing line:" + j);
                 }
-                if(executionMode.equals("SenPolImpolMoodModality")) {
+                if(executionMode.equals(SenPolImpolMoodModality)) {
                     l.add(dx.getDocument());
                     l.add(dx.getPos_score());
                     l.add(dx.getNeg_score());
@@ -195,9 +202,9 @@ public class WriterCSV {
                     l.add(dx.getMax_modality());
                     l.addAll(dx.getMood());
                 }
-                else if(executionMode.equals("unigrams") || executionMode.equals("bigrams")) {
+                else if(executionMode.equals(unigrams_1) || executionMode.equals(bigrams_1) ||  executionMode.equals(bigrams_2) || executionMode.equals(unigrams_2)) {
                     l.addAll(dx.getTf_idf());}
-                else if(executionMode.equals("wordnet")) {
+                else if(executionMode.equals(wordnet)) {
                     l.addAll(dx.getTf_idf());
                     if (hasLabel)
                         l.add(dx.getAffective_label());
