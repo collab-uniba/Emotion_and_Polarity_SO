@@ -23,7 +23,7 @@ public class WriterCSV {
     private List<DatasetRowTFIDF> list = new ArrayList<>();
     private List<String> l = new ArrayList<>();
     private final String unigrams_1 ="unigrams_1";
-    private final String unigrams_2 ="unigrams_1";
+    private final String unigrams_2 ="unigrams_2";
     private final String bigrams_1 ="bigrams_1";
     private final String bigrams_2 ="bigrams_2";
     private final String wordnet ="wordnet";
