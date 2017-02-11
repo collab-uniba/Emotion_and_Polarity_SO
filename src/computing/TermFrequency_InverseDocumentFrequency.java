@@ -37,6 +37,7 @@ public class TermFrequency_InverseDocumentFrequency {
         }
         else if(taskType.equals("training"))
             invertedDocumentFrequency(documents, grams.keySet(), n, gramsType);
+            //termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
 
         String text = "";
 
