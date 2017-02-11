@@ -38,13 +38,11 @@ print() {
 
 
 EXTRACTDICTIONARY=""
-CALCPOLITEIMPOLITEMOODMODALITY=""
 # parse args
 while getopts "i:d:e:gph" FLAG; do
 	case $FLAG in
 		i )  INPUT=$OPTARG;;
 		g ) EXTRACTDICTIONARY="-G";;
-		p ) CALCPOLITEIMPOLITEMOODMODALITY="-P";;
 		e ) EMOTION=$OPTARG
 			if [ "$EMOTION" != 'anger' ] && [ "$EMOTION" != 'fear' ] && [ "$EMOTION" != 'sadness' ] && [ "$EMOTION" != 'love' ] && [ "$EMOTION" != 'joy' ] && [ "$EMOTION" != 'surprise' ]; then 
 				print "ERROR" "-e option has wrong argument."
@@ -86,7 +84,7 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 		 if [ -d "Dictionary" ] ; then 
 			
 			cd Dictionary/ 
-			if [ -e 'BigramsList.txt' ] && [ -e 'UnigramsList.txt' ] ; then #check  the existence of the two files bigrams and unigrams
+			if [ -e 'BigramsList_1.txt' ] && [ -e 'UnigramsList_1.txt' ] && [ -e 'BigramsList_2.txt' ] && [ -e 'UnigramsList_2.txt' ] ; then #check  the existence of the two files bigrams and unigrams
 				cd ..
 				find -maxdepth 1 -not -name Dictionary -not -name "." -exec rm -rf {} \; #removes all others directories
 				cd ..
@@ -113,12 +111,10 @@ fi;
 
 
 #Creating the format to give at python files.
-if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-P' ]; then
-	if  [ "$DELIMITER" = 'semicolon' ] ; then 
-		java  -jar -Xmx30000m Emotion_And_Polarity_SO.jar  -i $INPUT -P -d ';' -t training
-		 elif [ "$DELIMITER"='comma' ] ; then 
-		java  -jar -Xmx30000m Emotion_And_Polarity_SO.jar -i $INPUT -P -d ','  -t training
-	fi;
+if  [ "$DELIMITER" = 'semicolon' ] ; then 
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat
+		elif [ "$DELIMITER"='comma' ] ; then 
+		 java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat 
 fi;
 
 #taking only the file.csv name, deleting path and the extension
@@ -152,10 +148,31 @@ rm  CalculateMoodModality/textsMoodAndModality.csv
 #starting Emotion_And_Polarity_SO.jar to extract the features
 
 if [ "$DELIMITER" = 'semicolon' ] ; then 
-	java -jar -Xmx30000m Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY -e $EMOTION -t training
-	 elif [ "$DELIMITER"='comma' ] ; then 
-	java -jar -Xmx30000m Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -e $EMOTION -t training
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex wordnet
+	
+	elif [ "$DELIMITER"='comma' ] ; then 
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex wordnet
 fi;
+
+#merging the single features extracted
+paste -d , training_$filename/features-SenPolImpolMoodModality.csv training_$filename/features-unigrams_1.csv training_$filename/features-unigrams_2.csv  training_$filename/features-bigrams_1.csv  training_$filename/features-bigrams_2.csv training_$filename/features-wordnet.csv > training_$filename/features-$EMOTION.csv  
+
+#rm training_$filename/features-SenPolImpolMoodModality.csv
+#rm training_$filename/features-unigrams_1.csv
+#rm training_$filename/features-bigrams_1.csv
+#rm training_$filename/features-unigrams_2.csv
+#rm training_$filename/features-bigrams_2.csv
+#rm training_$filename/features-wordnet.csv
 
 #run the R script without downSamping (save the model) , and with downsampling(save the model)
 
@@ -186,7 +203,7 @@ rm -r Liblinear/output/Results_$EMOTION
 
 
 
-cd training_$filename/ElaboratedFiles
-find -maxdepth 1 -not -name docs.py -not -name "." -exec rm -rf {} \; #removes all others directories
+#cd training_$filename/ElaboratedFiles
+#find -maxdepth 1 -not -name docs.py -not -name "." -exec rm -rf {} \; #removes all others directories
 
-cd ..
+#cd ..
