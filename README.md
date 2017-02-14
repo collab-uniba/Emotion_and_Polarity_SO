@@ -6,14 +6,14 @@
 
 ## Usage
 
-### Training a new model
+### Training a new model for emotion classification
 ```
 train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
 * `-d delimiter`: the specific delimite rused in the csv file, in {`comma`, `semicolon`}
-* `-g`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_<file.csv>/dictionary/unigramsList.txt` and `./training_<file.csv>/dictionary/BigramsList.txt`)
+* `-g`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_<file.csv>/dictionary/unigramsList_2.txt` and `./training_<file.csv>/dictionary/BigramsList_1.txt` and `./training_<file.csv>/dictionary/unigramsList_1.txt`  and `./training_<file.csv>/dictionary/BigramsList_2.txt`)
 * `-e emotion`: the specific emotion for training the model, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 
 As a result, the script will generate the following output files:
@@ -24,12 +24,14 @@ As a result, the script will generate the following output files:
           * `modelLiblinear_IDMODEL.Rda`
           * `confusion_matrix_model_IDMODEL.txt`
           * `predictions_model_IDMODEL.csv`
+          * `trainingSet.csv`
+          * `testingSet.csv`
    * `Directory` : it is a directory containing the UnigramsList.txt and the BigramsList.txt
    * `InverseDocumentFrequency`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
    * `feature-<emotion>.csv`: it is a file,in csv fomat, containing all the features extracted from the input corpus
 
 
-### Classify a file
+### Emotion detection
 ```
 classify.sh -i file.csv -d delimiter -e emotion -m model -f inverseDocumentFrequency -o dictionary [-l]
 ```
