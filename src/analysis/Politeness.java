@@ -33,6 +33,7 @@ public class Politeness {
             int i=1;
             for(String doc: docs){
                 System.out.println("Analyzing doc num:"+ i);
+                System.out.println("Text :"+ doc);
                 DocumentForPoliteness dcVal = new DocumentForPoliteness();
                 List<String> sentencesDoc = new ArrayList<>();
                 List<String> dependencyParse = new ArrayList<>();
@@ -40,6 +41,7 @@ public class Politeness {
                     // create an empty Annotation just with the given text
                     Annotation document = new Annotation(doc);
                     // run all Annotators on this text
+
                     pipeline.annotate(document);
 
                     List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);

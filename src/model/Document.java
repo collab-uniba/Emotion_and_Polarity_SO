@@ -25,7 +25,15 @@ public class Document {
     private Map<String,Double>  neutralTFIDF;
     private Map<String,Double>  ambiguosTFIDF;
     private String label;
+    private String labelBaseline;
 
+    public String getLabelBaseline() {
+        return labelBaseline;
+    }
+
+    public void setLabelBaseline(String labelBaseline) {
+        this.labelBaseline = labelBaseline;
+    }
 
     public Mood getMood() {
         return m;

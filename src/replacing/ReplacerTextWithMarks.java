@@ -14,13 +14,17 @@ public class ReplacerTextWithMarks {
 
     /**
      * Per ogni documento, per ogni suo termine controlla sotto quale symset si trova. Sostituisce il termine con l'affective label
-     * @param pathsMarks
      * @return
      */
-    public Map<String,Document> replaceTermsWithMarks(Map<String, Document> docs, List<String> pathsMarks,String pathDir) throws IOException {
+    public Map<String,Document> replaceTermsWithMarks(Map<String, Document> docs,String pathDir) throws IOException {
         ReadingCSV rd = new ReadingCSV();
         PrintingFile pr = new PrintingFile();
         List<String> txt = new ArrayList<>();
+        List<String> pathsMarks = new ArrayList<>();
+        pathsMarks.add("Resources/WordnetCategories/neutral_emotion.csv");
+        pathsMarks.add("Resources/WordnetCategories/ambiguos-emotion.csv");
+        pathsMarks.add("Resources/WordnetCategories/positive_emotion.csv");
+        pathsMarks.add("Resources/WordnetCategories/negative_emotion.csv");
 
         List<Map<String,List<String>>> allList = new ArrayList<>();
         //read all files , each of them is formed by : n list's name and n terms for each of them
@@ -54,7 +58,7 @@ public class ReplacerTextWithMarks {
                  txt.add(finalString);
             }
 
-            pr.print(pathDir+"/ElaboratedFiles/TextsReplacedWithWordnetCategories.txt",txt);
+            //pr.print(pathDir+"/ElaboratedFiles/TextsReplacedWithWordnetCategories.txt",txt);
         }
         else
             System.err.println("key not found!");
@@ -80,5 +84,43 @@ public class ReplacerTextWithMarks {
             }
         }
         return " ";
+    }
+
+
+
+    /**
+     * Per ogni documento, per ogni suo termine controlla sotto quale symset si trova. Sostituisce il termine con l'affective label
+     * @return
+     */
+    public Map<String,Document> setFinalLabelBaselineOnLexical(Map<String, Document> docs,List<String> emotionWords,String emotion) throws IOException {
+        ReadingCSV rd = new ReadingCSV();
+        PrintingFile pr = new PrintingFile();
+        List<String> txt = new ArrayList<>();
+        String finalLabel = "NO";
+        Map<String,List<String>> emoWords= new LinkedHashMap<>();
+        emoWords.put(emotion,emotionWords);
+        if (docs != null) {
+            for (String id:docs.keySet()) {
+                finalLabel="NO";
+                Document d= docs.get(id);
+                //check if a single term into a text is find out into an list and replace it with the list's name.
+                String[] textTerms = d.getText().split("\\s+");
+                for (String term : textTerms) {
+                    String mark = null;
+                    //in alcuni csv ci sono valori come "" quindi farebbe matching , restituendo una cosa errata..
+                    if(!term.equals("")) {
+                        //cerco nella lista dei positivi, negativi, neutrals e ambigui. Appena lo trovo blocco la ricerca e passo al prossimo termine del documento.
+                        mark = termToMark(term,emoWords);
+                        if (!mark.equals(" ")) {
+                            finalLabel= "YES";
+                        }
+                    }
+                }
+                docs.get(id).setLabelBaseline(finalLabel);
+            }
+        }
+        else
+            System.err.println("key not found!");
+        return docs;
     }
 }

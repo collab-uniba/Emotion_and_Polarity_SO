@@ -28,6 +28,7 @@ public class WriterCSV {
     private final String bigrams_2 ="bigrams_2";
     private final String wordnet ="wordnet";
     private final String SenPolImpolMoodModality ="SenPolImpolMoodModality";
+    private final String baseline ="baseline";
 
     public void writeCsvFile(String outputName,Map<String, Document> documents,boolean hasLabel,String executionMode)throws IOException {
         list.clear();
@@ -132,6 +133,15 @@ public class WriterCSV {
                 }
                 list.add(dr);
             }
+
+            else if(executionMode.equals(baseline)){
+                dr = new DatasetRowTFIDF.DatasetRowBuilder()
+                        .setDocument(id)
+                        .setAffectiveLabel(d.getLabel())
+                        .setBaselineLabel(d.getLabelBaseline())
+                        .build();
+                list.add(dr);
+            }
          }
 
 
@@ -175,6 +185,11 @@ public class WriterCSV {
             if(hasLabel)
                 header.add("label");
         }
+        else if(executionMode.equals(baseline)) {
+            header.add("id");
+            header.add("labelBaseline");
+            header.add("label");
+        }
 
         FileWriter fileWriter = null;
         CSVPrinter csvFilePrinter = null;
@@ -208,6 +223,11 @@ public class WriterCSV {
                     l.addAll(dx.getTf_idf());
                     if (hasLabel)
                         l.add(dx.getAffective_label());
+                }
+                else if(executionMode.equals(baseline)) {
+                    l.add(dx.getDocument());
+                    l.add(dx.getBaseline_label());
+                    l.add(dx.getAffective_label());
                 }
                 csvFilePrinter.printRecord(l);
                 j++;

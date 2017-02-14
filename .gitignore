@@ -2,8 +2,10 @@
 .idea/
 Emotion_And_Polarity_SO.iml
 src/META-INF
-lib/
 src/replacing/POSTagger.java
 src/replacing/RemoveNotEnglishWords.java
 anger.csv
 out/
+textsMoodAndModality.csv
+textsPoliteAndImpolite.csv
+training_anger/
