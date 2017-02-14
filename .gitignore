@@ -1,7 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 Emotion_And_Polarity_SO.iml
-src/META-INF
 src/replacing/POSTagger.java
 src/replacing/RemoveNotEnglishWords.java
 anger.csv
@@ -9,3 +8,4 @@ out/
 textsMoodAndModality.csv
 textsPoliteAndImpolite.csv
 training_anger/
+lib/stanford-corenlp-models-current.jar
