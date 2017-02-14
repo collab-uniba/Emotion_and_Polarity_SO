@@ -6,7 +6,7 @@
 
 ## Usage
 
-### Training a new model
+### Training a new model for emotion classification
 ```
 train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
@@ -29,7 +29,7 @@ As a result, the script will generate the following output files:
    * `feature-<emotion>.csv`: it is a file,in csv fomat, containing all the features extracted from the input corpus
 
 
-### Classify a file
+### Emotion detection
 ```
 classify.sh -i file.csv -d delimiter -e emotion -m model -f inverseDocumentFrequency -o dictionary [-l]
 ```
