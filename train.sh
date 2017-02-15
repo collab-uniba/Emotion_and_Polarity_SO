@@ -95,6 +95,7 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 					cd ..
 					rm -rf training_$filename
 
+
 		     fi;
 		else
 			print "ERROR" "The folder n-grams doesn't exists. I will extract the n-grams.."
