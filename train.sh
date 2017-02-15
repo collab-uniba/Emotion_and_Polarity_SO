@@ -112,35 +112,37 @@ fi;
 
 #Creating the format to give at python files.
 if  [ "$DELIMITER" = 'semicolon' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat
 		elif [ "$DELIMITER"='comma' ] ; then 
-		 java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat 
+		 java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat 
 fi;
 
 #taking only the file.csv name, deleting path and the extension
 
 #taking the files   created for the two python files
-cp training_$filename/ElaboratedFiles/docs.py CalculatePoliteAndImpolite/
-cp training_$filename/ElaboratedFiles/docs.py CalculateMoodModality/
+cp training_$filename/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
+cp training_$filename/ElaboratedFiles/docs.py python/CalculateMoodModality/
 
 #starting python files for polite , impolite mood and modality extraction
-cd CalculatePoliteAndImpolite
-#alias pj="cd CalculatePoliteAndImpolite/"
+cd python/CalculatePoliteAndImpolite
+
 python model.py 
 rm docs.py
 rm docs.pyc
 cd ..
-cp CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv training_$filename/ElaboratedFiles/
-rm CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
+cd ..
+cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv training_$filename/ElaboratedFiles/
+rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
 
 
-cd CalculateMoodModality
+cd python/CalculateMoodModality
 python  moodAndModality.py 
 rm docs.py
 rm docs.pyc
 cd ..
-cp  CalculateMoodModality/textsMoodAndModality.csv training_$filename/ElaboratedFiles/
-rm  CalculateMoodModality/textsMoodAndModality.csv
+cd ..
+cp  python/CalculateMoodModality/textsMoodAndModality.csv training_$filename/ElaboratedFiles/
+rm python/CalculateMoodModality/textsMoodAndModality.csv
 
 
 
@@ -148,20 +150,20 @@ rm  CalculateMoodModality/textsMoodAndModality.csv
 #starting Emotion_And_Polarity_SO.jar to extract the features
 
 if [ "$DELIMITER" = 'semicolon' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex wordnet
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex wordnet
 	
 	elif [ "$DELIMITER"='comma' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex wordnet
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex wordnet
 fi;
 
 #merging the single features extracted
@@ -185,21 +187,23 @@ mkdir -p liblinear/NoDownSampling
 
 cd .. 
 mv  training_$filename/features-$EMOTION.csv Liblinear/
-cd Liblinear
+cd r/Liblinear
 rm -rf output/Results_$EMOTION
 Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
 cd ..
-mv Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/NoDownSampling/
-rm -r Liblinear/output/Results_$EMOTION
+cd ..
+mv r/Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/NoDownSampling/
+rm -r r/Liblinear/output/Results_$EMOTION
 
 
 #same thing with downSampling. 
-cd Liblinear
+cd r/Liblinear
 Rscript svmLiblinearDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
 cd ..
-mv  Liblinear/features-$EMOTION.csv  training_$filename/
-mv Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/DownSampling/
-rm -r Liblinear/output/Results_$EMOTION
+cd ..
+mv  r/Liblinear/features-$EMOTION.csv  training_$filename/
+mv r/Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/DownSampling/
+rm -r r/Liblinear/output/Results_$EMOTION
 
 
 

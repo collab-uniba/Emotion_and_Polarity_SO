@@ -83,42 +83,44 @@ rm -rf classification_$filename
 
 #Creating the format to give at python files.
 if  [ "$DELIMITER" = 'semicolon' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';' -t classification -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';' -t classification -Ex createDocFormat
 	elif [ "$DELIMITER"='comma' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t classification -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t classification -Ex createDocFormat
 fi;
 
 
 #taking only the file.csv name, deleting path and the extension
 
 #taking the files   created for the two python files
-cp classification_$filename/ElaboratedFiles/docs.py CalculatePoliteAndImpolite/
-cp classification_$filename/ElaboratedFiles/docs.py CalculateMoodModality/
+cp classification_$filename/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
+cp classification_$filename/ElaboratedFiles/docs.py python/CalculateMoodModality/
 
 #starting python files for polite , impolite mood and modality extraction
-cd CalculatePoliteAndImpolite
+cd python/CalculatePoliteAndImpolite
 #alias pj="cd CalculatePoliteAndImpolite/"
 python model.py 
 rm docs.py
 rm docs.pyc
 cd ..
-cp CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv classification_$filename/ElaboratedFiles/
-rm CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
+cd ..
+cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv classification_$filename/ElaboratedFiles/
+rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
 
 
-cd CalculateMoodModality
+cd python/CalculateMoodModality
 python  moodAndModality.py 
 rm docs.py
 rm docs.pyc
 cd ..
-cp  CalculateMoodModality/textsMoodAndModality.csv classification_$filename/ElaboratedFiles/
-rm  CalculateMoodModality/textsMoodAndModality.csv
+cd .. 
+cp  python/CalculateMoodModality/textsMoodAndModality.csv classification_$filename/ElaboratedFiles/
+rm  python/CalculateMoodModality/textsMoodAndModality.csv
 
 #copy the 
 mkdir -p classification_$filename/idfs
 mkdir -p classification_$filename/n-grams
 
-echo $IDFPATH
+
 cp $IDFPATH/*  classification_$filename/idfs/
 cp $DICTIONARYPATH/*  classification_$filename/n-grams/
 
@@ -128,20 +130,20 @@ cp $DICTIONARYPATH/*  classification_$filename/n-grams/
 
 
 if [ "$DELIMITER" = 'semicolon' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -P classification_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M classification_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t classification -Ex SenPolImpolMoodModality
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'   -t classification -Ex wordnet $HASLABEL
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P classification_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M classification_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t classification -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'   -t classification -Ex wordnet $HASLABEL
 	
 	elif [ "$DELIMITER"='comma' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT -P classification_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M classification_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -t classification -Ex SenPolImpolMoodModality
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex wordnet $HASLABEL
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P classification_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M classification_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -t classification -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_1
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_2
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex wordnet $HASLABEL
 fi;
 
 #merging the single features extracted
@@ -161,10 +163,10 @@ cd classification_$filename
 modelName=${MODEL##*/}
 
 cd .. 
-mv  classification_$filename/features-$EMOTION.csv Liblinear/
-cp $MODEL Liblinear/
+mv  classification_$filename/features-$EMOTION.csv r/Liblinear/
+cp $MODEL r/Liblinear/
 
-cd Liblinear
+cd r/Liblinear
 rm -rf output/Results_$EMOTION
 if [ "$HASLABEL" = '-L' ] ; then 
 	 Rscript classification.R Results_$EMOTION $modelName features-$EMOTION.csv 1
@@ -172,9 +174,10 @@ if [ "$HASLABEL" = '-L' ] ; then
 	 Rscript classification.R Results_$EMOTION $modelName features-$EMOTION.csv 0
 fi;
 cd ..
-mv Liblinear/output/Results_$EMOTION/*  classification_$filename/
-rm -r Liblinear/$modelName
-rm -r Liblinear/output/Results_$EMOTION
+cd ..
+mv r/Liblinear/output/Results_$EMOTION/*  classification_$filename/
+rm -r r/Liblinear/$modelName
+rm -r r/Liblinear/output/Results_$EMOTION
 
 
 #rm -r classification_$filename/n-grams
