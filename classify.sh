@@ -43,14 +43,13 @@ print() {
 HASLABEL=""
 CALCPOLITEIMPOLITEMOODMODALITY=""
 # parse args
-while getopts "i:d:e:lpf:o:m:h" FLAG; do
+while getopts "i:d:e:lf:o:m:h" FLAG; do
 	case $FLAG in
 		i )  INPUT=$OPTARG;; 
 		f ) IDFPATH=$OPTARG;;
 		o) DICTIONARYPATH=$OPTARG;;
 		m ) MODEL=$OPTARG;;
 		l ) HASLABEL="-L";;
-		p ) CALCPOLITEIMPOLITEMOODMODALITY="-P";;
 		e ) EMOTION=$OPTARG
 			if [ "$EMOTION" != 'anger' ] && [ "$EMOTION" != 'fear' ] && [ "$EMOTION" != 'sadness' ] && [ "$EMOTION" != 'love' ] && [ "$EMOTION" != 'joy' ] && [ "$EMOTION" != 'surprise' ]; then 
 				print "ERROR" "-e option has wrong argument."
