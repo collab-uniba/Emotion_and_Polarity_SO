@@ -73,13 +73,15 @@ filename=${filename%.*}
 
 
 if [ "$EXTRACTDICTIONARY" = '-G' ] ; then 
+	cd java 
 	
 	rm -rf training_$filename #if the same folder exists i will remove it 
-
+	cd ..
 
 	elif [ "$EXTRACTDICTIONARY" = '' ] ; then 
 	  if [ -d  "training_$filename" ] ; then 
-	     cd training_$filename/  #if the same folder exists  and he wanna re-extract the n-grams
+
+	     cd java/training_$filename/  #if the same folder exists  and he wanna re-extract the n-grams
 	 
 		 if [ -d "n-grams" ] ; then
 			
@@ -87,6 +89,7 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 			if [ -e 'BigramsList_1.txt' ] && [ -e 'UnigramsList_1.txt' ] && [ -e 'BigramsList_2.txt' ] && [ -e 'UnigramsList_2.txt' ] ; then #check  the existence of the two files bigrams and unigrams
 				cd ..
 				find -maxdepth 1 -not -name n-grams -not -name "." -exec rm -rf {} \; #removes all others directories
+				cd ..
 				cd ..
 				else 
 					print "ERROR" "UnigramsList.txt OR  bigramsList.txt don't exist , I will extract the n-grams.."
@@ -120,8 +123,10 @@ fi;
 #taking only the file.csv name, deleting path and the extension
 
 #taking the files   created for the two python files
-cp training_$filename/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
-cp training_$filename/ElaboratedFiles/docs.py python/CalculateMoodModality/
+
+cp java/training_$filename/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
+cp java/training_$filename/ElaboratedFiles/docs.py python/CalculateMoodModality/
+
 
 #starting python files for polite , impolite mood and modality extraction
 cd python/CalculatePoliteAndImpolite
@@ -131,7 +136,8 @@ rm docs.py
 rm docs.pyc
 cd ..
 cd ..
-cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv training_$filename/ElaboratedFiles/
+cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv java/training_$filename/ElaboratedFiles/
+
 rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
 
 
@@ -141,7 +147,8 @@ rm docs.py
 rm docs.pyc
 cd ..
 cd ..
-cp  python/CalculateMoodModality/textsMoodAndModality.csv training_$filename/ElaboratedFiles/
+cp  python/CalculateMoodModality/textsMoodAndModality.csv java/training_$filename/ElaboratedFiles/
+
 rm python/CalculateMoodModality/textsMoodAndModality.csv
 
 
@@ -150,7 +157,8 @@ rm python/CalculateMoodModality/textsMoodAndModality.csv
 #starting Emotion_And_Polarity_SO.jar to extract the features
 
 if [ "$DELIMITER" = 'semicolon' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P java/training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M java/training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_2
@@ -158,7 +166,8 @@ if [ "$DELIMITER" = 'semicolon' ] ; then
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex wordnet
 	
 	elif [ "$DELIMITER"='comma' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P java/training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M java/training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2
@@ -167,32 +176,34 @@ if [ "$DELIMITER" = 'semicolon' ] ; then
 fi;
 
 #merging the single features extracted
-paste -d , training_$filename/features-SenPolImpolMoodModality.csv training_$filename/features-unigrams_1.csv training_$filename/features-unigrams_2.csv  training_$filename/features-bigrams_1.csv  training_$filename/features-bigrams_2.csv training_$filename/features-wordnet.csv > training_$filename/features-$EMOTION.csv  
+paste -d , java/training_$filename/features-SenPolImpolMoodModality.csv java/training_$filename/features-unigrams_1.csv java/training_$filename/features-unigrams_2.csv  java/training_$filename/features-bigrams_1.csv  java/training_$filename/features-bigrams_2.csv java/training_$filename/features-wordnet.csv > java/training_$filename/features-$EMOTION.csv  
 
-#rm training_$filename/features-SenPolImpolMoodModality.csv
-#rm training_$filename/features-unigrams_1.csv
-#rm training_$filename/features-bigrams_1.csv
-#rm training_$filename/features-unigrams_2.csv
-#rm training_$filename/features-bigrams_2.csv
-#rm training_$filename/features-wordnet.csv
+#rm java/training_$filename/features-SenPolImpolMoodModality.csv
+#rm java/training_$filename/features-unigrams_1.csv
+#rm java/training_$filename/features-bigrams_1.csv
+#rm java/training_$filename/features-unigrams_2.csv
+#rm java/training_$filename/features-bigrams_2.csv
+#rm java/training_$filename/features-wordnet.csv
 
 #run the R script without downSamping (save the model) , and with downsampling(save the model)
 
 #create a folder for the liblinear's generated outputs into the output folder
-cd training_$filename
+cd java/training_$filename
 rm -rf liblinear
 mkdir -p liblinear/DownSampling
 mkdir -p liblinear/NoDownSampling
 
 
 cd .. 
-mv  training_$filename/features-$EMOTION.csv Liblinear/
+cd ..
+mv  java/training_$filename/features-$EMOTION.csv Liblinear/
 cd r/Liblinear
 rm -rf output/Results_$EMOTION
 Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
 cd ..
 cd ..
-mv r/Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/NoDownSampling/
+mv r/Liblinear/output/Results_$EMOTION/*  java/training_$filename/liblinear/NoDownSampling/
+
 rm -r r/Liblinear/output/Results_$EMOTION
 
 
@@ -201,13 +212,14 @@ cd r/Liblinear
 Rscript svmLiblinearDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
 cd ..
 cd ..
-mv  r/Liblinear/features-$EMOTION.csv  training_$filename/
-mv r/Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/DownSampling/
+mv  r/Liblinear/features-$EMOTION.csv  java/training_$filename/
+mv r/Liblinear/output/Results_$EMOTION/*  java/training_$filename/liblinear/DownSampling/
+
 rm -r r/Liblinear/output/Results_$EMOTION
 
 
 
-#cd training_$filename/ElaboratedFiles
+#cd java/training_$filename/ElaboratedFiles
 #find -maxdepth 1 -not -name docs.py -not -name "." -exec rm -rf {} \; #removes all others directories
 
 #cd ..
