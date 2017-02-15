@@ -80,6 +80,7 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 
 	elif [ "$EXTRACTDICTIONARY" = '' ] ; then 
 	  if [ -d  "training_$filename" ] ; then 
+
 	     cd java/training_$filename/  #if the same folder exists  and he wanna re-extract the n-grams
 	 
 		 if [ -d "n-grams" ] ; then
@@ -122,8 +123,10 @@ fi;
 #taking only the file.csv name, deleting path and the extension
 
 #taking the files   created for the two python files
+
 cp java/training_$filename/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
 cp java/training_$filename/ElaboratedFiles/docs.py python/CalculateMoodModality/
+
 
 #starting python files for polite , impolite mood and modality extraction
 cd python/CalculatePoliteAndImpolite
@@ -134,6 +137,7 @@ rm docs.pyc
 cd ..
 cd ..
 cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv java/training_$filename/ElaboratedFiles/
+
 rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
 
 
@@ -144,6 +148,7 @@ rm docs.pyc
 cd ..
 cd ..
 cp  python/CalculateMoodModality/textsMoodAndModality.csv java/training_$filename/ElaboratedFiles/
+
 rm python/CalculateMoodModality/textsMoodAndModality.csv
 
 
@@ -152,6 +157,7 @@ rm python/CalculateMoodModality/textsMoodAndModality.csv
 #starting Emotion_And_Polarity_SO.jar to extract the features
 
 if [ "$DELIMITER" = 'semicolon' ] ; then 
+
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P java/training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M java/training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1
@@ -161,6 +167,7 @@ if [ "$DELIMITER" = 'semicolon' ] ; then
 	
 	elif [ "$DELIMITER"='comma' ] ; then 
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -P java/training_$filename/ElaboratedFiles/textsPoliteAndImpolite.csv -M java/training_$filename/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY  -t training -Ex SenPolImpolMoodModality
+
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2
@@ -196,6 +203,7 @@ Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear featu
 cd ..
 cd ..
 mv r/Liblinear/output/Results_$EMOTION/*  java/training_$filename/liblinear/NoDownSampling/
+
 rm -r r/Liblinear/output/Results_$EMOTION
 
 
@@ -206,6 +214,7 @@ cd ..
 cd ..
 mv  r/Liblinear/features-$EMOTION.csv  java/training_$filename/
 mv r/Liblinear/output/Results_$EMOTION/*  java/training_$filename/liblinear/DownSampling/
+
 rm -r r/Liblinear/output/Results_$EMOTION
 
 
