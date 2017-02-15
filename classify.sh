@@ -92,10 +92,8 @@ fi;
 #taking only the file.csv name, deleting path and the extension
 
 #taking the files   created for the two python files
-
 cp java/classification_$filename/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
 cp java/classification_$filename/ElaboratedFiles/docs.py python/CalculateMoodModality/
-
 
 #starting python files for polite , impolite mood and modality extraction
 cd python/CalculatePoliteAndImpolite
@@ -105,9 +103,7 @@ rm docs.py
 rm docs.pyc
 cd ..
 cd ..
-
 cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv java/classification_$filename/ElaboratedFiles/
-
 rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
 
 
@@ -127,7 +123,6 @@ mkdir -p java/classification_$filename/n-grams
 
 cp $IDFPATH/*  java/classification_$filename/idfs/
 cp $DICTIONARYPATH/*  java/classification_$filename/n-grams/
-
 
 
 
@@ -170,7 +165,6 @@ modelName=${MODEL##*/}
 cd .. 
 cd .. 
 mv  java/classification_$filename/features-$EMOTION.csv r/Liblinear/
-
 cp $MODEL r/Liblinear/
 
 cd r/Liblinear
@@ -183,16 +177,13 @@ fi;
 cd ..
 cd ..
 mv r/Liblinear/output/Results_$EMOTION/*  java/classification_$filename/
-
 rm -r r/Liblinear/$modelName
 rm -r r/Liblinear/output/Results_$EMOTION
-
 
 
 #rm -r java/classification_$filename/n-grams
 #rm -r java/classification_$filename/idfs
 #rm -r java/classification_$filename/ElaboratedFiles
-
 
 
 
