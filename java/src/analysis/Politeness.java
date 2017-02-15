@@ -74,6 +74,7 @@ public class Politeness {
         String quad= "[";
         String quadF="]";
 
+
         if(ss.length==1){
             ss[0]=ss[0].replace("[","");
             ss[0]=ss[0].replace("]","");
