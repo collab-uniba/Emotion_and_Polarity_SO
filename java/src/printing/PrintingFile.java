@@ -140,17 +140,17 @@ public class PrintingFile {
         String file_2 = "";
         String t = "";
         //Create underDirectory
-        l.directoryCreator(path+"/Dictionary");
+        l.directoryCreator(path+"/n-grams");
 
         switch (n){
             case 1:
-                file_1 = path+"/Dictionary/"+"UnigramsList_1.txt";
-                file_2 = path+"/Dictionary/"+"UnigramsList_2.txt";
+                file_1 = path+"/n-grams/"+"UnigramsList_1.txt";
+                file_2 = path+"/n-grams/"+"UnigramsList_2.txt";
                 t = "uni";
                 break;
             case 2:
-                file_1 = path+"/Dictionary/"+"BigramsList_1.txt";
-                file_2 =path+"/Dictionary/"+"BigramsList_2.txt";
+                file_1 = path+"/n-grams/"+"BigramsList_1.txt";
+                file_2 =path+"/n-grams/"+"BigramsList_2.txt";
                 t = "bi";
                 break;
         }

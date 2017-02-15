@@ -8,7 +8,7 @@ print_help() {
 		printf "The following command line options are recognized:\n"
 		printf " ${BOLD}-i ${NC}\t -- the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).\n"
 		printf " ${BOLD}-d ${NC}\t -- the delimiter semicolon or  comma used in the csv file.\n"
-		printf " ${BOLD}-g ${NC}\t-- extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_filename/dictionary/UnigramsList.txt` and `./training_filename/dictionary/BigramsList.txt`).\n"
+		printf " ${BOLD}-g ${NC}\t-- extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_filename/n-grams/UnigramsList.txt` and `./training_filename/n-grams/BigramsList.txt`).\n"
 		printf " ${BOLD}-e ${NC}\t -- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
 		printf " ${BOLD}-h ${NC}\t -- Displays this help message. No further functions are performed.\n\n"
 		printf "Example: ${BOLD} bash $SCRIPT -i path/file.csv -e anger -d semicolon -g ${NC}\n\n"
@@ -79,17 +79,17 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 
 	elif [ "$EXTRACTDICTIONARY" = '' ] ; then 
 	  if [ -d  "training_$filename" ] ; then 
-	     cd training_$filename/  #if the same folder exists  and he wanna re-extract the dictionary 
+	     cd training_$filename/  #if the same folder exists  and he wanna re-extract the n-grams
 	 
-		 if [ -d "Dictionary" ] ; then 
+		 if [ -d "n-grams" ] ; then
 			
-			cd Dictionary/ 
+			cd n-grams/
 			if [ -e 'BigramsList_1.txt' ] && [ -e 'UnigramsList_1.txt' ] && [ -e 'BigramsList_2.txt' ] && [ -e 'UnigramsList_2.txt' ] ; then #check  the existence of the two files bigrams and unigrams
 				cd ..
-				find -maxdepth 1 -not -name Dictionary -not -name "." -exec rm -rf {} \; #removes all others directories
+				find -maxdepth 1 -not -name n-grams -not -name "." -exec rm -rf {} \; #removes all others directories
 				cd ..
 				else 
-					print "ERROR" "UnigramsList.txt OR  bigramsList.txt don't exist , I will extract the dictionary.."
+					print "ERROR" "UnigramsList.txt OR  bigramsList.txt don't exist , I will extract the n-grams.."
 					EXTRACTDICTIONARY="-G"
 					cd ..
 					cd ..
@@ -97,13 +97,13 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 
 		     fi;
 		else
-			print "ERROR" "The folder Dictionary doesn't exists. I will extract the dictionary.."
+			print "ERROR" "The folder n-grams doesn't exists. I will extract the n-grams.."
 			EXTRACTDICTIONARY="-G"
 			cd ..
 			rm -rf training_$filename
 		fi; 
 	else 
-		print "ERROR" "The folder training_$filename doesn't exist, extracting dictionary.."
+		print "ERROR" "The folder training_$filename doesn't exist, extracting n-grams.."
 		EXTRACTDICTIONARY="-G"
 	fi;
 fi;

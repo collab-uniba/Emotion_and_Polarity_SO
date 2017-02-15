@@ -197,22 +197,22 @@ public class Main {
                             gr.getPositionWordMap(new File(path + "/ElaboratedFiles/onlyText_PreProcessed.txt"), path, 0, 2);
 
                             if (executionMode.equals("unigrams_1"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_1.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_1.txt", 1);
                             else if (executionMode.equals("unigrams_2"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_2.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_2.txt", 1);
                             else if (executionMode.equals("bigrams_1"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_1.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_1.txt", 2);
                             else if (executionMode.equals("bigrams_2"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_2.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_2.txt", 2);
                         } else {
                             if (executionMode.equals("unigrams_1"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_1.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_1.txt", 1);
                             else if (executionMode.equals("unigrams_2"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_2.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_2.txt", 1);
                             else if (executionMode.equals("bigrams_1"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_1.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_1.txt", 2);
                             else if (executionMode.equals("bigrams_2"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_2.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_2.txt", 2);
                         }
 
 

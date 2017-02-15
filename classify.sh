@@ -9,12 +9,12 @@ print_help() {
 		printf " ${BOLD}-i ${NC}\t -- the input file coded in **UTF-8 without BOM**, containing the corpus for the classification;[here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-corpus).\n"
 		printf " ${BOLD}-d ${NC}\t -- the delimiter semicolon or  comma used in the csv file.\n"
 		printf " ${BOLD}-m ${NC}\t-- path to the liblinear model will be used for classification\n"
-		printf " ${BOLD}-o ${NC}\t-- path to the dictionary folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
+		printf " ${BOLD}-o ${NC}\t-- path to the n-grams folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 		printf " ${BOLD}-f ${NC}\t-- path to the Inverse document frequency folder containing  the idfs (unigrams, bigrams, positive,negative,neutral,ambiguos) used for the feature.csv created for the classification task\n"
 		printf " ${BOLD}-e ${NC}\t -- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
 		printf " ${BOLD}-l ${NC}\t -- indicates if the csv given in input has the column named label or not\n"
 		printf " ${BOLD}-h ${NC}\t -- Displays this help message. No further functions are performed.\n\n"
-		printf "Example: ${BOLD} bash classify.sh -i love.csv  -e love -g training_love/liblinear/NoDownSampling/modelLiblinear_0.Rda -l  -f training_love/InverseDocumentFrequency -o training_love/Dictionary -d semicolon ${NC}\n\n"
+		printf "Example: ${BOLD} bash classify.sh -i love.csv  -e love -g training_love/liblinear/NoDownSampling/modelLiblinear_0.Rda -l  -f training_love/idfs -o training_love/n-grams -d semicolon ${NC}\n\n"
 		exit 1
 }
 
@@ -115,12 +115,12 @@ cp  CalculateMoodModality/textsMoodAndModality.csv classification_$filename/Elab
 rm  CalculateMoodModality/textsMoodAndModality.csv
 
 #copy the 
-mkdir -p classification_$filename/InverseDocumentFrequency
-mkdir -p classification_$filename/Dictionary
+mkdir -p classification_$filename/idfs
+mkdir -p classification_$filename/n-grams
 
 echo $IDFPATH
-cp $IDFPATH/*  classification_$filename/InverseDocumentFrequency/
-cp $DICTIONARYPATH/*  classification_$filename/Dictionary/
+cp $IDFPATH/*  classification_$filename/idfs/
+cp $DICTIONARYPATH/*  classification_$filename/n-grams/
 
 
 
@@ -177,8 +177,8 @@ rm -r Liblinear/$modelName
 rm -r Liblinear/output/Results_$EMOTION
 
 
-#rm -r classification_$filename/Dictionary
-#rm -r classification_$filename/InverseDocumentFrequency
+#rm -r classification_$filename/n-grams
+#rm -r classification_$filename/idfs
 #rm -r classification_$filename/ElaboratedFiles
 
 
