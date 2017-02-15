@@ -6,7 +6,7 @@
     
       `pip install -r requirements.txt`
     * Stanford CoreNLP models
-      * Installation - download it from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar), then move the jar file into the `lib/` subfolder.
+      * Installation - download it from [here](https://bitbucket.org/FrancescoGiak/libraries/src/c12dd03d919f5952eea0952b7f4577e18e9b492b/Desktop/Final/lib/stanford-corenlp-models-current.jar?at=master&fileviewer=file-view-default), then move the jar file into the `lib/` subfolder.
 * Java 8+
 
 ## Usage
