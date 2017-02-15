@@ -1,11 +1,12 @@
 ## Requirements
 * Python 2.7.x
-  * libraries: nltk-3.2.2 , numpy-1.11.3+mkl-cp27 , scikit_learn-0.15.1-cp27 , scipy-0.18.1-cp27 , pattern-2.6
-    * Installation - open the command line and run
+  * Libraries
+    * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
+      * Installation - open the command line and run
     
-    `pip install -r `requirements.txt`
-  * Stanford CoreNLP models
-    * Installation - download it from from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar), then move the jar file into the `lib/` subfolder.
+      `pip install -r requirements.txt`
+    * Stanford CoreNLP models
+      * Installation - download it from from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar), then move the jar file into the `lib/` subfolder.
   * Java 8+
 
 ## Usage
