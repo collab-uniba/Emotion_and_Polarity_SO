@@ -24,14 +24,14 @@ where:
 As a result, the script will generate the following output files:
 
 * The principal folder named `training_<file.csv>/` contains:
-   * `liblinear(`:
+   * `liblinear/`:
      * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains the following files  (note, `IDMODEL` is in `{0,...,7}`):
           * `modelLiblinear_IDMODEL.Rda`
           * `confusion_matrix_model_IDMODEL.txt`
           * `predictions_model_IDMODEL.csv`
           * `trainingSet.csv`
           * `testingSet.csv`
-   * `Directory/`: it is a directory containing the UnigramsList.txt and the BigramsList.txt
+   * `n-gram/`: it is a directory containing the UnigramsList.txt and the BigramsList.txt
    * `idfs/`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
    * `feature-<emotion>.csv`: it is a file, in csv fomat, containing all the features extracted from the input corpus
 
