@@ -2,9 +2,7 @@ package tokenizer;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
-import edu.stanford.nlp.process.DocumentPreprocessor;
 import edu.stanford.nlp.process.PTBTokenizer;
-import reading.ReadingFile;
 
 import java.io.*;
 import java.util.ArrayList;

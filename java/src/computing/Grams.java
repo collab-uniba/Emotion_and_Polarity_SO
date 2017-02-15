@@ -2,9 +2,7 @@ package computing;
 
 import edu.stanford.nlp.util.StringUtils;
 import printing.PrintingFile;
-import replacing.Patterns;
 import replacing.Removing;
-import utility.Utility;
 
 import java.io.*;
 import java.util.*;

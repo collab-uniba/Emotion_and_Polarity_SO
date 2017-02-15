@@ -1,10 +1,13 @@
 ## Requirements
 * Python 2.7.x
-  * libraries: nltk-3.2.2 , numpy-1.11.3+mkl-cp27 , scikit_learn-0.15.1-cp27 , scipy-0.18.1-cp27 , pattern-2.6
-  * run pip install -r `requirements.txt`
+  * Libraries
+    * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
+      * Installation - open the command line and run
+    
+      `pip install -r requirements.txt`
+    * Stanford CoreNLP models
+      * Installation - download it from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar), then move the jar file into the `lib/` subfolder.
 * Java 8+
-* There is a library you must download and move to the folder named "lib" of the project.
-  You Can download from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar)
 
 ## Usage
 
@@ -21,28 +24,28 @@ where:
 As a result, the script will generate the following output files:
 
 * The principal folder named `training_<file.csv>/` contains:
-   * `liblinear`:
+   * `liblinear/`:
      * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains the following files  (note, `IDMODEL` is in `{0,...,7}`):
           * `modelLiblinear_IDMODEL.Rda`
           * `confusion_matrix_model_IDMODEL.txt`
           * `predictions_model_IDMODEL.csv`
           * `trainingSet.csv`
           * `testingSet.csv`
-   * `Directory` : it is a directory containing the UnigramsList.txt and the BigramsList.txt
-   * `InverseDocumentFrequency`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
-   * `feature-<emotion>.csv`: it is a file,in csv fomat, containing all the features extracted from the input corpus
+   * `n-gram/`: it is a directory containing the UnigramsList.txt and the BigramsList.txt
+   * `idfs/`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
+   * `feature-<emotion>.csv`: it is a file, in csv fomat, containing all the features extracted from the input corpus
 
 
 ### Emotion detection
 ```
-classify.sh -i file.csv -d delimiter -e emotion -m model -f inverseDocumentFrequency -o dictionary [-l]
+classify.sh -i file.csv -d delimiter -e emotion -m model -f idf -o dictionary [-l]
 ```
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus to be classified;the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-corpus).
 * `-d delimiter`: the specific delimite rused in the csv file, in {`comma`, `semicolon`}
 * `-e emotion`: the specific emotion to be detected in the file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 * `-m model`: the model file learned as a result of the training step (e.g., `model-anger.rda`)
-* '-f inverseDocumentFrequency`: path to the Inverse document frequency folder containing  the idfs (unigrams, bigrams, positive,negative,neutral,ambiguos) used for the feature.csv created for the training task
+* `-f idf`: path to the idf (Inverse Document Frequency) folder containing  the idfs (unigrams, bigrams, positive, negative, neutral, ambiguos) used for the `feature-<emotion>.csv` created at the end of the training task
 * `-o dictionary` : path to the dictionary folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 * `-l` : if presents , indicates  `<file.csv>` contains the column `label` \n"
 

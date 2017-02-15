@@ -1,13 +1,11 @@
-
-import random
 import cPickle
 import numpy as np
-
-from sklearn import svm
+import random
 from scipy.sparse import csr_matrix
+from sklearn import svm
 from sklearn.metrics import classification_report
 
-from CalculatePoliteAndImpolite.features.vectorizer import PolitenessFeatureVectorizer
+from Python.CalculatePoliteAndImpolite.features.vectorizer import PolitenessFeatureVectorizer
 
 """
 Sample script to train a politeness SVM

@@ -3,7 +3,6 @@ package replacing;
 import model.Document;
 import printing.PrintingFile;
 import reading.ReadingCSV;
-import reading.ReadingFile;
 
 import java.io.IOException;
 import java.util.*;
@@ -21,10 +20,10 @@ public class ReplacerTextWithMarks {
         PrintingFile pr = new PrintingFile();
         List<String> txt = new ArrayList<>();
         List<String> pathsMarks = new ArrayList<>();
-        pathsMarks.add("Resources/WordnetCategories/neutral_emotion.csv");
-        pathsMarks.add("Resources/WordnetCategories/ambiguos-emotion.csv");
-        pathsMarks.add("Resources/WordnetCategories/positive_emotion.csv");
-        pathsMarks.add("Resources/WordnetCategories/negative_emotion.csv");
+        pathsMarks.add("res/WordnetCategories/neutral_emotion.csv");
+        pathsMarks.add("res/WordnetCategories/ambiguos-emotion.csv");
+        pathsMarks.add("res/WordnetCategories/positive_emotion.csv");
+        pathsMarks.add("res/WordnetCategories/negative_emotion.csv");
 
         List<Map<String,List<String>>> allList = new ArrayList<>();
         //read all files , each of them is formed by : n list's name and n terms for each of them

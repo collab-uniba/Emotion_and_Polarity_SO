@@ -10,7 +10,6 @@ import org.apache.commons.csv.CSVPrinter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import utility.Utility;
 
 /**
  * Questa classe, usando la libreria di Apache : commons , crea un file CSV.

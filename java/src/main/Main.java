@@ -197,22 +197,22 @@ public class Main {
                             gr.getPositionWordMap(new File(path + "/ElaboratedFiles/onlyText_PreProcessed.txt"), path, 0, 2);
 
                             if (executionMode.equals("unigrams_1"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_1.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_1.txt", 1);
                             else if (executionMode.equals("unigrams_2"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_2.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_2.txt", 1);
                             else if (executionMode.equals("bigrams_1"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_1.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_1.txt", 2);
                             else if (executionMode.equals("bigrams_2"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_2.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_2.txt", 2);
                         } else {
                             if (executionMode.equals("unigrams_1"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_1.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_1.txt", 1);
                             else if (executionMode.equals("unigrams_2"))
-                                unigrams = gr.importNgrams(path + "/Dictionary/UnigramsList_2.txt", 1);
+                                unigrams = gr.importNgrams(path + "/n-grams/UnigramsList_2.txt", 1);
                             else if (executionMode.equals("bigrams_1"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_1.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_1.txt", 2);
                             else if (executionMode.equals("bigrams_2"))
-                                bigrams = gr.importNgrams(path + "/Dictionary/BigramsList_2.txt", 2);
+                                bigrams = gr.importNgrams(path + "/n-grams/BigramsList_2.txt", 2);
                         }
 
 
@@ -287,10 +287,10 @@ public class Main {
                         } else if (executionMode.equals("wordnet")) {
                             ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
 
-                            Map<String, List<String>> pos = rd.read_AllColumn_CSV("Resources/WordnetCategories/positive_emotion.csv", ';');
-                            Map<String, List<String>> neg = rd.read_AllColumn_CSV("Resources/WordnetCategories/negative_emotion.csv", ';');
-                            Map<String, List<String>> neu = rd.read_AllColumn_CSV("Resources/WordnetCategories/neutral_emotion.csv", ';');
-                            Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("Resources/WordnetCategories/ambiguos-emotion.csv", ';');
+                            Map<String, List<String>> pos = rd.read_AllColumn_CSV("res/WordnetCategories/positive_emotion.csv", ';');
+                            Map<String, List<String>> neg = rd.read_AllColumn_CSV("res/WordnetCategories/negative_emotion.csv", ';');
+                            Map<String, List<String>> neu = rd.read_AllColumn_CSV("res/WordnetCategories/neutral_emotion.csv", ';');
+                            Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("res/WordnetCategories/ambiguos-emotion.csv", ';');
 
 
                             replacer.replaceTermsWithMarks(documents, path);
