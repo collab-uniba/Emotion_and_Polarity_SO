@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: lib/commons-csv-1.4.jar lib/slf4j-nop-1.6.1.jar lib/SentiStrengthCom.j
- ar lib/slf4j-api-1.7.12.jar lib/commons-lang3-3.3.1.jar lib/stanford-corenlp-3.6.
- 0.jar lib/commons-validator-1.4.0.jar lib/Emotion_and_Polarity_SO.jar lib/stanfor
- d-corenlp-models-current.jar
-Main-Class: main.Main
-

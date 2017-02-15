@@ -8,7 +8,7 @@ out/
 textsMoodAndModality.csv
 textsPoliteAndImpolite.csv
 training_anger/
-lib/stanford-corenlp-models-current.jar
+java/lib/stanford-corenlp-models-current.jar
 
 ######## Python ########
 # Byte-compiled / optimized / DLL files
