@@ -169,6 +169,7 @@ fi;
 #merging the single features extracted
 paste -d , training_$filename/features-SenPolImpolMoodModality.csv training_$filename/features-unigrams_1.csv training_$filename/features-unigrams_2.csv  training_$filename/features-bigrams_1.csv  training_$filename/features-bigrams_2.csv training_$filename/features-wordnet.csv > training_$filename/features-$EMOTION.csv  
 
+
 #rm training_$filename/features-SenPolImpolMoodModality.csv
 #rm training_$filename/features-unigrams_1.csv
 #rm training_$filename/features-bigrams_1.csv
