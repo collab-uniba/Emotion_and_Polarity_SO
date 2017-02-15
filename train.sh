@@ -185,7 +185,7 @@ mkdir -p liblinear/DownSampling
 mkdir -p liblinear/NoDownSampling
 cd .. 
 
-mv  training_$filename/features-$EMOTION.csv Liblinear/
+mv  training_$filename/features-$EMOTION.csv r/Liblinear/
 cd r/Liblinear
 rm -rf output/Results_$EMOTION
 Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
