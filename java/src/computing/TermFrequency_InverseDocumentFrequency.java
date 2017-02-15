@@ -7,7 +7,6 @@ import utility.Utility;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.util.*;
 
 /**
@@ -33,11 +32,10 @@ public class TermFrequency_InverseDocumentFrequency {
         this.path=path;
 
         if(taskType.equals("classification")){
-            termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
+            termsIDF = rd.readIDF(gramsType,path+"/idfs/");
         }
         else if(taskType.equals("training"))
             invertedDocumentFrequency(documents, grams.keySet(), n, gramsType);
-            //termsIDF = rd.readIDF(gramsType,path+"/InverseDocumentFrequency/");
 
         String text = "";
 
@@ -177,8 +175,8 @@ public class TermFrequency_InverseDocumentFrequency {
         System.out.println("Printing idf for " + type + "\n");
         Thread.sleep(100);
 
-        l.directoryCreator(path + "/InverseDocumentFrequency");
-        pr.printIDF(termsIDF, path + "/InverseDocumentFrequency/" + type + ".txt");
+        l.directoryCreator(path + "/idfs");
+        pr.printIDF(termsIDF, path + "/idfs/" + type + ".txt");
 
         System.out.println("Printed idf for " + type + "\n");
         Thread.sleep(100);

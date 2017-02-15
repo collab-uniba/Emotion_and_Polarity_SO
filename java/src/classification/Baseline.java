@@ -4,12 +4,9 @@ import exceptions.CsvColumnNotFound;
 import model.Document;
 import printing.WriterCSV;
 import reading.ReadingCSV;
-import reading.ReadingFile;
 import replacing.ReplacerTextWithMarks;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,13 +25,13 @@ public class Baseline {
         try {
             switch (emotion) {
                 case "love": {
-                    words = rd.read_Column_CSV("Resources/WordnetCategories/positive_emotion.csv", "love", ';');
+                    words = rd.read_Column_CSV("res/WordnetCategories/positive_emotion.csv", "love", ';');
                     rp.setFinalLabelBaselineOnLexical(docs,words,"love");
                     wt.writeCsvFile(nameOutput,docs,true,"baseline");
                     break;
                 }
                 case "sadness": {
-                    words = rd.read_Column_CSV("Resources/WordnetCategories/negative_emotion.csv", "sadness", ';');
+                    words = rd.read_Column_CSV("res/WordnetCategories/negative_emotion.csv", "sadness", ';');
                     break;
                 }
                 case "fear": {
@@ -42,22 +39,22 @@ public class Baseline {
                     List<String> words_neg = null;
                     List<String> words_ambiguos = null;
 
-                    words_pos = rd.read_Column_CSV("Resources/WordnetCategories/positive_emotion.csv", "positive-fear", ';');
-                    words_neg = rd.read_Column_CSV("Resources/WordnetCategories/negative_emotion.csv", "negative-fear", ';');
-                    words_ambiguos = rd.read_Column_CSV("Resources/WordnetCategories/ambiguos_emotion.csv", "ambiguos-fear", ';');
+                    words_pos = rd.read_Column_CSV("res/WordnetCategories/positive_emotion.csv", "positive-fear", ';');
+                    words_neg = rd.read_Column_CSV("res/WordnetCategories/negative_emotion.csv", "negative-fear", ';');
+                    words_ambiguos = rd.read_Column_CSV("res/WordnetCategories/ambiguos_emotion.csv", "ambiguos-fear", ';');
 
                     break;
                 }
                 case "surprise": {
-                    words = rd.read_Column_CSV("Resources/WordnetCategories/ambiguos_emotion.csv", "surprise", ';');
+                    words = rd.read_Column_CSV("res/WordnetCategories/ambiguos_emotion.csv", "surprise", ';');
                     break;
                 }
                 case "joy": {
-                    words = rd.read_Column_CSV("Resources/WordnetCategories/positive_emotion.csv", "joy", ';');
+                    words = rd.read_Column_CSV("res/WordnetCategories/positive_emotion.csv", "joy", ';');
                     break;
                 }
                 case "anger": {
-                    words = rd.read_Column_CSV("Resources/WordnetCategories/negative_emotion.csv", "general-dislike", ';');
+                    words = rd.read_Column_CSV("res/WordnetCategories/negative_emotion.csv", "general-dislike", ';');
                     break;
                 }
             }

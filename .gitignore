@@ -1,14 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 Emotion_And_Polarity_SO.iml
-src/replacing/POSTagger.java
-src/replacing/RemoveNotEnglishWords.java
 anger.csv
 out/
 textsMoodAndModality.csv
 textsPoliteAndImpolite.csv
 training_anger/
-lib/stanford-corenlp-models-current.jar
+java/lib/stanford-corenlp-models-current.jar
 
 ######## Python ########
 # Byte-compiled / optimized / DLL files
@@ -124,3 +122,4 @@ ENV/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/java/lib/stanford-corenlp-models-current.jar
