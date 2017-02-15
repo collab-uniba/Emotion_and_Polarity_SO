@@ -45,7 +45,7 @@ where:
 * `-d delimiter`: the specific delimite rused in the csv file, in {`comma`, `semicolon`}
 * `-e emotion`: the specific emotion to be detected in the file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 * `-m model`: the model file learned as a result of the training step (e.g., `model-anger.rda`)
-* '-f inverseDocumentFrequency`: path to the Inverse document frequency folder containing  the idfs (unigrams, bigrams, positive,negative,neutral,ambiguos) used for the feature.csv created for the training task
+* `-f inverseDocumentFrequency`: path to the Inverse document frequency folder containing  the idfs (unigrams, bigrams, positive,negative,neutral,ambiguos) used for the feature.csv created for the training task
 * `-o dictionary` : path to the dictionary folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 * `-l` : if presents , indicates  `<file.csv>` contains the column `label` \n"
 
