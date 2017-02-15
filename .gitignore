@@ -1,8 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 Emotion_And_Polarity_SO.iml
-java/src/replacing/POSTagger.java
-java/src/replacing/RemoveNotEnglishWords.java
 anger.csv
 out/
 textsMoodAndModality.csv
