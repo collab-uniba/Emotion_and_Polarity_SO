@@ -3,6 +3,8 @@
   * libraries: nltk-3.2.2 , numpy-1.11.3+mkl-cp27 , scikit_learn-0.15.1-cp27 , scipy-0.18.1-cp27 , pattern-2.6
   * run pip install -r `PythonRequirements.txt`
 * Java 8+
+* There is a library you must to download and insert in the folder named "lib" of the project. 
+  You Can download from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar)
 
 ## Usage
 
