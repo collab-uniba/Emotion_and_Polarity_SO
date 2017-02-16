@@ -11,14 +11,14 @@
 
 ## Usage
 
-### Training a new model for emotion classification
+### Training a new model for emotion classification(70% is for training, 30% is for test)
 ```
 train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus for the training; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus).
 * `-d delimiter`: the specific delimite rused in the csv file, in {`comma`, `semicolon`}
-* `-g`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_<file.csv>/dictionary/unigramsList_2.txt` and `./training_<file.csv>/dictionary/BigramsList_1.txt` and `./training_<file.csv>/dictionary/unigramsList_1.txt`  and `./training_<file.csv>/dictionary/BigramsList_2.txt`)
+* `-g`: extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_<file.csv>/n-grams/unigramsList_2.txt` and `./training_<file.csv>/n-grams/BigramsList_1.txt` and `./training_<file.csv>/n-grams/unigramsList_1.txt`  and `./training_<file.csv>/n-grams/BigramsList_2.txt`)
 * `-e emotion`: the specific emotion for training the model, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 
 As a result, the script will generate the following output files:
@@ -31,14 +31,14 @@ As a result, the script will generate the following output files:
           * `predictions_model_IDMODEL.csv`
           * `trainingSet.csv`
           * `testingSet.csv`
-   * `n-gram/`: it is a directory containing the UnigramsList.txt and the BigramsList.txt
+   * `n-grams/`: it is a directory containing the UnigramsList.txt and the BigramsList.txt
    * `idfs/`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
    * `feature-<emotion>.csv`: it is a file, in csv fomat, containing all the features extracted from the input corpus
 
 
 ### Emotion detection
 ```
-classify.sh -i file.csv -d delimiter -e emotion [-m model] -f idf -o dictionary [-l]
+classify.sh -i file.csv -d delimiter -e emotion [-m model] -f idf -o n-grams [-l]
 ```
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus to be classified;the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-corpus).
@@ -46,7 +46,7 @@ where:
 * `-e emotion`: the specific emotion to be detected in the file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 * `-m model`: the model file learned as a result of the training step(e.g., `model-anger.rda`), if you don't give it as input will be used the model file learned on the specific emotion you are convey
 * `-f idf`: path to the idf (Inverse Document Frequency) folder containing  the idfs (unigrams, bigrams, positive, negative, neutral, ambiguos) used for the `feature-<emotion>.csv` created at the end of the training task
-* `-o dictionary` : path to the dictionary folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
+* `-o n-grams` : path to the n-grams folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 * `-l` : if presents , indicates  `<file.csv>` contains the column `label` \n"
 
 As a result, the script will generate the following output files:
