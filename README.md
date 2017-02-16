@@ -8,6 +8,12 @@
     * Stanford CoreNLP models
       * Installation - download it from [here](https://bitbucket.org/FrancescoGiak/libraries/src/c12dd03d919f5952eea0952b7f4577e18e9b492b/Desktop/Final/lib/stanford-corenlp-models-current.jar?at=master&fileviewer=file-view-default), then move the jar file into the `lib/` subfolder.
 * Java 8+
+* R
+ * Libraries
+  * `caret`, `LiblinearR`
+    *  Installation - open the command line and run
+
+      `Rscript requirements.R`
 
 ## Usage
 
