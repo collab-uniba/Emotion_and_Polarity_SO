@@ -126,8 +126,8 @@ mkdir -p  classification_$filename/idfs
 mkdir -p  classification_$filename/n-grams
 
 
-cp $IDFPATH/*  java/classification_$filename/idfs/
-cp $DICTIONARYPATH/*  java/classification_$filename/n-grams/
+cp $IDFPATH/*  classification_$filename/idfs/
+cp $DICTIONARYPATH/*  classification_$filename/n-grams/
 
 
 cp $IDFPATH/*   classification_$filename/idfs/
