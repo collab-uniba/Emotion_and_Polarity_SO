@@ -170,7 +170,7 @@ paste -d ,  classification_$filename/features-SenPolImpolMoodModality.csv  class
 #create a folder for the liblinear's generated outputs into the output folder
 
 
-modelName=${MODEL##*/}
+
 
 mv   classification_$filename/features-$EMOTION.csv r/Liblinear/
 
@@ -194,6 +194,8 @@ if [ "$MODEL" != '' ] ; then
 	fi;
 	cp $MODEL r/Liblinear/
 fi;
+
+modelName=${MODEL##*/}
 
 cd r/Liblinear
 rm -rf output/Results_$EMOTION
