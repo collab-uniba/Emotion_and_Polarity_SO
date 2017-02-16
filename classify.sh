@@ -8,7 +8,7 @@ print_help() {
 		printf "The following command line options are recognized:\n"
 		printf " ${BOLD}-i ${NC}\t -- the input file coded in **UTF-8 without BOM**, containing the corpus for the classification;[here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-corpus).\n"
 		printf " ${BOLD}-d ${NC}\t -- the delimiter semicolon or  comma used in the csv file.\n"
-		printf " ${BOLD}-m ${NC}\t-- path to the liblinear model will be used for classification, you can don't give in input this , it will use the model trained on Stack Overflow on the specific emotion you are convey\n"
+		printf " ${BOLD}-m ${NC}\t-- path to the liblinear model will be used for classification; if you omit this input, the script will use the model trained on Stack Overflow on the emotion you specify\n"
 		printf " ${BOLD}-o ${NC}\t-- path to the n-grams folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 		printf " ${BOLD}-f ${NC}\t-- path to the Inverse document frequency folder containing  the idfs (unigrams, bigrams, positive,negative,neutral,ambiguos) used for the feature.csv created for the classification task\n"
 		printf " ${BOLD}-e ${NC}\t -- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
