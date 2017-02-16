@@ -75,7 +75,7 @@ filename=${filename%.*}
 if [ "$EXTRACTDICTIONARY" = '-G' ] ; then 
 	
 	rm -rf training_$filename #if the same folder exists i will remove it 
-
+	
 
 	elif [ "$EXTRACTDICTIONARY" = '' ] ; then 
 	  if [ -d  "training_$filename" ] ; then 
@@ -94,6 +94,7 @@ if [ "$EXTRACTDICTIONARY" = '-G' ] ; then
 					cd ..
 					cd ..
 					rm -rf training_$filename
+
 
 		     fi;
 		else
@@ -114,7 +115,7 @@ fi;
 if  [ "$DELIMITER" = 'semicolon' ] ; then 
 	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat
 		elif [ "$DELIMITER"='comma' ] ; then 
-		 java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat 
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_And_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat 
 fi;
 
 #taking only the file.csv name, deleting path and the extension
@@ -169,6 +170,7 @@ fi;
 #merging the single features extracted
 paste -d , training_$filename/features-SenPolImpolMoodModality.csv training_$filename/features-unigrams_1.csv training_$filename/features-unigrams_2.csv  training_$filename/features-bigrams_1.csv  training_$filename/features-bigrams_2.csv training_$filename/features-wordnet.csv > training_$filename/features-$EMOTION.csv  
 
+
 #rm training_$filename/features-SenPolImpolMoodModality.csv
 #rm training_$filename/features-unigrams_1.csv
 #rm training_$filename/features-bigrams_1.csv
@@ -183,13 +185,12 @@ cd training_$filename
 rm -rf liblinear
 mkdir -p liblinear/DownSampling
 mkdir -p liblinear/NoDownSampling
-
-
 cd .. 
-mv  training_$filename/features-$EMOTION.csv Liblinear/
+
+mv  training_$filename/features-$EMOTION.csv r/Liblinear/
 cd r/Liblinear
 rm -rf output/Results_$EMOTION
-Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
+Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear.txt features-$EMOTION.csv
 cd ..
 cd ..
 mv r/Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/NoDownSampling/
@@ -198,7 +199,7 @@ rm -r r/Liblinear/output/Results_$EMOTION
 
 #same thing with downSampling. 
 cd r/Liblinear
-Rscript svmLiblinearDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
+Rscript svmLiblinearDownSampling.R Results_$EMOTION modelsLiblinear.txt features-$EMOTION.csv
 cd ..
 cd ..
 mv  r/Liblinear/features-$EMOTION.csv  training_$filename/

@@ -6,7 +6,7 @@
     
       `pip install -r requirements.txt`
     * Stanford CoreNLP models
-      * Installation - download it from [here](http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar), then move the jar file into the `lib/` subfolder.
+      * Installation - download it from [here](https://bitbucket.org/FrancescoGiak/libraries/src/c12dd03d919f5952eea0952b7f4577e18e9b492b/Desktop/Final/lib/stanford-corenlp-models-current.jar?at=master&fileviewer=file-view-default), then move the jar file into the `lib/` subfolder.
 * Java 8+
 
 ## Usage
@@ -38,13 +38,13 @@ As a result, the script will generate the following output files:
 
 ### Emotion detection
 ```
-classify.sh -i file.csv -d delimiter -e emotion -m model -f idf -o dictionary [-l]
+classify.sh -i file.csv -d delimiter -e emotion [-m model] -f idf -o dictionary [-l]
 ```
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus to be classified;the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-corpus).
 * `-d delimiter`: the specific delimite rused in the csv file, in {`comma`, `semicolon`}
 * `-e emotion`: the specific emotion to be detected in the file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
-* `-m model`: the model file learned as a result of the training step (e.g., `model-anger.rda`)
+* `-m model`: the model file learned as a result of the training step(e.g., `model-anger.rda`), if you don't give it as input will be used the model file learned on the specific emotion you are convey
 * `-f idf`: path to the idf (Inverse Document Frequency) folder containing  the idfs (unigrams, bigrams, positive, negative, neutral, ambiguos) used for the `feature-<emotion>.csv` created at the end of the training task
 * `-o dictionary` : path to the dictionary folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 * `-l` : if presents , indicates  `<file.csv>` contains the column `label` \n"

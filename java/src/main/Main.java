@@ -287,10 +287,10 @@ public class Main {
                         } else if (executionMode.equals("wordnet")) {
                             ReplacerTextWithMarks replacer = new ReplacerTextWithMarks();
 
-                            Map<String, List<String>> pos = rd.read_AllColumn_CSV("res/WordnetCategories/positive_emotion.csv", ';');
-                            Map<String, List<String>> neg = rd.read_AllColumn_CSV("res/WordnetCategories/negative_emotion.csv", ';');
-                            Map<String, List<String>> neu = rd.read_AllColumn_CSV("res/WordnetCategories/neutral_emotion.csv", ';');
-                            Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("res/WordnetCategories/ambiguos-emotion.csv", ';');
+                            Map<String, List<String>> pos = rd.read_AllColumn_CSV("java/res/WordnetCategories/positive_emotion.csv", ';');
+                            Map<String, List<String>> neg = rd.read_AllColumn_CSV("java/res/WordnetCategories/negative_emotion.csv", ';');
+                            Map<String, List<String>> neu = rd.read_AllColumn_CSV("java/res/WordnetCategories/neutral_emotion.csv", ';');
+                            Map<String, List<String>> ambiguos = rd.read_AllColumn_CSV("java/res/WordnetCategories/ambiguos-emotion.csv", ';');
 
 
                             replacer.replaceTermsWithMarks(documents, path);
