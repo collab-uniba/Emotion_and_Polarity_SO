@@ -130,12 +130,6 @@ cp $IDFPATH/*  classification_$filename/idfs/
 cp $DICTIONARYPATH/*  classification_$filename/n-grams/
 
 
-cp $IDFPATH/*   classification_$filename/idfs/
-cp $DICTIONARYPATH/*   classification_$filename/n-grams/
-
-
-
-
 #starting Emotion_And_Polarity_SO.jar to extract the features
 
 
@@ -197,12 +191,13 @@ if [ "$MODEL" != '' ] ; then
 			MODEL=r/Liblinear/SOModels/modelSadness.Rda
 		elif [ "$EMOTION" = 'surprise' ] ; then 
 			MODEL=r/Liblinear/SOModels/modelSurprise.Rda
-	fi;;
+	fi;
 	cp $MODEL r/Liblinear/
 fi;
 
 cd r/Liblinear
 rm -rf output/Results_$EMOTION
+
 if [ "$HASLABEL" = '-L' ] ; then 
 	 Rscript classification.R Results_$EMOTION $modelName features-$EMOTION.csv 1
 	else 
