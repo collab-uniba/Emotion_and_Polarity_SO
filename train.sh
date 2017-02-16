@@ -190,7 +190,7 @@ cd ..
 mv  training_$filename/features-$EMOTION.csv r/Liblinear/
 cd r/Liblinear
 rm -rf output/Results_$EMOTION
-Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
+Rscript svmLiblinearWithoutDownSampling.R Results_$EMOTION modelsLiblinear.txt features-$EMOTION.csv
 cd ..
 cd ..
 mv r/Liblinear/output/Results_$EMOTION/*  training_$filename/liblinear/NoDownSampling/
@@ -199,7 +199,7 @@ rm -r r/Liblinear/output/Results_$EMOTION
 
 #same thing with downSampling. 
 cd r/Liblinear
-Rscript svmLiblinearDownSampling.R Results_$EMOTION modelsLiblinear features-$EMOTION.csv
+Rscript svmLiblinearDownSampling.R Results_$EMOTION modelsLiblinear.txt features-$EMOTION.csv
 cd ..
 cd ..
 mv  r/Liblinear/features-$EMOTION.csv  training_$filename/
