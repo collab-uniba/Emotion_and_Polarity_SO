@@ -98,8 +98,8 @@ if [ "$MODEL" != '' ] ; then
 	fi;
 	cp $MODEL r/Liblinear/
 	#use the default grams and IDF
-	DICTIONARYPATH=java/n-gramsSO
-	IDFPATH=java/idfsSO
+	DICTIONARYPATH=java/res/n-gramsSO
+	IDFPATH=java/res/idfsSO
 fi;
 
 rm -rf  classification_$filename
