@@ -1,4 +1,5 @@
 ## Requirements
+* Minimum memory ram 20 gb required
 * Python 2.7.x
   * Libraries
     * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
