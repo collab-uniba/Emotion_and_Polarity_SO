@@ -16,6 +16,8 @@
       `Rscript requirements.R`
 
 ## Usage
+### Ensure that the classify.sh and train.sh have the EOF for UNIX.
+
 
 ### Training a new model for emotion classification(70% is for training, 30% is for test)
 ```
