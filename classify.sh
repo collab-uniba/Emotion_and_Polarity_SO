@@ -10,7 +10,7 @@ print_help() {
 		printf " ${BOLD}-d ${NC}\t -- the delimiter semicolon or  comma used in the csv file.\n"
 		printf " ${BOLD}-m ${NC}\t-- path to the liblinear model will be used for classification; if you omit this input, the script will use the model trained on Stack Overflow on the emotion you specify\n"
 		printf " ${BOLD}-o ${NC}\t-- path to the n-grams folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
-		printf " ${BOLD}-f ${NC}\t-- path to the Inverse document frequency folder containing  the idfs (unigrams, bigrams, positive,negative,neutral,ambiguos) used for the feature.csv created for the classification task\n"
+		printf " ${BOLD}-f ${NC}\t-- if you give the model as input you must specify n-grams path containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 		printf " ${BOLD}-e ${NC}\t -- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
 		printf " ${BOLD}-l ${NC}\t -- indicates if the csv given in input has the column named label or not\n"
 		printf " ${BOLD}-h ${NC}\t -- Displays this help message. No further functions are performed.\n\n"
@@ -79,6 +79,28 @@ shift $((OPTIND-1))  #This tells getopts to move on to the next argument.
 filename=${INPUT##*/}
 filename=${filename%.*}
 
+if [ "$MODEL" != '' ] ; then 
+#use the model given as input
+	cp $MODEL r/Liblinear/
+  else 
+	if [ "$EMOTION" = 'anger' ] ; then 
+			MODEL=r/Liblinear/SOModels/modelAnger.Rda
+		elif [ "$EMOTION" = 'joy' ] ; then 
+			MODEL=r/Liblinear/SOModels/modelJoy.Rda
+		elif [ "$EMOTION" = 'fear' ] ; then 
+			MODEL=r/Liblinear/SOModels/modelFear.Rda
+		elif [ "$EMOTION" = 'love' ] ; then 
+			MODEL=r/Liblinear/SOModels/modelLove.Rda
+		elif [ "$EMOTION" = 'sadness' ] ; then 
+			MODEL=r/Liblinear/SOModels/modelSadness.Rda
+		elif [ "$EMOTION" = 'surprise' ] ; then 
+			MODEL=r/Liblinear/SOModels/modelSurprise.Rda
+	fi;
+	cp $MODEL r/Liblinear/
+	#use the default grams and IDF
+	DICTIONARYPATH=java/res/n-gramsSO
+	IDFPATH=java/res/idfsSO
+fi;
 
 rm -rf  classification_$filename
 
@@ -175,25 +197,7 @@ paste -d ,  classification_$filename/features-SenPolImpolMoodModality.csv  class
 mv   classification_$filename/features-$EMOTION.csv r/Liblinear/
 
 
-if [ "$MODEL" != '' ] ; then 
-#use the model given as input
-	cp $MODEL r/Liblinear/
-  else 
-	if [ "$EMOTION" = 'anger' ] ; then 
-			MODEL=r/Liblinear/SOModels/modelAnger.Rda
-		elif [ "$EMOTION" = 'joy' ] ; then 
-			MODEL=r/Liblinear/SOModels/modelJoy.Rda
-		elif [ "$EMOTION" = 'fear' ] ; then 
-			MODEL=r/Liblinear/SOModels/modelFear.Rda
-		elif [ "$EMOTION" = 'love' ] ; then 
-			MODEL=r/Liblinear/SOModels/modelLove.Rda
-		elif [ "$EMOTION" = 'sadness' ] ; then 
-			MODEL=r/Liblinear/SOModels/modelSadness.Rda
-		elif [ "$EMOTION" = 'surprise' ] ; then 
-			MODEL=r/Liblinear/SOModels/modelSurprise.Rda
-	fi;
-	cp $MODEL r/Liblinear/
-fi;
+
 
 modelName=${MODEL##*/}
 
