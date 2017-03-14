@@ -14,7 +14,7 @@ if(!dir.exists(output_dir))
 # Params
 models_file <- args[2]
 csv_file <- args[3]
-
+emotion<-args[4]
 # logs errors to file
 error_file <- paste(date_time, "log", sep = ".")
 log.error <- function() {
@@ -108,7 +108,10 @@ for(i in 1:length(classifiers)){
   bestAcc=0
  
    # output file for the classifier at nad
-  output_file <- paste(output_dir, paste(paste("confusion_matrix_model",number,sep="_"),"txt", sep="."), sep = "/")
+  #output_file <- paste(output_dir, paste(paste("confusion_matrix_model",number,sep="_"),"txt", sep="."), sep = "/")
+  
+   
+   output_file <- paste(output_dir, paste("performance",paste(emotion,number,sep="_"),"txt", sep="."), sep = "/")
   
   cat("Input file:",csv_file,"\n",sep=" ",file=output_file)
   cat("Classifier:",classifier,"\n",sep=" ",file=output_file,append=TRUE)
@@ -161,7 +164,7 @@ for(i in 1:length(classifiers)){
 	
  
   # save classification to text file
-  outputPrediction <- paste(paste("predictions_model",number,sep="_"),"csv",sep=".")
+  outputPrediction <- paste(paste(paste("predictions",emotion,sep="_"),number,sep="_"),"csv",sep=".")
   write.table(predictions, file=paste(output_dir,outputPrediction,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
 
