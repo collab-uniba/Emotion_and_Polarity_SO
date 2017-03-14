@@ -31,7 +31,7 @@ where:
 
 As a result, the script will generate the following output files:
 
-* The main folder named `training_<file.csv>/` contains:
+* The main folder named `training_<file.csv>_<emotion>/` contains:
    * `n-grams/`: a subfolder containing the extracted n-grams
    * `idfs/`: a subfolder containing the IDFs computed for n-grams and WordNet Affect emotion words
    * `feature-<emotion>.csv`: a .csv file with the features extracted from the input corpus and used for training the model
@@ -57,7 +57,7 @@ where:
 * `-l` : if presents , indicates  `<file.csv>` contains a gold label in the column `label`.
 
 As a result, the script will generate the following output files:
-* The main folder named `classification_<file.csv>` contains :
+* The main folder named `classification_<file.csv>_<emotion>` contains :
 * `predictions_<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
 * `performance_<emotion>.txt` : this file appears only if the `<file.csv>` contains the column `label`.
 
