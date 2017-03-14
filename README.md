@@ -40,8 +40,8 @@ As a result, the script will generate the following output files:
           * `trainingSet.csv`
           * `testingSet.csv`
           * eight models trained with liblinear `modelLiblinear_IDMODEL.Rdal, where `IDMODEL` is the ID of the liblinear model, with values in `{0,...,7}`):
-          * `performance_<emotion>_<IDMODEL>.txt, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost for the specific emotion
-          * `predictions_<emotion>_<IDMODEL>.csv, containing the test instances with the predicted labels for the specific emotion
+          * `performance_<emotion>_<IDMODEL>.txt`, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost for the specific emotion
+          * `predictions_<emotion>_<IDMODEL>.csv`, containing the test instances with the predicted labels for the specific emotion
 
 ### Emotion detection
 ```
