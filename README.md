@@ -39,7 +39,7 @@ As a result, the script will generate the following output files:
    * `liblinear/`:
      * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains:
           * `trainingSet.csv`
-          * `testingSet.csv'
+          * `testingSet.csv`
           * eight models trained with liblinear `modelLiblinear_IDMODEL.Rdal, where `IDMODEL` is the ID of the liblinear model, with values in `{0,...,7}`):
           * `performance_emotion_IDMODEL.txt, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost
           * `predictions_model_IDMODEL.csv, containing the test instances with the predicted labels
