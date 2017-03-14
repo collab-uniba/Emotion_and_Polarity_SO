@@ -13,7 +13,6 @@
  * Libraries
   * `caret`, `LiblinearR` , `e1071`
     *  Installation - open the command line and run
-
       `Rscript requirements.R`
 
 ## Usage
