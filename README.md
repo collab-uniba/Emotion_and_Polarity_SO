@@ -40,10 +40,8 @@ As a result, the script will generate the following output files:
           * `trainingSet.csv`
           * `testingSet.csv`
           * eight models trained with liblinear `modelLiblinear_IDMODEL.Rdal, where `IDMODEL` is the ID of the liblinear model, with values in `{0,...,7}`):
-          * `performance_emotion_IDMODEL.txt, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost
-          * `predictions_model_IDMODEL.csv, containing the test instances with the predicted labels
- 
-
+          * `performance_<emotion>_<IDMODEL>.txt, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost for the specific emotion
+          * `predictions_<emotion>_<IDMODEL>.csv, containing the test instances with the predicted labels for the specific emotion
 
 ### Emotion detection
 ```
@@ -60,8 +58,8 @@ where:
 
 As a result, the script will generate the following output files:
 * The main folder named `classification_<file.csv>` contains :
-* `predictions-<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
-* `confusion_matrix.txt` : this file appears only if the `<file.csv>` contains the column `label`.
+* `predictions_<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
+* `performance_<emotion>.txt` : this file appears only if the `<file.csv>` contains the column `label`.
 
 The different formats of the output files are specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
 
