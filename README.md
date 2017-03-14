@@ -27,23 +27,23 @@ train.sh -i file.csv -d delimiter [-g] -e emotion
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus). Please, not that gold label are required for each item in the dataset
 * `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
-* `-g`: type '-g' if you want to extract n-grams (i.e. bigrams and unigrams). N-grams extraction is mandatory for the first run, when you want to train a new classification model for a given emotion using your own dataset for the first time. N-gram extraction is computationally expensive and we suggest to skip it if you retrain the model for the same emotion using the same input file. Extracted n-gram dictionaries will be stored in `./training_<file.csv>/n-grams/unigramsList_2.txt` and `./training_<file.csv>/n-grams/BigramsList_1.txt` and `./training_<file.csv>/n-grams/unigramsList_1.txt`  and `./training_<file.csv>/n-grams/BigramsList_2.txt`)
+* `-g`: type '-g' if you want to extract n-grams (i.e. bigrams and unigrams). N-grams extraction is mandatory for the first run, when you want to train a new classification model for a given emotion using your own dataset for the first time. N-gram extraction is computationally expensive and we suggest to skip it if you retrain the model for the same emotion using the same input file.
 * `-e emotion`: the specific emotion for which you want to train a classification model, with values in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 
 As a result, the script will generate the following output files:
 
-* The principal folder named `training_<file.csv>/` contains:
+* The main folder named `training_<file.csv>/` contains:
+   * `n-grams/`: a subfolder containing the extracted n-grams
+   * `idfs/`: a subfolder containing the IDFs computed for n-grams and WordNet Affect emotion words
+   * `feature-<emotion>.csv`: a .csv file with the features extracted from the input corpus and used for training the model
    * `liblinear/`:
-     * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains the following files  (note, `IDMODEL` is in `{0,...,7}`):
-          * `modelLiblinear_IDMODEL.Rda`
-          * `confusion_matrix_model_IDMODEL.txt`
-          * `predictions_model_IDMODEL.csv`
+     * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains:
           * `trainingSet.csv`
-          * `testingSet.csv`
-   * `n-grams/`: it is a folder containing the UnigramsList.txt and the BigramsList.txt
-   * `idfs/`: contains the idfs computed for UnigramsList.txt, BigramsList.txt , Wordnet Categories (positive, negative, ambigue,neutral)
-   * `feature-<emotion>.csv`: it is a file, in csv fomat, containing all the features extracted from the input corpus
-
+          * `testingSet.csv'
+          * eight models trained with liblinear `modelLiblinear_IDMODEL.Rdal, where `IDMODEL` is the ID of the liblinear model, with values in `{0,...,7}`):
+          * `performance_emotion_IDMODEL.txt, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost
+          * `predictions_model_IDMODEL.csv, containing the test instances with the predicted labels
+ 
 
 ### Emotion detection
 ```
