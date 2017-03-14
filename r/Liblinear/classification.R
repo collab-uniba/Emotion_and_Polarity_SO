@@ -17,7 +17,7 @@ if(!dir.exists(output_dir))
 model_file <- args[2]
 csv_file <- args[3]
 hasLabel <- as.integer(args[4])
-
+emotion<- args[5]
 
 # library setup, depedencies are handled by R
 library(caret) # for param tuning
@@ -52,7 +52,9 @@ if(hasLabel == 1){
 	  for (i in 0:length(temp[,"id"])){
 		predictions <- c(predictions, paste(temp[i,"id"],pred[i],temp[i,"label"], sep=","))
 	  }
-	output_file <- paste(output_dir, paste("confusion_matrix","txt", sep="."), sep = "/")
+	#output_file <- paste(output_dir, paste("confusion_matrix","txt", sep="."), sep = "/")
+	
+   output_file <- paste(output_dir, paste("performance",emotion,"txt", sep="."), sep = "/")
 	
    #Display confusion matrix
     res=table(pred,yTest)
@@ -70,6 +72,6 @@ if(hasLabel == 1){
 }
 
 # save classification to csv file
-outputPrediction <- paste("predictions","csv",sep=".")
+outputPrediction <- paste(paste("predictions",emotion,sep="_"),"csv",sep=".")
 write.table(predictions, file=paste(output_dir,outputPrediction,sep="/"), quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE) 
 
