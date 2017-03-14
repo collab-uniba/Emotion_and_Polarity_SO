@@ -128,7 +128,7 @@ for(i in 1:length(classifiers)){
   # Re-train best model with best cost value.
   m=LiblineaR(data=xTrain,target=yTrain,type=number,cost=bestCost,bias=TRUE,verbose=FALSE)
   #save the model
-  output_model <- paste(output_dir, paste(paste("modelLiblinear",number,sep="_"),"Rda", sep="."), sep="/")
+  output_model <- paste(output_dir, paste(paste("model",emotion,number,sep="_"),"Rda", sep="."), sep="/")
   save(m, file=output_model)
   
   
@@ -136,12 +136,37 @@ for(i in 1:length(classifiers)){
   time.taken <- end.time - start.time
   cat("Time taken for training on test set: ",capture.output(time.taken),"\n",file=output_file,sep="",append=TRUE)
 
-  p <- predict(m,xTest) 
-  
-  pred = p$predictions
-  
+  p <- predict(m,xTest, type='raw')
+
+   pred = p$predictions
+
+   #precision , recall and F-1
+
+   precisionNo <- posPredValue(factor(pred), yTest)
+   recallNo <- sensitivity(factor(pred),yTest,"NO")
+   F1No <- (2 * precisionNo * recallNo) / (precisionNo + recallNo)
+
+   precisionYes<-negPredValue(factor(pred), yTest)
+   recallYes<- sensitivity(factor(pred),yTest,"YES")
+   F1Yes<- (2 * precisionYes * recallYes) / (precisionYes + recallYes)
+
+
+   cat("Precision for NO is: ",precisionNo,file=output_file,sep="\n",append=TRUE)
+   cat("Precision for NO is: ",precisionNo,sep="\n")
+   cat(" Recall for NO is: ",recallNo,file=output_file,sep="\n",append=TRUE)
+   cat("Recall  for NO is: ",recallNo,sep="\n")
+   cat(" F1  for NO is: ",F1No,file=output_file,sep="\n",append=TRUE)
+   cat("F1  for NO is ",F1No,sep="\n")
+
+   cat("Precision for YES is: ",precisionYes,file=output_file,sep="\n",append=TRUE)
+   cat("Precision for YES is: ",precisionYes,sep="\n")
+   cat(" Recall for YES is: ",recallYes,file=output_file,sep="\n",append=TRUE)
+   cat("Recall  for YES is: ",recallYes,sep="\n")
+   cat(" F1  for YES is: ",F1Yes,file=output_file,sep="\n",append=TRUE)
+   cat("F1  for YES is ",F1Yes,sep="\n")
+
   predictions <- c()
-   predictions<-c(predictions,(paste("id","predicted","Annotated", sep=",")))
+  predictions<-c(predictions,(paste("id","predicted","Annotated", sep=",")))
   for (i in 0:length(testing[,"id"])){
     predictions <- c(predictions, paste(testing[i,"id"],pred[i],testing[i,"label"], sep=","))
   }
