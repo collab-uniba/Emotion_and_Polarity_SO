@@ -82,8 +82,8 @@ if(hasLabel == 1){
 	  }
 	#output_file <- paste(output_dir, paste("confusion_matrix","txt", sep="."), sep = "/")
 	
-   output_file <- paste(output_dir, paste("performance",emotion,"txt", sep="."), sep = "/")
-	
+   #output_file <- paste(output_dir, paste("performance",emotion,"txt", sep="."), sep = "/")
+	output_file <- paste(output_dir, paste(paste("performance",emotion,sep="_"),"txt", sep="."), sep = "/")
    #Display confusion matrix
     res=table(pred,yTest)
 	cat("\nConfusion Matrix\n",file=output_file,append=TRUE)
