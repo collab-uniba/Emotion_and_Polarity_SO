@@ -40,7 +40,7 @@ load(file = model_file)
 
 if(hasLabel == 1){
 	predictorsNames <- names(SO[,!(names(SO)  %in% c(outcomeName))]) # removes the var to be predicted from the test set
-	
+	output_file <- paste(output_dir, paste(paste("performance",emotion,sep="_"),"txt", sep="."), sep = "/")
 	x=SO[,predictorsNames]
 	
 	yTest  = factor(SO[,outcomeName])
@@ -80,10 +80,7 @@ if(hasLabel == 1){
 	  for (i in 0:length(temp[,"id"])){
 		predictions <- c(predictions, paste(temp[i,"id"],pred[i],temp[i,"label"], sep=","))
 	  }
-	#output_file <- paste(output_dir, paste("confusion_matrix","txt", sep="."), sep = "/")
 	
-   #output_file <- paste(output_dir, paste("performance",emotion,"txt", sep="."), sep = "/")
-	output_file <- paste(output_dir, paste(paste("performance",emotion,sep="_"),"txt", sep="."), sep = "/")
    #Display confusion matrix
     res=table(pred,yTest)
 	cat("\nConfusion Matrix\n",file=output_file,append=TRUE)
