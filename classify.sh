@@ -106,9 +106,9 @@ rm -rf  classification_$filename_$EMOTION
 
 #Creating the format to give at python files.
 if  [ "$DELIMITER" = 'sc' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';' -t classification -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';' -t classification -Ex createDocFormat -e $EMOTION
 	elif [ "$DELIMITER"='c' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t classification -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t classification -Ex createDocFormat -e $EMOTION
 fi;
 
 
@@ -157,23 +157,23 @@ cp $DICTIONARYPATH/*  classification_$filename_$EMOTION/n-grams/
 
 if [ "$DELIMITER" = 'sc' ] ; then 
 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  classification_$filename_$EMOTION/ElaboratedFiles/textsPoliteAndImpolite.csv -M  classification_$filename_$EMOTION/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t classification -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  classification_$filename_$EMOTION/ElaboratedFiles/textsPoliteAndImpolite.csv -M  classification_$filename_$EMOTION/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t classification -Ex SenPolImpolMoodModality -e $EMOTION
 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'   -t classification -Ex wordnet $HASLABEL
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_1 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_1 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_2 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_2 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'   -t classification -Ex wordnet $HASLABEL -e $EMOTION
 	
 	elif [ "$DELIMITER"='c' ] ; then 
 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  classification_$filename_$EMOTION/ElaboratedFiles/textsPoliteAndImpolite.csv -M  classification_$filename_$EMOTION/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -t classification -Ex SenPolImpolMoodModality
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  classification_$filename_$EMOTION/ElaboratedFiles/textsPoliteAndImpolite.csv -M  classification_$filename_$EMOTION/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -t classification -Ex SenPolImpolMoodModality -e $EMOTION
 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_1
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_2
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex wordnet $HASLABEL
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_1 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_1 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_2 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_2 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex wordnet $HASLABEL -e $EMOTION
 fi;
 
 #merging the single features extracted

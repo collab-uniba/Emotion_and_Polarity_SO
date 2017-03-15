@@ -117,7 +117,7 @@ public class Main {
             //Create the output folder
             String[] ss = input.split("/");
             String fileCsv = ss[ss.length - 1].replaceAll(".csv", "");
-            String path = Tasktype + "_" + fileCsv;
+            String path = Tasktype + "_" + fileCsv+ "_" + emotionIndicate;
             u.directoryCreator(path);
             u.directoryCreator(path + "/ElaboratedFiles");
 
