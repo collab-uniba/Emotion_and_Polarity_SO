@@ -113,9 +113,9 @@ fi;
 
 #Creating the format to give at python files.
 if  [ "$DELIMITER" = 'sc' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat -e $EMOTION
 		elif [ "$DELIMITER"='c' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat
+	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat -e $EMOTION
 fi;
 
 #taking only the file.csv name, deleting path and the extension
