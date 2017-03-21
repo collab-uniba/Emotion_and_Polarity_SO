@@ -219,11 +219,13 @@ rm -r r/Liblinear/output/Results_$EMOTION
 
 
 
-#rm -r  "classification_$filename""_$EMOTION"/n-grams
-#rm -r  "classification_$filename""_$EMOTION"/idfs
-#rm -r  "classification_$filename""_$EMOTION"/ElaboratedFiles
-
-
-
-
-
+rm -r "classification_$filename""_$EMOTION"/n-grams
+rm -r "classification_$filename""_$EMOTION"/idfs
+rm -r "classification_$filename""_$EMOTION"/ElaboratedFiles
+rm "classification_$filename""_$EMOTION"/features-bigrams_1.csv
+rm "classification_$filename""_$EMOTION"/features-bigrams_2.csv
+rm "classification_$filename""_$EMOTION"/features-SenPolImpolMoodModality.csv
+rm "classification_$filename""_$EMOTION"/features-unigrams_1.csv
+rm "classification_$filename""_$EMOTION"/features-unigrams_2.csv
+rm "classification_$filename""_$EMOTION"/features-wordnet.csv
+rm "classification_$filename""_$EMOTION"/features-"$EMOTION".csv
