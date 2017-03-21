@@ -40,21 +40,46 @@ load(file = model_file)
 
 if(hasLabel == 1){
 	predictorsNames <- names(SO[,!(names(SO)  %in% c(outcomeName))]) # removes the var to be predicted from the test set
-	
+	output_file <- paste(output_dir, paste(paste("performance",emotion,sep="_"),"txt", sep="."), sep = "/")
 	x=SO[,predictorsNames]
 	
 	yTest  = factor(SO[,outcomeName])
 	
-	p <- predict(m,x)
-	pred = p$predictions
+	 p <- predict(m,x, type='raw')
+        pred = p$predictions
+
+        #precision , recall and F-1
+
+        precisionNo <- posPredValue(factor(pred), yTest)
+        recallNo <- sensitivity(factor(pred),yTest,"NO")
+        F1No <- (2 * precisionNo * recallNo) / (precisionNo + recallNo)
+
+        precisionYes<-negPredValue(factor(pred), yTest)
+        recallYes<- sensitivity(factor(pred),yTest,"YES")
+        F1Yes<- (2 * precisionYes * recallYes) / (precisionYes + recallYes)
+
+
+        cat("Precision for NO is: ",precisionNo,file=output_file,sep="\n",append=TRUE)
+        cat("Precision for NO is: ",precisionNo,sep="\n")
+        cat(" Recall for NO is: ",recallNo,file=output_file,sep="\n",append=TRUE)
+        cat("Recall  for NO is: ",recallNo,sep="\n")
+        cat(" F1  for NO is: ",F1No,file=output_file,sep="\n",append=TRUE)
+        cat("F1  for NO is ",F1No,sep="\n")
+
+        cat("Precision for YES is: ",precisionYes,file=output_file,sep="\n",append=TRUE)
+        cat("Precision for YES is: ",precisionYes,sep="\n")
+        cat(" Recall for YES is: ",recallYes,file=output_file,sep="\n",append=TRUE)
+        cat("Recall  for YES is: ",recallYes,sep="\n")
+        cat(" F1  for YES is: ",F1Yes,file=output_file,sep="\n",append=TRUE)
+        cat("F1  for YES is ",F1Yes,sep="\n")
+
+
+
 	predictions <- c()
 	predictions<-c(predictions,(paste("id","predicted","Annotated", sep=",")))
 	  for (i in 0:length(temp[,"id"])){
 		predictions <- c(predictions, paste(temp[i,"id"],pred[i],temp[i,"label"], sep=","))
 	  }
-	#output_file <- paste(output_dir, paste("confusion_matrix","txt", sep="."), sep = "/")
-	
-   output_file <- paste(output_dir, paste("performance",emotion,"txt", sep="."), sep = "/")
 	
    #Display confusion matrix
     res=table(pred,yTest)

@@ -7,7 +7,7 @@
     
       `pip install -r requirements.txt`
     * Stanford CoreNLP models
-      * Installation - download it from [here](https://bitbucket.org/FrancescoGiak/libraries/src/c12dd03d919f5952eea0952b7f4577e18e9b492b/Desktop/Final/lib/stanford-corenlp-models-current.jar?at=master&fileviewer=file-view-default), then move the jar file into the `lib/` subfolder.
+      * Installation - download it from [here](https://bitbucket.org/FrancescoGiak/libraries/src/c12dd03d919f5952eea0952b7f4577e18e9b492b/Desktop/Final/lib/stanford-corenlp-models-current.jar?at=master&fileviewer=file-view-default), then move the jar file into the `java/lib/` subfolder.
 * Java 8+
 * R
  * Libraries
@@ -19,7 +19,7 @@
 ### Ensure that the classify.sh and train.sh have the EOF for UNIX.
 
 
-### Training a new model for emotion classification (70% of the input dataset is used for training, 30% for test)
+### Training a new model for emotion classification (70% of the input dataset is used for train, 30% for test)
 ```
 train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
@@ -39,7 +39,7 @@ As a result, the script will generate the following output files:
      * there are two subfolders: `DownSampling/` and `NoDownSampling/`. Each one contains:
           * `trainingSet.csv`
           * `testingSet.csv`
-          * eight models trained with liblinear `modelLiblinear_IDMODEL.Rdal, where `IDMODEL` is the ID of the liblinear model, with values in `{0,...,7}`):
+          * eight models trained with liblinear `model_<emotion>_<IDMODEL>.Rda`, where `IDMODEL` is the ID of the liblinear model, with values in `{0,...,7}`):
           * `performance_<emotion>_<IDMODEL>.txt`, containing the results of the parameter tuning for the model (best C) as performed by caret, the confusion matrix and the precision, recall and f-measure for the best cost for the specific emotion
           * `predictions_<emotion>_<IDMODEL>.csv`, containing the test instances with the predicted labels for the specific emotion
 
