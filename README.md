@@ -17,7 +17,7 @@
         `Rscript requirements.R`
 
 ## Usage
-Ensure that the classify.sh and train.sh files have the EOF for UNIX.
+In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
 
 ### Training a new model for emotion classification (70/30% split for train and test, respectively)
 ```
