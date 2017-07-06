@@ -9,14 +9,13 @@
       * Installation: download it from [here](http://nlp.stanford.edu/software/stanford-corenlp-models-current.jar), then move the jar file to the `./java/lib/` subfolder.
 * Java 8+
 * R
- * Libraries:
-  * `caret`, `LiblinearR` , `e1071`
-    * Installation: open the command line and run
-      `Rscript requirements.R`
+  * Libraries:
+    * `caret`, `LiblinearR` , `e1071`
+      * Installation: open the command line and run
+        `Rscript requirements.R`
 
 ## Usage
-### Ensure that the classify.sh and train.sh have the EOF for UNIX.
-
+Ensure that the classify.sh and train.sh files have the EOF for UNIX.
 
 ### Training a new model for emotion classification (70% of the input dataset is used for train, 30% for test)
 ```
