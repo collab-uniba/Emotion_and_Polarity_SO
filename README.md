@@ -19,7 +19,7 @@
 ## Usage
 Ensure that the classify.sh and train.sh files have the EOF for UNIX.
 
-### Training a new model for emotion classification (70% of the input dataset is used for train, 30% for test)
+### Training a new model for emotion classification (70/30% split for train and test, respectively)
 ```
 train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
