@@ -1,5 +1,5 @@
 ## Requirements
-* Ram: 16 gb or more
+* Ram: 16GB or more
 * Python 2.7.x
   * Libraries
     * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
@@ -48,7 +48,14 @@ As a result, the script will generate the following output files:
 classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
 ```
 where:
-* `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the corpus to be classified;the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-corpus).
+* `-i file.csv`: the input csv file with header and coded in **UTF-8 without BOM**, containing the corpus to be classified; the format of the input file is the following: 
+```
+id;label;text
+...
+22;NO;"""Excellent! This is exactly what I needed. Thanks!"""
+23;YES;"""FEAR!!!!!!!!!!!"""
+...
+```
 * `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
 * `-e emotion`: the specific emotion to be detected in the input file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 * `-m model`: the model file learnt during the training step (e.g., `model-anger.rda`). If you don't specify the model name, the default model will be used, that is the one learnt on our Stack Overflow gold standard
@@ -56,10 +63,7 @@ where:
 * `-f idf`: if you specify a model name using -m (i.e., you don't want to use the default model for a given emotion) you are required to specify also the path to the folder containing the dictionaries with IDFs computed during the training step. The folder includes IDFs for n-grams (uni- and bi-grams) and for WordNet Affect lists of emotion words.
 * `-l` : if presents , indicates  `<file.csv>` contains a gold label in the column `label`.
 
-As a result, the script will generate the following output files:
-* The main folder named `classification_<file.csv>_<emotion>` contains :
-* `predictions_<emotion>.csv` : containing the binary prediction (yes/no) made on each line of the input corpus.
-* `performance_<emotion>.txt` : this file appears only if the `<file.csv>` contains the column `label`.
-
-The different formats of the output files are specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-classification-output).
+As a result, the script will create an output folder named `classification_<file.csv>_<emotion>` containing:
+* `predictions_<emotion>.csv`: a file with a binary prediction (yes/no) for each line of the input corpus.
+* `performance_<emotion>.txt`: a file created only if the input corpus `<file.csv>` contains the column `label`.
 
