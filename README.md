@@ -1,5 +1,5 @@
 # EmoTxt
-A toolkit for emotion detection from text
+A toolkit for emotion detection from technial text
 
 ## Requirements
 * Ram: 16GB or more
