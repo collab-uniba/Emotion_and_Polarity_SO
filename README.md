@@ -64,5 +64,12 @@ where:
 * `-l` : if presents , indicates  `<file.csv>` contains a gold label in the column `label`.
 
 As a result, the script will create an output folder named `classification_<file.csv>_<emotion>` containing:
-* `predictions_<emotion>.csv`: a file with a binary prediction (yes/no) for each line of the input corpus.
-* `performance_<emotion>.txt`: a file created only if the input corpus `<file.csv>` contains the column `label`.
+* `predictions_<emotion>.csv`: a csv file with header, containing a binary prediction (yes/no) for each line of the input corpus:
+  ```
+  id;predicted
+  ...
+  22;NO
+  23;YES
+  ...
+  ```
+* `performance_<emotion>.txt`: a file created only if the input corpus `<file.csv>` contains the column `label`; the file contains several performance metrics (Precision, Recall, F1, confusion matrix).
