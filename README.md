@@ -47,7 +47,9 @@ As a result, the script will generate the following output files:
 ```
 classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
 ```
+
 where:
+
 * `-i file.csv`: the input csv file with header and coded in **UTF-8 without BOM**, containing the corpus to be classified; the format of the input file is the following: 
   ```
   id;label;text
@@ -64,6 +66,7 @@ where:
 * `-l`: if presents , indicates  `<file.csv>` contains a gold label in the column `label`.
 
 As a result, the script will create an output folder named `classification_<file.csv>_<emotion>` containing:
+
 * `predictions_<emotion>.csv`: a csv file with header, containing a binary prediction (yes/no) for each line of the input corpus:
   ```
   id;predicted
