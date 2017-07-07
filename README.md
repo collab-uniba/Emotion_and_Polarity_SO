@@ -5,7 +5,7 @@
     * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
       * Installation: open the command line and run
       
-        `pip install -r requirements.txt`
+        `$ pip install -r requirements.txt`
     * Stanford CoreNLP models
       * Installation: download it from [here](http://nlp.stanford.edu/software/stanford-corenlp-models-current.jar), then move the jar file to the `./java/lib/` subfolder.
 * Java 8+
@@ -14,14 +14,14 @@
     * `caret`, `LiblinearR` , `e1071`
       * Installation: open the command line and run
       
-        `Rscript requirements.R`
+        `$ Rscript requirements.R`
 
 ## Usage
 In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```
-train.sh -i file.csv -d delimiter [-g] -e emotion 
+$ train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
 where:
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus). Please, not that gold label are required for each item in the dataset
@@ -66,4 +66,3 @@ where:
 As a result, the script will create an output folder named `classification_<file.csv>_<emotion>` containing:
 * `predictions_<emotion>.csv`: a file with a binary prediction (yes/no) for each line of the input corpus.
 * `performance_<emotion>.txt`: a file created only if the input corpus `<file.csv>` contains the column `label`.
-
