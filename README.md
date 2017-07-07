@@ -1,4 +1,4 @@
-#EmoTxt
+# EmoTxt
 A toolkit for emotion and polarity detection from text
 
 ## Requirements
