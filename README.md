@@ -1,3 +1,6 @@
+#EmoTxt
+A toolkit for emotion and polarity detection from text
+
 ## Requirements
 * Ram: 16GB or more
 * Python 2.7.x
