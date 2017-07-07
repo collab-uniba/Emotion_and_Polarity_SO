@@ -19,7 +19,7 @@
 ## Usage
 In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
 
-### Training a new model for emotion classification (70/30% split for train and test, respectively)
+### Training a new model for emotion classification (70/30% split for train and test)
 ```
 train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
@@ -49,13 +49,13 @@ classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams]
 ```
 where:
 * `-i file.csv`: the input csv file with header and coded in **UTF-8 without BOM**, containing the corpus to be classified; the format of the input file is the following: 
-```
-id;label;text
-...
-22;NO;"""Excellent! This is exactly what I needed. Thanks!"""
-23;YES;"""FEAR!!!!!!!!!!!"""
-...
-```
+  ```
+  id;label;text
+  ...
+  22;NO;"""Excellent! This is exactly what I needed. Thanks!"""
+  23;YES;"""FEAR!!!!!!!!!!!"""
+  ...
+  ```
 * `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
 * `-e emotion`: the specific emotion to be detected in the input file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
 * `-m model`: the model file learnt during the training step (e.g., `model-anger.rda`). If you don't specify the model name, the default model will be used, that is the one learnt on our Stack Overflow gold standard
