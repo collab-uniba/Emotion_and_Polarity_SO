@@ -26,7 +26,9 @@ In the following, we show first how to train a new model for emotion classificat
 ```
 $ train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
+
 where:
+
 * `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus). Please, not that gold label are required for each item in the dataset
 * `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
 * `-g`: enables the extraction of n-grams (i.e,. bigrams and unigrams). N-grams extraction is mandatory for the first run when you want to train a new classification model for a given emotion, using your own dataset for the first time. Because n-gram extraction is computationally expensive, it should be skipped if you retrain the model for the same emotion using the same input file.
