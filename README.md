@@ -54,7 +54,7 @@ As a result, the script will generate the following output files:
 
 ### Emotion detection
 ```
-classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
+$ classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
 ```
 
 where:
