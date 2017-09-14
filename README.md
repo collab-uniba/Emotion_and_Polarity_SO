@@ -33,7 +33,15 @@ $ train.sh -i file.csv -d delimiter [-g] -e emotion
 
 where:
 
-* `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus; the format of the input file is specified [here](https://github.com/collab-uniba/Emotion_and_Polarity_SO/wiki/File-format-for-training-corpus). Please, not that gold label are required for each item in the dataset
+* `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus- Please, not that gold label are required for each item in the dataset. The format of the input file is the following: 
+
+  ```
+  id;label;text
+  ...
+  22;NO;"""Excellent! This is exactly what I needed. Thanks!"""
+  23;YES;"""FEAR!!!!!!!!!!!"""
+  ...
+  ```
 * `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
 * `-g`: enables the extraction of n-grams (i.e,. bigrams and unigrams). N-grams extraction is mandatory for the first run when you want to train a new classification model for a given emotion, using your own dataset for the first time. Because n-gram extraction is computationally expensive, it should be skipped if you retrain the model for the same emotion using the same input file.
 * `-e emotion`: the specific emotion for which you want to train a classification model, with values in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
