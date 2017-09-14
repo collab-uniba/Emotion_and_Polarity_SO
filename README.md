@@ -24,7 +24,9 @@ Please, cite the following paper if you intend to use our tool for your own rese
         `$ Rscript requirements.R`
 
 ## Usage
-In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data. For testing purposes, you can use the `sample.csv` file available in the root of the repo.
+In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
+
+*For testing purposes, you can use the `sample.csv` input file available in the root of the repo.*
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```
