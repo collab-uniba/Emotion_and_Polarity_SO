@@ -29,7 +29,7 @@ In the following, we show first how to train a new model for emotion classificat
 For testing purposes, you can use the `sample.csv` input file available in the root of the repo. Other, more complex example files are available under the subfolder [./java/DatasetSO/StackOverflowCSV/](https://github.com/collab-uniba/Emotion_and_Polarity_SO/tree/master/java/DatasetSO/StackOverflowCSV).
 
 ### Training a new model for emotion classification (70/30% split for train and test)
-```
+```bash
 $ sh train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
 
@@ -63,7 +63,7 @@ As a result, the script will generate the following output files:
           * `predictions_<emotion>_<IDMODEL>.csv`, containing the test instances with the predicted labels for the specific emotion
 
 ### Emotion detection
-```
+```bash
 $ sh classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
 ```
 
@@ -97,3 +97,8 @@ As a result, the script will create an output folder named `classification_<file
   ...
   ```
 * `performance_<emotion>.txt`: a file created only if the input corpus `<file.csv>` contains the column `label`; the file contains several performance metrics (Precision, Recall, F1, confusion matrix).
+
+For example, if you wanted to detect *anger* in the input file `sample.csv`, you would have to run:
+```bash
+sh classify.sh -i sample.csv -d sc -e anger
+```
