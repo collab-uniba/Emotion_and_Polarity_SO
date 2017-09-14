@@ -44,7 +44,7 @@ where:
   23;YES;"""FEAR!!!!!!!!!!!"""
   ...
   ```
-* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here uses semicolon as delimiter, so `-d sc` is mandatory.
+* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here use semicolon as delimiter, so `-d sc` is a mandatory option during tests.
 * `-g`: enables the extraction of n-grams (i.e,. bigrams and unigrams). N-grams extraction is mandatory for the first run when you want to train a new classification model for a given emotion, using your own dataset for the first time. Because n-gram extraction is computationally expensive, it should be skipped if you retrain the model for the same emotion using the same input file.
 * `-e emotion`: the specific emotion for which you want to train a classification model, with values in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}.
 
@@ -78,7 +78,7 @@ where:
   23;YES;"""FEAR!!!!!!!!!!!"""
   ...
   ```
-* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here uses semicolon as delimiter, so `-d sc` is mandatory.
+* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here use semicolon as delimiter, so `-d sc` is a mandatory option during tests.
 * `-e emotion`: the specific emotion to be detected in the input file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}.
 * `-m model`: the model file learnt during the training step (e.g., `model-anger.rda`). If you don't specify the model name, the default model will be used, that is the one learnt on our Stack Overflow gold standard.
 * `-o n-grams`: if you specify a model name using `-m` (i.e., you don't want to use the default model for a given emotion) you are required to provide also the path to the folder containing the dictionaries extracted during the training step. This folder includes n-grams, i.e., `UnigramsList.txt` and `BigramsList.txt`. 
