@@ -24,7 +24,7 @@ Please, cite the following paper if you intend to use our tool for your own rese
         `$ Rscript requirements.R`
 
 ## Usage
-In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
+In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data. For testing purposes, you can use the `sample.csv` file available in the root of the repo.
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```
@@ -33,7 +33,7 @@ $ sh train.sh -i file.csv -d delimiter [-g] -e emotion
 
 where:
 
-* `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus- Please, not that gold label are required for each item in the dataset. The format of the input file is the following: 
+* `-i file.csv`: the input file coded in **UTF-8 without BOM**, containing the input corpus. Please, note that gold label are required for each item in the dataset. The format of the input file is the following: 
 
   ```
   id;label;text
