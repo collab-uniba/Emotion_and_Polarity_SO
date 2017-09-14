@@ -28,7 +28,7 @@ In the following, we show first how to train a new model for emotion classificat
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```
-$ train.sh -i file.csv -d delimiter [-g] -e emotion 
+$ sh train.sh -i file.csv -d delimiter [-g] -e emotion 
 ```
 
 where:
@@ -62,7 +62,7 @@ As a result, the script will generate the following output files:
 
 ### Emotion detection
 ```
-$ classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
+$ sh classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
 ```
 
 where:
