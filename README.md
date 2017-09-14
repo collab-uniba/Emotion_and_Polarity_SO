@@ -26,7 +26,7 @@ Please, cite the following paper if you intend to use our tool for your own rese
 ## Usage
 In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
 
-***For testing purposes, you can use the `sample.csv` input file available in the root of the repo.***
+For testing purposes, you can use the `sample.csv` input file available in the root of the repo. Other, more complex example files are available under the subfolder [java/DatasetSO/StackOverflowCSV/](https://github.com/collab-uniba/Emotion_and_Polarity_SO/tree/master/java/DatasetSO/StackOverflowCSV).
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```
