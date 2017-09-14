@@ -26,7 +26,7 @@ Please, cite the following paper if you intend to use our tool for your own rese
 ## Usage
 In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
 
-*For testing purposes, you can use the `sample.csv` input file available in the root of the repo.*
+***For testing purposes, you can use the `sample.csv` input file available in the root of the repo.***
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```
@@ -44,9 +44,9 @@ where:
   23;YES;"""FEAR!!!!!!!!!!!"""
   ...
   ```
-* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
+* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here uses semicolon as delimiter, so `-d sc` is mandatory.
 * `-g`: enables the extraction of n-grams (i.e,. bigrams and unigrams). N-grams extraction is mandatory for the first run when you want to train a new classification model for a given emotion, using your own dataset for the first time. Because n-gram extraction is computationally expensive, it should be skipped if you retrain the model for the same emotion using the same input file.
-* `-e emotion`: the specific emotion for which you want to train a classification model, with values in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
+* `-e emotion`: the specific emotion for which you want to train a classification model, with values in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}.
 
 As a result, the script will generate the following output files:
 
@@ -78,9 +78,9 @@ where:
   23;YES;"""FEAR!!!!!!!!!!!"""
   ...
   ```
-* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon)
-* `-e emotion`: the specific emotion to be detected in the input file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}
-* `-m model`: the model file learnt during the training step (e.g., `model-anger.rda`). If you don't specify the model name, the default model will be used, that is the one learnt on our Stack Overflow gold standard
+* `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here uses semicolon as delimiter, so `-d sc` is mandatory.
+* `-e emotion`: the specific emotion to be detected in the input file or text, defined in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}.
+* `-m model`: the model file learnt during the training step (e.g., `model-anger.rda`). If you don't specify the model name, the default model will be used, that is the one learnt on our Stack Overflow gold standard.
 * `-o n-grams`: if you specify a model name using `-m` (i.e., you don't want to use the default model for a given emotion) you are required to provide also the path to the folder containing the dictionaries extracted during the training step. This folder includes n-grams, i.e., `UnigramsList.txt` and `BigramsList.txt`. 
 * `-f idf`: if you specify a model name using `-m` (i.e., you don't want to use the default model for a given emotion) you are required to specify also the path to the folder containing the dictionaries with IDFs computed during the training step. The folder includes IDFs for n-grams (uni- and bi-grams) and for WordNet Affect lists of emotion words.
 * `-l`: if presents , indicates  `<file.csv>` contains a gold label in the column `label`.
