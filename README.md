@@ -100,5 +100,5 @@ As a result, the script will create an output folder named `classification_<file
 
 For example, if you wanted to detect *anger* in the input file `sample.csv`, you would have to run:
 ```bash
-sh classify.sh -i sample.csv -d sc -e anger
+$ sh classify.sh -i sample.csv -d sc -e anger
 ```
