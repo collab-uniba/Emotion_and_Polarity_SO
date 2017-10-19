@@ -14,6 +14,7 @@ Please, cite the following paper if you intend to use our tool for your own rese
       `$ pip install -r requirements.txt`
       
       * Complete the nltk installation: Run the Python interpreter and type the commands
+      
         `>>> import nltk`
         `>>> nltk.download()`
     
