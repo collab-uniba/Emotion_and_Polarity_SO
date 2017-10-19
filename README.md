@@ -11,8 +11,12 @@ Please, cite the following paper if you intend to use our tool for your own rese
   * Libraries
     * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
       * Installation: open the command line and run
+      `$ pip install -r requirements.txt`
       
-        `$ pip install -r requirements.txt`
+      * Complete the nltk installation: Run the Python interpreter and type the commands
+        `>>> import nltk`
+        `>>> nltk.download()`
+    
     * Stanford CoreNLP models
       * Installation: download it from [here](http://nlp.stanford.edu/software/stanford-corenlp-models-current.jar), then move the jar file to the `./java/lib/` subfolder.
 * Java 8+
