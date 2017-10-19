@@ -6,7 +6,7 @@ Please, cite the following paper if you intend to use our tool for your own rese
 > F. Calefato, F. Lanubile, N. Novielli. “[EmoTxt: A Toolkit for Emotion Recognition from Text](https://arxiv.org/abs/1708.03892)” To appear in *Proceedings of ACII 2017, the 7th International Conference on Affective Computing and Intelligent Interaction*, San Antonio, USA, Oct. 23-26, 2017.
 
 ## Requirements
-* Ram: 16GB or more
+* Ram: 8GB 
 * Python 2.7.x
   * Libraries
     * `nltk-3.2.2`, `numpy-1.11.3+mkl-cp27`, `scikit_learn-0.15.1-cp27`, `scipy-0.18.1-cp27`, `pattern-2.6`
