@@ -3,7 +3,7 @@ A toolkit for emotion detection from technical text
 
 ## Fair Use Policy
 Please, cite the following paper if you intend to use our tool for your own research:
-> F. Calefato, F. Lanubile, N. Novielli. “[EmoTxt: A Toolkit for Emotion Recognition from Text](https://arxiv.org/abs/1708.03892)” To appear in *Proceedings of ACII 2017, the 7th International Conference on Affective Computing and Intelligent Interaction*, San Antonio, USA, Oct. 23-26, 2017.
+> F. Calefato, F. Lanubile, N. Novielli. “[EmoTxt: A Toolkit for Emotion Recognition from Text](https://arxiv.org/abs/1708.03892)” To appear in *In Proceedings of the Seventh International Conference on Affective Computing and Intelligent Interaction Workshops and Demos, {ACII} Workshops 2017*, San Antonio, USA, Oct. 23-26, 2017, pp. 79-80, ISBN: 978-1-5386-0563-9.
 
 ## Requirements
 * Ram: 8GB 
