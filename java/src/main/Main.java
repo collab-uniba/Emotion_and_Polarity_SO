@@ -30,6 +30,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        //TODO: rimuovere
+        long startTime = System.nanoTime();
+
         Grams gr = new Grams();
         Removing rem = new Removing();
         Utility u = new Utility();
@@ -120,7 +123,6 @@ public class Main {
             String path = Tasktype + "_" + fileCsv+ "_" + emotionIndicate;
             u.directoryCreator(path);
             u.directoryCreator(path + "/ElaboratedFiles");
-
 
             List<String> inputCorpus = null;
             try {
@@ -262,25 +264,25 @@ public class Main {
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
                         } else if (executionMode.equals("unigrams_1")) {
                             //*****tf-idf*
-                            cl.tf_idf(documents, unigrams, 1, "unigrams_1", path, Tasktype);
+                            cl.tf_idf_parallel(documents, unigrams, 1, "unigrams_1", path, Tasktype);
                             WriterCSV writerCSV = new WriterCSV();
                             String nameOutput = path + "/features-" + "unigrams_1" + ".csv";
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
                         } else if (executionMode.equals("bigrams_1")) {
-                            cl.tf_idf(documents, bigrams, 2, "bigrams_1", path, Tasktype);
+                            cl.tf_idf_parallel(documents, bigrams, 2, "bigrams_1", path, Tasktype);
 
                             WriterCSV writerCSV = new WriterCSV();
                             String nameOutput = path + "/features-" + "bigrams_1" + ".csv";
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
                         } else if (executionMode.equals("unigrams_2")) {
                             //*****tf-idf*
-                            cl.tf_idf(documents, unigrams, 1, "unigrams_2", path, Tasktype);
+                            cl.tf_idf_parallel(documents, unigrams, 1, "unigrams_2", path, Tasktype);
 
                             WriterCSV writerCSV = new WriterCSV();
                             String nameOutput = path + "/features-" + "unigrams_2" + ".csv";
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
                         } else if (executionMode.equals("bigrams_2")) {
-                            cl.tf_idf(documents, bigrams, 2, "bigrams_2", path, Tasktype);
+                            cl.tf_idf_parallel(documents, bigrams, 2, "bigrams_2", path, Tasktype);
                             WriterCSV writerCSV = new WriterCSV();
                             String nameOutput = path + "/features-" + "bigrams_2" + ".csv";
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
@@ -323,8 +325,9 @@ public class Main {
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
                         } else if (executionMode.equals("createDocFormat")) {
                             //politeness
-                            Politeness pt = new Politeness();
-                            pr.writeDocsValuesOnFile(pt.createFormatForInput(path + "/ElaboratedFiles/onlyText_PreProcessed.txt"), path + "/ElaboratedFiles/docs.py");
+//                            Politeness pt = new Politeness();
+                            pr.writeDocsValuesOnFile(Politeness.createFormatForInput(path + "/ElaboratedFiles/onlyText_PreProcessed.txt"), path + "/ElaboratedFiles/docs.py");
+//                            sc.close();
                         }
 
 
@@ -337,6 +340,14 @@ public class Main {
         } catch (WrongParamException e) {
             System.err.println(e.getMessage());
         }
+
+
+
+        //TODO: rimuovere
+        long endTime = System.nanoTime();
+        long totalTime = (endTime - startTime)/1000000000;
+        System.out.println("Time: " + totalTime + " sec");
+
     }
 }
 

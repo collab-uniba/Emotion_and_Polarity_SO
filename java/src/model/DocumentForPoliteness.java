@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ import java.util.Map;
  *Serve per creare il modello da dare in input a politeness.model.score
  *
  */
-public class DocumentForPoliteness {
+public class DocumentForPoliteness implements Serializable{
 
     private String text;
     private List<String> sentences;
