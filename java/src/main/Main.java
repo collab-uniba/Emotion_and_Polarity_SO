@@ -324,10 +324,7 @@ public class Main {
                             String nameOutput = path + "/features-" + "wordnet" + ".csv";
                             writerCSV.writeCsvFile(nameOutput, documents, hasLabel, executionMode);
                         } else if (executionMode.equals("createDocFormat")) {
-                            //politeness
-//                            Politeness pt = new Politeness();
                             pr.writeDocsValuesOnFile(Politeness.createFormatForInput(path + "/ElaboratedFiles/onlyText_PreProcessed.txt"), path + "/ElaboratedFiles/docs.py");
-//                            sc.close();
                         }
 
 
@@ -340,8 +337,6 @@ public class Main {
         } catch (WrongParamException e) {
             System.err.println(e.getMessage());
         }
-
-
 
         //TODO: rimuovere
         long endTime = System.nanoTime();

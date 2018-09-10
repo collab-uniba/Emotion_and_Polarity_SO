@@ -41,7 +41,7 @@ HASLABEL=""
 CALCPOLITEIMPOLITEMOODMODALITY=""
 MODEL=""
 # parse args
-while getopts "i:d:e:lf:o:m:h" FLAG; do
+while getopts "i:d:e:lf:o:m:hp" FLAG; do
 	case $FLAG in
 		i )  INPUT=$OPTARG;; 
 		f ) IDFPATH=$OPTARG;;
@@ -59,6 +59,7 @@ while getopts "i:d:e:lf:o:m:h" FLAG; do
 				exit 2;
 			fi;;	
 		h ) print_help;;
+		p ) CALCPOLITEIMPOLITEMOODMODALITY="-polmod";;
 		\? ) #unrecognized option - show help
 			printf "INFO" "Use $SCRIPT -h to see the help documentation." 
 			exit 2;;
@@ -97,49 +98,51 @@ else
 	IDFPATH=java/res/idfsSO
 fi;
 
-: <<'CREATEDOCFORMAT'
+#: <<'CREATEDOCFORMAT'
 
-rm -rf  "classification_$filename""_$EMOTION"
+# rm -rf  "classification_$filename""_$EMOTION"
 
 #Creating the format to give at python files.
-if  [ "$DELIMITER" = 'sc' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';' -t classification -Ex createDocFormat -e $EMOTION
-elif [ "$DELIMITER"='c' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t classification -Ex createDocFormat -e $EMOTION
+if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
+	if  [ "$DELIMITER" = 'sc' ] ; then 
+		java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';' -t classification -Ex createDocFormat -e $EMOTION
+	elif [ "$DELIMITER"='c' ] ; then 
+		java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t classification -Ex createDocFormat -e $EMOTION
+	fi;
+
+	# CREATEDOCFORMAT
+
+
+	# : <<'MODELPY'
+	#taking only the file.csv name, deleting path and the extension
+	#taking the files   created for the two python files
+	cp  "classification_$filename""_$EMOTION"/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
+	cp  "classification_$filename""_$EMOTION"/ElaboratedFiles/docs.py python/CalculateMoodModality/
+
+	#starting python files for polite , impolite mood and modality extraction
+	cd python/CalculatePoliteAndImpolite
+	#alias pj="cd CalculatePoliteAndImpolite/"
+	python model.py 
+	cd ../..
+	cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv  "classification_$filename""_$EMOTION"/ElaboratedFiles/
+
+	rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
+
+	# MODELPY
+
+	# : <<'MOODMODALITY'
+
+	cd python/CalculateMoodModality
+	python  moodAndModality.py 
+	cd ../.. 
+
+	cp  python/CalculateMoodModality/textsMoodAndModality.csv  "classification_$filename""_$EMOTION"/ElaboratedFiles/
+	rm  python/CalculateMoodModality/textsMoodAndModality.csv
+
+	# MOODMODALITY
 fi;
 
-CREATEDOCFORMAT
-
-
-: <<'MODELPY'
-#taking only the file.csv name, deleting path and the extension
-#taking the files   created for the two python files
-cp  "classification_$filename""_$EMOTION"/ElaboratedFiles/docs.py python/CalculatePoliteAndImpolite/
-cp  "classification_$filename""_$EMOTION"/ElaboratedFiles/docs.py python/CalculateMoodModality/
-
-#starting python files for polite , impolite mood and modality extraction
-cd python/CalculatePoliteAndImpolite
-#alias pj="cd CalculatePoliteAndImpolite/"
-python model.py 
-cd ../..
-cp python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv  "classification_$filename""_$EMOTION"/ElaboratedFiles/
-
-rm python/CalculatePoliteAndImpolite/textsPoliteAndImpolite.csv
-
-MODELPY
-
-: <<'MOODMODALITY'
-
-cd python/CalculateMoodModality
-python  moodAndModality.py 
-cd ../.. 
-
-cp  python/CalculateMoodModality/textsMoodAndModality.csv  "classification_$filename""_$EMOTION"/ElaboratedFiles/
-rm  python/CalculateMoodModality/textsMoodAndModality.csv
-
-MOODMODALITY
-
-: <<'UNIGRAMSBIGRAMS'
+# : <<'UNIGRAMSBIGRAMS'
 
 #copy the 
 mkdir -p  "classification_$filename""_$EMOTION"/idfs
@@ -150,14 +153,18 @@ cp $DICTIONARYPATH/*  "classification_$filename""_$EMOTION"/n-grams/
 
 #starting Emotion_and_Polarity_SO.jar to extract the features
 if [ "$DELIMITER" = 'sc' ] ; then 
-	 java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t classification -Ex SenPolImpolMoodModality -e $EMOTION
-	 java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_1 -e $EMOTION
-	 java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_1 -e $EMOTION
-	 java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_2 -e $EMOTION
-	 java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_2 -e $EMOTION
-	 java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'   -t classification -Ex wordnet $HASLABEL -e $EMOTION
+	if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
+		java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ';'  $EXTRACTDICTIONARY  -t classification -Ex SenPolImpolMoodModality -e $EMOTION
+	fi;
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_1 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_1 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex unigrams_2 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t classification -Ex bigrams_2 -e $EMOTION
+	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'   -t classification -Ex wordnet $HASLABEL -e $EMOTION
 elif [ "$DELIMITER"='c' ] ; then 
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -t classification -Ex SenPolImpolMoodModality -e $EMOTION
+	if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
+		java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M  "classification_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ','  $EXTRACTDICTIONARY -t classification -Ex SenPolImpolMoodModality -e $EMOTION
+	fi;
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_1 -e $EMOTION
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex bigrams_1 -e $EMOTION
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex unigrams_2 -e $EMOTION
@@ -165,12 +172,16 @@ elif [ "$DELIMITER"='c' ] ; then
 	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','  -t classification -Ex wordnet $HASLABEL -e $EMOTION
 fi;
 
-UNIGRAMSBIGRAMS
+# UNIGRAMSBIGRAMS
 
 
 
 #merging the single features extracted
-paste -d ,  "classification_$filename""_$EMOTION"/features-SenPolImpolMoodModality.csv  "classification_$filename""_$EMOTION"/features-unigrams_1.csv  "classification_$filename""_$EMOTION"/features-unigrams_2.csv   "classification_$filename""_$EMOTION"/features-bigrams_1.csv   "classification_$filename""_$EMOTION"/features-bigrams_2.csv  "classification_$filename""_$EMOTION"/features-wordnet.csv >  "classification_$filename""_$EMOTION"/features-$EMOTION.csv  
+if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
+	paste -d ,  "classification_$filename""_$EMOTION"/features-SenPolImpolMoodModality.csv  "classification_$filename""_$EMOTION"/features-unigrams_1.csv  "classification_$filename""_$EMOTION"/features-unigrams_2.csv   "classification_$filename""_$EMOTION"/features-bigrams_1.csv   "classification_$filename""_$EMOTION"/features-bigrams_2.csv  "classification_$filename""_$EMOTION"/features-wordnet.csv >  "classification_$filename""_$EMOTION"/features-$EMOTION.csv  
+else
+	paste -d ,  "classification_$filename""_$EMOTION"/features-unigrams_1.csv  "classification_$filename""_$EMOTION"/features-unigrams_2.csv   "classification_$filename""_$EMOTION"/features-bigrams_1.csv   "classification_$filename""_$EMOTION"/features-bigrams_2.csv  "classification_$filename""_$EMOTION"/features-wordnet.csv >  "classification_$filename""_$EMOTION"/features-$EMOTION.csv  
+fi;
 #rm  "classification_$filename""_$EMOTION"/features-SenPolImpolMoodModality.csv
 #rm  "classification_$filename""_$EMOTION"/features-unigrams_1.csv
 #rm  "classification_$filename""_$EMOTION"/features-bigrams_1.csv

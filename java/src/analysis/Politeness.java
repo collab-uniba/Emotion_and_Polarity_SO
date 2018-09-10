@@ -19,7 +19,8 @@ public class Politeness implements Serializable{
     final static DependencyParser dp;
     static {
         props = new Properties();
-        props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+        // props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+        props.setProperty("annotators", "tokenize, ssplit, parse");
         props.put("threads", "8");
         pipeline = new StanfordCoreNLP(props);
         dp = DependencyParser.loadFromModelFile(DependencyParser.DEFAULT_MODEL);
