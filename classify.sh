@@ -189,7 +189,7 @@ fi;
 #rm  "classification_$filename""_$EMOTION"/features-bigrams_2.csv
 #rm  "classification_$filename""_$EMOTION"/features-wordnet.csv
 
-: <<'END'
+# : <<'END'
 #run the R script for classification
 
 #create a folder for the liblinear's generated outputs into the output folder
@@ -222,4 +222,4 @@ rm "classification_$filename""_$EMOTION"/features-unigrams_2.csv
 rm "classification_$filename""_$EMOTION"/features-wordnet.csv
 # rm "classification_$filename""_$EMOTION"/features-"$EMOTION".csv
 
-END
+# END
