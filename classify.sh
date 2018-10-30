@@ -12,6 +12,7 @@ print_help() {
 		printf " ${BOLD}-o ${NC}\t-- path to the n-grams folder containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 		printf " ${BOLD}-f ${NC}\t-- if you give the model as input you must specify n-grams path containing  UnigramsList.txt and BigramsList.txt used to train the model given in input\n"
 		printf " ${BOLD}-e ${NC}\t-- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
+		printf " ${BOLD}-p ${NC}\t-- wheter to calculate the feature of politeness, mood and modality.\n"
 		printf " ${BOLD}-l ${NC}\t-- indicates if the csv given in input has the column named label or not\n"
 		printf " ${BOLD}-h ${NC}\t-- Displays this help message. No further functions are performed.\n\n"
 		printf "Example: ${BOLD} bash classify.sh -i love.csv  -e love -g training_love/liblinear/NoDownSampling/modelLiblinear_0.Rda -l  -f training_love/idfs -o training_love/n-grams -d semicolon ${NC}\n\n"
