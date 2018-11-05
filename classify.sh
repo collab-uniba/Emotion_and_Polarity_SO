@@ -76,6 +76,15 @@ shift $((OPTIND-1))  #This tells getopts to move on to the next argument.
 filename=${INPUT##*/}
 filename=${filename%.*}
 
+# Create ids file
+DELIMITER_CHAR=','
+if  [ "$DELIMITER" = 'sc' ] ; then
+	DELIMITER_CHAR=';'
+fi;
+
+awk -F "\"*"$DELIMITER_CHAR"\"*" '{print $1}' $INPUT | sed 's/^\"*//' > "classification_$filename""_$EMOTION"/features-ids.csv
+
+
 if [ "$MODEL" != '' ] ; then 
 	#use the model given as input
 	cp $MODEL r/Liblinear/
@@ -181,7 +190,7 @@ fi;
 if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
 	paste -d ,  "classification_$filename""_$EMOTION"/features-SenPolImpolMoodModality.csv  "classification_$filename""_$EMOTION"/features-unigrams_1.csv  "classification_$filename""_$EMOTION"/features-unigrams_2.csv   "classification_$filename""_$EMOTION"/features-bigrams_1.csv   "classification_$filename""_$EMOTION"/features-bigrams_2.csv  "classification_$filename""_$EMOTION"/features-wordnet.csv >  "classification_$filename""_$EMOTION"/features-$EMOTION.csv  
 else
-	paste -d ,  "classification_$filename""_$EMOTION"/features-unigrams_1.csv  "classification_$filename""_$EMOTION"/features-unigrams_2.csv   "classification_$filename""_$EMOTION"/features-bigrams_1.csv   "classification_$filename""_$EMOTION"/features-bigrams_2.csv  "classification_$filename""_$EMOTION"/features-wordnet.csv >  "classification_$filename""_$EMOTION"/features-$EMOTION.csv  
+	paste -d , "classification_$filename""_$EMOTION"/features-ids.csv  "classification_$filename""_$EMOTION"/features-unigrams_1.csv  "classification_$filename""_$EMOTION"/features-unigrams_2.csv   "classification_$filename""_$EMOTION"/features-bigrams_1.csv   "classification_$filename""_$EMOTION"/features-bigrams_2.csv  "classification_$filename""_$EMOTION"/features-wordnet.csv >  "classification_$filename""_$EMOTION"/features-$EMOTION.csv  
 fi;
 #rm  "classification_$filename""_$EMOTION"/features-SenPolImpolMoodModality.csv
 #rm  "classification_$filename""_$EMOTION"/features-unigrams_1.csv
