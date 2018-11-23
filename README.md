@@ -1,5 +1,5 @@
 # EmoTxt
-A toolkit for emotion detection from technical text
+A toolkit for emotion detection from technical text. It is part of the Collab Emotion Mining Toolkit, ([EMTk](https://github.com/collab-uniba/EMTk)).  
 
 ## Fair Use Policy
 Please, cite the following paper if you intend to use our tool for your own research:
