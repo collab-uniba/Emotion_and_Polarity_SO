@@ -32,7 +32,9 @@ Please, cite the following paper if you intend to use our tool for your own rese
 ## Usage and dataset
 In the following, we show first how to train a new model for emotion classification and, then, how to test the model on unseen data.
 
-For testing purposes, you can use the `sample.csv` input file available in the root of the repo. Other, more complex examples, look at the dataset files available under the subfolder [./java/DatasetSO/StackOverflowCSV/](https://github.com/collab-uniba/Emotion_and_Polarity_SO/tree/master/java/DatasetSO/StackOverflowCSV).
+For testing purposes, you can use the `sample.csv` input file available in the root of the repo. Other, more complex examples, look at the dataset files available under the subfolder [./java/DatasetSO/StackOverflowCSV](https://github.com/collab-uniba/Emotion_and_Polarity_SO/tree/master/java/DatasetSO/StackOverflowCSV).
+
+If you are looking for the entire experimental dataset of ~5K Stack Overflow posts annotated with emotion, it is available from [this repository](https://github.com/collab-uniba/EmotionDatasetMSR18).
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```bash
