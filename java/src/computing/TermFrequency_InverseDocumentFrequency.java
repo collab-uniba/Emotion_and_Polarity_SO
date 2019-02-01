@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class TermFrequency_InverseDocumentFrequency {
     private Grams gr = new Grams();
-    private Map<String, Double> wordTF = new LinkedHashMap<>();
+//    private Map<String, Double> wordTF = new LinkedHashMap<>();
     private Map<String, Double> termsIDF = new LinkedHashMap<>();
     private Utility l = new Utility();
     private ReadingFile rd = new ReadingFile();
@@ -46,7 +46,7 @@ public class TermFrequency_InverseDocumentFrequency {
             //recover the text
             text = getText(documents, id, gramsType);
             //calculate TF
-            termFrequency(text, n);
+            Map<String, Double> wordTF = termFrequency(text, n);
 
             LinkedHashMap<String, Double> gramsAndTFIDF = new LinkedHashMap<>();
             //Check into the type list [unigrams, bigrams or wornet categories(pos, neg , ambiguos and neutrals)] if the document contains the term.
@@ -91,6 +91,70 @@ public class TermFrequency_InverseDocumentFrequency {
         }
     }
 
+    public void tf_idf_parallel(Map<String, Document> documents, Map<String, String> grams, int n, String gramsType, String path,String taskType) throws InterruptedException, FileNotFoundException{
+
+        this.path=path;
+
+        if(taskType.equals("classification")){
+            termsIDF = rd.readIDF(gramsType,path+"/idfs/");
+        }
+        else if(taskType.equals("training"))
+            invertedDocumentFrequency(documents, grams.keySet(), n, gramsType);
+
+//        String text = "";
+
+        documents.keySet()
+                .parallelStream()
+                .forEach(id -> {
+                    System.out.println("Computing tf_idf for the doc " + id + "\n");
+                    //recover the text
+                    String text = getText(documents, id, gramsType);
+                    //calculate TF
+                    Map<String, Double> wordTF = termFrequency(text, n);
+                    LinkedHashMap<String, Double> gramsAndTFIDF = new LinkedHashMap<>();
+                    //Check into the type list [unigrams, bigrams or wornet categories(pos, neg , ambiguos and neutrals)] if the document contains the term.
+                    //TODO: forse si puo' semplificare
+                    for (String s : grams.keySet()) {
+                        if (wordTF.get(s) != null) {
+                            //if the list's term is present in the document , recovers the IDF and put the tf*idf into the map
+                            double idf = termsIDF.get(s);
+                            double tf_idf = wordTF.get(s) * idf;
+                            gramsAndTFIDF.put(grams.get(s), tf_idf);
+                        } else {
+                            gramsAndTFIDF.put(grams.get(s), 0.0);
+                        }
+                    }
+                    //adding the map (term, tf-idf) to the document
+                    Document d = documents.get(id);
+                    switch (gramsType) {
+                        case "unigrams_1": {
+                            d.setUnigramTFIDF(gramsAndTFIDF);
+                        }
+                        case "bigrams_1": {
+                            d.setBigramTFIDF(gramsAndTFIDF);
+                        }
+                        case "unigrams_2": {
+                            d.setUnigramTFIDF(gramsAndTFIDF);
+                        }
+                        case "bigrams_2": {
+                            d.setBigramTFIDF(gramsAndTFIDF);
+                        }
+                        case "positives": {
+                            d.setPositiveTFIDF(gramsAndTFIDF);
+                        }
+                        case "negatives": {
+                            d.setNegativeTFIDF(gramsAndTFIDF);
+                        }
+                        case "neutrals": {
+                            d.setNeutralTFIDF(gramsAndTFIDF);
+                        }
+                        case "ambiguos": {
+                            d.setAmbiguosTFIDF(gramsAndTFIDF);
+                        }
+                    }
+                });
+    }
+
 
 
 
@@ -103,7 +167,7 @@ public class TermFrequency_InverseDocumentFrequency {
    private Map<String,Double> termFrequency(String input, int n){
         double occurrences=0;
         double tf=0;
-        wordTF.clear();
+        Map<String, Double> wordTF = new LinkedHashMap<>();
         Collection<String> ss = gr.getNgrams(input, n);
         double numTermsInDoc = ss.size();
         //se ci sono 0 termini nel documento il ciclo non inizia proprio

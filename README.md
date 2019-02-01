@@ -5,6 +5,12 @@ A toolkit for emotion detection from technical text. It is part of the Collab Em
 Please, cite the following paper if you intend to use our tool for your own research:
 > F. Calefato, F. Lanubile, N. Novielli. “[EmoTxt: A Toolkit for Emotion Recognition from Text](https://arxiv.org/abs/1708.03892)” In *Proceedings of the Seventh International Conference on Affective Computing and Intelligent Interaction Workshops and Demos, {ACII} Workshops 2017*, San Antonio, USA, Oct. 23-26, 2017, pp. 79-80, ISBN: 978-1-5386-0563-9.
 
+**NOTE**: You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
+
+```bash
+$ git lfs clone https://github.com/collab-uniba/Emotion_and_Polarity_SO.git
+```
+
 ## Requirements
 * Ram: 8GB 
 * Python 2.7.x
@@ -18,10 +24,16 @@ Please, cite the following paper if you intend to use our tool for your own rese
         >>> import nltk        
         >>> nltk.download()
         ```
-    
-    * Stanford CoreNLP models
-      * Installation: download it from [here](http://nlp.stanford.edu/software/stanford-corenlp-models-current.jar), then move the jar file to the `./java/lib/` subfolder.
+
 * Java 8+
+  * Maven 3.x
+    * if you want to build the jar yourself type the following commands
+      ```bash
+      cd java
+      mvn install
+      ```
+    * The fat jar will be generated in the `java/target`folder with the name `EmotionAndPolarity-0.0.1-SNAPSHOT-jar-with-dependencies.jar`. Rename it as `Emotion_and_Polarity_SO.jar` and move it directly under the `java` folder.
+
 * R
   * Libraries:
     * `caret`, `LiblinearR` , `e1071`
@@ -38,7 +50,7 @@ If you are looking for the entire experimental dataset of ~5K Stack Overflow pos
 
 ### Training a new model for emotion classification (70/30% split for train and test)
 ```bash
-$ sh train.sh -i file.csv -d delimiter [-g] -e emotion 
+$ sh train.sh -i file.csv -d delimiter [-g] [-p] -e emotion 
 ```
 
 where:
@@ -54,11 +66,12 @@ where:
   ```
 * `-d delimiter`: the delimiter used in the csv file (values in {`c`, `sc`}, where stands for comma and sc for semicolon). Please, note that all the example files provided here use semicolon as delimiter, so `-d sc` is a mandatory option during tests.
 * `-g`: enables the extraction of n-grams (i.e,. bigrams and unigrams). N-grams extraction is mandatory for the first run when you want to train a new classification model for a given emotion, using your own dataset for the first time. Because n-gram extraction is computationally expensive, it should be skipped if you retrain the model for the same emotion using the same input file.
+* `-p`: enables the extraction of features regarding politeness, mood and modality. Because this is computationally expensive, the switch is off by default.
 * `-e emotion`: the specific emotion for which you want to train a classification model, with values in {`joy`, `anger`, `sadness`, `love`, `surprise`, `fear`}.
 
 As a result, the script will generate the following output files:
 
-* An outputn folder named `training_<file.csv>_<emotion>/`, containing:
+* An output folder named `training_<file.csv>_<emotion>/`, containing:
    * `n-grams/`: a subfolder containing the extracted n-grams
    * `idfs/`: a subfolder containing the IDFs computed for n-grams and WordNet Affect emotion words
    * `feature-<emotion>.csv`: a .csv file with the features extracted from the input corpus and used for training the model
@@ -72,7 +85,7 @@ As a result, the script will generate the following output files:
 
 ### Emotion detection
 ```bash
-$ sh classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l]
+$ sh classify.sh -i file.csv -d delimiter -e emotion [-m model] [-f idf] [-o n-grams] [-l] [-p]
 ```
 
 where:
@@ -92,6 +105,7 @@ where:
 * `-o n-grams`: if you specify a model name using `-m` (i.e., you don't want to use the default model for a given emotion) you are required to provide also the path to the folder containing the dictionaries extracted during the training step. This folder includes n-grams, i.e., `UnigramsList.txt` and `BigramsList.txt`. 
 * `-f idf`: if you specify a model name using `-m` (i.e., you don't want to use the default model for a given emotion) you are required to specify also the path to the folder containing the dictionaries with IDFs computed during the training step. The folder includes IDFs for n-grams (uni- and bi-grams) and for WordNet Affect lists of emotion words.
 * `-l`: if presents , indicates  `<file.csv>` contains a gold label in the column `label`.
+* `-p`: enables the extraction of features regarding politeness, mood and modality. Because this is computationally expensive, the switch is off by default.
 
 As a result, the script will create an output folder named `classification_<file.csv>_<emotion>` containing:
 
