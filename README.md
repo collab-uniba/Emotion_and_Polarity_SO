@@ -5,13 +5,14 @@ A toolkit for emotion detection from technical text. It is part of the Collab Em
 Please, cite the following paper if you intend to use our tool for your own research:
 > F. Calefato, F. Lanubile, N. Novielli. “[EmoTxt: A Toolkit for Emotion Recognition from Text](https://arxiv.org/abs/1708.03892)” In *Proceedings of the Seventh International Conference on Affective Computing and Intelligent Interaction Workshops and Demos, {ACII} Workshops 2017*, San Antonio, USA, Oct. 23-26, 2017, pp. 79-80, ISBN: 978-1-5386-0563-9.
 
-**NOTE**: You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
+## Installation
+You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
 
 ```bash
 $ git lfs clone https://github.com/collab-uniba/Emotion_and_Polarity_SO.git
 ```
 
-## Requirements
+### Requirements
 * Ram: 8GB 
 * Python 2.7.x
   * Libraries
