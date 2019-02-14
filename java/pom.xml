@@ -115,8 +115,6 @@
             <groupId>sentistrength</groupId>
             <artifactId>com.sentistrength</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/SentiStrengthCom.jar</systemPath>
         </dependency>
     </dependencies>
     
