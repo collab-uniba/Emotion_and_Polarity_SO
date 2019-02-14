@@ -9,7 +9,7 @@ Please, cite the following paper if you intend to use our tool for your own rese
 You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
 
 ```bash
-$ git lfs clone https://github.com/collab-uniba/Emotion_and_Polarity_SO.git
+$ git clone https://github.com/collab-uniba/Emotion_and_Polarity_SO.git
 ```
 
 ### Requirements
