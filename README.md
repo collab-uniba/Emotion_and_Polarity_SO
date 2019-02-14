@@ -31,7 +31,7 @@ $ git lfs clone https://github.com/collab-uniba/Emotion_and_Polarity_SO.git
     * if you want to build the jar yourself type the following commands
       ```bash
       cd java
-      mvn install
+      mvn clean install
       ```
     * The fat jar will be generated in the `java/target`folder with the name `EmotionAndPolarity-0.0.1-SNAPSHOT-jar-with-dependencies.jar`. Rename it as `Emotion_and_Polarity_SO.jar` and move it directly under the `java` folder.
 
