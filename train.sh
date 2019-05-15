@@ -11,6 +11,7 @@ print_help() {
 		printf " ${BOLD}-g ${NC}\t-- extract bigrams and unigrams (mandatory on the first run; extraction can be skipped afterwards for the same input file); dictionaries will be stored in `./training_filename/n-grams/UnigramsList.txt` and `./training_filename/n-grams/BigramsList.txt`).\n"
 		printf " ${BOLD}-p ${NC}\t-- wheter to calculate the feature of politeness, mood and modality.\n"
 		printf " ${BOLD}-e ${NC}\t -- the specific emotion for training the model, defined in joy, anger,sadness, love, surprise, fear.\n"
+		printf " ${BOLD}-X ${NC}\t -- the maximum amount of heap memory to use (e.g.: `-X 30000m`).\n"
 		printf " ${BOLD}-h ${NC}\t -- Displays this help message. No further functions are performed.\n\n"
 		printf "Example: ${BOLD} bash $SCRIPT -i path/file.csv -e anger -d semicolon -g ${NC}\n\n"
 		exit 1
@@ -52,7 +53,7 @@ while getopts "i:d:e:gph" FLAG; do
 				print "ERROR" "-d option has wrong argument." 
 				exit 2;
 			fi;;
-		
+		X ) MAX_HEAP_SIZE=$OPTARG;;
 		h ) print_help;;
 		p ) CALCPOLITEIMPOLITEMOODMODALITY="-polmod";;
 		\? ) #unrecognized option - show help
@@ -113,7 +114,7 @@ awk -F "\"*"$DELIMITER_CHAR"\"*" '{print $1}' $INPUT | sed 's/^\"*//' > "trainin
 
 # Extract dictionary
 if [ "$EXTRACTDICTIONARY" = '-G' ] ; then 
-	java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d '"$DELIMITER_CHAR"' $EXTRACTDICTIONARY -t training -Ex extractDictionary -e $EMOTION
+	java  -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d '"$DELIMITER_CHAR"' $EXTRACTDICTIONARY -t training -Ex extractDictionary -e $EMOTION
 fi;
 
 
@@ -122,9 +123,9 @@ fi;
 #Creating the format to give at python files.
 if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
 	if  [ "$DELIMITER" = 'sc' ] ; then 
-		java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat -e $EMOTION
+		java  -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d ';' -t training -Ex createDocFormat -e $EMOTION
 	elif [ "$DELIMITER"='c' ] ; then 
-		java  -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat -e $EMOTION
+		java  -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar -i $INPUT  -d ','  -t training -Ex createDocFormat -e $EMOTION
 	fi;
 
 	# taking only the file.csv name, deleting path and the extension
@@ -154,22 +155,22 @@ fi;
 #starting Emotion_and_Polarity_SO.jar to extract the features
 if [ "$DELIMITER" = 'sc' ] ; then 
 	if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then 
-		java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P "training_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M "training_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ';' -t training -Ex SenPolImpolMoodModality -e $EMOTION
+		java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P "training_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M "training_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ';' -t training -Ex SenPolImpolMoodModality -e $EMOTION
 	fi;
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_2 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_2 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex wordnet -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_1 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_1 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex unigrams_2 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex bigrams_2 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ';'  -t training -Ex wordnet -e $EMOTION
 elif [ "$DELIMITER"='c' ] ; then 
 	if [ "$CALCPOLITEIMPOLITEMOODMODALITY" = '-polmod' ] ; then
-		java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P "training_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M "training_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ','  -t training -Ex SenPolImpolMoodModality -e $EMOTION
+		java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -P "training_$filename""_$EMOTION"/ElaboratedFiles/textsPoliteAndImpolite.csv -M "training_$filename""_$EMOTION"/ElaboratedFiles/textsMoodAndModality.csv -d ','  -t training -Ex SenPolImpolMoodModality -e $EMOTION
 	fi;
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_2 -e $EMOTION
-	java -jar -Xmx30000m -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex wordnet -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_1 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_1 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex unigrams_2 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex bigrams_2 -e $EMOTION
+	java -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT  -d ','   -t training -Ex wordnet -e $EMOTION
 fi;
 
 #merging the single features extracted
