@@ -114,7 +114,7 @@ awk -F "\"*"$DELIMITER_CHAR"\"*" '{print $1}' $INPUT | sed 's/^\"*//' > "trainin
 
 # Extract dictionary
 if [ "$EXTRACTDICTIONARY" = '-G' ] ; then 
-	java  -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d '"$DELIMITER_CHAR"' $EXTRACTDICTIONARY -t training -Ex extractDictionary -e $EMOTION
+	java  -jar -Xmx${MAX_HEAP_SIZE:-"30000m"} -XX:+UseConcMarkSweepGC java/Emotion_and_Polarity_SO.jar  -i $INPUT -d "$DELIMITER_CHAR" $EXTRACTDICTIONARY -t training -Ex extractDictionary -e $EMOTION
 fi;
 
 
