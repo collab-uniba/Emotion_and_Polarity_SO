@@ -81,7 +81,7 @@ elif [ "$EXTRACTDICTIONARY" = '' ] ; then
 			cd n-grams/
 			if [ -e 'BigramsList_1.txt' ] && [ -e 'UnigramsList_1.txt' ] && [ -e 'BigramsList_2.txt' ] && [ -e 'UnigramsList_2.txt' ] ; then #check  the existence of the two files bigrams and unigrams
 				cd ..
-				find -maxdepth 1 -not -name n-grams -not -name "." -exec rm -rf {} \; #removes all others directories
+				find . -maxdepth 1 -not -name n-grams -not -name "." -exec rm -rf {} \; #removes all others directories
 				cd ..
 				else 
 					print "ERROR" "UnigramsList.txt OR  bigramsList.txt don't exist , I will extract the n-grams.."
